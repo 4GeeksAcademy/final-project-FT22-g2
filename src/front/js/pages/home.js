@@ -3,13 +3,20 @@ import { Context } from "../store/appContext";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 import Gallery from "../component/Gallery.jsx";
+import Carrousel from "../component/Carrousel.jsx"
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
+
 		<div className="text-center mt-5">
+			<div>
+				<Carrousel />
+				<Gallery />
+			</div>
 			<h1>Hello Rigo!!</h1>
+
 			<p>
 				<img src={rigoImageUrl} />
 			</p>
