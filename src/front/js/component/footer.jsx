@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 import logoElRinconDelVino from "../../img/logoElRinconDelVino.jpg";
+import webpayLogo from "../../img/webpayLogo.png";
+import consumoResponsableLogo from "../../img/consumoResponsableLogo.png";
+
+
 
 
 const Footer = () => (
@@ -9,7 +13,7 @@ const Footer = () => (
 			<div className="row">
 				{/* logo */}
 				<div className="col-lg-4" img-lg-start>
-					<img src="../../img/logoElRinconDelVino" className="img-fluid rounded" alt="logo" />
+					<img src={logoElRinconDelVino} className="img-fluid rounded" alt="logo" />
 				</div>
 				{/* Corporativo */}
 				<div className="col-lg-4" >
@@ -19,27 +23,34 @@ const Footer = () => (
 						<li>Politicas de despacho</li>
 						<li>Cambios y devoluciones</li>
 					</ul>
+
+					{/* Contactanos */}
+					<div className="...">
+						<h6>Contáctanos</h6>
+						<p>elrincondelvino@gmail.com</p>
+						<img src="..." alt="logo instagram" />
+						<img src="..." alt="logo facebook" />
+					</div>
 				</div>
-				{/* Contactanos */}
-				<div className="col-lg-4">
-					<h6>Contáctanos</h6>
-					<p>elrincondelvino@gmail.com</p>
-					<img src="..." alt="logo instagram" />
-					<img src="..." alt="logo facebook" />
-				</div>
-				
+
 				{/* Medios de pago */}
 				<div className="col-lg-4 ">
 					<h5>Medios de pago</h5>
-					<img src="..." alt="logo tarjetas"/>
-					<img src="..." alt="logo consumo responsable"/>
-					<p><strong>#SiBebesNoConduzcas</strong></p>
-					<p><strong>#PasaLasLlaves</strong></p>
+					<div className="row">
+						<div className="col-lg-12 mb-3">
+							<img src={webpayLogo} style={{ width: "50%" }} alt="logo tarjeta visa" />
+						</div>
+						<div col-lg-12 mb-3 >
+						<img src={consumoResponsableLogo} style={{ width: "49%" }} alt="logo consumo responsable" />
+						<p><strong>#SiBebesNoConduzcas</strong></p>
+						<p><strong>#PasaLasLlaves</strong></p>
+						</div>
+					</div>
+					</div>
+
 				</div>
 
 			</div>
-
-		</div>
 	</footer>
 );
 
