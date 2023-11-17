@@ -31,39 +31,49 @@ const Navbar = () => {
 				</form>
 
 				<div className="icons-navbar h2 px-5 d-flex">
-					<ul className="navbar-nav">
+					<ul className="navbar-nav" >
 						{/* ---- / DROPDOWN CARRITO / ---- */}
 						<li className="nav-item dropdown">
-							<a className="nav-link dropdown text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							<a className="nav-link dropdown text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
 								<i class="fa-solid fa-cart-shopping px-3"></i>
 							</a>
 
-							<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-								<div className="p-3">
-									{/* CONTENIDO DE PRODUCTOS CARRITO */}
-									<div className="contenedor-carrito-hover">
-										{/* PRODUCT EXAMPLE CARRITO */}
-										<div className="product-example-carrito-hover text-nowrap d-flex m-3 px-3">
-											<div className="product-image m-2">
-												<img src={logoUrl} alt="example" width="100px" height="100px" className="border" />
-											</div>
-											{/* INFORMACIÓN DE PRODUCTO */}
-											<div className="product-info-carrito-hover m-3 px-3">
-												<h5>Botella de vino</h5>
-												<p>1 unidad</p>
-												{/* BOTON AÑADIR Y QUITAR + PRECIO */}
-												<div className="product-price-carrito-hover d-inline-flex align-items-center justify-content-between">
-													<button className="button-add-remove-carrito-hover remove-carrito-hover bg-white">-</button>
-													<label className="label-cantidad-carrito-hover px-2">1</label>
-													<button className="button-add-remove-carrito-hover add-carrito-hover bg-white">+</button>
-													<p className=" px-2 price-carrito-hover" >40.000</p>
+							<ul className="dropdown-menu" aria-labelledby="navbarDropdown" onClick={(e) => e.stopPropagation()}>
+								<form action="">
+
+									<div className="p-3">
+										{/* CONTENIDO DE PRODUCTOS CARRITO */}
+										<div className="contenedor-carrito-hover">
+											{/* PRODUCT EXAMPLE CARRITO */}
+											<div className="product-example-carrito-hover text-nowrap d-flex m-3 px-3">
+												<div className="product-image m-2">
+													<img src={logoUrl} alt="example" width="100px" height="100px" className="border" />
 												</div>
+												{/* INFORMACIÓN DE PRODUCTO */}
+												<div className="product-info-carrito-hover m-3 px-3">
+													<h5>Botella de vino</h5>
+													<p>1 unidad</p>
+													{/* BOTON AÑADIR Y QUITAR + PRECIO */}
+													<div className="product-price-carrito-hover d-inline-flex align-items-center justify-content-between">
+														<button className="button-add-remove-carrito-hover remove-carrito-hover">-</button>
+														<label className="label-cantidad-carrito-hover px-2">1</label>
+														<button className="button-add-remove-carrito-hover add-carrito-hover">+</button>
+														<p className=" px-2 price-carrito-hover" >40.000</p>
+													</div>
+												</div>
+											</div>
+											{/* SUBTOTAL Y BTN IR AL CARRITO */}
+											<div className="container-price-button-cart">
+												<h4 className="subtotal-carrito-price">Subtotal: $$$</h4>
+												<button type="button" href="#" className="btn-ir-al-carrito">
+													Ir al carrito
+												</button>
 											</div>
 										</div>
 
 									</div>
+								</form>
 
-								</div>
 							</ul>
 						</li>
 					</ul>

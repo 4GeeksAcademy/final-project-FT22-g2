@@ -17,7 +17,13 @@
 .button-add-remove-carrito-hover {
     border: none;
     padding: 5px;
+    background: white;
 }
+
+.button-add-remove-carrito-hover:active {
+    background: rgb(228, 228, 228);
+}
+
 
 .add-carrito-hover {
     border-top-right-radius: 5px;
@@ -31,6 +37,7 @@
     min-width: 20px;
 }
 
+
 .label-cantidad-carrito-hover {
     padding: 5px;
     background: whitesmoke;
@@ -41,6 +48,10 @@
     margin-left: 20px;
     margin-right: 0;
     padding-right: 0;
+}
+
+.product-info-carrito-hover p {
+    color: black;
 }
 
 .categories {
@@ -67,6 +78,32 @@
 .categories-navbar-items {
     padding: 0px;
     margin: 0px;
+}
+
+.subtotal-carrito-price {
+    color: black;
+    text-align: center;
+}
+
+.btn-ir-al-carrito {
+    background: #CCCCCC;
+    border: none;
+    width: 70%;
+    margin: 0 auto;
+    font-size: 24px;
+    padding: 7px 0;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.btn-ir-al-carrito:active {
+    background: rgb(185, 185, 185);
+}
+
+.container-price-button-cart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 /* ---- / ESTILOS HERO / ----- */
