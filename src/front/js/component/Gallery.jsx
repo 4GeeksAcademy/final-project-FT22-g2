@@ -4,32 +4,35 @@ const Gallery = () => {
   return (
     <>
       <div className="container">
-      <div class="lightbox">
-  <div class="row">
-    <div class="col-lg-6">
-      <img
-        src="https://mdbcdn.b-cdn.net/img/Photos/Thumbnails/Slides/1.webp"
-        data-mdb-img="https://mdbcdn.b-cdn.net/img/Photos/Slides/1.webp"
-        alt="Table Full of Spices"
-        class="w-100 mb-2 mb-md-4 shadow-1-strong rounded"
-      />
-      <img
-        src="https://mdbcdn.b-cdn.net/img/Photos/Thumbnails/Square/1.webp"
-        data-mdb-img="https://mdbcdn.b-cdn.net/img/Photos/Square/1.webp"
-        alt="Coconut with Strawberries"
-        class="w-100 shadow-1-strong rounded"
-      />
-    </div>
-    <div class="col-lg-6">
-      <img
-        src="https://mdbcdn.b-cdn.net/img/Photos/Thumbnails/Vertical/1.webp"
-        data-mdb-img="https://mdbcdn.b-cdn.net/img/Photos/Vertical/1.webp"
-        alt="Dark Roast Iced Coffee"
-        class="w-100 shadow-1-strong rounded"
-      />
-    </div>
-  </div>
-</div>
+        <div class="lightbox">
+          <div class="row">
+            <div class="col-lg-6">
+              <a href="">
+                <img
+                  className="img-top py-5 hoverimage"
+                  src="https://dummyimage.com/600x300/000/fff"
+                  alt="Top Left Image"
+                />
+              </a>
+              <a href="">
+                <img
+                  className="img-top hoverimage"
+                  src="https://dummyimage.com/600x300/000/fff"
+                  alt="Bottom Left Image"
+                />
+              </a>
+            </div>
+            <div class="col-lg-6">
+              <a href="">
+                <img
+                  className="img-top py-5 "
+                  src="https://dummyimage.com/600x650/000/fff"
+                  alt="Right Image"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

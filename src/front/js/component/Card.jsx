@@ -4,7 +4,7 @@ const Card = () => {
   return (
     <>
       <div className="col-3 my-5 d-flex justify-content-center">
-        <div className="card" style={{ width: "18rem" }}>
+        <div className="card" style={{ width: "18rem", borderRadius: "15px" }}>
           <div className="m-5">
             <img
               className="card-img-top"
