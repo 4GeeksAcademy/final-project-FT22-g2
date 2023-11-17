@@ -12,7 +12,6 @@ const Hero = () => {
                 backgroundPosition: "center",
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
-                height: "80vh",
                 width: "100%"
             }}>
                 <div className="container-hero-texts">

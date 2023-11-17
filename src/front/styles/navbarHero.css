@@ -1,4 +1,3 @@
-
 /* ---- / ESTILOS NAVBAR / ----- */
 
 .contenedor-carrito-hover {
@@ -85,18 +84,19 @@
     font-family: 'sans-serif';
 }
 
-.hero--title, .hero--welcome, .hero--slogan {
+.hero--title,
+.hero--welcome,
+.hero--slogan {
     text-align: left;
-    color: white; 
+    color: white;
     /* Text shadow con propiedades de box shadow (solo sombras ligeras) */
     /* text-shadow: rgba(0, 0, 0) 0px 5px 15px; */
-    
-    text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black; 
+
+    text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
     /* Text shadow para dar borde negro a las letras */
 }
 
 .container-hero-texts {
-    padding-top: 200px;
+    padding-top: 130px;
     padding-left: 200px;
 }
-
