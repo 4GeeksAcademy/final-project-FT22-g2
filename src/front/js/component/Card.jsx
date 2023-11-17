@@ -13,7 +13,8 @@ const Card = () => {
             />
           </div>
           <div className="card-body">
-            <h5 className="card-title">Vino Tinto</h5>
+            <h4 className="card-title">Vino Tinto</h4>
+            <h5>$$$</h5>
             <p className="card-text">
               <i class="fa-solid fa-star stars"></i>
               <i class="fa-regular fa-star"></i>
