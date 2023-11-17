@@ -1,0 +1,39 @@
+.footer {
+    background-color: #7B2121;
+}
+
+.social-icon {
+    margin-top: 70px !important;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: inline-block;
+    color: white;
+}
+
+h6 {
+    color: white;
+}
+
+p {
+    color: white;
+}
+
+a {
+    color: white;
+}
+
+.consumoResponsable {
+    margin-top: 70px;
+}
+
+.github-links a .svg-inline--fa {
+    color: black;
+    margin-left: 10px;
+}
+
+ul {
+    color: withe;
+    list-style-type: none;
+    padding: 0;
+
+}

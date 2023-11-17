@@ -7,6 +7,7 @@ import Containercardshome from "../component/Containercardshome.jsx";
 
 import Hero from "../component/Hero.jsx";
 
+
 export const Home = () => {
 	const { store, actions } = useContext(Context);
 
