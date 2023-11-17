@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logoUrl from "../../img/logoElRinconDelVino.png"
 
-import "../../styles/index.css";
+import "../../styles/navbarHero.css";
 
 const Navbar = () => {
 
@@ -22,7 +22,7 @@ const Navbar = () => {
 
 				{/* ---- / LOGO / ---- */}
 				<Link to="/">
-					<img className="mx-5" src={logoUrl} width="150px" height="120px" />
+					<img className="mx-5" src={logoUrl} width="130px" height="100px" />
 				</Link>
 
 				{/* ---- / BARRA Y BOTÓN DE BÚSQUEDA / ---- */}
@@ -87,9 +87,9 @@ const Navbar = () => {
 			<div className="navbar navbar-expand-lg categories-navbar-styles" style={categoryStyle}>
 				<div className="collapse navbar-collapse" id="navbarSupportedContent">
 					<div className="categories">
-						<div className="nav-item dropdown">
+						<div className="nav-item dropdown categories-navbar-items">
 							{/* PRIMERA CATEGORÍA */}
-							<a className="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							<a className="nav-link dropdown-toggle text-white h4" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								Tipos
 							</a>
 							<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -101,8 +101,8 @@ const Navbar = () => {
 						</div>
 
 						{/* SEGUNDA CATEGORÍA */}
-						<div className="nav-item dropdown">
-							<a className="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						<div className="nav-item dropdown categories-navbar-items">
+							<a className="nav-link dropdown-toggle text-white h4" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								Categorías
 							</a>
 							<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -113,13 +113,13 @@ const Navbar = () => {
 							</ul>
 						</div>
 						{/* CONTÁCTANOS */}
-						<div className="nav-item">
-							<a className="nav-link active text-white" aria-current="page" href="#">Contáctanos</a>
+						<div className="nav-item categories-navbar-items">
+							<a className="nav-link active text-white h4" aria-current="page" href="#">Contáctanos</a>
 						</div>
 
 						{/* REDES SOCIALES */}
-						<div className="nav-item">
-							<a className="nav-link active text-white h2" aria-current="page" href="#" >
+						<div className="nav-item categories-navbar-items">
+							<a className="nav-link active text-white h4" aria-current="page" href="#" >
 								<a href="http://instagram.com" target="_blank" className="text-white">
 									<i className="fa-brands fa-instagram"></i>
 								</a>
