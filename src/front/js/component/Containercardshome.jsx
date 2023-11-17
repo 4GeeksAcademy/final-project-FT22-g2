@@ -3,8 +3,11 @@ import Card from "./Card.jsx";
 
 const Containercardshome = () => {
   return (
-    <>
-      <div className="container">
+    <div
+      className="container-fluid d-flex"
+      style={{ backgroundColor: "#f5f5f5" }}
+    >
+      <div className="container w-100  ">
         <div className="row">
           <Card />
           <Card />
@@ -12,7 +15,7 @@ const Containercardshome = () => {
           <Card />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
