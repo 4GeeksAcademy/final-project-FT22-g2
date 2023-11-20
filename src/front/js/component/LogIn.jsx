@@ -11,7 +11,7 @@ const LogIn = () => {
         <>
 
         {/* <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-login">login</button> */}
-<div /* class={`modal ${invalid ? : ''}`} */ className="modal" tabindex="-1" id="modalLogin "aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div /* class={`modal ${invalid ? : ''}`} */ className="modal fade" tabindex="-1" id="modalLogin "aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog modal-lg">
                         <div className="modal-content">
                             <div className="modal-header">
@@ -31,7 +31,7 @@ const LogIn = () => {
                             <div>
                                 {/*  boton ingresar */}
                                 <div className="boton col-12 mx-auto mb-3">
-                                    <button type="submit" w-100 className= "modal btn btn-secondary data-bs-dismiss">Ingresar</button> {/* {` ${invalid ? 'invalid' : ''}`}  */}
+                                    <button type="submit" className= "btn btn-secondary data-bs-dismiss w-100 ">Ingresar</button> {/* {` ${invalid ? 'invalid' : ''}`}  */}
                                 </div>
                                 {/*   boton google */}
                                 <div className="boton col-12 mx-auto mb-3">

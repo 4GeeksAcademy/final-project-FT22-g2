@@ -6,6 +6,7 @@ import Card from "../component/Card.jsx";
 import Containercardshome from "../component/Containercardshome.jsx";
 
 import Hero from "../component/Hero.jsx";
+import LogIn from "../component/LogIn.jsx";
 
 
 export const Home = () => {
@@ -17,6 +18,7 @@ export const Home = () => {
 			<div className="mt-5">
 				<Containercardshome />
 				<Gallery />
+				<LogIn />
 			</div>
 		</div>
 	);
