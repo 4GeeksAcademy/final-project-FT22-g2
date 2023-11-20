@@ -65,9 +65,11 @@ const Navbar = () => {
 											{/* SUBTOTAL Y BTN IR AL CARRITO */}
 											<div className="container-price-button-cart">
 												<h4 className="subtotal-carrito-price">Subtotal: $$$</h4>
-												<button type="button" href="#" className="btn-ir-al-carrito">
-													Ir al carrito
-												</button>
+												<Link to="/carrito" className="d-flex justify-content-center text-decoration-none">
+													<button type="button" href="#" className="btn-ir-al-carrito">
+														Ir al carrito
+													</button>
+												</Link>
 											</div>
 										</div>
 
