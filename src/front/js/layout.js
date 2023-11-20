@@ -7,6 +7,7 @@ import { Home } from "./pages/home";
 import { Single } from "./pages/single";
 import PerfilUsuario  from "./pages/perfilUsuario.js";
 import injectContext from "./store/appContext";
+import CambiarDireccion from "./pages/cambiarDireccion.jsx";
 
 import Navbar from "./component/Navbar.jsx";
 import Footer from "./component/footer.jsx";
@@ -31,6 +32,8 @@ const Layout = () => {
                         <Route element={<Carrito />} path="/carrito" />
                         <Route element={<Single />} path="/single/:theid" />
                         <Route element={<PerfilUsuario />} path="/perfil" />
+                        <Route element={<CambiarDireccion />} path="/cambiarDireccion" />
+
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />
