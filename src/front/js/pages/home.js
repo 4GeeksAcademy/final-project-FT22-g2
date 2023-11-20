@@ -6,6 +6,7 @@ import Card from "../component/Card.jsx";
 import Containercardshome from "../component/Containercardshome.jsx";
 import ModalImages from "../component/ModalImages.jsx";
 import Hero from "../component/Hero.jsx";
+
 import LogIn from "../component/LogIn.jsx";
 import ModalContact from "../component/ModalContact.jsx";
 
@@ -21,7 +22,6 @@ export const Home = () => {
 				<ModalImages />
 				<ModalContact />
 				<LogIn />
-
 			</div>
 		</div>
 	);
