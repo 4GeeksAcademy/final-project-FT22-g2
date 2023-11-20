@@ -7,7 +7,7 @@ const Containercardshome = () => {
       className="container-fluid d-flex"
       style={{ backgroundColor: "#f5f5f5" }}
     >
-      <div className="container w-100  ">
+      <div className="container w-100">
         <div className="row">
           <Card />
           <Card />
