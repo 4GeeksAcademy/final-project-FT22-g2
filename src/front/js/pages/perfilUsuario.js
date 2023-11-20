@@ -6,8 +6,6 @@ const PerfilUsuario = () => {
   return (
     <>
 
-
-
      <div className="card-container">
         <div className="row profile">
           <div className="col md-3">
@@ -15,13 +13,13 @@ const PerfilUsuario = () => {
               <div className="user-pic">
                 <img src={usuarioFoto} alt="usuario foto" className="usuarioFoto" />
               </div>
-              <div className="user-name">
+              <div className="user-name text-center">
                 <h2 className="name">Batman</h2>
               </div>
             
             <div className="profile-usermenu">
 
-              <ul className="nav list-group list-group-flush">
+              <ul className="nav list-group list-group-flush text-center">
                 <li className="active">
                   <a href="#">
                     Cambiar contraseña</a>
@@ -53,9 +51,6 @@ const PerfilUsuario = () => {
           <button type="button" className="btn btn-dark">Cerrar sesion</button>
             </div>
        
-
-
-
       </div> 
 
     </>
