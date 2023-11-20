@@ -11,7 +11,7 @@ const Gallery = () => {
           <div class="row">
             <div class="col-lg-6">
               <div>
-                <button type="button" className="custom-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button type="button" className="custom-btn" data-bs-toggle="modal" data-bs-target="#ModalImages">
                   <img
                     className="img-top py-5 hoverimage"
                     src="https://dummyimage.com/600x300/000/fff"
@@ -20,7 +20,7 @@ const Gallery = () => {
                 </button>
               </div>
               <div>
-                <button type="button" className="custom-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button type="button" className="custom-btn" data-bs-toggle="modal" data-bs-target="#ModalImages">
                 <img
                   className="img-top hoverimage"
                   src="https://dummyimage.com/600x300/000/fff"
@@ -31,7 +31,7 @@ const Gallery = () => {
             </div>
             <div class="col-lg-6">
             <div>
-                <button type="button" className="custom-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <button type="button" className="custom-btn" data-bs-toggle="modal" data-bs-target="#ModalImages">
                 <img
                   className="img-top py-5 "
                   src="https://dummyimage.com/600x650/000/fff"
