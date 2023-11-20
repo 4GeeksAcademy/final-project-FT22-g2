@@ -22,7 +22,7 @@ const Card = () => {
               <i class="fa-regular fa-star"></i>
               <i class="fa-regular fa-star"></i>
             </p>
-            <a href="#" className="btn btn-light rounded-pill">
+            <a href="#ModalImages" className="btn btn-light rounded-pill">
               Ver producto
             </a>
           </div>
