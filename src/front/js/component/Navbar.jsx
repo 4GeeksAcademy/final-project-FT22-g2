@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logoUrl from "../../img/logoElRinconDelVino.png"
+import LogIn from "./LogIn.jsx";
 import bgHero from "../../img/background-hero.jpeg"
+import ModalContact from "./ModalContact.jsx"
 
 import "../../styles/navbarHero.css";
 
@@ -39,7 +41,7 @@ const Navbar = () => {
 								<i className="fa-solid fa-cart-shopping px-3"></i>
 							</a>
 
-							<ul className="dropdown-menu" aria-labelledby="navbarDropdown" onClick={(e) => e.stopPropagation()}>
+							<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
 								<form action="">
 
 									<div className="p-3">
@@ -88,7 +90,7 @@ const Navbar = () => {
 								<i className="fa-solid fa-right-to-bracket px-3"></i>
 							</a>
 							<ul className="dropdown-menu" aria-labelledby="navbarDropdown2">
-								<li><a className="dropdown-item" href="#">Acceder</a></li>
+								<li><button className="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalLogin" type="button">Acceder</button></li>
 								<li><a className="dropdown-item" href="#">Registrarse</a></li>
 							</ul>
 						</li>
@@ -125,45 +127,12 @@ const Navbar = () => {
 								<li><a className="dropdown-item" href="#">Premium</a></li>
 							</ul>
 						</div>
+
 						{/* CONTÁCTANOS */}
 						<div className="nav-item categories-navbar-items">
-							<button type="button" className="btn-contactanos-navbar h4" data-bs-toggle="modal" data-bs-target="#modalContact">
+							<button type="button" className="btn-contactanos-navbar h4" data-bs-toggle="modal" data-bs-target="#ModalContact">
 								Contáctanos
 							</button>
-						</div>
-
-						{/* MODAL */}
-						<div className="modal fade" id="modalContact" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-							<div className="modal-dialog modal-xl" id="container-modal-contact">
-								<div className="modal-content" id="contenido-modal-contact">
-									<div className="modal-body text-dark">
-										<div className="row p-3">
-											<div className="col-4">
-												<img src={bgHero} alt="example" width="100%" height="100%" className="rounded" />
-											</div>
-											<div className="col-8 container-inputs-contact">
-												<div className="row">
-													<h1 className="text-center">Contáctenos:</h1>
-													<div className="col-6">
-														<input className="input-form-contact" type="text" placeholder="Nombre" required />
-													</div>
-													<div className="col-6">
-														<input className="input-form-contact" type="text" placeholder="Apellido" required />
-													</div>
-												</div>
-												<input className="input-form-contact" type="email" placeholder="Email" required />
-												<input className="input-form-contact input-form-contact-number" type="number" placeholder="Teléfono" required />
-												<textarea className="input-form-contact" name="textareaContact" id="textareaContact" cols="20" rows="4"></textarea>
-
-												<button type="button" className="btn-enviar-formulario-contactanos">Enviar</button>
-											</div>
-										</div>
-									</div>
-									<div className="modal-footer">
-										<button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-									</div>
-								</div>
-							</div>
 						</div>
 
 						{/* REDES SOCIALES */}
