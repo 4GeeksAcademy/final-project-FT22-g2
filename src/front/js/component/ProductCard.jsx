@@ -1,5 +1,4 @@
-// ProductCard.jsx
-import React from 'react';
+import React from "react";
 import PropTypes from "prop-types";
 
 const ProductCard = ({ name, price, imageUrl }) => (
@@ -8,7 +7,6 @@ const ProductCard = ({ name, price, imageUrl }) => (
         <div className="card-body">
             <h4 className="card-title">{name}</h4>
             <h5>Precio: {price}</h5>
-            {/* ... Otros detalles del producto */}
             <button className="btn btn-light rounded-pill">
                 Agregar al carrito
             </button>

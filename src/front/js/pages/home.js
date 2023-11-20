@@ -7,17 +7,16 @@ import Containercardshome from "../component/Containercardshome.jsx";
 
 import Hero from "../component/Hero.jsx";
 
-
 export const Home = () => {
-	const { store, actions } = useContext(Context);
+  const { store, actions } = useContext(Context);
 
-	return (
-		<div className="text-center">
-				<Hero />
-			<div className="mt-5">
-				<Containercardshome />
-				<Gallery />
-			</div>
-		</div>
-	);
+  return (
+    <div className="text-center">
+      <Hero />
+      <div className="mt-5">
+        <Containercardshome />
+        <Gallery />
+      </div>
+    </div>
+  );
 };
