@@ -18,7 +18,7 @@ const ModalImages = () => {
                                 </div>
                                 <div className="col-7 mt-3">
                                     <h5>Nombre Producto</h5>
-                                    <div className="my-5">
+                                    <div className="my-3">
                                         <i class="fa-solid fa-star stars"></i>
                                         <i class="fa-regular fa-star"></i>
                                         <i class="fa-regular fa-star"></i>
@@ -28,7 +28,10 @@ const ModalImages = () => {
                                     </div>
                                     Precio: $10.000
                                     <div>
-                                        <button type="button" class="btn btn-secondary mt-5">Agregar al carrito</button>
+                                    </div>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi voluptates maxime aut, rem incidunt assumenda. Impedit error maxime assumenda, consequatur ea necessitatibus illo aspernatur laudantium, similique qui praesentium! Aut, odio.
+                                    <div>
+                                        <button type="button" class="btn btn-secondary mt-4">Agregar al carrito</button>
                                     </div>
                                 </div>
                             </div>
