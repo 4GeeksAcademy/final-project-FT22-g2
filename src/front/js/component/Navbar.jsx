@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logoUrl from "../../img/logoElRinconDelVino.png"
+import LogIn from "./LogIn.jsx";
 
 import "../../styles/navbarHero.css";
 
@@ -75,13 +76,17 @@ const Navbar = () => {
 								<i class="fa-solid fa-right-to-bracket px-3"></i>
 							</a>
 							<ul className="dropdown-menu" aria-labelledby="navbarDropdown2">
-								<li><button className="dropdown-item" data-bs-toggle="modal" data-bs-target="#modal-login" type="button">Acceder</button></li>
+								<li><button className="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalLogin" type="button">Acceder</button></li>
 								<li><a className="dropdown-item" href="#">Registrarse</a></li>
 							</ul>
 						</li>
 					</ul>
 				</div>
 			</div>
+
+
+			
+            
 
 			{/* ----- / BARRA DE CATEGORÍAS / ----- */}
 			<div className="navbar navbar-expand-lg categories-navbar-styles" style={categoryStyle}>
