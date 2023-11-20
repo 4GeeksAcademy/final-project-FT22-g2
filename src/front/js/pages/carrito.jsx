@@ -22,15 +22,15 @@ const Carrito = () => {
 
                         {/* BOTON AÑADIR Y QUITAR + PRECIO REUTILIZADO */}
                         <div className="product-price-carrito-hover d-inline-flex align-items-center justify-content-between">
-                            <button className="button-add-remove-carrito-hover remove-carrito-hover">-</button>
+                            <button type='button' className="button-add-remove-carrito-hover remove-carrito-hover">-</button>
                             <label className="label-cantidad-carrito-hover px-2">1</label>
-                            <button className="button-add-remove-carrito-hover add-carrito-hover">+</button>
+                            <button type='button' className="button-add-remove-carrito-hover add-carrito-hover">+</button>
                         </div>
                     </div>
                     <div className="col-2 columna-vista-carrito-valor columna-vista-carrito-precio-articulo">
                         <h2>$$$</h2>
                     </div>
-                    <i class="fa-regular fa-trash-can col-1 columna-vista-carrito-valor"></i>
+                    <i class="fa-regular fa-trash-can col-1 columna-vista-carrito-valor icon-eliminar-producto-carrito"></i>
                 </div>
 
                 <div className="row fila-vista-carrito">
@@ -40,15 +40,15 @@ const Carrito = () => {
                     <div className="col-6 d-flex justify-content-center">
                         {/* BOTON AÑADIR Y QUITAR + PRECIO REUTILIZADO */}
                         <div className="product-price-carrito-hover d-inline-flex align-items-center justify-content-between">
-                            <button className="button-add-remove-carrito-hover remove-carrito-hover">-</button>
+                            <button type='button' className="button-add-remove-carrito-hover remove-carrito-hover">-</button>
                             <label className="label-cantidad-carrito-hover px-2">1</label>
-                            <button className="button-add-remove-carrito-hover add-carrito-hover">+</button>
+                            <button type='button' className="button-add-remove-carrito-hover add-carrito-hover">+</button>
                         </div>
                     </div>
                     <div className="col-2 columna-vista-carrito-valor columna-vista-carrito-precio-articulo">
                         <h2>$$$</h2>
                     </div>
-                    <i class="fa-regular fa-trash-can col-1 columna-vista-carrito-valor"></i>
+                    <i class="fa-regular fa-trash-can col-1 columna-vista-carrito-valor icon-eliminar-producto-carrito"></i>
                 </div>
 
                 <div className="row fila-vista-carrito">
@@ -58,15 +58,15 @@ const Carrito = () => {
                     <div className="col-6 d-flex justify-content-center">
                         {/* BOTON AÑADIR Y QUITAR + PRECIO REUTILIZADO */}
                         <div className="product-price-carrito-hover d-inline-flex align-items-center justify-content-between">
-                            <button className="button-add-remove-carrito-hover remove-carrito-hover">-</button>
+                            <button type='button' className="button-add-remove-carrito-hover remove-carrito-hover">-</button>
                             <label className="label-cantidad-carrito-hover px-2">1</label>
-                            <button className="button-add-remove-carrito-hover add-carrito-hover">+</button>
+                            <button type='button' className="button-add-remove-carrito-hover add-carrito-hover">+</button>
                         </div>
                     </div>
                     <div className="col-2 columna-vista-carrito-valor columna-vista-carrito-precio-articulo">
                         <h2>$$$</h2>
                     </div>
-                    <i class="fa-regular fa-trash-can col-1 columna-vista-carrito-valor"></i>
+                    <i class="fa-regular fa-trash-can col-1 columna-vista-carrito-valor icon-eliminar-producto-carrito"></i>
                 </div>
                 <div className="row fila-vista-carrito-separador"></div>
 

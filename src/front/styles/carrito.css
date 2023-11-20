@@ -78,3 +78,7 @@
 .btn-confirmar-pedido-carrito:active {
     background: rgb(163, 65, 65)
 }
+
+.icon-eliminar-producto-carrito:active {
+    color: grey;
+}

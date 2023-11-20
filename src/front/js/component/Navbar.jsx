@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logoUrl from "../../img/logoElRinconDelVino.png"
+import bgHero from "../../img/background-hero.jpeg"
 
 import "../../styles/navbarHero.css";
 
@@ -35,7 +36,7 @@ const Navbar = () => {
 						{/* ---- / DROPDOWN CARRITO / ---- */}
 						<li className="nav-item dropdown">
 							<a className="nav-link dropdown text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
-								<i class="fa-solid fa-cart-shopping px-3"></i>
+								<i className="fa-solid fa-cart-shopping px-3"></i>
 							</a>
 
 							<ul className="dropdown-menu" aria-labelledby="navbarDropdown" onClick={(e) => e.stopPropagation()}>
@@ -55,9 +56,9 @@ const Navbar = () => {
 													<p>1 unidad</p>
 													{/* BOTON AÑADIR Y QUITAR + PRECIO */}
 													<div className="product-price-carrito-hover d-inline-flex align-items-center justify-content-between">
-														<button className="button-add-remove-carrito-hover remove-carrito-hover">-</button>
+														<button type="button" className="button-add-remove-carrito-hover remove-carrito-hover">-</button>
 														<label className="label-cantidad-carrito-hover px-2">1</label>
-														<button className="button-add-remove-carrito-hover add-carrito-hover">+</button>
+														<button type="button" className="button-add-remove-carrito-hover add-carrito-hover">+</button>
 														<p className=" px-2 price-carrito-hover" >40.000</p>
 													</div>
 												</div>
@@ -84,7 +85,7 @@ const Navbar = () => {
 					<ul className="navbar-nav">
 						<li className="nav-item dropdown">
 							<a className="nav-link dropdown text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-								<i class="fa-solid fa-right-to-bracket px-3"></i>
+								<i className="fa-solid fa-right-to-bracket px-3"></i>
 							</a>
 							<ul className="dropdown-menu" aria-labelledby="navbarDropdown2">
 								<li><a className="dropdown-item" href="#">Acceder</a></li>
@@ -126,7 +127,43 @@ const Navbar = () => {
 						</div>
 						{/* CONTÁCTANOS */}
 						<div className="nav-item categories-navbar-items">
-							<a className="nav-link active text-white h4" aria-current="page" href="#">Contáctanos</a>
+							<button type="button" className="btn-contactanos-navbar h4" data-bs-toggle="modal" data-bs-target="#modalContact">
+								Contáctanos
+							</button>
+						</div>
+
+						{/* MODAL */}
+						<div className="modal fade" id="modalContact" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div className="modal-dialog modal-xl" id="container-modal-contact">
+								<div className="modal-content" id="contenido-modal-contact">
+									<div className="modal-body text-dark">
+										<div className="row p-3">
+											<div className="col-4">
+												<img src={bgHero} alt="example" width="100%" height="100%" className="rounded" />
+											</div>
+											<div className="col-8 container-inputs-contact">
+												<div className="row">
+													<h1 className="text-center">Contáctenos:</h1>
+													<div className="col-6">
+														<input className="input-form-contact" type="text" placeholder="Nombre" required />
+													</div>
+													<div className="col-6">
+														<input className="input-form-contact" type="text" placeholder="Apellido" required />
+													</div>
+												</div>
+												<input className="input-form-contact" type="email" placeholder="Email" required />
+												<input className="input-form-contact input-form-contact-number" type="number" placeholder="Teléfono" required />
+												<textarea className="input-form-contact" name="textareaContact" id="textareaContact" cols="20" rows="4"></textarea>
+
+												<button type="button" className="btn-enviar-formulario-contactanos">Enviar</button>
+											</div>
+										</div>
+									</div>
+									<div className="modal-footer">
+										<button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+									</div>
+								</div>
+							</div>
 						</div>
 
 						{/* REDES SOCIALES */}
