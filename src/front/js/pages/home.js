@@ -4,7 +4,7 @@ import "../../styles/home.css";
 import Gallery from "../component/Gallery.jsx";
 import Card from "../component/Card.jsx";
 import Containercardshome from "../component/Containercardshome.jsx";
-
+import ModalImages from "../component/ModalImages.jsx";
 import Hero from "../component/Hero.jsx";
 
 
@@ -17,6 +17,7 @@ export const Home = () => {
 			<div className="mt-5">
 				<Containercardshome />
 				<Gallery />
+				<ModalImages/>
 			</div>
 		</div>
 	);
