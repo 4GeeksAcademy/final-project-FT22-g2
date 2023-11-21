@@ -6,6 +6,7 @@ import Containercardshome from "../component/Containercardshome.jsx";
 import ModalImages from "../component/ModalImages.jsx";
 import Hero from "../component/Hero.jsx";
 import ModalRestaurarContraseña from "../component/ModalRestaurarContraseña.jsx"
+import ModalCerrarSesion from "../component/ModalCerrarSesion.jsx"
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
@@ -18,6 +19,7 @@ export const Home = () => {
 				<Gallery />
 				<ModalImages />
 				<ModalRestaurarContraseña />
+				<ModalCerrarSesion />
 			</div>
 		</div>
 	);
