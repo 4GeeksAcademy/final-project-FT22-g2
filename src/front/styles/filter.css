@@ -1,0 +1,24 @@
+.custom-btn-filter {
+    width: 100%;
+    border-radius: 0%;
+}
+
+.background-filter-color {
+    background: #acacac solid;
+
+}
+.filter-title{
+    color: white;
+}
+
+.background-filteredproduct-color {
+    background-color: whitesmoke;
+}
+
+.filter-container{
+    font-size: 13px;
+    margin: auto;
+}
+.filter-item{
+    width: 100%;
+}

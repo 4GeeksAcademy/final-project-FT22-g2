@@ -1,10 +1,11 @@
 import React from "react";
 import Card from "./Card.jsx";
+import "../../styles/filter.css";
 
 const Filteredproduct = () => {
     return (
         <>
-            <div className="col-11 border">
+            <div className="col-11 background-filteredproduct-color">
                 <div className="row justify-content-center align-self-center">
                     <div className="col-3">
                         <Card />
