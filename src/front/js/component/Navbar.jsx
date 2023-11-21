@@ -98,7 +98,7 @@ const Navbar = () => {
 										<button className="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalLogin" type="button">Acceder</button></li>
 									<li>
 
-										<Link to="/registro">
+										<Link to="/registro" className="text-decoration-none">
 											<a className="dropdown-item" href="#">Registrarse</a>
 										</Link>
 									</li>
