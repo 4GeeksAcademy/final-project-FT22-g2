@@ -21,7 +21,8 @@ const LogIn = () => {
                             <div className="form-group-login py-1 pb-2">
                                 <div className="input-field"> <span className="fas fa-lock p-2"></span> <input type="text" placeholder="Contraseña" className="input-field-login" /> </div>
                             </div>
-                            <section className="olvide-mi-contraseña"><a href="#"> Olvidé mi contraseña</a></section>
+                           {/*  olvide mi contraseña */}
+                            <section className="olvide-mi-contraseña"><a href="#"> *Olvidé mi contraseña</a></section>
                         </div>
                         <div>
                             {/*  boton ingresar */}

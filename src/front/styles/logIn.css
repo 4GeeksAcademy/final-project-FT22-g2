@@ -13,6 +13,7 @@
     align-items: center;
     cursor: pointer; 
     color: #850440c2; 
+    width: 45%;
 }
 
 .input-field-login:focus {
@@ -22,7 +23,7 @@
 
 .boton-login{
  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
- width: 80%;
+ width: 50%;
 }
 
 .crear-cuenta-login a {
@@ -30,12 +31,13 @@
   text-decoration: none;
   margin: 20px;
   padding: 15px;
-  font-size: large;
+  font-size: medium;
 } 
 .olvide-mi-contraseña a {
   color: black;
   text-decoration: none;
   padding: 4px;
+  font-size: medium;
 }
 
 

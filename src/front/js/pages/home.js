@@ -7,6 +7,7 @@ import Containercardshome from "../component/Containercardshome.jsx";
 
 import Hero from "../component/Hero.jsx";
 import LogIn from "../component/LogIn.jsx";
+import ModalRestaurarContraseña from "../component/ModalRestaurarContraseña.jsx"
 
 
 export const Home = () => {
@@ -19,6 +20,7 @@ export const Home = () => {
 				<Containercardshome />
 				<Gallery />
 				<LogIn />
+				<ModalRestaurarContraseña />
 			</div>
 		</div>
 	);
