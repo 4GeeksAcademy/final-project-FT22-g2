@@ -4,9 +4,11 @@
   color: #333;
   padding: 15px;
 }
+
 .modal-login-body{
 align-items: center;
 }
+
 .input-field-login  {
   border-radius: 5px; 
   border: gray 1px solid;
@@ -21,8 +23,7 @@ align-items: center;
   outline: #a04c5b 1px solid; 
 }
 
-
-.boton-login{
+.boton-login {
 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
 width: 50%;
 }
@@ -34,13 +35,12 @@ margin: 20px;
 padding: 15px;
 font-size: medium;
 } 
-.olvide-mi-contraseña  {
+
+.olvide-mi-contraseña {
 color: gray;
 background-color: #f8f9fa;
 border: none;
 padding: 4px;
 font-size: medium;
 }
-
-
 

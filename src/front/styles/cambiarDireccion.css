@@ -1,0 +1,31 @@
+.container-formulario-cambiarDireccion {
+    display: flex;
+    align-items: center;
+    padding: 25px;
+    margin: 25px;
+    border: black 3px solid;
+    border-radius: 10px;
+}
+
+
+.user-pic {
+    float: none;
+    margin: 0 auto;
+    width: 50%;
+    height: 50%;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+    border-radius: 50% !important;
+    display: flex;
+    justify-content: center;
+}
+
+.icono-casa-cambiarDireccion,
+.icono-trabajo-cambiarDireccion {
+    padding-left: 5px;
+}
+
+.boton-actualizar-cambiarDireccion {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 80%;
+}
