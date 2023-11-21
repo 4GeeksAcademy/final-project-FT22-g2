@@ -1,8 +1,6 @@
 import React from "react";
 import ModalImages from "./ModalImages.jsx";
 
-
-
 const Gallery = () => {
   return (
     <>
@@ -21,22 +19,22 @@ const Gallery = () => {
               </div>
               <div>
                 <button type="button" className="custom-btn" data-bs-toggle="modal" data-bs-target="#ModalImages">
-                  <img
-                    className="img-top hoverimage"
-                    src="https://dummyimage.com/600x300/000/fff"
-                    alt="Bottom Left Image"
-                  />
+                <img
+                  className="img-top hoverimage"
+                  src="https://dummyimage.com/600x300/000/fff"
+                  alt="Bottom Left Image"
+                />
                 </button>
               </div>
             </div>
             <div class="col-lg-6">
-              <div>
+            <div>
                 <button type="button" className="custom-btn" data-bs-toggle="modal" data-bs-target="#ModalImages">
-                  <img
-                    className="img-top py-5 "
-                    src="https://dummyimage.com/600x650/000/fff"
-                    alt="Right Image"
-                  />
+                <img
+                  className="img-top py-5 "
+                  src="https://dummyimage.com/600x650/000/fff"
+                  alt="Right Image"
+                />
                 </button>
               </div>
             </div>

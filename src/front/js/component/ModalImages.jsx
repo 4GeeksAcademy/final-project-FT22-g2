@@ -31,7 +31,7 @@ const ModalImages = () => {
                                     </div>
                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi voluptates maxime aut, rem incidunt assumenda. Impedit error maxime assumenda, consequatur ea necessitatibus illo aspernatur laudantium, similique qui praesentium! Aut, odio.
                                     <div>
-                                        <button type="button" class="btn btn-secondary mt-4">Agregar al carrito</button>
+                                        <button type="button" class="btn-modal btn-secondary mt-4">Agregar al carrito</button>
                                     </div>
                                 </div>
                             </div>
