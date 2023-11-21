@@ -1,5 +1,9 @@
 import React from "react";
 import usuarioFoto from "../../img/usuarioFoto.png";
+
+import ModalCerrarSesion from "../component/ModalCerrarSesion.jsx";
+import ModalEliminarCuenta from "../component/ModalEliminarCuenta.jsx";
+
 import { Link } from "react-router-dom";
 
 import "../../styles/perfilUsuario.css";
@@ -58,11 +62,13 @@ const PerfilUsuario = () => {
             </div>
           </div>
         </div>
+        {/* boton cerrar sesion */}
         <div className="d-grid gap-2 col-6 mx-auto boton-cerrar-sesion">
-          <button type="button" className="btn btn-dark">Cerrar sesion</button>
+          <button type="button" className="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalCerrarSesion">Cerrar sesion</button>
         </div>
+        {/* boton eliminar cuenta */}
         <div className="d-grid gap-2 col-6 mx-auto boton-eliminar-cuenta">
-          <button type="button" className="btn btn-danger">Eliminar cuenta</button>
+          <button type="button" className="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Eliminar cuenta</button>
         </div>
 
       </div>

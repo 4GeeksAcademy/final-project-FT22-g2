@@ -2,8 +2,8 @@
 .usuarioFoto {
   float: none;
   margin: 0 auto;
-  width: 50%;
-  height: 50%;
+  width: 30%;
+  height: 30%;
   -webkit-border-radius: 50% !important;
   -moz-border-radius: 50% !important;
   border-radius: 50% !important;
@@ -24,10 +24,10 @@
 }
 
 .profile-usermenu ul li a {
-  color: #93a3b5;
-  font-size: 14px;
+  color: #0c0c0d;
+  font-size: 20px;
   font-weight: 400;
-  
+  text-decoration: none;
 }
 
 .profile-usermenu ul li a:hover {

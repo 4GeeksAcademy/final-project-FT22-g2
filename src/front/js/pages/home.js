@@ -7,6 +7,7 @@ import ModalImages from "../component/ModalImages.jsx";
 import Hero from "../component/Hero.jsx";
 import ModalRestaurarContraseña from "../component/ModalRestaurarContraseña.jsx"
 import ModalCerrarSesion from "../component/ModalCerrarSesion.jsx"
+import ModalEliminarCuenta from "../component/ModalEliminarCuenta.jsx";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
@@ -20,6 +21,7 @@ export const Home = () => {
 				<ModalImages />
 				<ModalRestaurarContraseña />
 				<ModalCerrarSesion />
+				<ModalEliminarCuenta />
 			</div>
 		</div>
 	);
