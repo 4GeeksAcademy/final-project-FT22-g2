@@ -40,7 +40,7 @@ const LogIn = () => {
                             <span>
                                 <Link to="/registro" >
                                     <a href="#">Crear una cuenta</a>
-                                </Link>
+                                </Link>                 
                             </span>
                         </div>
                     </div>
