@@ -104,9 +104,9 @@ const Filteredproduct = () => {
                     </div>
 
                 </div>
-                <div className="row ">
-                    <div className="col">
-                        <div className="btn-toolbar mb-3" role="toolbar" aria-label="Change page">
+                <div className="row d-flex text-center justify-content-center">
+                    <div className="col-3">
+                        <div className="btn-toolbar mb-3 justify-content-center " role="toolbar" aria-label="Change page">
                             <div className="btn-group me-2" role="group" aria-label="First group">
                                 <button type="button" className="btn btn-outline-secondary">1</button>
                                 <button type="button" className="btn btn-outline-secondary">2</button>
