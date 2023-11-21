@@ -2,19 +2,15 @@
   overflow-x: hidden
 }
 
-.card {
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-}
-
 .stars {
-  color: yellow;
+  color: rgb(158, 46, 46);
 }
 
 .btn-modal {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
 }
 
-.custom-btn{
+.custom-btn {
   border: none;
   background-color: transparent;
 }

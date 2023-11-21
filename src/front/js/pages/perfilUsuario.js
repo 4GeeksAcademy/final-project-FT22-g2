@@ -1,6 +1,7 @@
 import React from "react";
 import usuarioFoto from "../../img/usuarioFoto.png";
 import "../../styles/perfilUsuario.css";
+import { Link } from "react-router-dom";
 
 const PerfilUsuario = () => {
   return (
@@ -29,11 +30,12 @@ const PerfilUsuario = () => {
 
                       Cambiar direccion </a>
                   </li>
-                  <li>
-                    <a href="#" target="_blank">
-
-                      Historial de compras</a>
-                  </li>
+                  <Link to="/historial-compra">
+                    <li>
+                      <a href="#">
+                        Historial de compras</a>
+                    </li>
+                  </Link>
                   <li>
                     <a href="#">
 
