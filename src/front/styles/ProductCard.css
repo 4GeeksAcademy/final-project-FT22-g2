@@ -1,0 +1,46 @@
+.card-product-card {
+    width: 200px;
+    height: 300px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.card-img-top-productCard {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.custom-center-productCard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+}
+
+.margin-container-productCard {
+    margin: 170px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.calificaciones-productCard {
+    margin-left: 250px;
+    margin-right: 250px;
+}
+
+.comment-productCard {
+    padding: inherit;
+    margin-left: 350px;
+    margin-right: 350px;
+}
+
+.productCard-add-remove-btn {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 0px;
+}
+
+.textarea-productCard {
+    border-radius: 8px;
+}

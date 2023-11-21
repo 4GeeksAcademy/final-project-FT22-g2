@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Card = () => {
   return (
@@ -22,9 +23,11 @@ const Card = () => {
               <i class="fa-regular fa-star"></i>
               <i class="fa-regular fa-star"></i>
             </p>
-            <a href="#ModalImages" className="btn btn-light rounded-pill">
-              Ver producto
-            </a>
+            <Link to="/product">
+              <button className="btn btn-light rounded-pill">
+                Ver producto
+              </button>
+            </Link>
           </div>
         </div>
       </div>
