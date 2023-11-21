@@ -9,10 +9,18 @@ const Containercardshome = () => {
     >
       <div className="container w-100">
         <div className="row">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          <div className="col-3">
+            <Card />
+          </div>
+          <div className="col-3">
+            <Card />
+          </div>
+          <div className="col-3">
+            <Card />
+          </div>
+          <div className="col-3">
+            <Card />
+          </div>
         </div>
       </div>
     </div>
