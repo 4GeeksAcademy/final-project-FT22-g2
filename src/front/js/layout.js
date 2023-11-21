@@ -5,13 +5,13 @@ import { BackendURL } from "./component/backendURL";
 
 import { Home } from "./pages/home";
 import { Single } from "./pages/single";
-import PerfilUsuario from "./pages/perfilUsuario.js";
 import injectContext from "./store/appContext";
 
 import Navbar from "./component/Navbar.jsx";
 import Footer from "./component/footer.jsx";
 import Carrito from "./pages/carrito.jsx";
 import Registro from "./pages/registro.jsx";
+import PerfilUsuario  from "./pages/perfilUsuario.js";
 
 
 //create your first component

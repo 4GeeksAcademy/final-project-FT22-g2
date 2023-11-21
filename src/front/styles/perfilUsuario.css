@@ -1,21 +1,4 @@
 
-
-.card-container {
-  width: 500px;
-  height: auto;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
-  overflow: hidden;
-  border-radius: 2rem;
-  box-shadow: 0px 1rem 1.5rem rgba(0, 0, 0, 0.5);
-  margin: 30px auto;
-  padding-bottom: 30px;
-}
-
-
-
 .usuarioFoto {
   float: none;
   margin: 0 auto;
@@ -51,9 +34,7 @@
   background-color: #fafcfd;
   color: #5b9bd1;
 }
- 
-
-
-
-
-
+.modal-content-log-in {
+  background-color: #f8f9fa;
+  color: #333;
+}

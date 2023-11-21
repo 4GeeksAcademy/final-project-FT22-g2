@@ -1,65 +1,46 @@
+
 .modal-content-log-in {
   background-color: #f8f9fa;
   color: #333;
-}
-
-.input-field {
-  border-radius: 5px;
-  padding: 5px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-
-  color: #850440c2
-}
-
-.input-field:hover {
-  color: #a04c5b;
-
-}
-
-.invalid-input {
-  border: 1px solid red;
-}
-
-.boton {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 80%;
-}
-
-.crear-cuenta a {
-  color: black;
-  text-decoration: none;
-  margin: 20px;
   padding: 15px;
-  font-size: large;
+}
+.modal-login-body{
+align-items: center;
+}
+.input-field-login  {
+  border-radius: 5px; 
+  border: gray 1px solid;
+  align-items: center;
+  cursor: pointer; 
+  color: #850440c2; 
+  width: 45%;
+  background-color: whitesmoke;
+}
+
+.input-field-login:focus {
+  outline: #a04c5b 1px solid; 
 }
 
 
-.shake {
-  animation: shake 0.3s cubic-bezier(.36, .07, .19, .97) both;
+.boton-login{
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+width: 50%;
 }
 
-@keyframes shake {
-
-  10%,
-  90% {
-    transform: translate3d(-1px, 0, 0);
-  }
-
-  20%,
-  80% {
-    transform: translate3d(2px, 0, 0);
-  }
-
-  30%,
-  50%,
-  70% {
-    transform: translate3d(-4px, 0, 0);
-  }
-
-  40%,
-  60% {
-    transform: translate3d(4px, 0, 0);
-  }
+.crear-cuenta-login a {
+color: black;
+text-decoration: none;
+margin: 20px;
+padding: 15px;
+font-size: medium;
+} 
+.olvide-mi-contraseña  {
+color: gray;
+background-color: #f8f9fa;
+border: none;
+padding: 4px;
+font-size: medium;
 }
+
+
+
