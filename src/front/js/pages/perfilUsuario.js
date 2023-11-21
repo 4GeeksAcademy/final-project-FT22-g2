@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 const PerfilUsuario = () => {
   return (
     <>
-
       <div className="card-container">
         <div className="row profile">
           <div className="col md-3">
@@ -19,45 +18,50 @@ const PerfilUsuario = () => {
               </div>
 
               <div className="profile-usermenu">
-
                 <ul className="nav list-group list-group-flush text-center">
+
                   <li className="active">
                     <a href="#">
-                      Cambiar contraseña</a>
+                      Cambiar contraseña
+                    </a>
                   </li>
-                  <li>
-                    <a href="#">
 
-                      Cambiar direccion </a>
-                  </li>
+                  <Link to="/cambiar-direccion">
+                    <li>
+                      <a href="#">
+                        Cambiar direccion
+                      </a>
+                    </li>
+                  </Link>
+
                   <Link to="/historial-compra">
                     <li>
                       <a href="#">
-                        Historial de compras</a>
+                        Historial de compras
+                      </a>
                     </li>
                   </Link>
-                  <li>
-                    <a href="#">
 
-                      Mis favoritos</a>
-                  </li>
+                  <Link to="/favoritos">
+                    <li>
+                      <a href="#">
+                        Mis favoritos
+                      </a>
+                    </li>
+                  </Link>
                 </ul>
 
               </div>
             </div>
-
           </div>
-
         </div>
+
         <div>
           <button type="button" className="btn btn-dark">Cerrar sesion</button>
         </div>
 
       </div>
-
     </>
-
-
   )
 }
 
