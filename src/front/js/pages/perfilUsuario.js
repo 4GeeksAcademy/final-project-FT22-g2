@@ -1,6 +1,7 @@
 import React from "react";
 import usuarioFoto from "../../img/usuarioFoto.png";
 import "../../styles/perfilUsuario.css";
+import { Link } from "react-router-dom";
 
 const PerfilUsuario = () => {
   return (
@@ -34,11 +35,14 @@ const PerfilUsuario = () => {
 
                       Historial de compras</a>
                   </li>
-                  <li>
-                    <a href="#">
 
-                      Mis favoritos</a>
-                  </li>
+                  <Link to="/favoritos">
+                    <li>
+                      <a href="#">
+                        Mis favoritos
+                      </a>
+                    </li>
+                  </Link>
                 </ul>
 
               </div>
