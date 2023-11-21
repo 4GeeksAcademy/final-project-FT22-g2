@@ -5,12 +5,13 @@ import { BackendURL } from "./component/backendURL";
 
 import { Home } from "./pages/home";
 import { Single } from "./pages/single";
-import PerfilUsuario  from "./pages/perfilUsuario.js";
+import PerfilUsuario from "./pages/perfilUsuario.js";
 import injectContext from "./store/appContext";
 
 import Navbar from "./component/Navbar.jsx";
 import Footer from "./component/footer.jsx";
 import Carrito from "./pages/carrito.jsx";
+import Registro from "./pages/registro.jsx";
 
 
 //create your first component
@@ -31,6 +32,7 @@ const Layout = () => {
                         <Route element={<Carrito />} path="/carrito" />
                         <Route element={<Single />} path="/single/:theid" />
                         <Route element={<PerfilUsuario />} path="/perfil" />
+                        <Route element={<Registro />} path="/registro" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />

@@ -1,0 +1,57 @@
+.container-registro {
+    width: 100%;
+    height: 100%;
+    padding: 60px 0px;
+    display: flex;
+    justify-content: center;
+    background: whitesmoke;
+}
+
+.card-registro {
+    width: 20%;
+    height: auto;
+    background: white;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.container-inputs-registro {
+    margin: 10px auto;
+    width: 80%;
+}
+
+.input-registro {
+    width: 100%;
+    padding: 5px;
+    margin: 10px 0px;
+}
+
+#terminosYcondiciones {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    margin: 0;
+    background: whitesmoke;
+    color: whitesmoke;
+}
+
+.container-terminos-y-condiciones {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.terminosYcondicionesLabel {
+    margin-left: 10px;
+}
+
+.container-btn-registro {
+    margin-bottom: 10px;
+}
+
+.container-btn-registro-google {
+    margin-bottom: 40px;
+
+}

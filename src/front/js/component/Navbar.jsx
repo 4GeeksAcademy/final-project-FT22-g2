@@ -91,7 +91,11 @@ const Navbar = () => {
 							</a>
 							<ul className="dropdown-menu" aria-labelledby="navbarDropdown2">
 								<li><button className="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalLogin" type="button">Acceder</button></li>
-								<li><a className="dropdown-item" href="#">Registrarse</a></li>
+								<li>
+									<Link to="/registro">
+										<a className="dropdown-item" href="#">Registrarse</a>
+									</Link>
+								</li>
 							</ul>
 						</li>
 					</ul>
