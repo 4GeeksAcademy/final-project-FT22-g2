@@ -38,3 +38,11 @@
   background-color: #f8f9fa;
   color: #333;
 }
+.boton-cerrar-sesion{
+  padding-bottom: 15px;
+  width: 20%;
+}
+.boton-eliminar-cuenta{
+  padding: 15px;
+  width: 20%;
+}

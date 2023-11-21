@@ -58,9 +58,11 @@ const PerfilUsuario = () => {
             </div>
           </div>
         </div>
-
-        <div>
+        <div className="d-grid gap-2 col-6 mx-auto boton-cerrar-sesion">
           <button type="button" className="btn btn-dark">Cerrar sesion</button>
+        </div>
+        <div className="d-grid gap-2 col-6 mx-auto boton-eliminar-cuenta">
+          <button type="button" className="btn btn-danger">Eliminar cuenta</button>
         </div>
 
       </div>
