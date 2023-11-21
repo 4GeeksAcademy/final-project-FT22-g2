@@ -11,9 +11,9 @@ export const Search = () => {
     return (
 
         <div className="container-fluid">
-            <div className="row gx-0">
-                <Filter/>
-               <Filteredproduct/>
+            <div className="row">
+                <Filter />
+                <Filteredproduct />
             </div>
         </div>
 
