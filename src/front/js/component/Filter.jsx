@@ -22,11 +22,11 @@ const Filter = () => {
                             <input type="radio" className="form-check-input" name="btnradio" id="instock" />
                             <label className="form-check-label">Con stock</label>
                         </div>
-                        <button class="btn background-filteredproduct-color custom-btn-filter btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#cepas" aria-expanded="false" aria-controls="collapseExample">
+                        <button className="btn background-filteredproduct-color custom-btn-filter btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#cepas" aria-expanded="false" aria-controls="collapseExample">
                             Cepas
                         </button>
-                        <div class="collapse" id="cepas">
-                            <div class="card card-body">
+                        <div className="collapse" id="cepas">
+                            <div className="card card-body">
                             <a className="filter-item" href="#">cepa 1</a>
                             <a className="filter-item" href="#">cepa 2</a>
                             <a className="filter-item" href="#">cepa 3</a>
