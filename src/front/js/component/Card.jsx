@@ -18,10 +18,10 @@ const Card = () => {
             <h5>$$$</h5>
             <p className="card-text text-align-center">
               <i class="fa-solid fa-star stars"></i>
-              <i class="fa-regular fa-star"></i>
-              <i class="fa-regular fa-star"></i>
-              <i class="fa-regular fa-star"></i>
-              <i class="fa-regular fa-star"></i>
+              <i class="fa-regular fa-star stars"></i>
+              <i class="fa-regular fa-star stars"></i>
+              <i class="fa-regular fa-star stars"></i>
+              <i class="fa-regular fa-star stars"></i>
             </p>
             <Link to="/producto">
               <button className="btn btn-light rounded-pill">

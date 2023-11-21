@@ -22,23 +22,23 @@ const Filter = () => {
                             <input type="radio" className="form-check-input" name="btnradio" id="instock" />
                             <label className="form-check-label">Con stock</label>
                         </div>
-                        <div className="dropdown">
-                            <button className="btn custom-btn-filter btn-secondary dropdown-toggle" type="button" data-bs-auto-close="false" data-bs-toggle="dropdown" aria-expanded="false">
-                                Cepas
-                            </button>
-                            <ul className="dropdown-menu filter-item">
-                                <li><a className="dropdown-item" href="#">cepa 1</a></li>
-                                <li><a className="dropdown-item" href="#">cepa 2</a></li>
-                                <li><a className="dropdown-item" href="#">cepa 3</a></li>
-                                <li><a className="dropdown-item" href="#">cepa 4</a></li>
-                                <li><a className="dropdown-item" href="#">cepa 5</a></li>
-                                <li><a className="dropdown-item" href="#">cepa 6</a></li>
-                            </ul>
+                        <button class="btn background-filteredproduct-color custom-btn-filter btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#cepas" aria-expanded="false" aria-controls="collapseExample">
+                            Cepas
+                        </button>
+                        <div class="collapse" id="cepas">
+                            <div class="card card-body">
+                            <a className="filter-item" href="#">cepa 1</a>
+                            <a className="filter-item" href="#">cepa 2</a>
+                            <a className="filter-item" href="#">cepa 3</a>
+                            <a className="filter-item" href="#">cepa 4</a>
+                            <a className="filter-item" href="#">cepa 5</a>
+                            <a className="filter-item" href="#">cepa 6</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
