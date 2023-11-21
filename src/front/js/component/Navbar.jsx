@@ -40,31 +40,43 @@ const Navbar = () => {
 							</a>
 
 							<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-								<div className="p-3">
-									{/* CONTENIDO DE PRODUCTOS CARRITO */}
-									<div className="contenedor-carrito-hover">
-										{/* PRODUCT EXAMPLE CARRITO */}
-										<div className="product-example-carrito-hover text-nowrap d-flex m-3 px-3">
-											<div className="product-image m-2">
-												<img src={logoUrl} alt="example" width="100px" height="100px" className="border" />
-											</div>
-											{/* INFORMACIÓN DE PRODUCTO */}
-											<div className="product-info-carrito-hover m-3 px-3">
-												<h5>Botella de vino</h5>
-												<p>1 unidad</p>
-												{/* BOTON AÑADIR Y QUITAR + PRECIO */}
-												<div className="product-price-carrito-hover d-inline-flex align-items-center justify-content-between">
-													<button className="button-add-remove-carrito-hover remove-carrito-hover bg-white">-</button>
-													<label className="label-cantidad-carrito-hover px-2">1</label>
-													<button className="button-add-remove-carrito-hover add-carrito-hover bg-white">+</button>
-													<p className=" px-2 price-carrito-hover" >40.000</p>
+								<form action="">
+
+									<div className="p-3">
+										{/* CONTENIDO DE PRODUCTOS CARRITO */}
+										<div className="contenedor-carrito-hover">
+											{/* PRODUCT EXAMPLE CARRITO */}
+											<div className="product-example-carrito-hover text-nowrap d-flex m-3 px-3">
+												<div className="product-image m-2">
+													<img src={logoUrl} alt="example" width="100px" height="100px" className="border" />
 												</div>
+												{/* INFORMACIÓN DE PRODUCTO */}
+												<div className="product-info-carrito-hover m-3 px-3">
+													<h5>Botella de vino</h5>
+													<p>1 unidad</p>
+													{/* BOTON AÑADIR Y QUITAR + PRECIO */}
+													<div className="product-price-carrito-hover d-inline-flex align-items-center justify-content-between">
+														<button type="button" className="button-add-remove-carrito-hover remove-carrito-hover">-</button>
+														<label className="label-cantidad-carrito-hover px-2">1</label>
+														<button type="button" className="button-add-remove-carrito-hover add-carrito-hover">+</button>
+														<p className=" px-2 price-carrito-hover" >40.000</p>
+													</div>
+												</div>
+											</div>
+											{/* SUBTOTAL Y BTN IR AL CARRITO */}
+											<div className="container-price-button-cart">
+												<h4 className="subtotal-carrito-price">Subtotal: $$$</h4>
+												<Link to="/carrito" className="d-flex justify-content-center text-decoration-none">
+													<button type="button" href="#" className="btn-ir-al-carrito">
+														Ir al carrito
+													</button>
+												</Link>
 											</div>
 										</div>
 
 									</div>
+								</form>
 
-								</div>
 							</ul>
 						</li>
 					</ul>
@@ -86,7 +98,7 @@ const Navbar = () => {
 						</li>
 					</ul>
 				</div>
-			</div>         
+			</div>
 
 			{/* ----- / BARRA DE CATEGORÍAS / ----- */}
 			<div className="navbar navbar-expand-lg categories-navbar-styles" style={categoryStyle}>
@@ -119,7 +131,9 @@ const Navbar = () => {
 						</div>
 						{/* CONTÁCTANOS */}
 						<div className="nav-item categories-navbar-items">
-							<a className="nav-link active text-white h4" aria-current="page" href="#">Contáctanos</a>
+							<button type="button" className="btn-contactanos-navbar h4" data-bs-toggle="modal" data-bs-target="#ModalContact">
+								Contáctanos
+							</button>
 						</div>
 
 						{/* REDES SOCIALES */}
