@@ -10,22 +10,13 @@ align-items: center;
 }
 
 .input-field-login  {
-<<<<<<< HEAD
-  border-radius: 5px; 
-  border: gray 1px solid;
-  align-items: center;
-  cursor: pointer; 
-  color: #850440c2; 
-  width: 45%;
-  background-color: whitesmoke;
-=======
+
     border-radius: 5px; 
     border: gray 1px solid;
     align-items: center;
     cursor: pointer; 
     width: 45%;
     background-color: whitesmoke;
->>>>>>> 2a394d9f9f9a9375753346e93f4be4e54abe81c1
 }
 
 .input-field-login:focus {
