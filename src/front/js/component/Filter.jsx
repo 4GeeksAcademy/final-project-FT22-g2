@@ -3,13 +3,7 @@ import React from "react";
 const Filter = () => {
     return (
         <>
-            <div>
-                <img
-                    className="img-top py-5 hoverimage"
-                    src="https://dummyimage.com/200x300/000/fff"
-                    alt="Top Left Image"
-                />
-            </div>
+              <div className="col-1 border bg-secondary"><h1>hola mundo</h1></div>
         </>
     );
 };

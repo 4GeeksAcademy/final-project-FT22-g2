@@ -10,10 +10,10 @@ export const Search = () => {
 
     return (
 
-        <div className="container">
-            <div className="row">
-                <div className="col-2"><Filter /></div>
-                <div className="col-10"><Filteredproduct /></div>
+        <div className="container-fluid">
+            <div className="row gx-0">
+                <Filter/>
+               <Filteredproduct/>
             </div>
         </div>
 
