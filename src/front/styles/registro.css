@@ -22,17 +22,18 @@
 
 .input-registro {
     width: 100%;
-    padding: 5px;
+    padding: 8px;
     margin: 10px 0px;
+    background: whitesmoke;
+    border: rgb(177, 177, 177) 1px solid;
+    border-radius: 10px;
 }
 
 #terminosYcondiciones {
-    width: 30px;
-    height: 30px;
+    width: 26px;
+    height: 26px;
     padding: 0;
     margin: 0;
-    background: whitesmoke;
-    color: whitesmoke;
 }
 
 .container-terminos-y-condiciones {
