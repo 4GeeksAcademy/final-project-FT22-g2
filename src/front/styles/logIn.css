@@ -1,61 +1,43 @@
 
-
 .modal-content-log-in {
     background-color: #f8f9fa;
     color: #333;
+    padding: 15px;
 }
-.input-field {
-    border-radius: 5px;
-    padding: 5px;
-    display: flex;
+.modal-login-body{
+  align-items: center;
+}
+.input-field-login  {
+    border-radius: 5px; 
+    border: gray 1px solid;
     align-items: center;
-    cursor: pointer;
-    
-    color: #850440c2
+    cursor: pointer; 
+    color: #850440c2; 
 }
 
-.input-field:hover {
-    color: #a04c5b;
-   
+.input-field-login:focus {
+    outline: #a04c5b 1px solid; 
 }
 
-.invalid-input {
-    border: 1px solid red;
-  }
 
-.boton{
+.boton-login{
  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
  width: 80%;
 }
 
-.crear-cuenta a {
+.crear-cuenta-login a {
   color: black;
   text-decoration: none;
   margin: 20px;
   padding: 15px;
   font-size: large;
 } 
+.olvide-mi-contraseña a {
+  color: black;
+  text-decoration: none;
+  padding: 4px;
+}
 
 
-.shake {
-    animation: shake 0.3s cubic-bezier(.36,.07,.19,.97) both;
-  }
   
-  @keyframes shake {
-    10%, 90% {
-      transform: translate3d(-1px, 0, 0);
-    }
-  
-    20%, 80% {
-      transform: translate3d(2px, 0, 0);
-    }
-  
-    30%, 50%, 70% {
-      transform: translate3d(-4px, 0, 0);
-    }
-  
-    40%, 60% {
-      transform: translate3d(4px, 0, 0);
-    }
-  }
   
