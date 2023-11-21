@@ -15,14 +15,14 @@ const LogIn = () => {
                         <div className="modal-login-body mb-3"></div>
                             {/*  input email */}
                             <div className="input-group-login">
-                                <div className="input-field pt-4"> <span className="far fa-user p-2"></span> <input type="text" placeholder="correo usuario" className="input-field-login" /> 
+                                <div className="input-field pt-4"> <span className="far fa-user p-2"></span> <input type="text" placeholder="Correo usuario" className="input-field-login" /> 
                             </div>
                             {/* input contraseña */}
                             <div className="form-group-login py-1 pb-2">
                                 <div className="input-field"> <span className="fas fa-lock p-2"></span> <input type="text" placeholder="Contraseña" className="input-field-login" /> </div>
                             </div>
                            {/*  olvide mi contraseña */}
-                            <section className="olvide-mi-contraseña"><a href="#"> *Olvidé mi contraseña</a></section>
+							<button className="olvide-mi-contraseña" data-bs-toggle="modal" data-bs-target="#modalRestaurarContraseña" data-bs-dismiss="modal" >¿Olvidaste tu contraseña?</button>
                         </div>
                         <div>
                             {/*  boton ingresar */}
@@ -37,7 +37,7 @@ const LogIn = () => {
                         {/* link para registro */}
                         <div className="crear-cuenta-login">
                             <span>
-                                <a href="#">crear una cuenta</a>
+                                <a href="#">Crear una cuenta</a>
                             </span>
                         </div>
                     </div>
