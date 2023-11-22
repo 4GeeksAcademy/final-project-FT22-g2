@@ -4,11 +4,16 @@ import usuarioFoto from "../../img/usuarioFoto.png";
 import { Link } from "react-router-dom";
 
 import "../../styles/perfilUsuario.css";
-import { Link } from "react-router-dom";
+import ModalCerrarSesion from "../component/ModalCerrarSesion.jsx";
+import ModalEliminarCuenta from "../component/ModalEliminarCuenta.jsx";
 
 const PerfilUsuario = () => {
   return (
     <>
+      <div>
+        <ModalCerrarSesion />
+        <ModalEliminarCuenta />
+      </div>
 
       <div className="card-container">
         <div className="row profile">

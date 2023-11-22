@@ -1,8 +1,6 @@
-
 import React from "react";
 
 import "../../styles/cerrarsesion.css"
-
 import copasDeVino from "../../img/copasDeVino.png";
 
 const ModalCerrarSesion = () => {

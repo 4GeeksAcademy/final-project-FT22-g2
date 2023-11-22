@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import "../../styles/logIn.css";
-import { Link } from "react-router-dom";
 
 const LogIn = () => {
     return (

@@ -1,5 +1,4 @@
 import React from "react";
-
 import copasDeVino from "../../img/copasDeVino.png";
 
 import "../../styles/cerrarsesion.css"
