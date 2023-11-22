@@ -143,13 +143,7 @@ const Navbar = () => {
 										<li><a className="dropdown-item" href="#">Reserva</a></li>
 									</Link>
 									<Link to="busqueda" className="text-decoration-none">
-										<li><a className="dropdown-item" href="#">Reserva especial</a></li>
-									</Link>
-									<Link to="busqueda" className="text-decoration-none">
 										<li><a className="dropdown-item" href="#">Gran reserva</a></li>
-									</Link>
-									<Link to="busqueda" className="text-decoration-none">
-										<li><a className="dropdown-item" href="#">Premium</a></li>
 									</Link>
 								</ul>
 							</div>
