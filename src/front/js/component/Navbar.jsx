@@ -147,6 +147,7 @@ const Navbar = () => {
 									</Link>
 								</ul>
 							</div>
+							
 							{/* CONTÁCTANOS */}
 							<div className="nav-item categories-navbar-items">
 								<button type="button" className="btn-contactanos-navbar h4" data-bs-toggle="modal" data-bs-target="#ModalContact">
