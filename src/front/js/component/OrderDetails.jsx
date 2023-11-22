@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import DetallesPedido from "./pages/detallesPedido";
 
 const OrderDetails = () => {
     return (
@@ -8,19 +9,20 @@ const OrderDetails = () => {
                 <div className="col-md-8">
                     <div className="card">
                         <div className="card-body">
-                            <h4 className="card-title">Detalles del Pedido</h4>
+                            <h4 className="card-title">Deta</h4>
 
                             {/* Aquí iría el contenido del detalle del pedido */}
+                            <DetallesPedido />
 
                             {/* Información adicional del pedido */}
                             <div className="border-top pt-3">
-                                <h5 className="mb-3">Información Adicional</h5>
+                                <h5 className="mb-3">Info</h5>
                                 {/* Detalles adicionales del pedido */}
                             </div>
 
                             {/* Botón para proceder al siguiente paso */}
                             <Link to="/checkout" className="btn btn-primary mt-3">
-                                Continuar con el Pago
+                                Cont
                             </Link>
                         </div>
                     </div>
