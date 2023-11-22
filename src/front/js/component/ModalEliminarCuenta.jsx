@@ -8,6 +8,7 @@ import "../../styles/cerrarsesion.css"
 
 const ModalEliminarCuenta = () => {
   return (
+    
     <>
 
       <div className="modal fade" id="modalEliminarCuenta" tabindex="-1" aria-labelledby="modalEliminarCuenta" aria-hidden="true">
