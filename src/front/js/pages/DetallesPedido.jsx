@@ -1,10 +1,10 @@
 import React from 'react';
-import OrderDetails from '../components/OrderDetails';
+import OrderDetails from '../component/OrderDetails';
 
 const DetallesPedido = () => {
     return (
         <div>
-            {/* ... Otro contenido de la página ... */}
+            {/* ... */}
             <OrderDetails />
         </div>
     );
