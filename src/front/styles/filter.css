@@ -1,0 +1,53 @@
+.custom-btn-filter {
+    width: 100%;
+    border-radius: 0%;
+    color: rgb(46, 45, 45);
+    border: 0;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.background-filter-color {
+    background: #acacac solid;
+}
+
+.filter-title {
+    color: white;
+    background-color: rgb(46, 45, 45);
+}
+
+.background-filteredproduct-color {
+    background-color: whitesmoke;
+}
+.custom-text-bar{
+    padding-right: 65px;
+}
+.filter-custom-height {
+    height: 40px;
+    font-size: 25px;
+}
+
+.custom-card-filter {
+    border-radius: 0;
+    background-color: #acacac solid;
+}
+
+.filter-container {
+    font-size: 13px;
+    margin: auto;
+    border-radius: 0;
+    background-color: #acacac solid;
+}
+
+.filter-item {
+    width: 100%;
+    text-decoration: none;
+    color: rgb(46, 45, 45);
+    background: #acacac solid;
+}
+
+.orderbar-color {
+    background-color: rgb(46, 45, 45);
+    color: white;
+
+}

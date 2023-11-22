@@ -5,7 +5,7 @@ const Card = () => {
   return (
     <>
       <div className="my-5 d-flex justify-content-center">
-        <div className="card text-center" style={{ width: "22rem", borderRadius: "15px" }}>
+        <div className="card-product text-center" style={{ width: "22rem", borderRadius: "15px" }}>
           <div className="m-5">
             <img
               className="card-img-top img-fluid"
