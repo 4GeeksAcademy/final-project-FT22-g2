@@ -1,24 +1,38 @@
 .custom-btn-filter {
     width: 100%;
     border-radius: 0%;
+    color: rgb(46, 45, 45);
+    border: 0;
 }
 
 .background-filter-color {
     background: #acacac solid;
-
 }
-.filter-title{
+.filter-title{ 
     color: white;
+    background-color: rgb(46, 45, 45);
 }
 
 .background-filteredproduct-color {
     background-color: whitesmoke;
 }
+.collapse-color{
+    background: #acacac solid;
 
+}
+.filter-custom-height{
+    height: 40px;
+    font-size: 25px;
+}
 .filter-container{
     font-size: 13px;
     margin: auto;
 }
 .filter-item{
     width: 100%;
+}
+.orderbar-color{
+    background-color: rgb(46, 45, 45);
+    color: white;
+
 }
