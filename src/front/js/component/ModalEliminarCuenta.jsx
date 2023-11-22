@@ -1,27 +1,32 @@
 import React from "react";
 
-const ModalEliminarCuenta =() =>{
-    return(
-        <>
+import copasDeVino from "../../img/copasDeVino.png";
 
-<div classname="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div classname="modal-dialog">
-    <div classname="modal-content">
-      <div classname="modal-header">
-        <h5 classname="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" classname="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+import "../../styles/cerrarsesion.css"
+
+
+
+const ModalEliminarCuenta = () => {
+  return (
+    <>
+
+      <div className="modal fade" id="modalEliminarCuenta" tabindex="-1" aria-labelledby="modalEliminarCuenta" aria-hidden="true">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">Cuenta eliminada con éxito</h5>
+              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div className="modal-body">
+              <div className="copaDeVino">
+                <img src={copasDeVino} alt="copas-de-vino" className="copasDeVino" />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div classname="modal-body">
-        ...
-      </div>
-      <div classname="modal-footer">
-        <button type="button" classname="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" classname="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-        </>
-    )
+
+    </>
+  );
 };
 export default ModalEliminarCuenta;

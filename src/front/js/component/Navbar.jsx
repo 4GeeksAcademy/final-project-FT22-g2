@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import logoUrl from "../../img/logoElRinconDelVino.png";
 import LogIn from "./LogIn.jsx";
 import ModalContact from "./ModalContact.jsx";
+import RestaurarContraseña from "./ModalRestaurarContraseña.jsx";
+
 import "../../styles/navbarHero.css";
 
 const Navbar = () => {
@@ -22,6 +24,7 @@ const Navbar = () => {
 			<div className="text-center">
 				<LogIn />
 				<ModalContact />
+				<RestaurarContraseña />
 			</div>
 
 			<nav className="container-navbar" style={navStyle}>
