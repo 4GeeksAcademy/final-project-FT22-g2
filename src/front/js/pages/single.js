@@ -35,10 +35,10 @@ const Single = () => {
               <div className="calificacion-especificacion col-5">
                 <p className="card-text text-start col-12 mb-0">
                   <i className="fas fa-star stars"></i>
-                  <i className="far fa-star stars"></i>
-                  <i className="far fa-star stars"></i>
-                  <i className="far fa-star stars"></i>
-                  <i className="far fa-star stars"></i>
+                  <i className="fas fa-star stars"></i>
+                  <i className="fas fa-star stars"></i>
+                  <i className="fas fa-star stars"></i>
+                  <i className="fas fa-star stars"></i>
                 </p>
                 <p className="text-secondary col-12 mb-5">750cc</p>
               </div>
@@ -59,9 +59,9 @@ const Single = () => {
                 <div className="row">
                   {/* BUTTON CANTIDAD DE PRODUCTO */}
                   <div className="productCard-add-remove-btn d-inline-flex align-items-center justify-content-between col-12 w-75">
-                    <button className="button-add-remove-carrito-hover remove-carrito-hover bg-white mx-3"> - </button>
-                    <label className="label-cantidad-carrito-hover px-5 mx-2"> 1 </label>
-                    <button className="button-add-remove-carrito-hover add-carrito-hover bg-white mx-3"> + </button>
+                    <button className="button-add-remove-product remove-product-button px-5"> - </button>
+                    <label className="label-cantidad-carrito-hover px-5"> 1 </label>
+                    <button className="button-add-remove-product add-product-button px-5"> + </button>
                   </div>
                   {/* BUTTON AGREGAR AL CARRITO */}
                   <button className="btn btn-secondary rounded-pill my-2 col-12 w-75">
@@ -93,7 +93,7 @@ const Single = () => {
           <textarea
             id="wmd-input"
             name="post-text"
-            className="wmd-input s-input bar0 js-post-body-field processed textarea-productCard"
+            className="wmd-input s-input bar0 js-post-body-field processed textarea-productCard p-3"
             data-editor-type="wmd"
             data-post-type-id="2"
             cols="92"
@@ -117,10 +117,10 @@ const Single = () => {
           <div className="row m-0 w-25 container-calificaciones-reseñas">
             <p className="stars m-0 p-0 col-12">
               <i className="fas fa-star stars"></i>
-              <i className="far fa-star stars"></i>
-              <i className="far fa-star stars"></i>
-              <i className="far fa-star stars"></i>
-              <i className="far fa-star stars"></i>
+              <i className="fas fa-star stars"></i>
+              <i className="fas fa-star stars"></i>
+              <i className="fas fa-star stars"></i>
+              <i className="fas fa-star stars"></i>
             </p>
             <p className="text-black m-0 p-0 col-12">68 calificaciones</p>
           </div>
@@ -131,15 +131,15 @@ const Single = () => {
       {/* {typeof stars === "number" && stars === 0 ? (
             ) : null} */}
 
-      <div className="comment-productCard mt-3 mb-3">
+      <div className="comment-productCard">
         <div className="contenedor-stars-comment-product">
           <div className="row">
             <div className="stars ml-2 col-9">
               <i className="fas fa-star stars"></i>
-              <i className="far fa-star stars"></i>
-              <i className="far fa-star stars"></i>
-              <i className="far fa-star stars"></i>
-              <i className="far fa-star stars"></i>
+              <i className="fas fa-star stars"></i>
+              <i className="fas fa-star stars"></i>
+              <i className="fas fa-star stars"></i>
+              <i className="fas fa-star stars"></i>
             </div>
             <span className="ml-2 col-3 text-end">13 Nov. 2023</span>
           </div>
@@ -148,35 +148,41 @@ const Single = () => {
         <div className="mt-2 mb-2">
           <p className="text-secondary">
             Estaba maravilloso exquisito arte, 5 estrellas.
-            <button className="button-calificacion-comment-positiva">
-              Es útil <i class="fa-regular fa-thumbs-up"></i>
-            </button>
-            <button className="button-calificacion-comment-negativa">
-              <i class="fa-regular fa-thumbs-down"></i>
-            </button>
           </p>
+          <button className="button-calificacion-comment-positiva me-3 p-1">
+            Es útil <i class="fa-regular fa-thumbs-up"></i>
+          </button>
+          <button className="button-calificacion-comment-negativa p-1">
+            <i class="fa-regular fa-thumbs-down"></i>
+          </button>
         </div>
       </div>
 
-      <div className="comment-productCard mt-3 mb-3">
-        <div className="stars ml-2">
-          <i className="fas fa-star stars"></i>
-          <i className="far fa-star stars"></i>
-          <i className="far fa-star stars"></i>
-          <i className="far fa-star stars"></i>
-          <i className="far fa-star stars"></i>
+
+      <div className="comment-productCard">
+        <div className="contenedor-stars-comment-product">
+          <div className="row">
+            <div className="stars ml-2 col-9">
+              <i className="fas fa-star stars"></i>
+              <i className="fas fa-star stars"></i>
+              <i className="fas fa-star stars"></i>
+              <i className="fas fa-star stars"></i>
+              <i className="far fa-star stars"></i>
+            </div>
+            <span className="ml-2 col-3 text-end">13 Nov. 2023</span>
+          </div>
         </div>
-        <span className="ml-2">13 Nov. 2023</span>
+
         <div className="mt-2 mb-2">
           <p className="text-secondary">
             Espectacular, PERO.
-            <button>
-              <FontAwesomeIcon icon="fa-regular fa-thumbs-up" />
-            </button>
-            <button>
-              <FontAwesomeIcon icon="fa-regular fa-thumbs-down" />
-            </button>
           </p>
+          <button className="button-calificacion-comment-positiva me-3 p-1">
+            Es útil <i class="fa-regular fa-thumbs-up"></i>
+          </button>
+          <button className="button-calificacion-comment-negativa p-1">
+            <i class="fa-regular fa-thumbs-down"></i>
+          </button>
         </div>
       </div>
     </div>
