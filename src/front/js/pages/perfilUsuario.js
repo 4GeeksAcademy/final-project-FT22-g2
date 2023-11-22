@@ -1,5 +1,7 @@
 import React from "react";
 import usuarioFoto from "../../img/usuarioFoto.png";
+import { Link } from "react-router-dom";
+
 import "../../styles/perfilUsuario.css";
 import { Link } from "react-router-dom";
 
@@ -25,6 +27,7 @@ const PerfilUsuario = () => {
                       Cambiar contraseña
                     </a>
                   </li>
+
 
                   <Link to="/cambiar-direccion">
                     <li>

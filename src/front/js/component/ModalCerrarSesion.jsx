@@ -1,6 +1,6 @@
 
 import React from "react";
-import "../../styles/CerrarSesion.css"
+import "../../styles/cerrarsesion.css"
 
 const CerrarSesion = () => {
     return(
