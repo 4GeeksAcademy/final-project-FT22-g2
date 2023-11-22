@@ -1,0 +1,12 @@
+.copasDeVino{
+    float: none;
+    margin: 0 auto;
+    width: 30%;
+    height: 30%;
+   
+    display: flex;
+    justify-content: center;
+}
+.modal-footer{
+    color: black;
+}

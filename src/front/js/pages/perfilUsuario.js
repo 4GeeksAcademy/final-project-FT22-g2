@@ -1,11 +1,15 @@
 import React from "react";
 import usuarioFoto from "../../img/usuarioFoto.png";
+
+import { Link } from "react-router-dom";
+
 import "../../styles/perfilUsuario.css";
 import { Link } from "react-router-dom";
 
 const PerfilUsuario = () => {
   return (
     <>
+
       <div className="card-container">
         <div className="row profile">
           <div className="col md-3">
@@ -25,6 +29,7 @@ const PerfilUsuario = () => {
                       Cambiar contraseña
                     </a>
                   </li>
+
 
                   <Link to="/cambiar-direccion">
                     <li>
@@ -55,11 +60,14 @@ const PerfilUsuario = () => {
             </div>
           </div>
         </div>
-
-        <div>
-          <button type="button" className="btn btn-dark">Cerrar sesion</button>
+        {/* boton cerrar sesion */}
+        <div className="d-grid gap-2 col-6 mx-auto boton-cerrar-sesion">
+          <button type="button" className="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalCerrarSesion">Cerrar sesion</button>
         </div>
-
+        {/* boton eliminar cuenta */}
+        <div className="d-grid gap-2 col-6 mx-auto boton-eliminar-cuenta">
+          <button type="button" className="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalEliminarCuenta">Eliminar cuenta</button>
+        </div>
       </div>
     </>
   )

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import "../../styles/logIn.css";
 import { Link } from "react-router-dom";
@@ -27,12 +28,12 @@ const LogIn = () => {
                         </div>
                         <div>
                             {/*  boton ingresar */}
-                            <div className="boton-login col-12 mx-auto m-3">
-                                <button type="submit" className="btn btn-secondary data-bs-dismiss w-100 ">Ingresar</button>
+                            <div className="boton-login col-12 mx-auto m-3" data-bs-dismiss="modal">
+                                <Link to="/perfil" className="btn btn-secondary data-bs-dismiss w-100 " >Ingresar</Link>
                             </div>
                             {/*   boton google */}
                             <div className="boton-login col-12 mx-auto mb-3">
-                                <button className="btn btn-danger w-100" type="button" value="Login"> Continúa con <i class="fab fa-google me-2"></i></button>
+                                <button className="btn btn-danger w-100" type="button" value="Login"> Continúa con <i className="fab fa-google me-2"></i></button>
                             </div>
                         </div>
                         {/* link para registro */}
@@ -40,7 +41,7 @@ const LogIn = () => {
                             <span>
                                 <Link to="/registro" >
                                     <a href="#">Crear una cuenta</a>
-                                </Link>
+                                </Link>                 
                             </span>
                         </div>
                     </div>
