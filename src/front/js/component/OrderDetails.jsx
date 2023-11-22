@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import DetallesPedido from "./pages/detallesPedido";
+import DetallesPedido from './detallesPedido';
+
 
 const OrderDetails = () => {
     return (
