@@ -7,7 +7,25 @@ const Filteredproduct = () => {
         <>
             <div className="col-11 background-filteredproduct-color">
                 <div className="row justify-content-center align-self-center">
-                    <div className="col12 text-center orderbar-color filter-custom-height">Ordenar por:</div>
+                    <div className="col12 text-end  orderbar-color  custom-text-bar">
+                        <div className="btn-group">
+                            <button
+                                type="button"
+                                className="btn text-end orderbar-color filter-custom-height custom-text-bar dropdown-toggle d-flex align-items-center"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                Ordenar por
+                            </button>
+                            <ul className="dropdown-menu dropdown-menu-end">
+                                <li><button className="dropdown-item" type="button">Mayor a menor precio</button></li>
+                                <li><button className="dropdown-item" type="button">Menor a mayor precio</button></li>
+                                <li><button className="dropdown-item" type="button">A - Z</button></li>
+                                <li><button className="dropdown-item" type="button">Z - A</button></li>
+                            </ul>
+                        </div>
+
+                    </div>
                     <div className="col-3">
                         <Card />
                     </div>
