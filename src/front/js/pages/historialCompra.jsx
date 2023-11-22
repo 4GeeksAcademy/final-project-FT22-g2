@@ -2,6 +2,7 @@ import React from "react";
 import rigoBaby from "../../img/rigo-baby.jpg"
 
 import "../../styles/historialCompra.css";
+import { Link } from "react-router-dom";
 
 const HistorialCompra = () => {
     return (
@@ -92,9 +93,11 @@ const HistorialCompra = () => {
                                 </div>
 
                                 <div className="container-ver-pedido-historial-compra col-2">
-                                    <button className="btn-volver-a-comprar-historial" type="button">
-                                        Volver a comprar
-                                    </button>
+                                    <Link to="/producto">
+                                        <button className="btn-volver-a-comprar-historial" type="button">
+                                            Volver a comprar
+                                        </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -135,9 +138,12 @@ const HistorialCompra = () => {
                                 </div>
 
                                 <div className="container-ver-pedido-historial-compra col-2">
-                                    <button className="btn-volver-a-comprar-historial" type="button">
-                                        Volver a comprar
-                                    </button>
+                                    <Link to="/producto">
+                                        <button className="btn-volver-a-comprar-historial" type="button">
+                                            Volver a comprar
+                                        </button>
+                                    </Link>
+
                                 </div>
 
                             </div>

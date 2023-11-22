@@ -4,6 +4,7 @@ import vinoFavoritos from "../../img/vino-add-favorites.png"
 import vinoQuitarFavoritos from "../../img/vino-modified 1.png"
 
 import "../../styles/favoritos.css";
+import { Link } from "react-router-dom";
 
 const Favoritos = () => {
 
@@ -63,9 +64,11 @@ const Favoritos = () => {
 
                         {/* ---- Comprar producto ---- */}
                         <div className="col-2">
-                            <button className="btn-comprar-producto-favoritos" type="button">
-                                Comprar
-                            </button>
+                            <Link to="/producto">
+                                <button className="btn-comprar-producto-favoritos" type="button">
+                                    Comprar
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </div>

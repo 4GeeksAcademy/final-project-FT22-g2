@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import "../../styles/logIn.css";
+import { Link } from "react-router-dom";
 
 const LogIn = () => {
     return (
@@ -13,16 +14,16 @@ const LogIn = () => {
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" ></button>
                         </div>
                         <div className="modal-login-body mb-3"></div>
-                            {/*  input email */}
-                            <div className="input-group-login">
-                                <div className="input-field pt-4"> <span className="far fa-user p-2"></span> <input type="text" placeholder="Correo usuario" className="input-field-login" /> 
+                        {/*  input email */}
+                        <div className="input-group-login">
+                            <div className="input-field pt-4"> <span className="far fa-user p-2"></span> <input type="text" placeholder="Correo usuario" className="input-field-login" />
                             </div>
                             {/* input contraseña */}
                             <div className="form-group-login py-1 pb-2">
                                 <div className="input-field"> <span className="fas fa-lock p-2"></span> <input type="text" placeholder="Contraseña" className="input-field-login" /> </div>
                             </div>
-                           {/*  olvide mi contraseña */}
-							<button className="olvide-mi-contraseña" data-bs-toggle="modal" data-bs-target="#modalRestaurarContraseña" data-bs-dismiss="modal" >¿Olvidaste tu contraseña?</button>
+                            {/*  olvide mi contraseña */}
+                            <button className="olvide-mi-contraseña" data-bs-toggle="modal" data-bs-target="#modalRestaurarContraseña" data-bs-dismiss="modal" >¿Olvidaste tu contraseña?</button>
                         </div>
                         <div>
                             {/*  boton ingresar */}
@@ -37,7 +38,9 @@ const LogIn = () => {
                         {/* link para registro */}
                         <div className="crear-cuenta-login">
                             <span>
-                                <a href="#">Crear una cuenta</a>
+                                <Link to="/registro" >
+                                    <a href="#">Crear una cuenta</a>
+                                </Link>
                             </span>
                         </div>
                     </div>
