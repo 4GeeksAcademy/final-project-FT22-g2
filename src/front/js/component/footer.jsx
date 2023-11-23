@@ -49,7 +49,7 @@ const Footer = () => (
 					<h6>Corporativo</h6>
 					<ul>
 						<li><a href="#" style={{ textDecoration: "none" }}>Términos y condiciones</a></li>
-						<li><a href="#" style={{ textDecoration: "none" }}>Políticas de despacho</a></li>
+						{/* <li><a href="#" style={{ textDecoration: "none" }}>Políticas de despacho</a></li> */}
 						<li><a href="#" style={{ textDecoration: "none" }}>Cambios y devoluciones</a></li>
 					</ul>
 
