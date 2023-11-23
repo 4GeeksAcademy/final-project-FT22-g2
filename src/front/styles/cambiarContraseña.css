@@ -1,0 +1,10 @@
+.input-field-cambiar-contraseña {
+    border-radius: 5px; 
+    border: gray 1px solid;
+    align-items: center;
+    cursor: pointer; 
+    width: 80%;
+    height: 50px;
+    outline: #a04c5b 1px solid;
+    
+}

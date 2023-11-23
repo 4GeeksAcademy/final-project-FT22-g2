@@ -27,7 +27,7 @@
   color: #0c0c0d;
   font-size: 20px;
   font-weight: 400;
-  text-decoration: none;
+  text-decoration: none; 
 }
 
 .profile-usermenu ul li a:hover {
@@ -39,6 +39,7 @@
   background-color: #f8f9fa;
   color: #333;
 }
+
 
 .boton-cerrar-sesion {
   padding-bottom: 15px;

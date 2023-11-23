@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import "../../styles/perfilUsuario.css";
 import ModalCerrarSesion from "../component/ModalCerrarSesion.jsx";
 import ModalEliminarCuenta from "../component/ModalEliminarCuenta.jsx";
+import ModalCambiarContraseña from "../component/ModalCambiarContraseña.jsx";
+
 
 const PerfilUsuario = () => {
   return (
@@ -13,6 +15,7 @@ const PerfilUsuario = () => {
       <div>
         <ModalCerrarSesion />
         <ModalEliminarCuenta />
+        <ModalCambiarContraseña />
       </div>
 
       <div className="card-container">
@@ -29,12 +32,14 @@ const PerfilUsuario = () => {
               <div className="profile-usermenu">
                 <ul className="nav list-group list-group-flush text-center">
 
+
                   <li className="active">
-                    <a href="#">
+                    <a href="#modalCambiarContraseña"
+                      className="modalCambiarContraseña"
+                      data-bs-toggle="modal">
                       Cambiar contraseña
                     </a>
                   </li>
-
 
                   <Link to="/cambiar-direccion">
                     <li>
