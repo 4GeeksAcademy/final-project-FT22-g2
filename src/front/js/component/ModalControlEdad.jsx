@@ -4,7 +4,6 @@ import logoElRinconDelVino from "../../img/logoElRinconDelVino.png";
 
 const ModalControlEdad = () => {
 
-
     useEffect(() => {
         // Función para activar el modal después de un cierto tiempo
         function activateModal() {
