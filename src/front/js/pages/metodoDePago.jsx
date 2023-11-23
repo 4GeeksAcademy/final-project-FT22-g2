@@ -44,28 +44,28 @@ const MetodoDePago = () => {
                     </div>
                 </div>
 
-                {/* ---- // SUBTOTAL MAS ENVIO PRECIO // ---- */}
-                <div className="subtotal-envio-precio-metodo-de-pago">
-                    <div className="lado-izquierdo-precio-metodo-de-pago">
+                {/* ---- // SUBTOTAL MAS ENVIO Y PRECIO // ---- */}
+                <div className="subtotal-envio-precio-metodo-de-pago row">
+                    <div className="lado-izquierdo-precio-metodo-de-pago col-6 text-start">
                         <h5>Subtotal</h5>
                         <h5>Envío</h5>
                     </div>
 
-                    <div className="lado-derecho-precio-metodo-de-pago">
+                    <div className="lado-derecho-precio-metodo-de-pago col-6 text-end">
                         <h5>CLP 80.000</h5>
                         <h5>Gratis</h5>
                     </div>
                 </div>
 
                 {/* ---- // PRECIO TOTAL // ---- */}
-                <div className="total-precio-metodo-de-pago">
-                    <h5>Total (2 items)</h5>
-                    <h5>$ 80.000</h5>
+                <div className="total-precio-metodo-de-pago row">
+                    <h5 className="col-6 text-start h4">Total (2 items)</h5>
+                    <h5 className="col-6 text-end h4">$ 80.000</h5>
                 </div>
 
                 {/* ---- // BOTÓN CONTINUAR SIGUIENTE VISTA // ---- */}
-                <div className="button-continuar-metodo-de-pago">
-                    <button className="btn btn-dark">Continue</button>
+                <div className="container-button-continuar-metodo-de-pago">
+                    <button className="btn btn-dark button-continuar-metodo-de-pago">Continue</button>
                 </div>
 
             </form>

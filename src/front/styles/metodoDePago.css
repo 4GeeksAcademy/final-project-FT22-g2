@@ -77,3 +77,24 @@
     cursor: pointer;
     margin-right: 15px;
 }
+
+/* SUBTOTAL Y PRECIO ENVIO */
+.subtotal-envio-precio-metodo-de-pago {
+    border-bottom: 1px grey solid;
+    width: 90%;
+    margin: 20px auto;
+    padding-bottom: 10px;
+}
+
+/* TOTAL PRECIO */
+.total-precio-metodo-de-pago {
+    width: 90%;
+    margin: 20px auto;
+}
+
+/* BUTTON CONTINUAR SIGUIENTE VISTA PAGO */
+.button-continuar-metodo-de-pago {
+    width: 60%;
+    padding: 8px;
+    font-size: 24px;
+}
