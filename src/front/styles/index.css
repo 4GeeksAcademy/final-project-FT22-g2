@@ -18,3 +18,9 @@
   border: none;
   background-color: transparent;
 }
+
+.btn-primary:hover,
+.btn-secondary:hover {
+  opacity: 0.8;
+  transition: opacity 0.3s ease-in-out;
+}

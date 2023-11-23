@@ -1,12 +1,13 @@
 /* Estilos para el modal */
-.modal-content {
+.modal-content-control-edad {
     background-color: whitesmoke;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    
+
 }
-.modal-control{
+
+.modal-control {
     width: 40%;
 }
 
@@ -24,22 +25,13 @@
     font-size: x-large;
 }
 
-.modal-footer-control-control-edad{
+.modal-footer-control-control-edad {
     padding: 10px;
 
 }
 
-.btn-dark {
+.btn-control-edad {
     width: 30%;
     margin: 10px;
-   
-}
 
-
-
-/* Personalizar los botones al pasar el mouse */
-.btn-primary:hover,
-.btn-secondary:hover {
-    opacity: 0.8;
-    transition: opacity 0.3s ease-in-out;
 }

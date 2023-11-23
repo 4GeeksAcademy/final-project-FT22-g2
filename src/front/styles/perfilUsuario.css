@@ -1,4 +1,3 @@
-
 .usuarioFoto {
   float: none;
   margin: 0 auto;
@@ -15,12 +14,13 @@
   margin: 20px 0;
 
 }
-.user-name{
+
+.user-name {
   color: #5a7391;
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 7px;
-  
+
 }
 
 .profile-usermenu ul li a {
@@ -34,15 +34,18 @@
   background-color: #fafcfd;
   color: #5b9bd1;
 }
+
 .modal-content-log-in {
   background-color: #f8f9fa;
   color: #333;
 }
-.boton-cerrar-sesion{
+
+.boton-cerrar-sesion {
   padding-bottom: 15px;
   width: 20%;
 }
-.boton-eliminar-cuenta{
+
+.boton-eliminar-cuenta {
   padding: 15px;
   width: 20%;
 }
