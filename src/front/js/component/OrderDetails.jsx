@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import rigoBaby from "../../img/rigo-baby.jpg";
+import paymentMethods from "../../img/paymentMethods.png";
 
 const OrderDetails = () => {
   const products = [
@@ -17,8 +18,8 @@ const OrderDetails = () => {
   ];
 
   return (
-    <section className="col-lg-7 col-md-8 col-sm-12 container-fluid">
-      <h1>Detalles del Pedido</h1>
+    <section className="col-lg-7 col-md-8 col-sm-12 container-fluid text-center">
+      <h2>Detalles del Pedido</h2>
       <div className="p-3">
         {/* CONTENIDO DE PRODUCTOS CARRITO */}
         <div className="contenedor-carrito-hover">
@@ -54,6 +55,13 @@ const OrderDetails = () => {
           <h4 className="subtotal-carrito-price">
             Opciones seguras al finalizar la compra
           </h4>
+          <img
+            src={paymentMethods}
+            alt="example"
+            width="400px"
+            height="100px"
+            className="border"
+          />
           {/* ---- // SUBTOTAL MAS ENVIO Y PRECIO // ---- */}
           <div className="subtotal-envio-precio-metodo-de-pago row">
             <div className="lado-izquierdo-precio-metodo-de-pago col-6 text-start">
