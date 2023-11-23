@@ -10,14 +10,14 @@ const OrderDetails = () => {
       price: "40.000",
     },
     {
-      name: "Botella de vino pulento",
+      name: "Botella de vino",
       quantity: 3,
       price: "45.000",
     },
   ];
 
   return (
-    <form action="">
+    <section className="col-lg-7 col-md-8 col-sm-12 container-fluid">
       <h1>Detalles del Pedido</h1>
       <div className="p-3">
         {/* CONTENIDO DE PRODUCTOS CARRITO */}
@@ -41,19 +41,6 @@ const OrderDetails = () => {
                 <p>{product.quantity} unidad</p>
                 {/* BOTON AÑADIR Y QUITAR + PRECIO */}
                 <div className="product-price-carrito-hover d-inline-flex align-items-center justify-content-between">
-                  <button
-                    type="button"
-                    className="button-add-remove-carrito-hover remove-carrito-hover"
-                  >
-                    -
-                  </button>
-                  <label className="label-cantidad-carrito-hover px-2">1</label>
-                  <button
-                    type="button"
-                    className="button-add-remove-carrito-hover add-carrito-hover"
-                  >
-                    +
-                  </button>
                   <p className=" px-2 price-carrito-hover">{product.price}</p>
                 </div>
               </div>
@@ -67,6 +54,24 @@ const OrderDetails = () => {
           <h4 className="subtotal-carrito-price">
             Opciones seguras al finalizar la compra
           </h4>
+          {/* ---- // SUBTOTAL MAS ENVIO Y PRECIO // ---- */}
+          <div className="subtotal-envio-precio-metodo-de-pago row">
+            <div className="lado-izquierdo-precio-metodo-de-pago col-6 text-start">
+              <h5>Subtotal</h5>
+              <h5>Envío</h5>
+            </div>
+
+            <div className="lado-derecho-precio-metodo-de-pago col-6 text-end">
+              <h5>CLP 80.000</h5>
+              <h5>Gratis</h5>
+            </div>
+          </div>
+
+          {/* ---- // PRECIO TOTAL // ---- */}
+          <div className="total-precio-metodo-de-pago row">
+            <h5 className="col-6 text-start h4">Total (2 items)</h5>
+            <h5 className="col-6 text-end h4">$ 80.000</h5>
+          </div>
           <Link
             to="/carrito"
             className="d-flex justify-content-center text-decoration-none"
@@ -77,7 +82,7 @@ const OrderDetails = () => {
           </Link>
         </div>
       </div>
-    </form>
+    </section>
   );
 };
 
