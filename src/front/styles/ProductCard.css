@@ -18,8 +18,8 @@
     width: auto;
 }
 
-.margin-container-productCard {
-    margin: 170px auto;
+.container-productCard {
+    margin: 30px auto 70px;
     display: flex;
     justify-content: center;
 }
@@ -30,9 +30,13 @@
 }
 
 .comment-productCard {
-    padding: inherit;
-    margin-left: 350px;
-    margin-right: 350px;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0px auto;
+    padding-bottom: 20px;
+    border-bottom: rgb(200, 200, 200) 1px solid;
 }
 
 .productCard-add-remove-btn {
@@ -41,6 +45,78 @@
     padding: 0px;
 }
 
+.button-add-remove-product {
+    border: none;
+    padding: 5px;
+    background: white;
+}
+
+.add-product-button {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.remove-product-button {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.button-add-remove-product:active {
+    background: rgb(240, 240, 240);
+}
+
 .textarea-productCard {
     border-radius: 8px;
+    resize: none;
+}
+
+.section-cantidad-precio-añadir-producto {
+    margin-left: 40px;
+    width: 90%;
+}
+
+.informacion-de-producto-single {
+    margin-left: 30px;
+    width: 90%;
+}
+
+.btn-add-favorites-product {
+    background: transparent;
+    border: none;
+    height: 10%;
+}
+
+.container-calificaciones-reseñas {
+    text-align: left;
+    padding-left: 10px;
+}
+
+.contenedor-stars-comment-product {
+    margin-top: 40px;
+}
+
+.button-calificacion-comment-negativa,
+.button-calificacion-comment-positiva {
+    color: black;
+    padding: 4px;
+    border: black 1px solid;
+    background: white;
+}
+
+.button-calificacion-comment-negativa {
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+}
+
+.button-calificacion-comment-positiva {
+    border-radius: 20px;
+}
+
+.button-calificacion-comment-negativa:active {
+    background: rgb(231, 231, 231);
+}
+
+.button-calificacion-comment-positiva:active {
+    background: rgb(231, 231, 231);
 }

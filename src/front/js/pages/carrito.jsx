@@ -78,7 +78,7 @@ const Carrito = () => {
                             <div className="col-6 text-end">
                                 <h5>Subtotal</h5>
                             </div>
-                            <div className="col-6">
+                            <div className="col-6 ps-2">
                                 <h5>$$$</h5>
                             </div>
                             <div className="col-6 text-end">
