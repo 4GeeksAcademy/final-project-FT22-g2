@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "../../styles/modalControlEdad.css"
+import logoElRinconDelVino from "../../img/logoElRinconDelVino.png";
 
 const ModalControlEdad = () => {
 
@@ -33,10 +34,10 @@ const ModalControlEdad = () => {
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header-control-edad">
-                            <h5 class="modal-title-control-edad" id="staticBackdropLabel">El rincon del vino</h5>
+                            <img src={logoElRinconDelVino} className="img-fluid modal-control" alt="logo" />
                         </div>
-                        <div class="modal-body">
-                            Tengo la edad legal para beber alcohol en mi pais
+                        <div class="modal-body-control-edad">
+                            ¿Tienes la edad legal para beber alcohol en tu país?
                         </div>
                         <div class="modal-footer-control-control-edad">
                             <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Si</button>

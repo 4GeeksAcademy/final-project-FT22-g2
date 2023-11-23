@@ -1,9 +1,13 @@
 /* Estilos para el modal */
 .modal-content {
-    background-color: #ffffff;
+    background-color: whitesmoke;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+}
+.modal-control{
+    width: 40%;
 }
 
 
@@ -14,9 +18,10 @@
     text-align: center;
 }
 
-.modal-body {
+.modal-body-control-edad {
     color: #555;
     padding: 20px;
+    font-size: x-large;
 }
 
 .modal-footer-control-control-edad{
