@@ -1,34 +1,47 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import rigoBaby from '../../img/rigo-baby.jpg'
 
 const OrderDetails = () => {
     return (
-        <div className="container mt-5">
-            <div className="row justify-content-center">
-                <div className="col-md-8">
-                    <div className="card">
-                        <div className="card-body">
-                            <h4 className="card-title">Deta</h4>
-
-                            {/* Aquí iría el contenido del detalle del pedido */}
-
-
-                            {/* Información adicional del pedido */}
-                            <div className="border-top pt-3">
-                                <h5 className="mb-3">Info</h5>
-                                {/* Detalles adicionales del pedido */}
+        <form action="">
+            <h1>Detalles del Pedido</h1>
+            <div className="p-3">
+                {/* CONTENIDO DE PRODUCTOS CARRITO */}
+                <div className="contenedor-carrito-hover">
+                    {/* PRODUCT EXAMPLE CARRITO */}
+                    <div className="product-example-carrito-hover text-nowrap d-flex m-3 px-3">
+                        <div className="product-image m-2">
+                            <img src={rigoBaby} alt="example" width="100px" height="100px" className="border" />
+                        </div>
+                        {/* INFORMACIÓN DE PRODUCTO */}
+                        <div className="product-info-carrito-hover m-3 px-3">
+                            <h5>Botella de vino</h5>
+                            <p>1 unidad</p>
+                            {/* BOTON AÑADIR Y QUITAR + PRECIO */}
+                            <div className="product-price-carrito-hover d-inline-flex align-items-center justify-content-between">
+                                <button type="button" className="button-add-remove-carrito-hover remove-carrito-hover">-</button>
+                                <label className="label-cantidad-carrito-hover px-2">1</label>
+                                <button type="button" className="button-add-remove-carrito-hover add-carrito-hover">+</button>
+                                <p className=" px-2 price-carrito-hover" >40.000</p>
                             </div>
-
-                            {/* Botón para proceder al siguiente paso */}
-                            <Link to="/checkout" className="btn btn-primary mt-3">
-                                Cont
-                            </Link>
                         </div>
                     </div>
+
+                    {/* SUBTOTAL Y BTN IR AL CARRITO */}
+                </div>
+
+                <div className="container-price-button-cart">
+                    <h4 className="subtotal-carrito-price">Opciones seguras al finalizar la compra</h4>
+                    <Link to="/carrito" className="d-flex justify-content-center text-decoration-none">
+                        <button type="button" href="#" className="btn-ir-al-carrito">
+                            Continuar
+                        </button>
+                    </Link>
                 </div>
             </div>
-        </div>
+
+        </form>
     );
 };
 
