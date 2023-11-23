@@ -1,0 +1,85 @@
+/* CONTENEDOR GENERAL */
+.container-vista-metodo-de-pago {
+    width: 35%;
+    height: 70vh;
+    margin: 30px auto;
+    text-align: center;
+}
+
+/* BARRA PARA MARCAR PROCESO DE PAGO [ Carro, Pago, Revisar ] */
+.proceso-de-pago-barra-pago {
+    display: flex;
+    margin: 20px auto;
+    justify-content: space-evenly;
+}
+
+.texto-barra-proceso-pago {
+    width: 25%;
+    padding-bottom: 15px;
+    border-bottom: 2px blue solid;
+}
+
+.texto-barra-proceso-pago-inactivo {
+    width: 25%;
+    padding-bottom: 20px;
+    border-bottom: 2px grey solid;
+    color: grey;
+}
+
+/* BOTÓN REGRESAR ANTERIOR VISTA */
+.button-regresar-anterior-vista {
+    border: none;
+    background: none;
+    font-size: 24px;
+    padding: 0;
+    margin: 0;
+}
+
+.button-regresar-anterior-vista:active {
+    color: rgb(156, 71, 71);
+}
+
+/* INFORMACIÓN DE PAGO */
+.informacion-opcion-para-pagar {
+    text-align: left;
+    padding-left: 40px;
+    margin-bottom: 40px;
+}
+
+.descripcion-opcion-para-pagar {
+    color: grey;
+    font-weight: 300;
+}
+
+/* CHECKBOX E INPUT MÉTODOS DE PAGO */
+.metodos-de-pago-tarjetas-checkbox {
+    display: flex;
+    flex-direction: column;
+    border-top: grey 1px solid;
+    width: 90%;
+    margin: 20px auto;
+}
+
+.container-input-checkbox-metodo-de-pago {
+    border-bottom: grey 1px solid;
+    padding: 15px 0;
+    display: flex;
+}
+
+.checkbox-metodos-de-pago-tarjetas {
+    width: 26px;
+    height: 26px;
+    background-color: white;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 1px solid rgb(166, 166, 166);
+    outline: none;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.checkbox-metodos-de-pago-tarjetas:checked {
+    background: #1c92d2;
+    background: linear-gradient(to right, #3196cd, #84e1f4);
+    box-shadow: rgba(70, 155, 246, 0.5) 0px 3px 10px;
+}
