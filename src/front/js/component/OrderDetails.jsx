@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import DetallesPedido from './detallesPedido';
 
 
 const OrderDetails = () => {
@@ -13,7 +12,7 @@ const OrderDetails = () => {
                             <h4 className="card-title">Deta</h4>
 
                             {/* Aquí iría el contenido del detalle del pedido */}
-                            <DetallesPedido />
+
 
                             {/* Información adicional del pedido */}
                             <div className="border-top pt-3">
