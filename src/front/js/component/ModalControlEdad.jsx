@@ -33,13 +33,13 @@ const ModalControlEdad = () => {
             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content modal-content-control-edad">
-                        <div class="modal-header modal-header-control-edad">
+                        <div class="modal-header-control-edad">
                             <img src={logoElRinconDelVino} className="img-fluid modal-control" alt="logo" />
                         </div>
-                        <div class="modal-body modal-body-control-edad">
+                        <div class="modal-body-control-edad">
                             ¿Tienes la edad legal para beber alcohol en tu país?
                         </div>
-                        <div class="modal-footer modal-footer-control-edad">
+                        <div class="modal-footer-control-edad">
                             <button type="button" class="btn btn-dark btn-control-edad" data-bs-dismiss="modal">Si</button>
                             <button type="button" class="btn btn-dark btn-control-edad" onClick={redirectToSenda}>No</button>
                         </div>
