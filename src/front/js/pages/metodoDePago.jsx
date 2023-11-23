@@ -27,20 +27,20 @@ const MetodoDePago = () => {
 
             <form>
                 {/* ---- // MÉTODOS DE PAGO // ---- */}
-                <div className="metodos-de-pago-tarjetas-checkbox">
+                <div className="metodos-de-pago-tarjetas-checkbox ">
                     <div className="container-input-checkbox-metodo-de-pago">
-                        <input type="checkbox" className="checkbox-metodos-de-pago-tarjetas" name="tarjetaDeCredito" id="tarjetaDeCredito" />
-                        <label className="h4 m-0">Tarjeta de crédito</label>
+                        <input type="radio" className="checkbox-metodos-de-pago-tarjetas form-check-input" name="metodo-de-pago" id="tarjetaDeCredito" />
+                        <label className="h4 m-0 form-check-label">Tarjeta de crédito</label>
                     </div>
 
                     <div className="container-input-checkbox-metodo-de-pago">
-                        <input type="checkbox" className="checkbox-metodos-de-pago-tarjetas" name="tarjetaDeDebito" id="tarjetaDeDebito" />
-                        <label className="h4 m-0">Tarjeta de débito</label>
+                        <input type="radio" className="checkbox-metodos-de-pago-tarjetas form-check-input" name="metodo-de-pago" id="tarjetaDeDebito" />
+                        <label className="h4 m-0 form-check-label">Tarjeta de débito</label>
                     </div>
 
                     <div className="container-input-checkbox-metodo-de-pago">
-                        <input type="checkbox" className="checkbox-metodos-de-pago-tarjetas" name="pagoConPaypal" id="pagoConPaypal" />
-                        <label className="h4 m-0">Pago con Paypal</label>
+                        <input type="radio" className="checkbox-metodos-de-pago-tarjetas form-check-input" name="metodo-de-pago" id="pagoConPaypal" />
+                        <label className="h4 m-0 form-check-labels">Pago con Paypal</label>
                     </div>
                 </div>
 

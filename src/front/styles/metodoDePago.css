@@ -67,8 +67,8 @@
 }
 
 .checkbox-metodos-de-pago-tarjetas {
-    width: 26px;
-    height: 26px;
+    width: 20px;
+    height: 20px;
     background-color: white;
     border-radius: 50%;
     vertical-align: middle;
@@ -76,10 +76,4 @@
     outline: none;
     cursor: pointer;
     margin-right: 15px;
-}
-
-.checkbox-metodos-de-pago-tarjetas:checked {
-    background: #1c92d2;
-    background: linear-gradient(to right, #3196cd, #84e1f4);
-    box-shadow: rgba(70, 155, 246, 0.5) 0px 3px 10px;
 }
