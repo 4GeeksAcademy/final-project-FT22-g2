@@ -41,15 +41,15 @@ const PerfilUsuario = () => {
                     </a>
                   </li>
 
-                  <Link to="/cambiar-direccion">
+                  <Link to="/cambiar-direccion" style={{ textDecoration: 'none' }}>
                     <li>
-                      <a href="#">
+                      <a href="#" >
                         Cambiar direccion
                       </a>
                     </li>
                   </Link>
 
-                  <Link to="/historial-compra">
+                  <Link to="/historial-compra" style={{ textDecoration: 'none' }}>
                     <li>
                       <a href="#">
                         Historial de compras
@@ -57,7 +57,7 @@ const PerfilUsuario = () => {
                     </li>
                   </Link>
 
-                  <Link to="/favoritos">
+                  <Link to="/favoritos" style={{ textDecoration: 'none' }}>
                     <li>
                       <a href="#">
                         Mis favoritos
