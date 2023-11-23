@@ -2,6 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import rigoBaby from "../../img/rigo-baby.jpg";
 import paymentMethods from "../../img/paymentMethods.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faShield } from "@fortawesome/free-solid-svg-icons";
 
 const OrderDetails = () => {
   const products = [
@@ -19,7 +22,7 @@ const OrderDetails = () => {
 
   return (
     <section className="col-lg-7 col-md-8 col-sm-12 container-fluid text-center">
-      <h2>Detalles del Pedido</h2>
+      <h2><button><FontAwesomeIcon icon={faTimes} /></button>Detalles del Pedido</h2>
       <div className="p-3">
         {/* CONTENIDO DE PRODUCTOS CARRITO */}
         <div className="contenedor-carrito-hover">
@@ -53,7 +56,7 @@ const OrderDetails = () => {
 
         <div className="container-price-button-cart">
           <h4 className="subtotal-carrito-price">
-            Opciones seguras al finalizar la compra
+            <FontAwesomeIcon icon={faShield} />Opciones seguras al finalizar la compra
           </h4>
           <img
             src={paymentMethods}
