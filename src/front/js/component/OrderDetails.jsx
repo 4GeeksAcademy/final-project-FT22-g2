@@ -23,17 +23,18 @@ const OrderDetails = () => {
   return (
     <section className="col-lg-7 col-md-8 col-sm-12 container-fluid text-center">
       <div className="container-price-button-cart">
-        <div className="row align-items-center">
+        <div className="row align-items-center m-auto">
           {/* Botón a la izquierda */}
-          <div className="col-auto">
-            <button className="mx-3">
+          <div className="col-auto pt-1">
+            <button className="btn" style={{ textDecoration: 'none' }}>
               <FontAwesomeIcon icon={faTimes} />
             </button>
           </div>
 
+
           {/* Título centrado */}
-          <div className="col p-0">
-            <h2 className="w-auto">Detalles del Pedido</h2>
+          <div className="col w-100 pt-1">
+            <h3 className="w-auto text-center mb-0">Detalles del Pedido</h3>
           </div>
         </div>
         <div className="p-3">
@@ -58,7 +59,7 @@ const OrderDetails = () => {
                   <p>{product.quantity} unidad</p>
                   {/* BOTON AÑADIR Y QUITAR + PRECIO */}
                   <div className="product-price-carrito-hover d-inline-flex align-items-center justify-content-between">
-                    <p className=" px-2 price-carrito-hover">{product.price}</p>
+                    <p className="px-2 price-carrito-hover">{product.price}</p>
                   </div>
                 </div>
               </div>
@@ -68,15 +69,15 @@ const OrderDetails = () => {
           </div>
 
           <div className="container-price-button-cart">
-            <h4 className="subtotal-carrito-price">
-              <FontAwesomeIcon icon={faShield} />Opciones seguras al finalizar la compra
-            </h4>
+            <h5 className="subtotal-carrito-price d-flex align-items-center justify-content-center">
+              <div className="d-flex"><FontAwesomeIcon icon={faShield} /></div>Opciones seguras al finalizar la compra
+            </h5>
             <img
               src={paymentMethods}
               alt="example"
-              width="500px"
+              width="auto"
               height="50px"
-              className="border d-flex align-items-center justify-content-center"
+              className="border d-flex align-items-center justify-content-center mx-3"
             />
             {/* ---- // SUBTOTAL MAS ENVIO Y PRECIO // ---- */}
             <div className="subtotal-envio-precio-metodo-de-pago row">
