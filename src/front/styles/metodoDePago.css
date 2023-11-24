@@ -98,3 +98,13 @@
     padding: 8px;
     font-size: 24px;
 }
+/* LOGO MASTERCARD , VISA ,  PAYPAL */
+.mastercardLogoMetodoDePago, .visaLogoMetodoDePago,  .paypalLogoMetodoDePago {
+    width: 30px; 
+    height: 30px; 
+}
+/* LOGO WEBPAY  */
+.webpayLogoMetodoDePago{
+    width: 45px; 
+    height: 30px; 
+}

@@ -1,5 +1,10 @@
 import React from "react";
-import "../../styles/metodoDePago.css"
+import "../../styles/metodoDePago.css";
+
+import mastercardLogo from "../../img/mastercardLogo.png";
+import visaLogo from "../../img/visaLogo.png";
+import webpayLogo from "../../img/webpayLogo.png";
+import paypalLogo from "../../img/paypalLogo.png";
 
 const MetodoDePago = () => {
     return (
@@ -31,16 +36,21 @@ const MetodoDePago = () => {
                     <div className="container-input-checkbox-metodo-de-pago">
                         <input type="radio" className="checkbox-metodos-de-pago-tarjetas form-check-input" name="metodo-de-pago" id="tarjetaDeCredito" />
                         <label className="h4 m-0 form-check-label">Tarjeta de crédito</label>
+                        <img src={mastercardLogo} alt="Tarjeta de crédito" className="mastercardLogoMetodoDePago md-3 ms-md-auto " />
+                        <img src={visaLogo} alt="Tarjeta de crédito" className="visaLogoMetodoDePago float-md-end mb-3 ms-md-3" />
                     </div>
 
                     <div className="container-input-checkbox-metodo-de-pago">
                         <input type="radio" className="checkbox-metodos-de-pago-tarjetas form-check-input" name="metodo-de-pago" id="tarjetaDeDebito" />
                         <label className="h4 m-0 form-check-label">Tarjeta de débito</label>
+                        <img src={webpayLogo} alt="Tarjeta de crédito" className="webpayLogoMetodoDePago ms-auto" />
+
                     </div>
 
                     <div className="container-input-checkbox-metodo-de-pago">
                         <input type="radio" className="checkbox-metodos-de-pago-tarjetas form-check-input" name="metodo-de-pago" id="pagoConPaypal" />
                         <label className="h4 m-0 form-check-labels">Pago con Paypal</label>
+                        <img src={paypalLogo} alt="Tarjeta de crédito" className="paypalLogoMetodoDePago ms-auto" />
                     </div>
                 </div>
 
