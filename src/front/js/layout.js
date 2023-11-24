@@ -17,7 +17,9 @@ import Single from "./pages/single.js";
 import Favoritos from "./pages/favoritos.jsx";
 import HistorialCompra from "./pages/historialCompra.jsx";
 import MetodoDePago from "./pages/metodoDePago.jsx";
+
 import DetallesPedido from "./pages/DetallesPedido.jsx";
+import MetodoDePagoRevisar from "./pages/metodoDePagoRevisar.jsx";
 
 
 //create your first component
@@ -43,6 +45,7 @@ const Layout = () => {
                         <Route element={<CambiarDireccion />} path="/cambiar-direccion" />
                         <Route element={<HistorialCompra />} path="/historial-compra" />
                         <Route element={<MetodoDePago />} path="/metodo-de-pago" />
+                        <Route element={<MetodoDePagoRevisar />} path="/metodo-de-pago-revisar" />
                         <Route element={<Favoritos />} path="/favoritos" />
                         <Route element={<DetallesPedido />} path="/detalles-pedido" />
                         <Route element={<h1>Not found!</h1>} />
