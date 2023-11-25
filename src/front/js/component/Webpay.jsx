@@ -1,44 +1,16 @@
-import React, { useState } from "react";
-import Cards from 'react-credit-cards'
-import 'react-credit-cards/es/styles-compiled.css'
-
+import React from "react";
 import pagoTarjetaDeCredito from "../../styles/pagoTarjetaDeCredito.css";
 
-const TarjetaDeCredito = () => {
 
-    const [state, setState] = useState({
-        number: "",
-        name: "",
-        expiry: "",
-        cvc: "",
-        focus: ""
-    })
+const Webpay = () => {
+    return(
+        <>
+        <h1>webpay</h1>
 
-    const handleInputChange = (e) => {
-        setState({
-            ...state,
-            [e.target.name]: e.target.value
-        })
-    }
-
-    const handleFocusChange = (e) => {
-        setState({
-            ...state,
-            focus: e.target.name
-        })
-    }
-
-    return (
         <div className="card card-tarjeta-de-credito">
             <div className="card-body card-body-tarjeta-de-credito">
 
-                < Cards
-                    number={state.number}
-                    name={state.name}
-                    expiry={state.expiry}
-                    cvc={state.cvc}
-                    focused={state.focus}
-                />
+                
                 <form>
                     {/* numero de tarjeta */}
                     <div className="form-group">
@@ -49,8 +21,7 @@ const TarjetaDeCredito = () => {
                             id="number-tarjeta"
                             maxLength="16"
                             className="form-control"
-                            onChange={handleInputChange}
-                            onFocus={handleFocusChange}
+                            
                         />
                     </div>
                     {/*  nombre tarjeta */}
@@ -62,8 +33,7 @@ const TarjetaDeCredito = () => {
                             id="name-tarjeta"
                             maxLength="40"
                             className="form-control"
-                            onChange={handleInputChange}
-                            onFocus={handleFocusChange}
+                        
                         />
                     </div>
                     {/* fecha de expiracion tarjeta */}
@@ -76,9 +46,8 @@ const TarjetaDeCredito = () => {
                                 id="expiryTarjeta"
                                 maxLength="4"
                                 className="form-control"
-                                onChange={handleInputChange}
-                                onFocus={handleFocusChange}
-                            />
+                                />
+                               
                         </div>
                         {/* CVC tarjeta */}
                         <div className="form-group col-md-6">
@@ -89,8 +58,7 @@ const TarjetaDeCredito = () => {
                                 id="cvcTarjeta"
                                 maxLength="4"
                                 className="form-control"
-                                onChange={handleInputChange}
-                                onFocus={handleFocusChange}
+                           
                             />
                         </div>
                     </div>
@@ -101,7 +69,7 @@ const TarjetaDeCredito = () => {
 
         </div>
 
-
+        </>
     )
 }
-export default TarjetaDeCredito;
+export default Webpay;

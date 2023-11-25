@@ -2,6 +2,8 @@ import React from "react";
 import Direccion from "../component/Direccion.jsx";
 
 import PagoTarjetaDeCredito from "../component/PagoTarjetaCredito.jsx"
+import Webpay from "../component/Webpay.jsx";
+import Paypal from "../component/Paypal.jsx";
 
 import "../../styles/metodoDePagoRevisar.css";
 import { Link } from "react-router-dom";
@@ -26,20 +28,22 @@ const MetodoDePagoRevisar = ({metodoSeleccionado}) => {
                 <h5 className="texto-barra-proceso-pago">Revisar</h5>
             </div>
             <div>
-                <h4>Metodo de Pago Seleccionado:</h4> componente formulario de pago
+                <h4>Metodo de Pago Seleccionado:</h4> 
                 <p>{metodoSeleccionado}</p>
                 <PagoTarjetaDeCredito />
+                <Webpay />
+                <Paypal />
             </div>
 
             {/* DIRECCION DE ENVIO */}
             <div>
-                <h4>Direccion de envio:</h4>
+                <h4 className="direccion-de-envio pt-4">Direccion de envio:</h4>
               {/*  COMPONENTE DIRECCION */}
                 <Direccion />
             </div>
 
             {/* BOTON PARA PAGAR */}
-            <div className="boton-para-pagar">
+            <div className="boton-para-pagar p-3">
             <button type="button" class="btn btn-dark btn-lg">Pagar</button> 
 
             </div>
