@@ -1,6 +1,8 @@
 import React from 'react';
 import rigoBaby from '../../img/rigo-baby.jpg'
-
+import {
+    Link,
+} from "react-router-dom";
 import "../../styles/carrito.css";
 
 const Carrito = () => {
@@ -87,9 +89,9 @@ const Carrito = () => {
                             <div className="col-6 ps-2">
                                 <h5>$$$</h5>
                             </div>
-                            <button type="button" href="#" className="col-12 btn-confirmar-pedido-carrito">
+                            <Link to="/detalles-pedido">
                                 Confirmar
-                            </button>
+                            </Link>
 
                         </div>
                     </div>
