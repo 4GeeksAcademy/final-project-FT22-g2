@@ -1,9 +1,49 @@
 import React from "react";
+import Direccion from "../component/Direccion.jsx";
 
-const MetodoDePagoRevisar = () => {
+import PagoTarjetaDeCredito from "../component/PagoTarjetaCredito.jsx"
+
+import "../../styles/metodoDePagoRevisar.css";
+import { Link } from "react-router-dom";
+
+const MetodoDePagoRevisar = ({metodoSeleccionado}) => {
     return (
       
-        <div className="container-metodo-de-pago-revisar">
+        <div className="container-fluid container-vista-metodo-de-pago-revisar">
+             {/* TITULO Y BOTÓN PARA REGRESAR A VISTA ANTERIOR */}
+             <div className="title-regresar-anterior-vista row">
+                {/* VISTA PREVIA */}
+                <Link to={"/metodo-de-pago"}>
+                <button type="button" className="button-regresar-anterior-vista col-1"><i class="fa-solid fa-arrow-left"></i></button>
+                </Link>                
+                <h3 className="col-10">Confirmar compra</h3>
+            </div>
+
+            {/* ---- // BARRA PROCESO DE PAGO // ---- */}
+            <div className="proceso-de-pago-barra-pago-revisar">
+                <h5 className="texto-barra-proceso-pago">Carro</h5>
+                <h5 className="texto-barra-proceso-pago">Pago</h5>
+                <h5 className="texto-barra-proceso-pago">Revisar</h5>
+            </div>
+            <div>
+                <h4>Metodo de Pago Seleccionado:</h4> componente formulario de pago
+                <p>{metodoSeleccionado}</p>
+                <PagoTarjetaDeCredito />
+            </div>
+
+            {/* DIRECCION DE ENVIO */}
+            <div>
+                <h4>Direccion de envio:</h4>
+              {/*  COMPONENTE DIRECCION */}
+                <Direccion />
+            </div>
+
+            {/* BOTON PARA PAGAR */}
+            <div className="boton-para-pagar">
+            <button type="button" class="btn btn-dark btn-lg">Pagar</button> 
+
+            </div>
+            
             
         </div>
 

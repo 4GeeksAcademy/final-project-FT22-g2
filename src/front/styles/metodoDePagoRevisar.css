@@ -1,0 +1,30 @@
+/* CONTENEDOR GENERAL */
+.container-vista-metodo-de-pago-revisar {
+    width: 35%;
+    margin: 30px auto;
+    text-align: center;
+}
+/* BARRA PARA MARCAR PROCESO DE PAGO [ Carro, Pago, Revisar ] */
+.proceso-de-pago-barra-pago-revisar {
+    display: flex;
+    margin: 20px auto;
+    justify-content: space-evenly;
+}
+.texto-barra-proceso-pago-revisar {
+    width: 25%;
+    padding-bottom: 15px;
+    border-bottom: 2px blue solid;
+}
+
+/* BOTÓN REGRESAR ANTERIOR VISTA */
+.button-regresar-anterior-vista {
+    border: none;
+    background: none;
+    font-size: 24px;
+    padding: 0;
+    margin: 0;
+}
+
+.button-regresar-anterior-vista:active {
+    color: rgb(156, 71, 71);
+}

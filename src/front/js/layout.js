@@ -45,7 +45,7 @@ const Layout = () => {
                         <Route element={<CambiarDireccion />} path="/cambiar-direccion" />
                         <Route element={<HistorialCompra />} path="/historial-compra" />
                         <Route element={<MetodoDePago />} path="/metodo-de-pago" />
-                        <Route element={<MetodoDePagoRevisar />} path="/metodo-de-pago-revisar" />
+                        <Route element={<MetodoDePagoRevisar />} path="/metodo-de-pago/:payment" />
                         <Route element={<Favoritos />} path="/favoritos" />
                         <Route element={<DetallesPedido />} path="/detalles-pedido" />
                         <Route element={<h1>Not found!</h1>} />

@@ -1,7 +1,7 @@
 /* CONTENEDOR GENERAL */
 .container-vista-metodo-de-pago {
     width: 35%;
-    height: 70vh;
+    /* height: 70vh; */
     margin: 30px auto;
     text-align: center;
 }
