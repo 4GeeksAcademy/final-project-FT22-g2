@@ -4,7 +4,7 @@ import rigoBaby from "../../img/rigo-baby.jpg";
 import paymentMethods from "../../img/paymentMethods.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
-import { faShield } from "@fortawesome/free-solid-svg-icons";
+import { faShieldHalved } from "@fortawesome/free-solid-svg-icons";
 
 const OrderDetails = () => {
   const products = [
@@ -51,14 +51,14 @@ const OrderDetails = () => {
         </div>
 
 
-        <div className="p-3">
+        <div className="p-2">
           {/* CONTENIDO DE PRODUCTOS CARRITO */}
           <div className="contenedor-carrito-hover">
             {/* PRODUCT EXAMPLE CARRITO */}
 
             {products.map((product) => (
               <div className="product-example-carrito-hover text-nowrap d-flex m-3 px-3">
-                <div className="product-image m-2">
+                <div className="product-image m-3">
                   <img
                     src={rigoBaby}
                     alt="example"
@@ -68,20 +68,20 @@ const OrderDetails = () => {
                   />
                 </div>
                 {/* INFORMACIÓN DE PRODUCTO */}
-                <div className="product-info-carrito-hover m-3 px-3">
+                <div className="product-info-carrito-hover col col-md-6 m-3 px-3">
                   <h5 className="text-start">{product.name}</h5>
-                  <p className="text-start">{product.quantity} unidad</p>
+                  <p className="text-start text-secondary">{product.quantity} unidad</p>
 
                   {/* ---- // SUBTOTAL MAS ENVIO Y PRECIO // ---- */}
                   <div className="row">
                     <div className="col-6 text-start">
-                      <p ><strong>Precio</strong></p>
+                      <p><strong>Precio</strong></p>
                       <p><strong>Envío</strong></p>
                     </div>
 
                     <div className="col-6 text-end">
-                      <p className="px-5">{product.price}</p>
-                      <p>Gratis</p>
+                      <p className="px-4 mx-4">{product.price}</p>
+                      <p className="px-4 mx-4">Gratis</p>
                     </div>
                   </div>
                 </div>
@@ -94,15 +94,17 @@ const OrderDetails = () => {
           </div>
 
           <div className="container-price-button-cart">
-            <h5 className="subtotal-carrito-price d-flex align-items-center justify-content-center">
-              <div className="d-flex"><FontAwesomeIcon icon={faShield} /></div>Opciones seguras al finalizar la compra
+            <h5 className="subtotal-carrito-price d-flex align-items-center justify-content-center py-2">
+              <div className="d-flex"><FontAwesomeIcon icon={faShieldHalved} /></div>Opciones seguras al finalizar la compra
             </h5>
             <img
               src={paymentMethods}
               alt="example"
               width="auto"
-              height="50px"
-              className="border d-flex align-items-center justify-content-center mx-3"
+              margin_rigth="10px"
+              margin-left="10px"
+              height="auto"
+              className="border d-flex align-items-center justify-content-center mx-5"
             />
 
             {/* ---- // PRECIO TOTAL // ---- */}
