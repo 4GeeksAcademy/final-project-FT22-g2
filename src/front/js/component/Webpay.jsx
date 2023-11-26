@@ -1,73 +1,90 @@
 import React from "react";
 import pagoTarjetaDeCredito from "../../styles/pagoTarjetaDeCredito.css";
+import webpayLogo from "../../img/webpayLogo.png"
 
 
 const Webpay = () => {
-    return(
+    return (
         <>
-        <h1>webpay</h1>
 
-        <div className="card card-tarjeta-de-credito">
-            <div className="card-body card-body-tarjeta-de-credito">
+            <div className="card card-tarjeta-de-credito">
+                <div className="card-body card-body-tarjeta-de-credito">
+                    <img src={webpayLogo} alt="Tarjeta de crédito" className="webpayLogo ms-auto"
+                        style={{ maxWidth: '150px', height: 'auto', marginRight: 'auto', paddingBottom: '15px' }} />
 
-                
-                <form>
-                    {/* numero de tarjeta */}
-                    <div className="form-group">
-                        <label htmlFor="number">Número de la tarjeta</label>
-                        <input
-                            type="text"
-                            name="number"
-                            id="number-tarjeta"
-                            maxLength="16"
-                            className="form-control"
-                            
-                        />
-                    </div>
-                    {/*  nombre tarjeta */}
-                    <div className="form-group">
-                        <label htmlFor="name">Nombre</label>
-                        <input
-                            type="text"
-                            name="name"
-                            id="name-tarjeta"
-                            maxLength="40"
-                            className="form-control"
-                        
-                        />
-                    </div>
-                    {/* fecha de expiracion tarjeta */}
-                    <div className="form-row">
-                        <div className="form-group col-md-6">
-                            <label htmlFor="expiry">Fecha de expiración</label>
-                            <input
-                                type="text"
-                                name="expiry"
-                                id="expiryTarjeta"
-                                maxLength="4"
-                                className="form-control"
-                                />
-                               
+
+                    <form>
+
+                        {/* Banco */}
+                        <div className="form-group p-3">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Banco</option>
+                                <option value="1">Banco de Chile</option>
+                                <option value="2">Banco Falabella</option>
+                                <option value="3">Banco BCI</option>
+                                <option value="3">Banco ITAÚ</option>
+                                <option value="3">Banco Ripley</option>
+                                <option value="3">Banco Estado</option>
+                            </select>
                         </div>
-                        {/* CVC tarjeta */}
-                        <div className="form-group col-md-6">
-                            <label htmlFor="cvc">CVC</label>
+                        {/* numero de tarjeta */}
+                        <div className="form-group p-3">
+                            <label htmlFor="number">Número de la tarjeta</label>
                             <input
                                 type="text"
-                                name="cvc"
-                                id="cvcTarjeta"
-                                maxLength="4"
+                                name="number"
+                                id="number-tarjeta"
+                                maxLength="16"
                                 className="form-control"
-                           
+
                             />
                         </div>
-                    </div>
+                        {/*  nombre tarjeta */}
+                        <div className="form-group p-3">
+                            <label htmlFor="name">Nombre</label>
+                            <input
+                                type="text"
+                                name="name"
+                                id="name-tarjeta"
+                                maxLength="40"
+                                className="form-control"
 
-                </form>
+                            />
+                        </div>
+                        {/* fecha de expiracion tarjeta */}
+                        <div className="form-row">
+                            <div className="form-group col-md-6">
+                                <label htmlFor="expiry">Fecha de expiración</label>
+                                <input
+                                    type="text"
+                                    name="expiry"
+                                    id="expiryTarjeta"
+                                    maxLength="4"
+                                    className="form-control"
+                                />
+
+                            </div>
+                            {/* CVC tarjeta */}
+                            <div className="col-md-6">
+                                <label htmlFor="cvc">CVC</label>
+                                <input
+                                    type="text"
+                                    name="cvc"
+                                    id="cvcTarjeta"
+                                    maxLength="4"
+                                    className="form-control"
+                                />
+                            </div>
+                        </div>
+
+                    </form>
+                    <div class="d-grid gap-2 col-6 mx-auto p-1">
+                    <button class="btn btn-primary" type="button">Pagar</button>
+                </div>
+
+                </div>
 
             </div>
-
-        </div>
 
         </>
     )
