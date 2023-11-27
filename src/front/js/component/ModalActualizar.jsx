@@ -1,5 +1,4 @@
 import React from 'react';
-import { Modal, Button } from 'react-bootstrap';
 import copasDeVino from "../../img/copasDeVino.png";
 
 const ModalActualizar = ({ showModal, handleCloseModal }) => {
