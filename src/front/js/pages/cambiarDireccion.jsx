@@ -18,12 +18,12 @@ const CambiarDireccion = () => {
                     </div>
                     {/* nombre usuario */}
                     <div className="user-name text-center pb-3">
-                        <h2 className="name">Batman</h2>
+                        <h2 className="name">Nombre de usuario</h2>
                     </div>
                     {/* COMPONENTE DIRECCION*/}
                    <Direccion />
                     {/* boton actualizar */}
-                    <div class="d-grid gap-2 col-6 mx-auto mb-3 boton-actualizar-cambiarDireccion">
+                    <div class="d-grid gap-2 col-6 mx-auto mb-3 p-5 boton-actualizar-cambiarDireccion">
                         <button class="btn btn-dark w-100" type="submit">Actualizar</button>
                     </div>
                 </form>

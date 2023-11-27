@@ -27,7 +27,7 @@ const LogIn = () => {
                         </div>
                         <div>
                             {/*  boton ingresar */}
-                            <div className="boton-login col-12 mx-auto m-3" data-bs-dismiss="modal">
+                            <div className="boton-login col-12 mx-auto m-3 " data-bs-dismiss="modal">
                                 <Link to="/perfil" className="btn btn-dark data-bs-dismiss w-100 " >Ingresar</Link>
                             </div>
                             {/*   boton google */}
