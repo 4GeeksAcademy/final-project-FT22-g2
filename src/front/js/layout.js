@@ -20,7 +20,7 @@ import MetodoDePago from "./pages/metodoDePago.jsx";
 
 import DetallesPedido from "./pages/DetallesPedido.jsx";
 import MetodoDePagoRevisar from "./pages/metodoDePagoRevisar.jsx";
-
+import { MetodoPagoProvider } from "./component/ContextPago.jsx";
 
 //create your first component
 const Layout = () => {
@@ -32,6 +32,7 @@ const Layout = () => {
 
     return (
         <div>
+           <MetodoPagoProvider>
             <BrowserRouter basename={basename}>
                 <ScrollToTop>
                     <Navbar />
@@ -48,11 +49,13 @@ const Layout = () => {
                         <Route element={<MetodoDePagoRevisar />} path="/metodo-de-pago/:payment" />
                         <Route element={<Favoritos />} path="/favoritos" />
                         <Route element={<DetallesPedido />} path="/detalles-pedido" />
+
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />
                 </ScrollToTop>
             </BrowserRouter>
+            </MetodoPagoProvider>
         </div>
     );
 };

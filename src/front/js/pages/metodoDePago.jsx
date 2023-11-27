@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+
+import { MetodoPagoContext } from "../component/ContextPago.jsx";
 
 import mastercardLogo from "../../img/mastercardLogo.png";
 import visaLogo from "../../img/visaLogo.png";
@@ -7,15 +9,13 @@ import paypalLogo from "../../img/paypalLogo.png";
 
 import "../../styles/metodoDePago.css";
 import { Link } from "react-router-dom";
-import MetodoDePagoRevisar from "./metodoDePagoRevisar.jsx";
 
-const MetodoDePago = ({ onMetodoPagoSeleccionado }) => {
+const MetodoDePago = () => {
 
-    const [metodoSeleccionado, setMetodoSeleccionado] = useState("");
+    const { seleccionarMetodo, metodoSeleccionado } = useContext(MetodoPagoContext);
 
     const handleMetodoPagoSeleccionado = (metodo) => {
-        setMetodoSeleccionado(metodo);
-        /* onMetodoPagoSeleccionado(metodo); */ // Envía el método de pago seleccionado al componente Pago
+        seleccionarMetodo(metodo);
 
     };
 
@@ -24,8 +24,8 @@ const MetodoDePago = ({ onMetodoPagoSeleccionado }) => {
 
             {/* TITULO Y BOTÓN PARA REGRESAR A VISTA ANTERIOR */}
             <div className="title-regresar-anterior-vista row">
+                {/* VISTA PREVIA */}
                 <button type="button" className="button-regresar-anterior-vista col-1"><i class="fa-solid fa-arrow-left"></i></button>
-                {/* ESTO LINKEARLO A LA VISTA PREVIA */}
                 <h3 className="col-10">Método de pago</h3>
             </div>
 

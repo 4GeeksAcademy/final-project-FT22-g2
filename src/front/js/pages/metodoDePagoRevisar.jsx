@@ -1,23 +1,29 @@
-import React from "react";
-import Direccion from "../component/Direccion.jsx";
+import React, { useContext } from "react";
 
+import { MetodoPagoContext } from "../component/ContextPago.jsx";
 import PagoTarjetaDeCredito from "../component/PagoTarjetaCredito.jsx"
 import Webpay from "../component/Webpay.jsx";
 import Paypal from "../component/Paypal.jsx";
 
+import Direccion from "../component/Direccion.jsx";
+
 import "../../styles/metodoDePagoRevisar.css";
 import { Link } from "react-router-dom";
 
-const MetodoDePagoRevisar = ({metodoSeleccionado}) => {
+const MetodoDePagoRevisar = () => {
+    const { seleccionarMetodo, metodoSeleccionado } = useContext(MetodoPagoContext);
+
+
+
     return (
-      
+
         <div className="container-fluid container-vista-metodo-de-pago-revisar">
-             {/* TITULO Y BOTÓN PARA REGRESAR A VISTA ANTERIOR */}
-             <div className="title-regresar-anterior-vista row">
+            {/* TITULO Y BOTÓN PARA REGRESAR A VISTA ANTERIOR */}
+            <div className="title-regresar-anterior-vista row">
                 {/* VISTA PREVIA */}
                 <Link to={"/metodo-de-pago"}>
-                <button type="button" className="button-regresar-anterior-vista col-1"><i class="fa-solid fa-arrow-left"></i></button>
-                </Link>                
+                    <button type="button" className="button-regresar-anterior-vista col-1"><i class="fa-solid fa-arrow-left"></i></button>
+                </Link>
                 <h3 className="col-10">Confirmar compra</h3>
             </div>
 
@@ -28,27 +34,28 @@ const MetodoDePagoRevisar = ({metodoSeleccionado}) => {
                 <h5 className="texto-barra-proceso-pago">Revisar</h5>
             </div>
             <div>
-                <h4>Metodo de Pago Seleccionado:</h4> 
+                <h4>Metodo de Pago Seleccionado:</h4>
                 <p>{metodoSeleccionado}</p>
-                <PagoTarjetaDeCredito />
-                <Webpay />
-                <Paypal />
+                {metodoSeleccionado === "credito" && <PagoTarjetaDeCredito />}
+                {metodoSeleccionado === "debito" && <Webpay />}
+                {metodoSeleccionado === "payPal" && <Paypal />}
+
             </div>
 
             {/* DIRECCION DE ENVIO */}
             <div>
                 <h4 className="direccion-de-envio pt-4">Direccion de envio:</h4>
-              {/*  COMPONENTE DIRECCION */}
+                {/*  COMPONENTE DIRECCION */}
                 <Direccion />
             </div>
 
             {/* BOTON PARA PAGAR */}
             <div className="boton-para-pagar p-3">
-            <button type="button" class="btn btn-dark btn-lg">Pagar</button> 
+                <button type="button" class="btn btn-dark btn-lg">Pagar</button>
 
             </div>
-            
-            
+
+
         </div>
 
     )
