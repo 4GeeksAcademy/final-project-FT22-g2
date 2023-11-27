@@ -35,10 +35,6 @@ class Profile(db.Model):
     __tablename__ = "profiles"
     # Información de columnas
     id = db.Column(db.Integer, primary_key=True)
-    biografia = db.Column(db.String(120), nullable=False)
-    twitter = db.Column(db.String(120), nullable=False)
-    facebook = db.Column(db.String(120), nullable=False)
-    instagram = db.Column(db.String(120), nullable=False)
     avatar = db.Column(db.String(120), nullable=False)
     # Conexiones
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
@@ -85,6 +81,7 @@ class Producto(db.Model):
     unitFormat = db.Column(db.String(120), nullable=False)
     precio = db.Column(db.Integer, nullable=False)
     active = db.Column(db.Boolean(), nullable=False)
+    image = db.Column(db.String(200), nullable=False)
     # Conexiones
     favoritos = db.relationship("Favorito", backref="producto")
     ordenesProductos = db.relationship("OrdenProducto", backref="producto")
