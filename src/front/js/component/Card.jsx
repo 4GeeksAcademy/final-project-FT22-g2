@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+
 const Card = () => {
+
   return (
     <>
       <div className="my-5 d-flex justify-content-center">
@@ -9,7 +11,7 @@ const Card = () => {
           <div className="m-5">
             <img
               className="card-img-top img-fluid"
-              src="https://dummyimage.com/200x300/000/fff"
+              src="https://res.cloudinary.com/dipd6csl7/image/upload/v1701094806/Vinos/vino-9_fi16ge.webp"
               alt="Card image cap"
             />
           </div>
