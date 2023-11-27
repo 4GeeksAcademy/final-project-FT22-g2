@@ -44,7 +44,7 @@ const Navbar = () => {
 						<ul className="navbar-nav">
 							{/* ---- / DROPDOWN CARRITO / ---- */}
 							<li className="nav-item dropdown">
-								<a className="nav-link dropdown text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								<a className="nav-link dropdown text-white" id="navbarDropdown" type="button" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false">
 									<i class="fa-solid fa-cart-shopping px-3"></i>
 								</a>
 
@@ -150,7 +150,7 @@ const Navbar = () => {
 									</Link>
 								</ul>
 							</div>
-							
+
 							{/* CONTÁCTANOS */}
 							<div className="nav-item categories-navbar-items">
 								<button type="button" className="btn-contactanos-navbar h4" data-bs-toggle="modal" data-bs-target="#ModalContact">
