@@ -18,8 +18,6 @@ export const MetodoPagoProvider = ({ children }) => {
 
 export const useMetodoPago = () => {
     const context = useContext(MetodoPagoContext);
-    //if (!context) {
-       // throw new Error("Debes seleccionar un metodo de pago");
-   // }
+    
     return context;
 };

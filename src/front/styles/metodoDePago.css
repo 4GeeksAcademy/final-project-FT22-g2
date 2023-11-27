@@ -27,7 +27,7 @@
 }
 
 /* BOTÓN REGRESAR ANTERIOR VISTA */
-.button-regresar-anterior-vista {
+.button-regresar-anterior-vista, .flecha-vista-anterior {
     border: none;
     background: none;
     font-size: 24px;

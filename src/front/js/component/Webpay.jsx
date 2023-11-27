@@ -52,7 +52,7 @@ const Webpay = () => {
                             />
                         </div>
                         {/* fecha de expiracion tarjeta */}
-                        <div className="form-row">
+                        <div className="form row">
                             <div className="form-group col-md-6">
                                 <label htmlFor="expiry">Fecha de expiración</label>
                                 <input
@@ -78,10 +78,7 @@ const Webpay = () => {
                         </div>
 
                     </form>
-                    <div class="d-grid gap-2 col-6 mx-auto p-1">
-                    <button class="btn btn-primary" type="button">Pagar</button>
-                </div>
-
+                   
                 </div>
 
             </div>
