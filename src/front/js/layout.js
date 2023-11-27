@@ -16,8 +16,13 @@ import PerfilUsuario from "./pages/perfilUsuario.js";
 import Single from "./pages/single.js";
 import Favoritos from "./pages/favoritos.jsx";
 import HistorialCompra from "./pages/historialCompra.jsx";
+
 import DetallesPedido from "./pages/DetallesPedido.jsx";
 import MetodoDePago from "./pages/metodoDePago.jsx";
+
+import MetodoDePagoRevisar from "./pages/metodoDePagoRevisar.jsx";
+import { MetodoPagoProvider } from "./component/ContextPago.jsx";
+
 //create your first component
 const Layout = () => {
     //the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -28,26 +33,30 @@ const Layout = () => {
 
     return (
         <div>
-            <BrowserRouter basename={basename}>
-                <ScrollToTop>
-                    <Navbar />
-                    <Routes>
-                        <Route element={<Home />} path="/" />
-                        <Route element={<Carrito />} path="/carrito" />
-                        <Route element={<Single />} path="/producto" />
-                        <Route element={<PerfilUsuario />} path="/perfil" />
-                        <Route element={<Registro />} path="/registro" />
-                        <Route element={<Search />} path="/busqueda" />
-                        <Route element={<CambiarDireccion />} path="/cambiar-direccion" />
-                        <Route element={<HistorialCompra />} path="/historial-compra" />
-                        <Route element={<MetodoDePago />} path="/metodo-de-pago" />
-                        <Route element={<Favoritos />} path="/favoritos" />
-                        <Route element={<DetallesPedido />} path="/detalles-pedido" />
-                        <Route element={<h1>Not found!</h1>} />
-                    </Routes>
-                    <Footer />
-                </ScrollToTop>
-            </BrowserRouter>
+            <MetodoPagoProvider>
+                <BrowserRouter basename={basename}>
+                    <ScrollToTop>
+                        <Navbar />
+                        <Routes>
+                            <Route element={<Home />} path="/" />
+                            <Route element={<Carrito />} path="/carrito" />
+                            <Route element={<Single />} path="/producto" />
+                            <Route element={<PerfilUsuario />} path="/perfil" />
+                            <Route element={<Registro />} path="/registro" />
+                            <Route element={<Search />} path="/busqueda" />
+                            <Route element={<CambiarDireccion />} path="/cambiar-direccion" />
+                            <Route element={<HistorialCompra />} path="/historial-compra" />
+                            <Route element={<MetodoDePago />} path="/metodo-de-pago" />
+                            <Route element={<MetodoDePagoRevisar />} path="/metodo-de-pago/:payment" />
+                            <Route element={<Favoritos />} path="/favoritos" />
+                            <Route element={<DetallesPedido />} path="/detalles-pedido" />
+
+                            <Route element={<h1>Not found!</h1>} />
+                        </Routes>
+                        <Footer />
+                    </ScrollToTop>
+                </BrowserRouter>
+            </MetodoPagoProvider>
         </div>
     );
 };

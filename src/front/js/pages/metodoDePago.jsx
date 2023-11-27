@@ -1,14 +1,32 @@
-import React from "react";
-import "../../styles/metodoDePago.css"
+import React, { useContext } from "react";
+
+import { MetodoPagoContext } from "../component/ContextPago.jsx";
+
+import mastercardLogo from "../../img/mastercardLogo.png";
+import visaLogo from "../../img/visaLogo.png";
+import webpayLogo from "../../img/webpayLogo.png";
+import paypalLogo from "../../img/paypalLogo.png";
+
+import "../../styles/metodoDePago.css";
 import { Link } from "react-router-dom";
 
 const MetodoDePago = () => {
+
+    const { seleccionarMetodo, metodoSeleccionado } = useContext(MetodoPagoContext);
+
+    const handleMetodoPagoSeleccionado = (metodo) => {
+        seleccionarMetodo(metodo);
+
+    };
+
     return (
-        <div className="container-vista-metodo-de-pago">
+        <div className=" container-fluid container-vista-metodo-de-pago">
 
             {/* TITULO Y BOTÓN PARA REGRESAR A VISTA ANTERIOR */}
             <div className="title-regresar-anterior-vista row">
-                <Link to="/detalles-pedido" type="button" className="button-regresar-anterior-vista col-1"><i class="fa-solid fa-arrow-left"></i></Link>
+                <Link to="/detalles-pedido" className="text-decoration-none">
+                    <button type="button" className="button-regresar-anterior-vista col-1"><i class="fa-solid fa-arrow-left"></i></button>
+                </Link>
                 <h3 className="col-10">Método de pago</h3>
             </div>
 
@@ -29,18 +47,26 @@ const MetodoDePago = () => {
                 {/* ---- // MÉTODOS DE PAGO // ---- */}
                 <div className="metodos-de-pago-tarjetas-checkbox ">
                     <div className="container-input-checkbox-metodo-de-pago">
-                        <input type="radio" className="checkbox-metodos-de-pago-tarjetas form-check-input" name="metodo-de-pago" id="tarjetaDeCredito" />
+                        <input type="radio" className="checkbox-metodos-de-pago-tarjetas form-check-input" name="metodo-de-pago"
+                            id="tarjetaDeCredito" onChange={() => handleMetodoPagoSeleccionado("credito")} />
                         <label className="h4 m-0 form-check-label">Tarjeta de crédito</label>
+                        <img src={mastercardLogo} alt="Tarjeta de crédito" className="mastercardLogoMetodoDePago md-3 ms-md-auto " />
+                        <img src={visaLogo} alt="Tarjeta de crédito" className="visaLogoMetodoDePago float-md-end mb-3 ms-md-3" />
                     </div>
 
                     <div className="container-input-checkbox-metodo-de-pago">
-                        <input type="radio" className="checkbox-metodos-de-pago-tarjetas form-check-input" name="metodo-de-pago" id="tarjetaDeDebito" />
+                        <input type="radio" className="checkbox-metodos-de-pago-tarjetas form-check-input" name="metodo-de-pago"
+                            id="tarjetaDeDebito" onChange={() => handleMetodoPagoSeleccionado("debito")} />
                         <label className="h4 m-0 form-check-label">Tarjeta de débito</label>
+                        <img src={webpayLogo} alt="Tarjeta de crédito" className="webpayLogoMetodoDePago ms-auto" />
+
                     </div>
 
                     <div className="container-input-checkbox-metodo-de-pago">
-                        <input type="radio" className="checkbox-metodos-de-pago-tarjetas form-check-input" name="metodo-de-pago" id="pagoConPaypal" />
+                        <input type="radio" className="checkbox-metodos-de-pago-tarjetas form-check-input" name="metodo-de-pago"
+                            id="pagoConPaypal" onChange={() => handleMetodoPagoSeleccionado("payPal")} />
                         <label className="h4 m-0 form-check-labels">Pago con Paypal</label>
+                        <img src={paypalLogo} alt="Tarjeta de crédito" className="paypalLogoMetodoDePago ms-auto" />
                     </div>
                 </div>
 
@@ -65,7 +91,9 @@ const MetodoDePago = () => {
 
                 {/* ---- // BOTÓN CONTINUAR SIGUIENTE VISTA // ---- */}
                 <div className="container-button-continuar-metodo-de-pago">
-                    <button className="btn btn-dark button-continuar-metodo-de-pago">Continue</button>
+                    <Link to={"/metodo-de-pago/" + metodoSeleccionado} className="btn btn-dark button-continuar-metodo-de-pago">
+                        Continue
+                    </Link>
                 </div>
 
             </form>

@@ -1,7 +1,7 @@
 /* CONTENEDOR GENERAL */
 .container-vista-metodo-de-pago {
     width: 35%;
-    height: 70vh;
+    /* height: 70vh; */
     margin: 30px auto;
     text-align: center;
 }
@@ -27,7 +27,7 @@
 }
 
 /* BOTÓN REGRESAR ANTERIOR VISTA */
-.button-regresar-anterior-vista {
+.button-regresar-anterior-vista, .flecha-vista-anterior {
     border: none;
     background: none;
     font-size: 24px;
@@ -103,4 +103,14 @@
     width: 60%;
     padding: 8px;
     font-size: 24px;
+}
+/* LOGO MASTERCARD , VISA ,  PAYPAL */
+.mastercardLogoMetodoDePago, .visaLogoMetodoDePago,  .paypalLogoMetodoDePago {
+    width: 30px; 
+    height: 30px; 
+}
+/* LOGO WEBPAY  */
+.webpayLogoMetodoDePago{
+    width: 45px; 
+    height: 30px; 
 }
