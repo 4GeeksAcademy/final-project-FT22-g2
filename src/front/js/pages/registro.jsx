@@ -23,7 +23,7 @@ const Registro = () => {
                             </div>
 
                             <div className="container-btn-registro">
-                                <button type='button' className='btn btn-secondary w-50'>Registrarme</button>
+                                <button type='button' className='btn btn-dark w-50'>Registrarme</button>
                             </div>
 
                             <div className="container-btn-registro-google">
