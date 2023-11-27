@@ -1,6 +1,5 @@
 import React from 'react';
 import rigoBaby from '../../img/rigo-baby.jpg'
-
 import "../../styles/carrito.css";
 import { Link } from 'react-router-dom';
 

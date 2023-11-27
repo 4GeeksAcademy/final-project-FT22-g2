@@ -9,7 +9,6 @@ const MetodoDePago = () => {
             {/* TITULO Y BOTÓN PARA REGRESAR A VISTA ANTERIOR */}
             <div className="title-regresar-anterior-vista row">
                 <Link to="/detalles-pedido" type="button" className="button-regresar-anterior-vista col-1"><i class="fa-solid fa-arrow-left"></i></Link>
-                {/* ESTO LINKEARLO A LA VISTA PREVIA */}
                 <h3 className="col-10">Método de pago</h3>
             </div>
 
