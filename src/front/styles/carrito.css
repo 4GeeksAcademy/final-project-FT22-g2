@@ -79,6 +79,11 @@
     background: rgb(163, 65, 65)
 }
 
+.btn-confirmar-pedido-carrito:hover {
+    text-decoration: none;
+    color: white;
+}
+
 .icon-eliminar-producto-carrito:active {
     color: grey;
 }
