@@ -194,3 +194,14 @@
 .row textarea {
     resize: none;
 }
+
+.mensaje-enviado-modal-contact {
+    margin-top: 20px;
+}
+
+.texto-mensaje-enviado-modal {
+    font-size: 35px;
+    padding-top: 40px;
+    text-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+}
