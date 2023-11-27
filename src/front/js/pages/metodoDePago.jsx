@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import Swal from "sweetalert2";
 
 import { MetodoPagoContext } from "../component/ContextPago.jsx";
 
@@ -20,7 +21,15 @@ const MetodoDePago = () => {
 
     const handleContinuar = () => {
         if (!metodoSeleccionado) {
-            alert('Por favor selecciona un método de pago');
+            
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Por favor selecciona un método de pago',
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'OK'
+            });
             return;
         }
     }
