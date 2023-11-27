@@ -16,10 +16,8 @@ import PerfilUsuario from "./pages/perfilUsuario.js";
 import Single from "./pages/single.js";
 import Favoritos from "./pages/favoritos.jsx";
 import HistorialCompra from "./pages/historialCompra.jsx";
+import DetallesPedido from "./pages/detallesPedido.jsx";
 import MetodoDePago from "./pages/metodoDePago.jsx";
-import DetallesPedido from "./pages/DetallesPedido.jsx";
-
-
 //create your first component
 const Layout = () => {
     //the basename is used when your project is published in a subdirectory and not in the root of the domain
