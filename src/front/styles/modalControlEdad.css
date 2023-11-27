@@ -11,8 +11,6 @@
     width: 40%;
 }
 
-
-
 .modal-title-control-edad {
     padding-top: 20px;
     font-weight: bold;
@@ -25,7 +23,7 @@
     font-size: x-large;
 }
 
-.modal-footer-control-control-edad {
+.modal-footer-control-edad {
     padding: 10px;
 
 }
