@@ -1,17 +1,19 @@
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import DateTime
 
 db = SQLAlchemy()
 
 # TABLAS DE USUARIO
 class User(db.Model):
     __tablename__ = "users"
+    # Información de columnas
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(120), unique=False, nullable=False)
-    lastName = db.Column(db.String(120), unique=False, nullable=False)
+    username = db.Column(db.String(120), unique=False, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
+    active = db.Column(db.Boolean(), nullable=False)
     password = db.Column(db.String(80), unique=False, nullable=False)
-    userLogin = db.relationship("UserLogin", backref="user", uselist=False)
-    historialLogin = db.relationship("HistorialLogin", backref="user", uselist=False)
+    last_login = db.Column(db.DateTime(), nullable=False)
+    # Conexiones
 
     def __repr__(self):
         return f'<User {self.email}>'
@@ -20,57 +22,80 @@ class User(db.Model):
         return {
             "id": self.id,
             "email": self.email,
-            "name": self.name,
+            "nombre": self.nombre,
             "lastName": self.lastName
             # do not serialize the password, its a security breach
         }
 
-class UserLogin(db.Model):
-    __tablename__ = "UserLogin"
+class Profile(db.Model):
+    __tablename__ = "profiles"
+    # Información de columnas
     id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(120), unique=True, nullable=False)
-    password = db.Column(db.String(80), unique=False, nullable=False)
-    users_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    biografia = db.Column(db.String(120), unique=False, nullable=False)
+    twitter = db.Column(db.String(120), unique=True, nullable=False)
+    facebook = db.Column(db.String(120), unique=True, nullable=False)
+    instagram = db.Column(db.String(120), unique=False, nullable=False)
+    avatar = db.Column(db.String(120), unique=False, nullable=False)
+    # Conexiones
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
 
-
-class HistorialLogin(db.Model):
+class Favoritos(db.Model):
+    __tablename__ = "favorito"
+    # Información de columnas
     id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(120), unique=True, nullable=False)
-    password = db.Column(db.String(80), unique=False, nullable=False)
-    users_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    # Conexiones
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+    producto_id = db.Column(db.Integer, db.ForeignKey("producto.id"), nullable=False)
 
-
-    users_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-
-class Carrito(db.Model):
-    __tablename__ = 'Carrito'
-
+class Factura(db.Model):
+    __tablename__ = "facturas"
+    # Información de columnas
     id = db.Column(db.Integer, primary_key=True)
-    users_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    producto_id = db.Column(db.Integer, db.ForeignKey('Producto.id'), nullable=False)
-    cantidad = db.Column(db.Integer, unique=False, nullable=False)
-    precio = db.Column(db.Integer, db.ForeignKey('Producto.id'), unique=False, nullable=False)   
+    numero_factura = db.Column(db.Integer, unique=True, nullable=False)
+    date = db.Column(db.DateTime(), nullable=False)
+    total = db.Column(db.Float, nullable=False)
+    status = db.Column(db.String(120), nullable=False)
+    ref = db.Column(db.String(120), nullable=False)
+    date_payed = db.Column(db.DateTime(), nullable=False)
+    type_payment = db.Column(db.String(120), nullable=False)
+    # Conexiones
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+    orden_id = db.Column(db.Integer, db.ForeignKey("orden.id"), nullable=False)
 
-    def __repr__(self):
-        return f'<Carrito {self.id}>'
-    def serialize(self):
-        return {
-            "id": self.id,
-            "cantidad": self.cantidad,
-            "precio": self.precio,
-        }
+class Orden(db.Model):
+    __tablename__ = 'ordenes'
+    id = db.Column(db.Integer, primary_key=True)
+    fecha = db.Column(db.DateTime(), nullable=False)
+    total = db.Column(db.Integer, nullable=False)
+    status = db.Column(db.String(120), nullable=False)
+    # Conexiones
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+
 class Producto(db.Model):
-    __tablename__ = 'Producto'
+    __tablename__ = 'productos'
+    id = db.Column(db.Integer, primary_key=True)
+    nombre = db.Column(db.String(120), nullable=False)
+    categoria = db.Column(db.String(120))
+    tipo = db.Column(db.String(120), nullable=False)
+    unitFormat = db.Column(db.String(120), nullable=False)
+    precio = db.Column(db.Integer, nullable=False)
+    active = db.Column(db.Boolean(), nullable=False)
+    # Conexiones
 
-    id = db.Column (db.Integer, primary_key=True)
-    nombre = db.Column (db.String(200), unique=False, nullable = False) 
-    precio = db.Column(db.Integer, unique=False, nullable=False)       
+class OrdenProducto(db.Model):
+    __tablename__ = 'ordenes_productos'
+    id = db.Column(db.Integer, primary_key=True)
+    cantidad = db.Column(db.Integer, nullable=False)
+    precio = db.Column(db.Integer, nullable=False)
+    # Conexiones
+    orden_id = db.Column(db.Integer, db.ForeignKey("orden.id"), nullable=False)
+    producto_id = db.Column(db.Integer, db.ForeignKey("producto.id"), nullable=False)
 
-    def __repr__(self):
-        return f'<Producto {self.id}>'
-    def serialize(self):
-        return {
-            "id": self.id,
-            "nombre": self.nombre,
-            "precio": self.precio,
-        }
+class FacturaProducto(db.Model):
+    __tablename__ = 'facturas_productos'
+    id = db.Column(db.Integer, primary_key=True)
+    cantidad = db.Column(db.Integer, nullable=False)
+    precio = db.Column(db.Integer, nullable=False)
+    # Conexiones
+    factura_id = db.Column(db.Integer, db.ForeignKey("factura.id"), nullable=False)
+    producto_id = db.Column(db.Integer, db.ForeignKey("producto.id"), nullable=False)
