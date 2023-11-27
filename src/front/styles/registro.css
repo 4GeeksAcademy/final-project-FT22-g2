@@ -18,15 +18,18 @@
 .container-inputs-registro {
     margin: 10px auto;
     width: 80%;
+    
 }
 
 .input-registro {
     width: 100%;
-    padding: 8px;
-    margin: 10px 0px;
+    padding: auto;
+    margin: 20px 0px;
     background: whitesmoke;
     border: rgb(177, 177, 177) 1px solid;
     border-radius: 10px;
+    
+   
 }
 
 #terminosYcondiciones {
