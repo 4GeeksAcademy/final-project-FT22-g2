@@ -85,7 +85,7 @@ const Direccion = () => {
                         <div class="form-check p-4">
                             <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate" />
                             <label class="form-check-label" for="flexCheckIndeterminate">
-                                Guardar esta direccion como predeterminada
+                                Guardar esta dirección como predeterminada
                             </label>
                         </div>
                     </form>

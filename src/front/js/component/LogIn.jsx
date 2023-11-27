@@ -36,10 +36,10 @@ const LogIn = () => {
                             </div>
                         </div>
                         {/* link para registro */}
-                        <div className="crear-cuenta-login">
+                        <div className="crear-cuenta-login" data-bs-dismiss="modal">
                             <span>
-                                <Link to="/registro" >
-                                    <a href="#">Crear una cuenta</a>
+                                <Link to="/registro"  style={{ textDecoration: 'none', color: 'inherit' }}>
+                                 Crear una cuenta
                                 </Link>                 
                             </span>
                         </div>
