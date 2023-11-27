@@ -80,8 +80,8 @@ const OrderDetails = () => {
           </div>
 
           <div className="container-price-button-cart">
-            <h5 className="subtotal-carrito-price d-flex align-items-center justify-content-center py-2">
-              <div className="d-flex"><FontAwesomeIcon icon={faShieldHalved} /></div>Opciones seguras al finalizar la compra
+            <h5 className="subtotal-carrito-price d-flex align-items-center justify-content-center py-3">
+              <div className="d-flex pe-1"><FontAwesomeIcon icon={faShieldHalved} /></div>Opciones seguras al finalizar la compra
             </h5>
             <img
               src={paymentMethods}
