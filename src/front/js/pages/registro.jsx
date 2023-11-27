@@ -27,7 +27,7 @@ const Registro = () => {
                             </div>
 
                             <div className="container-btn-registro-google">
-                                <button className="btn btn-danger w-75" type="button" value="Login"> Continúa con <i class="fab fa-google me-2"></i></button>
+                                <button className="btn btn-danger w-75" type="button" value="Login"disabled>(Próximamente) Continúa con <i class="fab fa-google me-2"></i></button>
                             </div>
                         </div>
                     </div>

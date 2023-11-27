@@ -32,7 +32,7 @@ const LogIn = () => {
                             </div>
                             {/*   boton google */}
                             <div className="boton-login col-12 mx-auto mb-3">
-                                <button className="btn btn-danger w-100" type="button" value="Login"> Continúa con <i className="fab fa-google me-2"></i></button>
+                                <button className="btn btn-danger w-100" type="button" value="Login" disabled> (Próximamente)Continúa con <i className="fab fa-google me-2"></i></button>
                             </div>
                         </div>
                         {/* link para registro */}
