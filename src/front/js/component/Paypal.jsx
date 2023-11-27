@@ -32,11 +32,12 @@ const Paypal = () => {
                     <div className="modal-dialog">
                         <div className="modal-content">
                             <div className="modal-header">
-                                <h5 className="modal-title" id="exampleModalLabel">Paypal</h5>
+                                <h5 className="modal-title" id="exampleModalLabel"> <img src={bigPaypal} alt="Tarjeta de crédito" className="paypalLogo ms-auto"
+                        style={{ maxWidth: '100px', height: 'auto', marginRight: 'auto' }} /></h5>
                                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div className="modal-body">
-                                Saldrá de nuestra pagina para ser redirigido a la página de Paypal...
+                                Será redirigido a nuestra pagina
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-primary" data-bs-dismiss="modal" onClick={() => window.location.href = "https://www.paypal.com/cl/home/"}>Entendido</button>

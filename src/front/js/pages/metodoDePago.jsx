@@ -16,8 +16,14 @@ const MetodoDePago = () => {
 
     const handleMetodoPagoSeleccionado = (metodo) => {
         seleccionarMetodo(metodo);
-
     };
+
+    const handleContinuar = () => {
+        if (!metodoSeleccionado) {
+            alert('Por favor selecciona un método de pago');
+            return;
+        }
+    }
 
     return (
         <div className=" container-fluid container-vista-metodo-de-pago">
@@ -91,7 +97,8 @@ const MetodoDePago = () => {
 
                 {/* ---- // BOTÓN CONTINUAR SIGUIENTE VISTA // ---- */}
                 <div className="container-button-continuar-metodo-de-pago">
-                    <Link to={"/metodo-de-pago/" + metodoSeleccionado} className="btn btn-dark button-continuar-metodo-de-pago">
+                    <Link to={"/metodo-de-pago/" + metodoSeleccionado} className="btn btn-dark button-continuar-metodo-de-pago"
+                     type="submit"  onClick={handleContinuar}>
                         Continue
                     </Link>
                 </div>
