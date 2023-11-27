@@ -14,6 +14,10 @@ class User(db.Model):
     password = db.Column(db.String(80), unique=False, nullable=False)
     last_login = db.Column(db.DateTime(), nullable=False)
     # Conexiones
+    profile = db.relationship("Profile", backref="user", uselist=False)
+    favoritos = db.relationship("Favorito", backref="user")
+    facturas = db.relationship("Factura", backref="user")
+    ordenes = db.relationship("Orden", backref="user")
 
     def __repr__(self):
         return f'<User {self.email}>'
@@ -31,13 +35,21 @@ class Profile(db.Model):
     __tablename__ = "profiles"
     # Información de columnas
     id = db.Column(db.Integer, primary_key=True)
-    biografia = db.Column(db.String(120), unique=False, nullable=False)
-    twitter = db.Column(db.String(120), unique=True, nullable=False)
-    facebook = db.Column(db.String(120), unique=True, nullable=False)
-    instagram = db.Column(db.String(120), unique=False, nullable=False)
-    avatar = db.Column(db.String(120), unique=False, nullable=False)
+    biografia = db.Column(db.String(120), nullable=False)
+    twitter = db.Column(db.String(120), nullable=False)
+    facebook = db.Column(db.String(120), nullable=False)
+    instagram = db.Column(db.String(120), nullable=False)
+    avatar = db.Column(db.String(120), nullable=False)
     # Conexiones
-    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+
+class Favorito(db.Model):
+    __tablename__ = "favoritos"
+    # Información de columnas
+    id = db.Column(db.Integer, primary_key=True)
+    # Conexiones
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    producto_id = db.Column(db.Integer, db.ForeignKey("productos.id"), nullable=False)
 
 class Factura(db.Model):
     __tablename__ = "facturas"
@@ -51,8 +63,8 @@ class Factura(db.Model):
     date_payed = db.Column(db.DateTime(), nullable=False)
     type_payment = db.Column(db.String(120), nullable=False)
     # Conexiones
-    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
-    orden_id = db.Column(db.Integer, db.ForeignKey("orden.id"), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    orden_id = db.Column(db.Integer, db.ForeignKey("ordenes.id"), nullable=False)
 
 class Orden(db.Model):
     __tablename__ = 'ordenes'
@@ -61,7 +73,8 @@ class Orden(db.Model):
     total = db.Column(db.Integer, nullable=False)
     status = db.Column(db.String(120), nullable=False)
     # Conexiones
-    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    factura = db.relationship("Factura", backref="orden", uselist=False)
 
 class Producto(db.Model):
     __tablename__ = 'productos'
@@ -73,6 +86,9 @@ class Producto(db.Model):
     precio = db.Column(db.Integer, nullable=False)
     active = db.Column(db.Boolean(), nullable=False)
     # Conexiones
+    favoritos = db.relationship("Favorito", backref="producto")
+    ordenesProductos = db.relationship("OrdenProducto", backref="producto")
+    facturasProductos = db.relationship("FacturaProducto", backref="producto")
 
 class OrdenProducto(db.Model):
     __tablename__ = 'ordenes_productos'
@@ -80,8 +96,8 @@ class OrdenProducto(db.Model):
     cantidad = db.Column(db.Integer, nullable=False)
     precio = db.Column(db.Integer, nullable=False)
     # Conexiones
-    orden_id = db.Column(db.Integer, db.ForeignKey("orden.id"), nullable=False)
-    producto_id = db.Column(db.Integer, db.ForeignKey("producto.id"), nullable=False)
+    orden_id = db.Column(db.Integer, db.ForeignKey("ordenes.id"), nullable=False)
+    producto_id = db.Column(db.Integer, db.ForeignKey("productos.id"), nullable=False)
 
 class FacturaProducto(db.Model):
     __tablename__ = 'facturas_productos'
@@ -89,5 +105,5 @@ class FacturaProducto(db.Model):
     cantidad = db.Column(db.Integer, nullable=False)
     precio = db.Column(db.Integer, nullable=False)
     # Conexiones
-    factura_id = db.Column(db.Integer, db.ForeignKey("factura.id"), nullable=False)
-    producto_id = db.Column(db.Integer, db.ForeignKey("producto.id"), nullable=False)
+    factura_id = db.Column(db.Integer, db.ForeignKey("facturas.id"), nullable=False)
+    producto_id = db.Column(db.Integer, db.ForeignKey("productos.id"), nullable=False)
