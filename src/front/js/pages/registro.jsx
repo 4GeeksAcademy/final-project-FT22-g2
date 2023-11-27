@@ -15,7 +15,7 @@ const Registro = () => {
                                     <input type="text" placeholder='Nombre' className="form-control input-registro" required />
                                     <input type="text" placeholder='Apellido' className="form-control input-registro" required />
                                     <input type="email" placeholder='Email' className="form-control input-registro" required />
-                                    <input type="password" placeholder='Contraseña' className="form-control input-registro" required />
+                                    <input type="text" placeholder='Contraseña' className="form-control input-registro" required />                                   
                                 </div>
 
                                 <div className="container-terminos-y-condiciones">
@@ -24,7 +24,7 @@ const Registro = () => {
                                 </div>
 
                                 <div className="container-btn-registro">
-                                    <button type='submit' className='btn btn-dark w-50'>Registrarme</button>
+                                    <button type='submit' className='btn btn-dark w-75'>Registrarme</button>
                                 </div>
                             </form>
 
