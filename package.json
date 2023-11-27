@@ -79,9 +79,10 @@
 		"@fortawesome/react-fontawesome": "^0.2.0",
 		"bootstrap": "^5.3.2",
 		"prop-types": "^15.6.1",
-		"react": "^16.8.4",
+		"react": "^16.14.0",
+		"react-bootstrap": "^2.9.1",
 		"react-credit-cards": "^0.8.3",
-		"react-dom": "^16.8.4",
+		"react-dom": "^16.14.0",
 		"react-polyfills": "0.0.1",
 		"react-router-dom": "^6.20.0"
 	}
