@@ -4,6 +4,7 @@ import ModalImages from "./ModalImages.jsx";
 const Gallery = () => {
   return (
     <>
+    
       <div className="container-fluid text-center image-container">
         <div className="lightbox overflow-x-scroll overflow-x-hidden">
           <div className="row justify-content-center">
