@@ -94,7 +94,7 @@ const Direccion = () => {
                         </div>
                         {/* BOTON PARA validar */}
                         <div className="boton-para-pagar p-3">
-                            <button type="submit" class="btn btn-primary btn-lg" >Validar dirección</button>
+                            <button type="submit" class="btn btn-secondary btn-lg" >Validar dirección</button>
 
                         </div>
 

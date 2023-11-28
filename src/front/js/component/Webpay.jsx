@@ -4,6 +4,8 @@ import webpayLogo from "../../img/webpayLogo.png"
 
 
 const Webpay = () => {
+    
+    
     return (
         <>
 
@@ -36,8 +38,8 @@ const Webpay = () => {
                                 id="number-tarjeta"
                                 maxLength="16"
                                 className="form-control"
-
-                            />
+                                required 
+                                />
                         </div>
                         {/*  nombre tarjeta */}
                         <div className="form-group p-3">
@@ -48,8 +50,8 @@ const Webpay = () => {
                                 id="name-tarjeta"
                                 maxLength="40"
                                 className="form-control"
-
-                            />
+                                required
+                                 />
                         </div>
                         {/* fecha de expiracion tarjeta */}
                         <div className="form row">
@@ -61,7 +63,8 @@ const Webpay = () => {
                                     id="expiryTarjeta"
                                     maxLength="4"
                                     className="form-control"
-                                />
+                                    required
+                                 />
 
                             </div>
                             {/* CVC tarjeta */}
@@ -73,8 +76,15 @@ const Webpay = () => {
                                     id="cvcTarjeta"
                                     maxLength="4"
                                     className="form-control"
+                                    required
                                 />
                             </div>
+                        </div>
+
+                      {/* BOTON PARA validar */}
+                      <div className="boton-para-pagar p-3">
+                            <button type="submit" class="btn btn-secondary btn-lg" >Validar tarjeta</button>
+
                         </div>
 
                     </form>

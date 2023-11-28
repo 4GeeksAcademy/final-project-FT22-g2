@@ -1,33 +1,52 @@
 import React, { useContext } from "react";
-import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
+import logoElRinconDelVino from "../../img/logoElRinconDelVino.png";
+import Swal from 'sweetalert2';
 
 import { MetodoPagoContext } from "../component/ContextPago.jsx";
+
 import PagoTarjetaDeCredito from "../component/PagoTarjetaCredito.jsx"
 import Webpay from "../component/Webpay.jsx";
 import Paypal from "../component/Paypal.jsx";
-
 import Direccion from "../component/Direccion.jsx";
 
 import "../../styles/metodoDePagoRevisar.css";
-import { Link } from "react-router-dom";
 
 const MetodoDePagoRevisar = () => {
     const { seleccionarMetodo, metodoSeleccionado } = useContext(MetodoPagoContext);
 
-    const handlePagar = () => {
-        if (!validate) {
-            
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Por favor selecciona un método de pago',
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'OK'
-            });
-        }
+    const pagar = () => {
+        let timerInterval;
+        Swal.fire({
+            icon: "success",
+            title: "¡Gracias por su compra!",
+            imageUrl: logoElRinconDelVino,
+            imageWidth: 250,
+            imageHeight: 180,
+            imageAlt: "Custom image",
+            html: "Será redirigido a la página principal en <b></b> milisegundos.",
+            timer: 7000,
+            timerProgressBar: true,
+            didOpen: () => {
+                Swal.showLoading();
+                const timer = Swal.getPopup().querySelector("b");
+                timerInterval = setInterval(() => {
+                    timer.textContent = `${Swal.getTimerLeft()}`;
+                }, 100);
+            },
+            willClose: () => {
+                clearInterval(timerInterval);
+            }
+        }).then((result) => {
+            /* Read more about handling dismissals below */
+            if (result.dismiss === Swal.DismissReason.timer) {
+                console.log("I was closed by the timer");
+                window.location.href = "/";
+            }
+        });
     }
+
 
 
 
@@ -67,8 +86,8 @@ const MetodoDePagoRevisar = () => {
 
             {/* BOTON PARA PAGAR */}
             <div className="boton-para-pagar p-3">
-                <button type="button" class="btn btn-dark btn-lg" onClick={handlePagar}>Pagar</button>
-
+                <button type="submit" class="btn btn-dark btn-lg" onClick={pagar}
+                >Pagar</button>
             </div>
 
 
