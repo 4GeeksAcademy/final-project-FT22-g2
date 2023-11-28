@@ -11,7 +11,7 @@ const CambiarDireccion = () => {
         <>
 
             <div className="container-formulario-cambiarDireccion">
-                <form >
+                <form className="row needs-validation" novalidate>
                     {/*  foto usuario */}
                     <div className="user-pic">
                         <img src={usuarioFoto} alt="usuario foto" className="usuarioFoto" />
@@ -23,8 +23,8 @@ const CambiarDireccion = () => {
                     {/* COMPONENTE DIRECCION*/}
                    <Direccion />
                     {/* boton actualizar */}
-                    <div class="d-grid gap-2 col-6 mx-auto mb-3 p-5 boton-actualizar-cambiarDireccion">
-                        <button class="btn btn-dark w-100" type="submit">Actualizar</button>
+                    <div className="d-grid gap-2 col-6 mx-auto mb-3 p-5 boton-actualizar-cambiarDireccion">
+                        <button className="btn btn-dark w-100" type="submit">Actualizar</button>
                     </div>
                 </form>
             </div>

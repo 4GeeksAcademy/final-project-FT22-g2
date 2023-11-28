@@ -15,8 +15,8 @@ import { Link } from "react-router-dom";
 const MetodoDePagoRevisar = () => {
     const { seleccionarMetodo, metodoSeleccionado } = useContext(MetodoPagoContext);
 
-    const handleContinuar = () => {
-        if (!metodoSeleccionado) {
+    const handlePagar = () => {
+        if (!validate) {
             
             Swal.fire({
                 icon: 'error',
@@ -67,7 +67,7 @@ const MetodoDePagoRevisar = () => {
 
             {/* BOTON PARA PAGAR */}
             <div className="boton-para-pagar p-3">
-                <button type="button" class="btn btn-dark btn-lg" onClick={handleContinuar}>Pagar</button>
+                <button type="button" class="btn btn-dark btn-lg" onClick={handlePagar}>Pagar</button>
 
             </div>
 
