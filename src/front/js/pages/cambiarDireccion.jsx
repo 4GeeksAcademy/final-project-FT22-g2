@@ -27,20 +27,20 @@ const CambiarDireccion = () => {
     return (
         <>
             <div className="container-formulario-cambiarDireccion">
-                <form onSubmit={handleActualizar}>
-                    {/* foto usuario */}
+                <form className="row needs-validation" novalidate>
+                    {/*  foto usuario */}
                     <div className="user-pic">
                         <img src={usuarioFoto} alt="usuario foto" className="usuarioFoto" />
                     </div>
                     {/* nombre usuario */}
                     <div className="user-name text-center pb-3">
-                        <h2 className="name">Batman</h2>
+                        <h2 className="name">Nombre de usuario</h2>
                     </div>
                     {/* COMPONENTE DIRECCION*/}
                     <Direccion />
                     {/* boton actualizar */}
-                    <div className="d-grid gap-2 col-6 mx-auto mb-3 mt-3 boton-actualizar-cambiarDireccion">
-                        <button className="btn btn-dark w-100" type="submit">Actualizar</button>
+                    <div class="d-grid gap-2 col-6 mx-auto mb-3 boton-actualizar-cambiarDireccion">
+                        <button class="btn btn-dark w-100" type="submit">Actualizar</button>
                     </div>
                 </form>
 

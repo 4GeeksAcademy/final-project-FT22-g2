@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import Swal from "sweetalert2";
 
 import { MetodoPagoContext } from "../component/ContextPago.jsx";
 
@@ -16,8 +17,22 @@ const MetodoDePago = () => {
 
     const handleMetodoPagoSeleccionado = (metodo) => {
         seleccionarMetodo(metodo);
-
     };
+
+    const handleContinuar = () => {
+        if (!metodoSeleccionado) {
+            
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Por favor selecciona un método de pago',
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'OK'
+            });
+            return;
+        }
+    }
 
     return (
         <div className=" container-fluid container-vista-metodo-de-pago">
@@ -91,7 +106,8 @@ const MetodoDePago = () => {
 
                 {/* ---- // BOTÓN CONTINUAR SIGUIENTE VISTA // ---- */}
                 <div className="container-button-continuar-metodo-de-pago">
-                    <Link to={"/metodo-de-pago/" + metodoSeleccionado} className="btn btn-dark button-continuar-metodo-de-pago">
+                    <Link to={"/metodo-de-pago/" + metodoSeleccionado} className="btn btn-dark button-continuar-metodo-de-pago"
+                     type="submit"  onClick={handleContinuar}>
                         Continue
                     </Link>
                 </div>

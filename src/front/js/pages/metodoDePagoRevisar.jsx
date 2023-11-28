@@ -1,4 +1,6 @@
 import React, { useContext } from "react";
+import Swal from "sweetalert2";
+
 
 import { MetodoPagoContext } from "../component/ContextPago.jsx";
 import PagoTarjetaDeCredito from "../component/PagoTarjetaCredito.jsx"
@@ -12,6 +14,20 @@ import { Link } from "react-router-dom";
 
 const MetodoDePagoRevisar = () => {
     const { seleccionarMetodo, metodoSeleccionado } = useContext(MetodoPagoContext);
+
+    const handlePagar = () => {
+        if (!validate) {
+            
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Por favor selecciona un método de pago',
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'OK'
+            });
+        }
+    }
 
 
 
@@ -34,7 +50,7 @@ const MetodoDePagoRevisar = () => {
                 <h5 className="texto-barra-proceso-pago">Revisar</h5>
             </div>
             <div>
-                <h4>Metodo de Pago Seleccionado:</h4>
+                <h4>Método de Pago Seleccionado:</h4>
                 <p>{metodoSeleccionado}</p>
                 {metodoSeleccionado === "credito" && <PagoTarjetaDeCredito />}
                 {metodoSeleccionado === "debito" && <Webpay />}
@@ -44,14 +60,14 @@ const MetodoDePagoRevisar = () => {
 
             {/* DIRECCION DE ENVIO */}
             <div>
-                <h4 className="direccion-de-envio pt-4">Direccion de envio:</h4>
+                <h4 className="direccion-de-envio pt-4">Dirección de envío:</h4>
                 {/*  COMPONENTE DIRECCION */}
                 <Direccion />
             </div>
 
             {/* BOTON PARA PAGAR */}
             <div className="boton-para-pagar p-3">
-                <button type="button" class="btn btn-dark btn-lg">Pagar</button>
+                <button type="button" class="btn btn-dark btn-lg" onClick={handlePagar}>Pagar</button>
 
             </div>
 
@@ -60,4 +76,5 @@ const MetodoDePagoRevisar = () => {
 
     )
 }
+
 export default MetodoDePagoRevisar;
