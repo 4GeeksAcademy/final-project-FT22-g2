@@ -92,7 +92,7 @@ const MetodoDePago = () => {
                 {/* ---- // BOTÓN CONTINUAR SIGUIENTE VISTA // ---- */}
                 <div className="container-button-continuar-metodo-de-pago">
                     <Link to={"/metodo-de-pago/" + metodoSeleccionado} className="btn btn-dark button-continuar-metodo-de-pago">
-                        Continue
+                        Continuar
                     </Link>
                 </div>
 
