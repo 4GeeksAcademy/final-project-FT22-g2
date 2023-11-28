@@ -3,6 +3,7 @@ import copasDeVino from "../../img/copasDeVino.png";
 
 const ModalActualizar = ({ showModal, handleCloseModal }) => {
     return (
+       
         <Modal show={showModal} onHide={handleCloseModal}>
             <Modal.Header closeButton>
                 <Modal.Title>Datos actualizados</Modal.Title>
@@ -18,7 +19,9 @@ const ModalActualizar = ({ showModal, handleCloseModal }) => {
                 </Button>
             </Modal.Footer>
         </Modal>
+      
     );
 };
+
 
 export default ModalActualizar;

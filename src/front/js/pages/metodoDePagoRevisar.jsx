@@ -39,7 +39,6 @@ const MetodoDePagoRevisar = () => {
                 clearInterval(timerInterval);
             }
         }).then((result) => {
-            /* Read more about handling dismissals below */
             if (result.dismiss === Swal.DismissReason.timer) {
                 console.log("I was closed by the timer");
                 window.location.href = "/";
@@ -89,8 +88,6 @@ const MetodoDePagoRevisar = () => {
                 <button type="submit" className="btn btn-dark btn-lg boton-para-pagar" onClick={pagar}
                 >Pagar</button>
             </div>
-
-
         </div>
 
     )
