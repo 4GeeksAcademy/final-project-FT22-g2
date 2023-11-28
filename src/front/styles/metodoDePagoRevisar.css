@@ -28,3 +28,7 @@
 .button-regresar-anterior-vista:active {
     color: rgb(156, 71, 71);
 }
+.boton-para-pagar{
+    width: 350px;
+    font-size: x-large;
+}

@@ -85,8 +85,8 @@ const MetodoDePagoRevisar = () => {
             </div>
 
             {/* BOTON PARA PAGAR */}
-            <div className="boton-para-pagar p-3">
-                <button type="submit" class="btn btn-dark btn-lg" onClick={pagar}
+            <div className="boton-para-pagar p-5">
+                <button type="submit" className="btn btn-dark btn-lg boton-para-pagar" onClick={pagar}
                 >Pagar</button>
             </div>
 

@@ -62,12 +62,12 @@ const Direccion = () => {
                             {/* codigo postal */}
                             <div class="col-6">
                                 <label for="finputCodigoPostal" className="form-label">Código postal</label>
-                                <input type="text" className="form-control" placeholder="código postal" aria-label="Código postal" required />
+                                <input type="number" className="form-control" placeholder="código postal" aria-label="Código postal" required />
                             </div>
                             {/* Número de contacto */}
                             <div class="col-6">
                                 <label for="finputTelefono" className="form-label">Número de contacto</label>
-                                <input type="text" className="form-control" placeholder="N°de contacto" aria-label="Número de contacto" required />
+                                <input type="number" className="form-control" placeholder="N°de contacto" aria-label="Número de contacto" required />
                             </div>
                         </div>
                         {/* seleccion casa */}
@@ -93,9 +93,8 @@ const Direccion = () => {
                             </label>
                         </div>
                         {/* BOTON PARA validar */}
-                        <div className="boton-para-pagar p-3">
-                            <button type="submit" class="btn btn-secondary btn-lg" >Validar dirección</button>
-
+                        <div className="boton-actualizar-cambiarDireccion p-3">
+                            <button type="submit" class="btn btn-secondary btn-sm boton-actualizar-cambiarDireccion" >Validar dirección</button>
                         </div>
 
                     </form>
