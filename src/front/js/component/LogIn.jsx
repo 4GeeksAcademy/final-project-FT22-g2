@@ -42,19 +42,19 @@ const LogIn = () => {
                         </div>
                         <div>
                             {/*  boton ingresar */}
-                            <div className="boton-login col-12 mx-auto m-3" data-bs-dismiss="modal">
-                                <Link to="/perfil" className="btn btn-secondary data-bs-dismiss w-100 " >Ingresar</Link>
+                            <div className="boton-login col-12 mx-auto m-3 " data-bs-dismiss="modal">
+                                <Link to="/perfil" className="btn btn-dark data-bs-dismiss w-100 " >Ingresar</Link>
                             </div>
                             {/*   boton google */}
                             <div className="boton-login col-12 mx-auto mb-3">
-                                <button className="btn btn-danger w-100" type="button" value="Login"> Continúa con <i className="fab fa-google me-2"></i></button>
+                                <button className="btn btn-danger w-100" type="button" value="Login" disabled> (Próximamente)Continúa con <i className="fab fa-google me-2"></i></button>
                             </div>
                         </div>
                         {/* link para registro */}
-                        <div className="crear-cuenta-login">
+                        <div className="crear-cuenta-login" data-bs-dismiss="modal">
                             <span>
-                                <Link to="/registro" >
-                                    <a href="#">Crear una cuenta</a>
+                                <Link to="/registro" style={{ textDecoration: 'none', color: 'inherit' }}>
+                                    Crear una cuenta
                                 </Link>
                             </span>
                         </div>
