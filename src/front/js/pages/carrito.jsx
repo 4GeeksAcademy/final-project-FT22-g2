@@ -42,7 +42,7 @@ const Carrito = () => {
                             <div className="col-2 columna-vista-carrito-valor columna-vista-carrito-precio-articulo">
                                 <h2>${producto.price}</h2>
                             </div>
-                            <button onClick={() => deleteProduct(index)} className="col-1 columna-vista-carrito-valor icon-eliminar-producto-carrito btn btn-danger"><i class="text-danger fa-regular fa-trash-can"></i></button>
+                            <button onClick={() => deleteProduct(index)} className="col-1 columna-vista-carrito-valor icon-eliminar-producto-carrito"><i class="icon-hover-eliminar-producto fa-regular fa-trash-can"></i></button>
                         </div>
                     </div>
                 ))}

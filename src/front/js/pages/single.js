@@ -101,6 +101,8 @@ const Single = () => {
             aria-labelledby="your-answer-header"
             tabIndex="101"
             data-min-length=""
+            disabled
+            placeholder="- 750cc - 1 unidad"
           ></textarea>
           <div className="grippie bbr-sm" style={{ marginRight: "0px" }}></div>
         </div>

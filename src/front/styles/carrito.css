@@ -84,6 +84,14 @@
     color: white;
 }
 
-.icon-eliminar-producto-carrito:active {
-    color: grey;
+.icon-eliminar-producto-carrito {
+    font-size: 24px;
+    border: none;
+    background: #f5e2e2;
+    color: rgb(219, 5, 5);
+    padding: 0;
+}
+
+.icon-hover-eliminar-producto:hover {
+    color: rgb(122, 4, 100);
 }

@@ -6,7 +6,6 @@ import { BackendURL } from "./component/backendURL";
 import { Home } from "./pages/home";
 import { Search } from "./pages/search";
 import injectContext from "./store/appContext";
-import CambiarDireccion from "./pages/cambiarDireccion.jsx";
 
 import Navbar from "./component/Navbar.jsx";
 import Footer from "./component/footer.jsx";
@@ -44,7 +43,6 @@ const Layout = () => {
                             <Route element={<PerfilUsuario />} path="/perfil" />
                             <Route element={<Registro />} path="/registro" />
                             <Route element={<Search />} path="/busqueda" />
-                            <Route element={<CambiarDireccion />} path="/cambiar-direccion" />
                             <Route element={<HistorialCompra />} path="/historial-compra" />
                             <Route element={<MetodoDePago />} path="/metodo-de-pago" />
                             <Route element={<MetodoDePagoRevisar />} path="/metodo-de-pago/:payment" />
