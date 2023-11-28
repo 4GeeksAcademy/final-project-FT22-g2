@@ -19,14 +19,14 @@ const ModalImages = () => {
                     <div className="modal-content">
                         <div className="modal-body container">
                             <div className="row">
-                                <div className="col-5">
+                                <div className="col-md-5">
                                     <img
-                                        className="card-img-top my-2"
+                                        className="card-img-top img-fuild my-2"
                                         src="https://dummyimage.com/300x300/000/fff"
                                         alt="Card image cap"
                                     />
                                 </div>
-                                <div className="col-7 mt-3">
+                                <div className="col-md-7 mt-3">
                                     <div className="row">
                                         <h5 className="col-9 nombre-producto-modal-img">Nombre Producto</h5>
 
