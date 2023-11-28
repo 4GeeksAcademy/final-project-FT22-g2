@@ -29,9 +29,9 @@ const PerfilUsuario = () => {
           title: 'Eliminar',
           text: 'Tu cuenta ha sido eliminada',
           icon: 'success'
-        //}).then(() => {
+          //}).then(() => {
           // Redirige a la página de inicio después de confirmar la eliminación de la cuenta
-         // history.push('/');
+          // history.push('/');
         });
       }
     });
@@ -58,22 +58,13 @@ const PerfilUsuario = () => {
               <div className="profile-usermenu">
                 <ul className="nav list-group list-group-flush text-center">
 
-                  <li className="active">
+                  {/* <li className="active">
                     <a href="#">
                       Cambiar contraseña
                     </a>
-                  </li>
+                  </li> */}
 
-
-                  <Link to="/cambiar-direccion">
-                    <li>
-                      <a href="#">
-                        Cambiar direccion
-                      </a>
-                    </li>
-                  </Link>
-
-                  <Link to="/historial-compra">
+                  <Link to="/historial-compra" className="text-decoration-none">
                     <li>
                       <a href="#">
                         Historial de compras
@@ -81,7 +72,7 @@ const PerfilUsuario = () => {
                     </li>
                   </Link>
 
-                  <Link to="/favoritos">
+                  <Link to="/favoritos" className="text-decoration-none">
                     <li>
                       <a href="#">
                         Mis favoritos
@@ -100,9 +91,9 @@ const PerfilUsuario = () => {
         </div>
         {/* boton eliminar cuenta */}
         <div className="d-grid gap-2 col-6 mx-auto boton-eliminar-cuenta">
-         
+
           <button type="button" className="btn btn-danger" onClick={handleEliminarCuenta}>Eliminar cuenta</button>
-         
+
         </div>
       </div>
     </>
