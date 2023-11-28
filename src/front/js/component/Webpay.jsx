@@ -82,8 +82,8 @@ const Webpay = () => {
                         </div>
 
                       {/* BOTON PARA validar */}
-                      <div className="boton-para-pagar p-3">
-                            <button type="submit" class="btn btn-secondary btn-lg" >Validar tarjeta</button>
+                      <div className="boton-para-cambiarDireccion p-3">
+                            <button type="submit" class="btn btn-secondary btn-sm" >Validar tarjeta</button>
 
                         </div>
 
