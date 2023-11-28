@@ -3,7 +3,7 @@ import "../../styles/registro.css";
 
 const Registro = () => {
 
-    const createUserUrlAPI = "https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/admin/user/new/?url=/admin/user/";
+    const createUserUrlAPI = "https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/users";
 
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
@@ -11,6 +11,10 @@ const Registro = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        document.getElementById("username");
+        document.getElementById("email");
+        document.getElementById("password");
 
         try {
             await createUser(username, email, password);
@@ -53,6 +57,7 @@ const Registro = () => {
                                 <input
                                     value={username}
                                     type="text"
+                                    id='username'
                                     placeholder='Usuario'
                                     className="form-control input-registro"
                                     required
@@ -60,6 +65,7 @@ const Registro = () => {
                                 <input
                                     value={email}
                                     type="email"
+                                    id='email'
                                     placeholder='Email'
                                     className="form-control input-registro"
                                     required
@@ -67,6 +73,7 @@ const Registro = () => {
                                 <input
                                     value={password}
                                     type="text"
+                                    id='password'
                                     placeholder='Contraseña'
                                     className="form-control input-registro"
                                     required

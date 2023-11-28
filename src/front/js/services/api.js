@@ -15,10 +15,10 @@ export const createUser = (username) => {
         });
 };
 
-export const getUser = (username) => {
-    return fetch(getUserUrlAPI + username)
-        .then((response) => {
-            if (!response.ok) throw Error(response.statusText);
-            return response.json();
-        });
-};
+export const getUserTasks = (username) => {
+    return fetch(urlAPI + username)
+      .then((response) => {
+        if (!response.ok) throw Error(response.statusText);
+        return response.json();
+      });
+  };
