@@ -71,20 +71,7 @@ def serve_any_other_file(path):
     response.cache_control.max_age = 0  # avoid cache memory
     return response
 
-# Rutas para la tabla User
-@app.route('/users', methods=['GET', 'POST'])
-def manage_users():
-    if request.method == 'GET':
-        users = User.query.all()
-        return jsonify([user.username for user in users])
-    elif request.method == 'POST':
-        data = request.json
-        new_user = User(username=data['username'], email=data['email'], 
-                        active=data['active'], password=data['password'])
-        db.session.add(new_user)
-        db.session.commit()
-        return jsonify({'message': 'Usuario creado exitosamente'}), 201
-
+# 
 @app.route('/users/<int:user_id>', methods=['GET', 'PUT', 'DELETE'])
 def user_detail(user_id):
     user = User.query.get_or_404(user_id)
