@@ -1,4 +1,7 @@
 import React from "react";
+//import { useHistory } from 'react-router-dom';
+
+import Swal from 'sweetalert2';
 import usuarioFoto from "../../img/usuarioFoto.png";
 
 import { Link } from "react-router-dom";
@@ -8,6 +11,32 @@ import ModalCerrarSesion from "../component/ModalCerrarSesion.jsx";
 import ModalEliminarCuenta from "../component/ModalEliminarCuenta.jsx";
 
 const PerfilUsuario = () => {
+
+  //const history = useHistory();
+
+  const handleEliminarCuenta = () => {
+    Swal.fire({
+      title: '¿Estas seguro de que quieres eliminar tu cuenta?',
+      text: "¡Te perderas de nuestras mejores oferta!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, estoy seguro'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: 'Eliminar',
+          text: 'Tu cuenta ha sido eliminada',
+          icon: 'success'
+        //}).then(() => {
+          // Redirige a la página de inicio después de confirmar la eliminación de la cuenta
+         // history.push('/');
+        });
+      }
+    });
+  };
+
   return (
     <>
       <div>
@@ -71,7 +100,9 @@ const PerfilUsuario = () => {
         </div>
         {/* boton eliminar cuenta */}
         <div className="d-grid gap-2 col-6 mx-auto boton-eliminar-cuenta">
-          <button type="button" className="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalEliminarCuenta">Eliminar cuenta</button>
+         
+          <button type="button" className="btn btn-danger" onClick={handleEliminarCuenta}>Eliminar cuenta</button>
+         
         </div>
       </div>
     </>
