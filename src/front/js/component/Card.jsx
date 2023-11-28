@@ -8,7 +8,7 @@ const Card = () => {
     <>
       <div className="col-12 col-md-6 col-lg-3">
         <div className="my-5 d-flex justify-content-center">
-          <div className="card-product text-center" style={{ width: "22rem", borderRadius: "15px" }}>
+          <div className="card-product bg-light text-center" style={{ width: "22rem", borderRadius: "15px" }}>
             <div className="m-5">
               <img
                 className="card-img-top img-fluid"
@@ -27,7 +27,7 @@ const Card = () => {
                 <i className="fa-regular fa-star stars"></i>
               </p>
               <Link to="/producto">
-                <button className="btn btn-light rounded-pill">
+                <button className="btn custom-btn-card rounded-pill">
                   Ver producto
                 </button>
               </Link>

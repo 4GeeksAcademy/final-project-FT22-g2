@@ -4,11 +4,11 @@ import ModalImages from "./ModalImages.jsx";
 const Gallery = () => {
   return (
     <>
-      <div className="container-fluid text-center">
+      <div className="container-fluid text-center image-container">
         <div className="lightbox overflow-x-scroll overflow-x-hidden">
           <div className="row justify-content-center">
 
-            <div className="col-10 col-lg-5 p-2 mb-3 d-flex flex-column align-items-end">
+            <div className="col-10  col-lg-5 p-2 mb-3 d-flex flex-column align-items-end">
               <div className="mb-2"> 
                 <button type="button" className="custom-btn" data-bs-toggle="modal" data-bs-target="#ModalImages">
                   <img

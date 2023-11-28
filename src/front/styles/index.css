@@ -33,3 +33,11 @@
   margin-left: -50px;
   margin-top: -10px;
 }
+@media screen and (max-width: 1000px) {
+  .image-container {
+    display: block;
+  }
+}
+.custom-btn-card{
+  background-color: #adb5bd
+}
