@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const Carrito = () => {
     const [productos, setProductos] = useState([
         // ... productos iniciales
-        { price: 5990 }, { price: 36790 }, { price: 14870 }, { price: 16980 }
+        { price: 5990 }, { price: 36790 }, { price: 14870 }, { price: 16980 } //ejemplos provisorios
     ]);
 
     const deleteProduct = (index) => {
@@ -58,13 +58,13 @@ const Carrito = () => {
                                 <h5>Subtotal</h5>
                             </div>
                             <div className="col-6 ps-2">
-                                <h5>$$$</h5>
+                                <h5>$74.630</h5>
                             </div>
                             <div className="col-6 text-end">
                                 <h4>Total</h4>
                             </div>
                             <div className="col-6 ps-2">
-                                <h5>$$$</h5>
+                                <h5>$74.630</h5>
                             </div>
                             <Link to="/detalles-pedido" type="button" href="#" className="col-12 btn-confirmar-pedido-carrito text-decoration-none text-center">
                                 Confirmar
