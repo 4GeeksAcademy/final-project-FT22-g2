@@ -24,3 +24,12 @@
   opacity: 0.8;
   transition: opacity 0.3s ease-in-out;
 }
+
+.nombre-producto-modal-img {
+  margin-left: 55px;
+}
+
+.container-button-favorite-modal-img {
+  margin-left: -50px;
+  margin-top: -10px;
+}

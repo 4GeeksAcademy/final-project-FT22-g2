@@ -102,7 +102,7 @@ const OrderDetails = () => {
               to="/metodo-de-pago"
               className="d-flex justify-content-center text-decoration-none mb-5"
             >
-              <button type="button" href="#" className="btn-ir-al-carrito">
+              <button type="button" href="#" className="btn-ir-al-carrito bg-black text-white">
                 Continuar
               </button>
             </Link>
