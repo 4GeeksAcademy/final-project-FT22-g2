@@ -15,11 +15,11 @@ const Registro = () => {
                                     <input type="text" placeholder='Nombre' className="form-control input-registro" required />
                                     <input type="text" placeholder='Apellido' className="form-control input-registro" required />
                                     <input type="email" placeholder='Email' className="form-control input-registro" required />
-                                    <input type="text" placeholder='Contraseña' className="form-control input-registro" required />                                   
+                                    <input type="text" placeholder='Contraseña' className="form-control input-registro" required />
                                 </div>
 
                                 <div className="container-terminos-y-condiciones">
-                                    <input type="checkbox" name="terminos" id="terminosYcondiciones" className='form-check-input'required />
+                                    <input type="checkbox" name="terminos" id="terminosYcondiciones" className='form-check-input' required />
                                     <label className='terminosYcondicionesLabel'>Acepto los términos y condiciones</label>
                                 </div>
 
