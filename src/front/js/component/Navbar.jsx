@@ -31,9 +31,11 @@ const Navbar = () => {
 				<div className="d-flex justify-content-between align-items-center">
 
 					{/* ---- / LOGO / ---- */}
+					<div className="navbar-brand">
 					<Link to="/">
 						<img className="mx-5" src={logoUrl} width="130px" height="100px" />
 					</Link>
+					</div>
 
 					{/* ---- / BARRA Y BOTÓN DE BÚSQUEDA / ---- */}
 					<form>
@@ -173,6 +175,7 @@ const Navbar = () => {
 					</div>
 				</div>
 			</nav>
+			
 		</>
 
 	);
