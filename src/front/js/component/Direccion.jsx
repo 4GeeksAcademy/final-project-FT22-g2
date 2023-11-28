@@ -4,27 +4,7 @@ import "../../styles/cambiarDireccion.css";
 
 const Direccion = () => {
 
-    let form = document.querySelector(".myform");
-  form.addEventListener("submit", e => {
-    e.preventDefault();
-    let invalidInputs = form.querySelectorAll(".is-invalid");
-    for (let input of invalidInputs) {
-      input.classList.remove("is-invalid");
-      input.nextElementSibling.textContent = "";
-    }
    
-  document.querySelector("#alert").classList.remove("show");
-    document.querySelectorAll(".is-invalid").forEach(element => {
-      element.classList.remove("is-invalid");
-    });
-
-
-    let valid = true;
-    //validacion
-    if (!inputCard.value) {
-      inputCard.classList.add("is-invalid");
-      valid = false;
-
     
 
 
@@ -123,5 +103,6 @@ const Direccion = () => {
         </>
     )
 }
+
 
 export default Direccion;
