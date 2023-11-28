@@ -1,5 +1,4 @@
 import React from "react";
-//import { useHistory } from 'react-router-dom';
 
 import Swal from 'sweetalert2';
 import usuarioFoto from "../../img/usuarioFoto.png";

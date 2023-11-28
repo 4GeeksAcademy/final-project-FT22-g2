@@ -26,5 +26,11 @@
 }
 
 .boton-actualizar-cambiarDireccion {
-    width: 80%;
+    
+    align-items: center;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+     margin: 0;
 }

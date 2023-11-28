@@ -44,11 +44,12 @@ const TarjetaDeCredito = () => {
                     <div className="form-group">
                         <label htmlFor="number">Número de la tarjeta</label>
                         <input
-                            type="text"
+                            type="number" 
                             name="number"
                             id="number-tarjeta"
                             maxLength="16"
                             className="form-control"
+                            required
                             onChange={handleInputChange}
                             onFocus={handleFocusChange}
                         />
@@ -62,6 +63,7 @@ const TarjetaDeCredito = () => {
                             id="name-tarjeta"
                             maxLength="40"
                             className="form-control"
+                            required
                             onChange={handleInputChange}
                             onFocus={handleFocusChange}
                         />
@@ -71,11 +73,12 @@ const TarjetaDeCredito = () => {
                         <div className="form-group col-md-6">
                             <label htmlFor="expiry">Fecha de expiración</label>
                             <input
-                                type="text"
+                                type="number"
                                 name="expiry"
                                 id="expiryTarjeta"
                                 maxLength="4"
                                 className="form-control"
+                                required
                                 onChange={handleInputChange}
                                 onFocus={handleFocusChange}
                             />
@@ -84,16 +87,21 @@ const TarjetaDeCredito = () => {
                         <div className="form-group col-md-6">
                             <label htmlFor="cvc">CVC</label>
                             <input
-                                type="text"
+                                type="number"
                                 name="cvc"
                                 id="cvcTarjeta"
                                 maxLength="4"
                                 className="form-control"
+                                required
                                 onChange={handleInputChange}
                                 onFocus={handleFocusChange}
                             />
                         </div>
                     </div>
+                     {/* BOTON PARA validar */}
+                     <div className="boton-actualizar-cambiarDireccion p-3">
+                            <button type="submit" class="btn btn-secondary btn-sm" >Validar tarjeta</button>
+                        </div>
 
                 </form>
 
