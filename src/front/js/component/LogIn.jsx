@@ -4,6 +4,21 @@ import { Link } from "react-router-dom";
 import "../../styles/logIn.css";
 
 const LogIn = () => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    // Para actualizar estados
+
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+    };
+    const handlePasswordChange = (e) => {
+        setPassword(e.target.value);
+    };
+    // Maneja eventos para actualizar los estados de email y password
+
+    const handleLogin = () => {
+        // Manejo de la lógica de inicio de sesión con email y contraseña
+    };
     return (
         <>
             <div className="modal fade modal-log-in" tabindex="-1" id="modalLogin" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -16,7 +31,7 @@ const LogIn = () => {
                         <div className="modal-login-body mb-3"></div>
                         {/*  input email */}
                         <div className="input-group-login">
-                            <div className="input-field pt-4"> <span className="far fa-user p-2"></span> <input type="text" placeholder="Correo usuario" className="input-field-login" />
+                            <div className="input-field pt-4"> <span className="far fa-user p-2"></span> <input required type="text" placeholder="Correo usuario" className="input-field-login" />
                             </div>
                             {/* input contraseña */}
                             <div className="form-group-login py-1 pb-2">
@@ -40,7 +55,7 @@ const LogIn = () => {
                             <span>
                                 <Link to="/registro" >
                                     <a href="#">Crear una cuenta</a>
-                                </Link>                 
+                                </Link>
                             </span>
                         </div>
                     </div>
