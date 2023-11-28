@@ -6,36 +6,35 @@ const Gallery = () => {
     <>
       <div className="container-fluid text-center">
         <div className="lightbox overflow-x-scroll overflow-x-hidden">
-          <div className="row gx-0">
-            {/* First Column - Top Left and Bottom Left Images */}
-            <div className="col-12 col-lg-6 p-2">
-              <div className="mb-2"> {/* Added margin bottom for better spacing on small screens */}
+          <div className="row justify-content-center">
+
+            <div className="col-10 col-lg-5 p-2 mb-3 d-flex flex-column align-items-end">
+              <div className="mb-2"> 
                 <button type="button" className="custom-btn" data-bs-toggle="modal" data-bs-target="#ModalImages">
                   <img
                     className="img-top img-fluid hoverimage"
-                    src="https://dummyimage.com/600x300/000/fff"
+                    src="https://dummyimage.com/620x300/000/fff"
                     alt="Top Left Image"
                   />
                 </button>
               </div>
-              <div>
+              <div className="mt-2">
                 <button type="button" className="custom-btn" data-bs-toggle="modal" data-bs-target="#ModalImages">
                   <img
                     className="img-top img-fluid hoverimage"
-                    src="https://dummyimage.com/600x300/000/fff"
+                    src="https://dummyimage.com/620x300/000/fff"
                     alt="Bottom Left Image"
                   />
                 </button>
               </div>
             </div>
             
-            {/* Second Column - Right Image */}
-            <div className="col-12 col-lg-6 p-2">
-              <div className="mb-2"> {/* Added margin bottom for better spacing on small screens */}
+            <div className="col-10 col-lg-5 p-2 mb-3 d-flex flex-column align-items-start">
+              <div className="mb-2"> 
                 <button type="button" className="custom-btn" data-bs-toggle="modal" data-bs-target="#ModalImages">
                   <img
                     className="img-top img-fluid"
-                    src="https://dummyimage.com/600x650/000/fff"
+                    src="https://dummyimage.com/620x620/000/fff"
                     alt="Right Image"
                   />
                 </button>

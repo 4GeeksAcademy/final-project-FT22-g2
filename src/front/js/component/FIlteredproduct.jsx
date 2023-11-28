@@ -24,109 +24,44 @@ const Filteredproduct = () => {
                                 <li><button className="dropdown-item" type="button">Z - A</button></li>
                             </ul>
                         </div>
+                        <div className="row gx-0">
+                            <Card />
+                            <Card />
+                            <Card />
+                            <Card />
+                            <Card />
+                            <Card />
+                            <Card />
+                            <Card />
+                            <Card />
+                            <Card />
+                            <Card />
+                            <Card />
+                            <Card />
+                            <Card />
+                            <Card />
+                            <Card />
+                            <Card />
+                            <Card />
+                            <Card />
+                            <Card />
+                            <Card />
+                            <Card />
+                            <Card />
+                            <Card />
+                            <Card />
+                            <Card />
+                            <Card />
+                            <Card />
+                            <Card />
+                            <Card />
+                            <Card />
+                            <Card />
+                        </div>
+                    </div>
+                    <div className="row d-flex text-center justify-content-center">
 
-                    </div>
-                    <div className="col-3">
-                        <Card />
-                    </div>
-                    <div className="col-3">
-                        <Card />
-                    </div>
-                    <div className="col-3">
-                        <Card />
-                    </div>
-                    <div className="col-3">
-                        <Card />
-                    </div>
-                    <div className="col-3">
-                        <Card />
-                    </div>
-                    <div className="col-3">
-                        <Card />
-                    </div>
-                    <div className="col-3">
-                        <Card />
-                    </div>
-                    <div className="col-3">
-                        <Card />
-                    </div>
-                    <div className="col-3">
-                        <Card />
-                    </div>
-                    <div className="col-3">
-                        <Card />
-                    </div>
-                    <div className="col-3">
-                        <Card />
-                    </div>
-                    <div className="col-3">
-                        <Card />
-                    </div>
-                    <div className="col-3">
-                        <Card />
-                    </div>
-                    <div className="col-3">
-                        <Card />
-                    </div>
-                    <div className="col-3">
-                        <Card />
-                    </div>
-                    <div className="col-3">
-                        <Card />
-                    </div>
-                    <div className="col-3">
-                        <Card />
-                    </div>
-                    <div className="col-3">
-                        <Card />
-                    </div>
-                    <div className="col-3">
-                        <Card />
-                    </div>
-                    <div className="col-3">
-                        <Card />
-                    </div>
-                    <div className="col-3">
-                        <Card />
-                    </div>
-                    <div className="col-3">
-                        <Card />
-                    </div>
-                    <div className="col-3">
-                        <Card />
-                    </div>
-                    <div className="col-3">
-                        <Card />
-                    </div>
-                    <div className="col-3">
-                        <Card />
-                    </div>
-                    <div className="col-3">
-                        <Card />
-                    </div>
-                    <div className="col-3">
-                        <Card />
-                    </div>
-                    <div className="col-3">
-                        <Card />
-                    </div>
-                    <div className="col-3">
-                        <Card />
-                    </div>
-                    <div className="col-3">
-                        <Card />
-                    </div>
-                    <div className="col-3">
-                        <Card />
-                    </div>
-                    <div className="col-3">
-                        <Card />
-                    </div>
 
-                </div>
-                <div className="row d-flex text-center justify-content-center">
-
-                    <div className="col-3">
                         <div className="btn-toolbar mb-3 justify-content-center " role="toolbar" aria-label="Change page">
                             <div className="btn-group me-2" role="group" aria-label="First group">
                                 <button type="button" className="btn btn-outline-secondary">&lt;</button>
