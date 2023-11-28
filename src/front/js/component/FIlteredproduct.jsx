@@ -5,9 +5,9 @@ import "../../styles/filter.css";
 const Filteredproduct = () => {
     return (
         <>
-            <div className="col-11 background-filteredproduct-color">
+            <div className="col-10 mx-auto">
                 <div className="row justify-content-center align-self-center">
-                    <div className="col12 text-end  orderbar-color  custom-text-bar">
+                    <div className="col12 text-end  orderbar-color   px-0">
                         <div className="btn-group">
                             <button
                                 type="button"
@@ -24,52 +24,52 @@ const Filteredproduct = () => {
                                 <li><button className="dropdown-item" type="button">Z - A</button></li>
                             </ul>
                         </div>
-                        <div className="row gx-0">
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                            <Card />
-                        </div>
-                    </div>
-                    <div className="row d-flex text-center justify-content-center">
-
-
-                        <div className="btn-toolbar mb-3 justify-content-center " role="toolbar" aria-label="Change page">
-                            <div className="btn-group me-2" role="group" aria-label="First group">
-                                <button type="button" className="btn btn-outline-secondary">&lt;</button>
-                                <button type="button" className="btn btn-outline-secondary">1</button>
-                                <button type="button" className="btn btn-outline-secondary">2</button>
-                                <button type="button" className="btn btn-outline-secondary">&gt;</button>
+                        <div className="container-fluid  background-filteredproduct-color custom-text-filterproduct ">
+                            <div className="row justify-content-center align-self-center">
+                                <Card />
+                                <Card />
+                                <Card />
+                                <Card />
+                                <Card />
+                                <Card />
+                                <Card />
+                                <Card />
+                                <Card />
+                                <Card />
+                                <Card />
+                                <Card />
+                                <Card />
+                                <Card />
+                                <Card />
+                                <Card />
+                                <Card />
+                                <Card />
+                                <Card />
+                                <Card />
+                                <Card />
+                                <Card />
+                                <Card />
+                                <Card />
+                                <Card />
+                                <Card />
+                                <Card />
+                                <Card />
+                                <Card />
+                                <Card />
+                                <Card />
+                                <Card />
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div className="row d-flex text-center justify-content-center mx-auto">
+                <div className="btn-toolbar mb-3 justify-content-center " role="toolbar" aria-label="Change page">
+                    <div className="btn-group me-2" role="group" aria-label="First group">
+                        <button type="button" className="btn btn-outline-secondary">&lt;</button>
+                        <button type="button" className="btn btn-outline-secondary">1</button>
+                        <button type="button" className="btn btn-outline-secondary">2</button>
+                        <button type="button" className="btn btn-outline-secondary">&gt;</button>
                     </div>
                 </div>
             </div>

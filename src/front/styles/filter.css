@@ -19,8 +19,8 @@
 .background-filteredproduct-color {
     background-color: whitesmoke;
 }
-.custom-text-bar{
-    padding-right: 65px;
+.custom-text-filterproduct{
+    color:black
 }
 .filter-custom-height {
     height: 40px;
