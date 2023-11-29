@@ -6,7 +6,7 @@ import "../../styles/navbarHero.css";
 const Hero = () => {
     return (
         <>
-            <div className="container-hero container-fluid" style={{
+            <div className="container-fluid img-fluid p-4" style={{
                 backgroundImage: `url(${heroUrl})`,
                 backgroundAttachment: "fixed",
                 backgroundPosition: "center",
@@ -14,7 +14,7 @@ const Hero = () => {
                 backgroundRepeat: "no-repeat",
                 width: "100%"
             }}>
-                <div className="container-hero-texts">
+                <div className="container-hero-texts container-fluid">
                     <h3 className="hero--welcome">Bienvenido a</h3>
                     <h1 className="hero--title">El rincón del vino</h1>
                     <h5 className="hero--slogan"><i>“El placer de la elección, la alegría de la degustación”</i></h5>
