@@ -4,6 +4,8 @@ import logoUrl from "../../img/logoElRinconDelVino.png";
 import LogIn from "./LogIn.jsx";
 import ModalContact from "./ModalContact.jsx";
 import RestaurarContraseña from "./ModalRestaurarContraseña.jsx";
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import "../../styles/navbarHero.css";
 
@@ -47,8 +49,8 @@ const Navbar = () => {
 					</div>
 
 					<button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-						aria-expanded="false" aria-label="Toggle navigation" style={{ color: "yellow", backgroundColor: "white" }}>
-						<span className="navbar-toggler-icon"></span>
+						aria-expanded="false" aria-label="Toggle navigation" style={{ color: "black", backgroundColor: "#7B2121" }}>
+						<span className="navbar-toggler-icon"><FontAwesomeIcon icon={faCaretDown} size="2x" /></span>
 					</button>
 
 
@@ -111,25 +113,17 @@ const Navbar = () => {
 
 
 
-
-
-
-
-
 					{/* ---- / BARRA Y BOTÓN DE BÚSQUEDA / ---- */}
 
 					<form class="d-flex">
-						<input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-						<button className="btn btn-outline-success" type="submit">Search</button>
+						<input className="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search" />
+						<button className="btn btn-outline-light" type="submit">Buscar</button>
 					</form>
 
 
 
-
-
-
 					{/* empiezan los logos del carrito y loggin */}
-					<div className="icons-navbar h2 px-5 d-flex  ms-auto">
+					<div className="icons-navbar h2 px-2 m-auto d-flex ms-auto flex-end">
 						<ul className="navbar-nav">
 							{/* ---- / DROPDOWN CARRITO / ---- */}
 							<li className="nav-item dropdown">

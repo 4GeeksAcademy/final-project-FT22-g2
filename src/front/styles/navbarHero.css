@@ -144,6 +144,13 @@
     padding-left: 200px;
 }
 
+/* Media query para dispositivos móviles */
+@media (max-width: 767px) {
+    .container-hero-texts {
+      padding-left: 0; /* Quita el padding izquierdo en dispositivos con ancho máximo de 767px */
+    }
+  }
+
 /* ----- // CONTACTANOS // ----- */
 
 .btn-contactanos-navbar {
