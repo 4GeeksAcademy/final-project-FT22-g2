@@ -18,7 +18,7 @@ const Registro = () => {
                                     <input type="text" placeholder='Contraseña' className="form-control input-registro" required />
                                 </div>
 
-                                <div className="container-terminos-y-condiciones">
+                                <div className="container-terminos-y-condiciones mx-4 my-3">
                                     <input type="checkbox" name="terminos" id="terminosYcondiciones" className='form-check-input' required />
                                     <label className='terminosYcondicionesLabel'>Acepto los términos y condiciones</label>
                                 </div>
