@@ -34,18 +34,18 @@ const Carrito = () => {
         <div className="container-card-vista-carrito">
             <div className='container contenedor-vista-carrito my-4'>
                 <div className="row">
-                    <h2 className='col-3 vista-carrito-categories'>Item</h2>
-                    <h2 className='col-6 vista-carrito-categories'>Cantidad</h2>
-                    <h2 className='col-3 vista-carrito-categories-valor'>Valor</h2>
+                    <h2 className='col-lg-3 col-md-4 col-sm-6 vista-carrito-categories'>Item</h2>
+                    <h2 className='col-lg-6 col-md-4 col-sm-6 vista-carrito-categories'>Cantidad</h2>
+                    <h2 className='col-lg-3 col-md-4 col-sm-12 vista-carrito-categories-valor'>Valor</h2>
                 </div>
                 {productos.map((producto, index) => (
                     <div key={index}>
 
                         <div className="row fila-vista-carrito">
-                            <div className="col-3 columna-vista-carrito d-flex justify-content-center">
+                            <div className="col-lg-3 col-md-4 col-sm-6 d-flex justify-content-center">
                                 <img src={rigoBaby} alt="rigo" className='img-producto-vista-carrito' />
                             </div>
-                            <div className="col-6 d-flex justify-content-center">
+                            <div className="col-lg-6 col-md-4 col-sm-6 d-flex justify-content-center">
                                 {/* BOTON AÑADIR Y QUITAR + PRECIO REUTILIZADO */}
                                 <div className="product-price-carrito-hover d-inline-flex align-items-center justify-content-between">
                                     <button onClick={() => decrementarCantidad(index)} type='button' className="button-add-remove-carrito-hover remove-carrito-hover">-</button>
@@ -53,7 +53,7 @@ const Carrito = () => {
                                     <button onClick={() => incrementarCantidad(index)} type='button' className="button-add-remove-carrito-hover add-carrito-hover">+</button>
                                 </div>
                             </div>
-                            <div className="col-2 columna-vista-carrito-valor columna-vista-carrito-precio-articulo">
+                            <div className="col-lg-2 col-md-4 col-sm-6 columna-vista-carrito-valor columna-vista-carrito-precio-articulo">
                                 <h2>${producto.price * producto.cantidad}</h2>
                             </div>
                             <button onClick={() => deleteProduct(index)} className="col-1 columna-vista-carrito-valor icon-eliminar-producto-carrito"><i className="icon-hover-eliminar-producto fa-regular fa-trash-can"></i></button>
@@ -64,9 +64,9 @@ const Carrito = () => {
                 <div className="row fila-vista-carrito-separador"></div>
 
                 <div className="row">
-                    <h2 className='col-5 vista-carrito-categories'></h2>
-                    <h2 className='col-4 vista-carrito-categories'></h2>
-                    <div className="col-3 vista-carrito-categories-valor">
+                    <h2 className='col-lg-5 col-md-6 col-sm-6 vista-carrito-categories'></h2>
+                    <h2 className='col-lg-4 col-md-6 col-sm-6 vista-carrito-categories'></h2>
+                    <div className="col-lg-3 col-md-12 col-sm-12 vista-carrito-categories-valor">
                         <div className="row">
                             <div className="col-6 text-end">
                                 <h5>Subtotal</h5>
