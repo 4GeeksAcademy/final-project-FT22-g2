@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
 import "../../styles/registro.css";
-
-
-
+import { createUser } from '../services/api';
 
 const Registro = () => {
-
-    const createUserUrlAPI = "https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/";
 
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
@@ -17,8 +13,7 @@ const Registro = () => {
 
         try {
             await createUser(username, email, password);
-            console.log('Usuario creado!');
-
+            alert('Usuario creado!');
         } catch (error) {
             console.log("error handleSubmit", error);
         }
@@ -32,7 +27,7 @@ const Registro = () => {
         };
 
         try {
-            const response = await fetch(createUserUrlAPI + "/users", {
+            const response = await fetch(createUserUrlAPI + "users", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
