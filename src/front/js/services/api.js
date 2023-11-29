@@ -54,3 +54,8 @@ export const deleteUser = async () => {
         throw error;
     }
 }
+
+
+
+
+//API DE PRODUCTOS
