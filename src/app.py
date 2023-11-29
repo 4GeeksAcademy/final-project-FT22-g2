@@ -1,15 +1,19 @@
 """
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
+import datetime
 import os
 from flask import Flask, request, jsonify, url_for, send_from_directory
 from flask_migrate import Migrate
 from flask_swagger import swagger
 from api.utils import APIException, generate_sitemap
-from api.models import db
+from api.models import db, User, Profile, Producto, Factura, FacturaProducto, Orden, OrdenProducto, Favorito
 from api.routes import api
 from api.admin import setup_admin
 from api.commands import setup_commands
+from werkzeug.security import generate_password_hash, check_password_hash
+from flask_jwt_extended import JWTManager, create_access_token, get_jwt_identity, jwt_required
+
 
 # from models import Person
 
@@ -66,6 +70,38 @@ def serve_any_other_file(path):
     response = send_from_directory(static_file_dir, path)
     response.cache_control.max_age = 0  # avoid cache memory
     return response
+
+# Rutas para la tabla User
+@app.route('/users', methods=['GET', 'POST'])
+def manage_users():
+    if request.method == 'GET':
+        users = User.query.all()
+        return jsonify([user.username for user in users])
+    elif request.method == 'POST':
+        data = request.json
+        new_user = User(username=data['username'], email=data['email'], 
+                        active=data['active'], password=data['password'])
+        db.session.add(new_user)
+        db.session.commit()
+        return jsonify({'message': 'Usuario creado exitosamente'}), 201
+
+@app.route('/users/<int:user_id>', methods=['GET', 'PUT', 'DELETE'])
+def user_detail(user_id):
+    user = User.query.get_or_404(user_id)
+    if request.method == 'GET':
+        return jsonify({'username': user.username, 'email': user.email, 'active': user.active})
+    elif request.method == 'PUT':
+        data = request.json
+        user.username = data.get('username', user.username)
+        user.email = data.get('email', user.email)
+        user.active = data.get('active', user.active)
+        user.password = data.get('password', user.password)
+        db.session.commit()
+        return jsonify({'message': 'Usuario actualizado exitosamente'})
+    elif request.method == 'DELETE':
+        db.session.delete(user)
+        db.session.commit()
+        return jsonify({'message': 'Usuario eliminado exitosamente'})
 
 
 # this only runs if `$ python src/main.py` is executed
