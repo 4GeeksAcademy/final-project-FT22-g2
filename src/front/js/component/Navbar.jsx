@@ -23,7 +23,7 @@ const Navbar = () => {
 
 	// Controlar el input de búsqueda por un onChange para capturar cada cambio al escribir
 	/*
-			EJEMPLO PARA AÑADIR FILTRO + MAP (El filtro sería para buscar por la barra de búsqueda)
+  		EJEMPLO PARA AÑADIR FILTRO + MAP (El filtro sería para buscar por la barra de búsqueda)
 
 		const [search, setSearch] = useState('')
 
@@ -106,7 +106,7 @@ const Navbar = () => {
 							<a className="nav-link dropdown-toggle text-white h4" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								Categorías
 							</a>
-							<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+							<ul className="dropdown-menu " aria-labelledby="navbarDropdown">
 								<Link to="busqueda" className="text-decoration-none">
 									<li><a className="dropdown-item" href="#">Reserva</a></li>
 								</Link>

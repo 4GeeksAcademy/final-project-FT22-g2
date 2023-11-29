@@ -42,15 +42,22 @@ const ModalContact = () => {
         <>
             {/* MODAL */}
             <div className="modal fade" id="ModalContact" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div className="modal-dialog modal-xl">
+                <div className="modal-dialog odal-dialog-centered modal-xl">
                     <div className="modal-content">
+                        {/* Botón "X" para cerrar el modal en pantallas pequeñas */}
+                        <button
+                            type="button"
+                            className="btn-close d-lg-none" // Oculta el botón en pantallas grandes y lo muestra en pantallas pequeñas
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        ></button>
                         <div className="modal-body text-dark">
                             <div className="row p-3">
-                                <div className="col-4">
+                                <div className="col-lg-4 col-md-6">
                                     <img src={bgHero} alt="example" width="100%" height="100%" className="rounded" />
                                 </div>
 
-                                <form onSubmit={handleSubmit} className='col-8 container-inputs-contact'>
+                                <form onSubmit={handleSubmit} className='col-lg-8 col-md-6 container-inputs-contact'>
                                     {!formSubmitted ? (
                                         <>
                                             <div className="row">

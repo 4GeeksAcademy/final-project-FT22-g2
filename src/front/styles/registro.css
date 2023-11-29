@@ -27,8 +27,10 @@
     background: whitesmoke;
     border: 1px solid rgb(177, 177, 177);
     border-radius: 10px;
-    box-sizing: border-box;
+    box-sizing: border-box; 
+    
 }
+
 
 #terminosYcondiciones {
     width: 18px;
