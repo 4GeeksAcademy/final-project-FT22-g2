@@ -21,7 +21,7 @@ const MetodoDePago = () => {
 
     const handleContinuar = () => {
         if (!metodoSeleccionado) {
-            
+
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
@@ -77,12 +77,12 @@ const MetodoDePago = () => {
 
                     </div>
 
-                    <div className="container-input-checkbox-metodo-de-pago">
+                    {/* <div className="container-input-checkbox-metodo-de-pago">
                         <input type="radio" className="checkbox-metodos-de-pago-tarjetas form-check-input" name="metodo-de-pago"
                             id="pagoConPaypal" onChange={() => handleMetodoPagoSeleccionado("payPal")} />
                         <label className="h4 m-0 form-check-labels">Pago con Paypal</label>
                         <img src={paypalLogo} alt="Tarjeta de crédito" className="paypalLogoMetodoDePago ms-auto" />
-                    </div>
+                    </div> */}
                 </div>
 
                 {/* ---- // SUBTOTAL MAS ENVIO Y PRECIO // ---- */}
@@ -107,7 +107,7 @@ const MetodoDePago = () => {
                 {/* ---- // BOTÓN CONTINUAR SIGUIENTE VISTA // ---- */}
                 <div className="container-button-continuar-metodo-de-pago">
                     <Link to={"/metodo-de-pago/" + metodoSeleccionado} className="btn btn-dark button-continuar-metodo-de-pago"
-                     type="submit"  onClick={handleContinuar}>
+                        type="submit" onClick={handleContinuar}>
                         Continuar
                     </Link>
                 </div>

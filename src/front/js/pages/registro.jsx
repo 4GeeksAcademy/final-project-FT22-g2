@@ -14,6 +14,15 @@ const Registro = () => {
         try {
             await createUser(username, email, password);
             alert('Usuario creado!');
+
+            setTimeout(() => {
+                window.location.href = "/";
+            }, 1000);
+
+            setTimeout(() => {
+                // Intentar crear función para abrir modal de login al crear usuario y redirigirse a home
+
+            }, 1000);
         } catch (error) {
             console.log("error handleSubmit", error);
         }
@@ -47,6 +56,8 @@ const Registro = () => {
             console.error("Error during fetch:", error);
             throw error;
         }
+
+
     }
 
     return (

@@ -4,12 +4,14 @@
     margin: 30px auto;
     text-align: center;
 }
+
 /* BARRA PARA MARCAR PROCESO DE PAGO [ Carro, Pago, Revisar ] */
 .proceso-de-pago-barra-pago-revisar {
     display: flex;
     margin: 20px auto;
     justify-content: space-evenly;
 }
+
 .texto-barra-proceso-pago-revisar {
     width: 25%;
     padding-bottom: 15px;
@@ -28,7 +30,9 @@
 .button-regresar-anterior-vista:active {
     color: rgb(156, 71, 71);
 }
-.boton-para-pagar{
+
+.boton-para-pagar {
     width: 350px;
     font-size: x-large;
+    margin: 20px auto;
 }

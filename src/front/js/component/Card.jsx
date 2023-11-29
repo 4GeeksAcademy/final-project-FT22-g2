@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 
 const Card = () => {
-
   // Fetch a productos
   // Hacer un console.log para ver si se trae el arreglo completo
   // Hacer un map para replicar el producto con el largo del arreglo (todos los productos)
@@ -29,7 +28,6 @@ const Card = () => {
 
   */
 
-
   return (
     <>
       <div className="col-12 col-md-6 col-lg-3">
@@ -45,7 +43,6 @@ const Card = () => {
             <div className="card-body text-align-center">
               <h4 className="card-title">Vino Tinto</h4>
               <h5>$$$</h5>
-              
               <p className="card-text text-align-center">
                 <i className="fa-solid fa-star stars"></i>
                 <i className="fa-regular fa-star stars"></i>

@@ -3,6 +3,7 @@
 
 /* ---- // CARRITO HOVER // ---- */
 
+
 .contenedor-carrito-hover {
     min-width: 250px;
     min-height: 400px;
@@ -11,10 +12,22 @@
     background: whitesmoke;
 }
 
+
+
 .product-example-carrito-hover {
     background: #D9D9D9;
     display: flex;
     align-items: center;
+}
+
+@media (max-width: 375.98px) {
+    .dropdown-menu contenedor-carrito-hover {
+        max-width: 300px;
+        max-height: 300px;
+        /* Ajusta la altura según tus necesidades */
+        padding: 10px;
+        /* Añade relleno adicional si es necesario */
+    }
 }
 
 .button-add-remove-carrito-hover {
@@ -48,9 +61,7 @@
 
 .price-carrito-hover {
     margin: 0;
-    margin-left: 20px;
-    margin-right: 0;
-    padding-right: 0;
+    margin-left: -5px;
 }
 
 .product-info-carrito-hover p {
@@ -82,6 +93,12 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.contenedor-dropdown-menu-carrito-collapse {
+    position: relative;
+    left: 0;
+    top: 0;
 }
 
 /* ---- // CATEGORIAS // ---- */

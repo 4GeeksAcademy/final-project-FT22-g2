@@ -151,11 +151,15 @@ const Single = () => {
           <p className="text-secondary">
             Estaba maravilloso exquisito arte, 5 estrellas.
           </p>
-          <button className="button-calificacion-comment-positiva me-3 p-1">
+          <button className="button-calificacion-comment-positiva me-3 p-1" onClick={() => {
+            alert("Próximamente podrás hacerle saber tu humilde opinión a esta persona!")
+          }}>
             Es útil <i class="fa-regular fa-thumbs-up"></i>
           </button>
-          <button className="button-calificacion-comment-negativa p-1">
-            <i class="fa-regular fa-thumbs-down"></i>
+          <button className="button-calificacion-comment-negativa p-1" onClick={() => {
+            alert("Próximamente podrás hacerle saber tu humilde opinión a esta persona!")
+          }}>
+            <i class="fa-regular fa-thumbs-down" ></i>
           </button>
         </div>
       </div>
@@ -179,10 +183,14 @@ const Single = () => {
           <p className="text-secondary">
             Espectacular, PERO.
           </p>
-          <button className="button-calificacion-comment-positiva me-3 p-1">
+          <button className="button-calificacion-comment-positiva me-3 p-1" onClick={() => {
+            alert("Próximamente podrás hacerle saber tu humilde opinión a esta persona!")
+          }}>
             Es útil <i class="fa-regular fa-thumbs-up"></i>
           </button>
-          <button className="button-calificacion-comment-negativa p-1">
+          <button className="button-calificacion-comment-negativa p-1" onClick={() => {
+            alert("Próximamente podrás hacerle saber tu humilde opinión a esta persona!")
+          }}>
             <i class="fa-regular fa-thumbs-down"></i>
           </button>
         </div>
