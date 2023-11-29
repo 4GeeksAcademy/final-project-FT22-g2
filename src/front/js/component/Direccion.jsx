@@ -6,7 +6,12 @@ const Direccion = () => {
 
     const handleOnClickDefault = (e) => {
         e.preventDefault()
-        alert("Todos los campos están rellenados correctamente")
+
+        if (state.number == "" || state.name == "" || state.expiry == "" || state.cvc == "") {
+            alert("Todos los campos son obligatorios")
+        } else {
+            alert("Los campos se rellenaron correctamente")
+        }
     }
 
 
