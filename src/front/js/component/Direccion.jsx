@@ -2,7 +2,12 @@ import React from "react"
 import "../../styles/cambiarDireccion.css";
 
 
-const Direccion = () => {    
+const Direccion = () => {
+
+    const handleOnClickDefault = (e) => {
+        e.preventDefault()
+        alert("Todos los campos están rellenados correctamente")
+    }
 
 
     return (
@@ -95,7 +100,7 @@ const Direccion = () => {
                         </div>
                         {/* BOTON PARA validar */}
                         <div className="boton-actualizar-cambiarDireccion p-3">
-                            <button type="submit" class="btn btn-secondary btn-sm boton-actualizar-cambiarDireccion" >Validar dirección</button>
+                            <button type="submit" class="btn btn-secondary btn-sm boton-actualizar-cambiarDireccion" onClick={handleOnClickDefault} >Validar dirección</button>
                         </div>
 
                     </form>

@@ -31,26 +31,17 @@ def manage_users():
         return jsonify([user.username for user in users])
     elif request.method == 'POST':
         data = request.json
-        hashed_password = generate_password_hash(data['password'])
         new_user = User(username=data['username'], email=data['email'], 
-                        active=data['active'], password=hashed_password)
+                        active=data['active'], password=generate_password_hash(data['password']))
         db.session.add(new_user)
         db.session.commit()
         return jsonify({'message': 'Usuario creado exitosamente'}), 201
 
-@api.route('/users/<int:user_id>', methods=['GET', 'PUT', 'DELETE'])
+@api.route('/users/<int:user_id>', methods=['GET', 'DELETE'])
 def user_detail(user_id):
     user = User.query.get_or_404(user_id)
     if request.method == 'GET':
         return jsonify({'username': user.username, 'email': user.email, 'active': user.active})
-    elif request.method == 'PUT':
-        data = request.json
-        user.username = data.get('username', user.username)
-        user.email = data.get('email', user.email)
-        user.active = data.get('active', user.active)
-        user.password = data.get('password', user.password)
-        db.session.commit()
-        return jsonify({'message': 'Usuario actualizado exitosamente'})
     elif request.method == 'DELETE':
         db.session.delete(user)
         db.session.commit()
@@ -78,25 +69,18 @@ def producto_detail(producto_id):
              }
              )
 
-@api.route("/login", methods=["POST", "GET"])
+@api.route('/login', methods=['POST', 'GET'])
 def login():
-    try:
-        data = request.get_json()
-        email = data.get("email", None)
-        password = data.get("password", None)
-    except Exception as e:
-        return jsonify({"msg": "Invalid JSON format"}), 400
+    data = request.json
+    email = data.get('email')
+    password = data.get('password')
 
     if not email or not password:
-        return jsonify({"msg": "Email and password are required"}), 400
-
+        return jsonify({'message': 'Email and password are required'}), 400
     user = User.query.filter_by(email=email).first()
-    if not user:
-        return jsonify({"msg": "User not found"}), 401
 
-    if check_password_hash(user.password, password):
-        access_token = create_access_token(identity={"email": user.email})
-        return jsonify(access_token=access_token), 200
-    else:
-        return jsonify({"msg": "Invalid email or password"}), 401
-    return  jsonify(data), 200
+    if not user or not check_password_hash(user.password, password):
+        return jsonify({'message': 'Invalid email or password'}), 401
+    
+    access_token = create_access_token(identity={'email': user.email})
+    return jsonify({'access_token': access_token, 'message': 'Login successful'}), 200

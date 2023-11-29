@@ -23,7 +23,7 @@ const Navbar = () => {
 
 	// Controlar el input de búsqueda por un onChange para capturar cada cambio al escribir
 	/*
-  		EJEMPLO PARA AÑADIR FILTRO + MAP (El filtro sería para buscar por la barra de búsqueda)
+			EJEMPLO PARA AÑADIR FILTRO + MAP (El filtro sería para buscar por la barra de búsqueda)
 
 		const [search, setSearch] = useState('')
 
@@ -125,17 +125,12 @@ const Navbar = () => {
 
 					</div> {/* termina el collapse */}
 
-
-
-
 					{/* ---- / BARRA Y BOTÓN DE BÚSQUEDA / ---- */}
 
 					<form class="d-flex">
 						<input className="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search" />
 						<button className="btn btn-outline-light" type="submit">Buscar</button>
 					</form>
-
-
 
 					{/* empiezan los logos del carrito y loggin */}
 					<div className="icons-navbar h2 px-1 m-auto d-flex ms-auto flex-start">
@@ -163,9 +158,9 @@ const Navbar = () => {
 														<p>1 unidad</p>
 														{/* BOTON AÑADIR Y QUITAR + PRECIO */}
 														<div className="product-price-carrito-hover d-inline-flex align-items-center justify-content-between">
-															<button type="button" className="button-add-remove-carrito-hover remove-carrito-hover">-</button>
+															{/* <button type="button" className="button-add-remove-carrito-hover remove-carrito-hover">-</button>
 															<label className="label-cantidad-carrito-hover px-2">1</label>
-															<button type="button" className="button-add-remove-carrito-hover add-carrito-hover">+</button>
+															<button type="button" className="button-add-remove-carrito-hover add-carrito-hover">+</button> */}
 															<p className=" px-2 price-carrito-hover" >40.000</p>
 														</div>
 													</div>
@@ -209,15 +204,7 @@ const Navbar = () => {
 					</div>
 					{/* terminan los logos del carrito y loggin */}
 
-
-
-
-
-
 				</div>
-
-
-
 			</nav>
 		</>
 

@@ -19,11 +19,14 @@
     display: flex;
     align-items: center;
 }
+
 @media (max-width: 375.98px) {
     .dropdown-menu contenedor-carrito-hover {
         max-width: 300px;
-        max-height: 300px; /* Ajusta la altura según tus necesidades */
-        padding: 10px; /* Añade relleno adicional si es necesario */
+        max-height: 300px;
+        /* Ajusta la altura según tus necesidades */
+        padding: 10px;
+        /* Añade relleno adicional si es necesario */
     }
 }
 
@@ -58,9 +61,7 @@
 
 .price-carrito-hover {
     margin: 0;
-    margin-left: 20px;
-    margin-right: 0;
-    padding-right: 0;
+    margin-left: -5px;
 }
 
 .product-info-carrito-hover p {
