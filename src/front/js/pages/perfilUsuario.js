@@ -89,7 +89,7 @@ const PerfilUsuario = () => {
           <button type="button" className="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalCerrarSesion">Cerrar sesion</button>
         </div>
         {/* boton eliminar cuenta */}
-        <div className="d-grid gap-2 col-6 mx-auto boton-eliminar-cuenta">
+        <div className="d-grid gap-2 col-6 mx-auto boton-eliminar-cuenta-perfil">
 
           <button type="button" className="btn btn-danger" onClick={handleEliminarCuenta}>Eliminar cuenta</button>
 
