@@ -3,7 +3,7 @@ import "../../styles/registro.css";
 
 const Registro = () => {
 
-    const createUserUrlAPI = "https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/users";
+    const createUserUrlAPI = "https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/";
 
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
@@ -11,10 +11,6 @@ const Registro = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        document.getElementById("username");
-        document.getElementById("email");
-        document.getElementById("password");
 
         try {
             await createUser(username, email, password);
@@ -26,23 +22,33 @@ const Registro = () => {
     }
 
     const createUser = async (username, email, password) => {
-
         const user = {
             username,
             email,
             password
         };
 
-        return fetch(createUserUrlAPI, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(user)
-        })
-            .then(response => {
-                if (!response.ok) throw Error(response.statusText);
-            })
+        try {
+            const response = await fetch(createUserUrlAPI + "users", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(user)
+            });
+
+            if (!response.ok) {
+                // Throw an error if the response status is not OK
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            // If the response is OK, return the response JSON
+            return response.json();
+        } catch (error) {
+            // Handle any errors that occurred during the fetch
+            console.error("Error during fetch:", error);
+            throw error;
+        }
     }
 
     return (
@@ -80,7 +86,7 @@ const Registro = () => {
                                     onChange={(e) => setPassword(e.target.value)} />
                             </div>
 
-                            <div className="container-terminos-y-condiciones">
+                            <div className="container-terminos-y-condiciones mx-4 my-3">
                                 <input type="checkbox" name="terminos" id="terminosYcondiciones" className='form-check-input' required />
                                 <label className='terminosYcondicionesLabel'>Acepto los términos y condiciones</label>
                             </div>
