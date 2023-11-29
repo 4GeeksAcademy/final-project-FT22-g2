@@ -21,26 +21,6 @@ const Navbar = () => {
 		backgroundColor: "#671C1C"
 	}
 
-	// Controlar el input de búsqueda por un onChange para capturar cada cambio al escribir
-	/*
-  		EJEMPLO PARA AÑADIR FILTRO + MAP (El filtro sería para buscar por la barra de búsqueda)
-
-		const [search, setSearch] = useState('')
-
-		{data.filter((item) => {
-		  return search.toLowerCase() === '' 
-		  ? item 
-		  : item.first_name.toLoweCase().includes(search) 
-		})
-		.map((item) => {
-		  <card con sus valores asignados>
-		  src={item.image}
-		  {item.name}
-		  {item.price}
-		})}
-
-	*/
-
 	return (
 		<>
 			<div className="text-center">
@@ -109,7 +89,7 @@ const Navbar = () => {
 							<a className="nav-link dropdown-toggle text-white h4" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								Categorías
 							</a>
-							<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+							<ul className="dropdown-menu " aria-labelledby="navbarDropdown">
 								<Link to="busqueda" className="text-decoration-none">
 									<li><a className="dropdown-item" href="#">Reserva</a></li>
 								</Link>
@@ -143,15 +123,15 @@ const Navbar = () => {
 
 
 					{/* empiezan los logos del carrito y loggin */}
-					<div className="icons-navbar h2 px-2 m-auto d-flex ms-auto flex-end">
-						<ul className="navbar-nav">
+					<div className="icons-navbar h2 px-2 m-auto d-flex ms-auto flex-end collapse navbar-collapse ">
+						<ul className="navbar-nav dropdown">
 							{/* ---- / DROPDOWN CARRITO / ---- */}
-							<li className="nav-item dropdown">
-								<a className="nav-link dropdown text-white" id="navbarDropdown" type="button" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false">
-									<i class="fa-solid fa-cart-shopping px-3"></i>
+							<li className="nav-item dropdown dropstart"> {/* dropstart para que se muestre hacia la izq */}
+								<a className="nav-link dropdown text-white " id="navbarDropdown" type="button" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false">
+									<i className="fa-solid fa-cart-shopping px-3"></i>
 								</a>
 
-								<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+								<ul className="dropdown-menu " aria-labelledby="navbarDropdown">
 									<form action="">
 
 										<div className="p-3">
