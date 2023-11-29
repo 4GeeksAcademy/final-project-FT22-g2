@@ -2,7 +2,17 @@ import React from "react"
 import "../../styles/cambiarDireccion.css";
 
 
-const Direccion = () => {    
+const Direccion = () => {
+
+    const handleOnClickDefault = (e) => {
+        e.preventDefault()
+
+        if (state.number == "" || state.name == "" || state.expiry == "" || state.cvc == "") {
+            alert("Todos los campos son obligatorios")
+        } else {
+            alert("Los campos se rellenaron correctamente")
+        }
+    }
 
 
     return (
@@ -95,7 +105,7 @@ const Direccion = () => {
                         </div>
                         {/* BOTON PARA validar */}
                         <div className="boton-actualizar-cambiarDireccion p-3">
-                            <button type="submit" class="btn btn-secondary btn-sm boton-actualizar-cambiarDireccion" >Validar dirección</button>
+                            <button type="submit" class="btn btn-secondary btn-sm boton-actualizar-cambiarDireccion" onClick={handleOnClickDefault} >Validar dirección</button>
                         </div>
 
                     </form>

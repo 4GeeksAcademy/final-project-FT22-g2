@@ -57,6 +57,7 @@ export const deleteUser = async () => {
     }
 }
 
+<<<<<<< HEAD
 
 
 //*********************** 
@@ -103,3 +104,26 @@ else{
     
 
 
+=======
+export const getCreatedUser = async () => {
+    try {
+        const response = await fetch(urlAPI + "login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify()
+        });
+        if (!response.ok) {
+            // Throw an error if the response status is not OK
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        // If the response is OK, return the response JSON
+        return response.json();
+    } catch (error) {
+        // Handle any errors that occurred during the fetch
+        console.error("Error during fetch:", error);
+        throw error;
+    }
+}
+>>>>>>> 83f99a5aea2b75927aa39fe51a15a78c45e5ab5c
