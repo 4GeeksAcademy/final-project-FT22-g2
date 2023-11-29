@@ -27,22 +27,109 @@ const Navbar = () => {
 				<RestaurarContraseña />
 			</div>
 
-			<nav className="container-navbar" style={navStyle}>
-				<div className="d-flex justify-content-between align-items-center">
+			<nav className="navbar navbar-expand-lg" style={navStyle}>
+				<div className="container-fluid">
 
 					{/* ---- / LOGO / ---- */}
-					<div className="navbar-brand">
 					<Link to="/">
 						<img className="mx-5" src={logoUrl} width="130px" height="100px" />
 					</Link>
+
+
+					{/* REDES SOCIALES */}
+					<div className="nav-item categories-navbar-items nav-link active text-white h4 flex-end" aria-current="page">
+							<a href="http://instagram.com" target="_blank" className="text-white">
+								<i className="fa-brands fa-instagram"></i>
+							<a href="http://facebook.com" target="_blank" className="text-white">
+								<i className="fa-brands fa-square-facebook px-3"></i>
+							</a>
+						</a>
 					</div>
 
+					<button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+						aria-expanded="false" aria-label="Toggle navigation" style={{ color: "yellow", backgroundColor: "white" }}>
+						<span className="navbar-toggler-icon"></span>
+					</button>
+
+
+					{/* Contenido colapsable */}
+
+					<div className="collapse navbar-collapse" id="navbarSupportedContent">
+
+						<div className="nav-item dropdown categories-navbar-items">
+							{/* ----- / BARRA DE CATEGORÍAS / ----- */}
+
+
+
+
+							{/* PRIMERA CATEGORÍA */}
+							<a className="nav-link dropdown-toggle text-white h4" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Tipos
+							</a>
+							<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+								<Link to="busqueda" className="text-decoration-none">
+									<li><a className="dropdown-item" href="#">Tinto</a></li>
+								</Link>
+								<Link to="busqueda" className="text-decoration-none">
+									<li><a className="dropdown-item" href="#">Blanco</a></li>
+								</Link>
+								<Link to="busqueda" className="text-decoration-none">
+									<li><a className="dropdown-item" href="#">Rosé</a></li>
+								</Link>
+								<Link to="busqueda" className="text-decoration-none">
+									<li><a className="dropdown-item" href="#">Espumante</a></li>
+								</Link>
+							</ul>
+						</div>
+
+						{/* SEGUNDA CATEGORÍA */}
+						<div className="navbar-expand-lg nav-item dropdown categories-navbar-items">
+							<a className="nav-link dropdown-toggle text-white h4" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Categorías
+							</a>
+							<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+								<Link to="busqueda" className="text-decoration-none">
+									<li><a className="dropdown-item" href="#">Reserva</a></li>
+								</Link>
+								<Link to="busqueda" className="text-decoration-none">
+									<li><a className="dropdown-item" href="#">Gran reserva</a></li>
+								</Link>
+							</ul>
+						</div>
+
+						{/* CONTÁCTANOS */}
+						<div className="nav-item categories-navbar-items">
+							<button type="button" className="btn-contactanos-navbar h4" data-bs-toggle="modal" data-bs-target="#ModalContact">
+								Contáctanos
+							</button>
+						</div>
+
+
+
+					</div> {/* termina el collapse */}
+
+
+
+
+
+
+
+
+
 					{/* ---- / BARRA Y BOTÓN DE BÚSQUEDA / ---- */}
-					<form>
-						<input className="input-search-navbar" type="search" placeholder="Buscar..." />
+
+					<form class="d-flex">
+						<input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+						<button className="btn btn-outline-success" type="submit">Search</button>
 					</form>
 
-					<div className="icons-navbar h2 px-5 d-flex">
+
+
+
+
+
+					{/* empiezan los logos del carrito y loggin */}
+					<div className="icons-navbar h2 px-5 d-flex  ms-auto">
 						<ul className="navbar-nav">
 							{/* ---- / DROPDOWN CARRITO / ---- */}
 							<li className="nav-item dropdown">
@@ -111,71 +198,18 @@ const Navbar = () => {
 							</li>
 						</ul>
 					</div>
+					{/* terminan los logos del carrito y loggin */}
+
+
+
+
+
+
 				</div>
 
-				{/* ----- / BARRA DE CATEGORÍAS / ----- */}
-				<div className="navbar navbar-expand-lg categories-navbar-styles" style={categoryStyle}>
-					<div className="collapse navbar-collapse" id="navbarSupportedContent">
-						<div className="categories">
-							<div className="nav-item dropdown categories-navbar-items">
-								{/* PRIMERA CATEGORÍA */}
-								<a className="nav-link dropdown-toggle text-white h4" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-									Tipos
-								</a>
-								<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-									<Link to="busqueda" className="text-decoration-none">
-										<li><a className="dropdown-item" href="#">Tinto</a></li>
-									</Link>
-									<Link to="busqueda" className="text-decoration-none">
-										<li><a className="dropdown-item" href="#">Blanco</a></li>
-									</Link>
-									<Link to="busqueda" className="text-decoration-none">
-										<li><a className="dropdown-item" href="#">Rosé</a></li>
-									</Link>
-									<Link to="busqueda" className="text-decoration-none">
-										<li><a className="dropdown-item" href="#">Espumante</a></li>
-									</Link>
-								</ul>
-							</div>
 
-							{/* SEGUNDA CATEGORÍA */}
-							<div className="nav-item dropdown categories-navbar-items">
-								<a className="nav-link dropdown-toggle text-white h4" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-									Categorías
-								</a>
-								<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-									<Link to="busqueda" className="text-decoration-none">
-										<li><a className="dropdown-item" href="#">Reserva</a></li>
-									</Link>
-									<Link to="busqueda" className="text-decoration-none">
-										<li><a className="dropdown-item" href="#">Gran reserva</a></li>
-									</Link>
-								</ul>
-							</div>
 
-							{/* CONTÁCTANOS */}
-							<div className="nav-item categories-navbar-items">
-								<button type="button" className="btn-contactanos-navbar h4" data-bs-toggle="modal" data-bs-target="#ModalContact">
-									Contáctanos
-								</button>
-							</div>
-
-							{/* REDES SOCIALES */}
-							<div className="nav-item categories-navbar-items">
-								<a className="nav-link active text-white h4" aria-current="page" href="#" >
-									<a href="http://instagram.com" target="_blank" className="text-white">
-										<i className="fa-brands fa-instagram"></i>
-									</a>
-									<a href="http://facebook.com" target="_blank" className="text-white">
-										<i className="fa-brands fa-square-facebook px-3"></i>
-									</a>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
 			</nav>
-			
 		</>
 
 	);
