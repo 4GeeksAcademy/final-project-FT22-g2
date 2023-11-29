@@ -8,22 +8,17 @@ const Containercardshome = () => {
       style={{ backgroundColor: "#f5f5f5" }}
     >
       <div className="container w-100">
-        <div className="row">
-          <div className="col-3">
+        <div>
+          <div className="row">
             <Card />
-          </div>
-          <div className="col-3">
             <Card />
-          </div>
-          <div className="col-3">
             <Card />
-          </div>
-          <div className="col-3">
             <Card />
           </div>
         </div>
       </div>
     </div>
+
   );
 };
 
