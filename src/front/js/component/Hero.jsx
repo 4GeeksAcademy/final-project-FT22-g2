@@ -6,6 +6,7 @@ import "../../styles/navbarHero.css";
 const Hero = () => {
     return (
         <>
+
             <div className="container-fluid container-hero img-fluid p-5" style={{
                 backgroundImage: `url(${heroUrl})`,
                 backgroundAttachment: "fixed",

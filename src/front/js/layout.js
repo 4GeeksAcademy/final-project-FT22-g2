@@ -21,9 +21,14 @@ import MetodoDePago from "./pages/metodoDePago.jsx";
 
 import MetodoDePagoRevisar from "./pages/metodoDePagoRevisar.jsx";
 import { MetodoPagoProvider } from "./component/ContextPago.jsx";
+import {Cloudinary} from "@cloudinary/url-gen";
+
+
 
 //create your first component
 const Layout = () => {
+    const cld = new Cloudinary({cloud: {cloudName: 'dipd6csl7'}});
+
     //the basename is used when your project is published in a subdirectory and not in the root of the domain
     // you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
     const basename = process.env.BASENAME || "";
