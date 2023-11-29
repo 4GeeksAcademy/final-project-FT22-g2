@@ -21,14 +21,16 @@
 }
 
 .input-registro {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
+    width: 90%;
+    padding: 7px 10px;
+    margin: 15px auto;
     background: whitesmoke;
     border: 1px solid rgb(177, 177, 177);
     border-radius: 10px;
-    box-sizing: border-box;
+    box-sizing: border-box; 
+    
 }
+
 
 #terminosYcondiciones {
     width: 18px;

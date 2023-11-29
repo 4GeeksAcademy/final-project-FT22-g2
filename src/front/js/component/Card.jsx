@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 
 const Card = () => {
-    // Fetch a productos
+  // Fetch a productos
   // Hacer un console.log para ver si se trae el arreglo completo
   // Hacer un map para replicar el producto con el largo del arreglo (todos los productos)
   // Asignarles un key={product.id}
@@ -11,7 +11,7 @@ const Card = () => {
 
   /*
   EJEMPLO PARA AÑADIR FILTRO + MAP (El filtro sería para buscar por la barra de búsqueda, ver si añadirlo en el navbar)
-
+ 
   const [search, setSearch] = useState('')
 
   {data.filter((item) => {
