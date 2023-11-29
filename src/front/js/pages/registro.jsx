@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import "../../styles/registro.css";
 
+
+
+
 const Registro = () => {
 
     const createUserUrlAPI = "https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/";
@@ -29,7 +32,7 @@ const Registro = () => {
         };
 
         try {
-            const response = await fetch(createUserUrlAPI + "users", {
+            const response = await fetch(createUserUrlAPI + "/users", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

@@ -2,11 +2,11 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-<<<<<<< HEAD
+
 from api.models import db, User 
-=======
+
 from api.models import db, User, Producto
->>>>>>> dffccd75b51971351598f2cab09836fcf7aae7c7
+
 from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
 
@@ -23,8 +23,8 @@ def handle_hello():
     }
 
     return jsonify(response_body), 200
-<<<<<<< HEAD
-=======
+
+
 
 # Rutas para la tabla User
 @api.route('/users', methods=['GET', 'POST'])
@@ -45,4 +45,19 @@ def get_all_products():
     productos = Producto.query.all()
     return jsonify([producto.serialize() for producto in productos])
 
->>>>>>> dffccd75b51971351598f2cab09836fcf7aae7c7
+@api.route('/users', methods=['GET'])
+def login():
+    userdata = request.json
+
+    if not userdata or 'email' not in userdata or 'password' not in userdata:
+        return jsonify({'message': 'Missing email or password'}), 400
+
+    user = User.query.filter_by(email=user['email']).first()
+
+    if user and check_password_hash(user.password, userdata['password']):
+        access_token = create_access_token(identity={'email': user.email})
+        return jsonify(access_token=access_token), 200
+    else:
+        return jsonify({'message': 'Invalid email or password'}), 401
+
+
