@@ -2,7 +2,11 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
+<<<<<<< HEAD
+from api.models import db, User 
+=======
 from api.models import db, User, Producto
+>>>>>>> dffccd75b51971351598f2cab09836fcf7aae7c7
 from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
 
@@ -19,6 +23,8 @@ def handle_hello():
     }
 
     return jsonify(response_body), 200
+<<<<<<< HEAD
+=======
 
 # Rutas para la tabla User
 @api.route('/users', methods=['GET', 'POST'])
@@ -39,3 +45,4 @@ def get_all_products():
     productos = Producto.query.all()
     return jsonify([producto.serialize() for producto in productos])
 
+>>>>>>> dffccd75b51971351598f2cab09836fcf7aae7c7
