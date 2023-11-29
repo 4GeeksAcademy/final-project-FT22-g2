@@ -23,7 +23,7 @@ const Navbar = () => {
 
 	// Controlar el input de búsqueda por un onChange para capturar cada cambio al escribir
 	/*
-  		EJEMPLO PARA AÑADIR FILTRO + MAP (El filtro sería para buscar por la barra de búsqueda)
+			EJEMPLO PARA AÑADIR FILTRO + MAP (El filtro sería para buscar por la barra de búsqueda)
 
 		const [search, setSearch] = useState('')
 
@@ -60,16 +60,16 @@ const Navbar = () => {
 
 					{/* REDES SOCIALES */}
 					<div className="nav-item categories-navbar-items nav-link active text-white h4 flex-end" aria-current="page">
-							<a href="http://instagram.com" target="_blank" className="text-white">
-								<i className="fa-brands fa-instagram"></i>
+						<a href="http://instagram.com" target="_blank" className="text-white">
+							<i className="fa-brands fa-instagram"></i>
 							<a href="http://facebook.com" target="_blank" className="text-white">
 								<i className="fa-brands fa-square-facebook px-3"></i>
 							</a>
 						</a>
 					</div>
 
-					<button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-						aria-expanded="false" aria-label="Toggle navigation" style={{ color: "black", backgroundColor: "#7B2121" }}>
+					<button className="navbar-toggler navbar-toggler-button" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+						aria-expanded="false" aria-label="Toggle navigation" style={{ color: "white", backgroundColor: "#7B2121" }}>
 						<span className="navbar-toggler-icon"><FontAwesomeIcon icon={faCaretDown} size="2x" /></span>
 					</button>
 

@@ -115,8 +115,7 @@
 /* ---- / ESTILOS HERO / ----- */
 
 .container-hero {
-    width: 100vw;
-    height: 60vh;
+    height: 70vh;
     margin: 0;
     padding: 0;
     text-align: left;
@@ -145,11 +144,24 @@
 }
 
 /* Media query para dispositivos móviles */
-@media (max-width: 767px) {
+@media (max-width: 900px) {
     .container-hero-texts {
-      padding-left: 0; /* Quita el padding izquierdo en dispositivos con ancho máximo de 767px */
+        padding-left: 0;
+        /* Quita el padding izquierdo en dispositivos con ancho máximo de 767px */
     }
-  }
+}
+
+@media (max-width: 686px) {
+    .container-hero-texts {
+        padding-top: 50px;
+    }
+}
+
+@media (max-width: 400px) {
+    .hero--title {
+        font-size: 60px;
+    }
+}
 
 /* ----- // CONTACTANOS // ----- */
 
@@ -210,5 +222,4 @@
     font-size: 35px;
     padding-top: 40px;
     text-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-
 }
