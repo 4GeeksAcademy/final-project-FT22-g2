@@ -1,15 +1,13 @@
 """
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
-import datetime
 from flask import Flask, request, jsonify, url_for, Blueprint
+<<<<<<< HEAD
 from api.models import db, User 
+=======
+from api.models import db, User, Producto
+>>>>>>> dffccd75b51971351598f2cab09836fcf7aae7c7
 from api.utils import generate_sitemap, APIException
-from flask_jwt_extended import JWTManager
-from flask_jwt_extended import create_access_token
-from flask_jwt_extended import get_jwt_identity
-from flask_jwt_extended import jwt_required
-from werkzeug.security import generate_password_hash, check_password_hash
 from flask_cors import CORS
 
 api = Blueprint('api', __name__)
@@ -17,23 +15,34 @@ api = Blueprint('api', __name__)
 # Allow CORS requests to this API
 CORS(api)
 
+@api.route('/hello', methods=['POST', 'GET'])
+def handle_hello():
 
-@api.route('/login', methods=['POST', 'GET'])
-def login():
-    body = request.get_json()
-    email = body["email"]
-    password = body["password"]
-
-    user = User.query.filter_by(email=email, password=password).first()
-    if user == None:
-        return jsonify({"msg": "El usario y/o la contraseña no son correctos"}), 401
-
-    access_token = create_access_token(identity=user.serialize(), additional_claims={"username": user.username, "user_id": user.id, "email": user.email})
     response_body = {
-        "msg": "Token creada correctamente",
-        "token": access_token,
-        "email": email,
-        "username": user.username, 
+        "message": "Hello! I'm a message that came from the backend, check the network tab on the google inspector and you will see the GET request"
     }
 
     return jsonify(response_body), 200
+<<<<<<< HEAD
+=======
+
+# Rutas para la tabla User
+@api.route('/users', methods=['GET', 'POST'])
+def manage_users():
+    if request.method == 'GET':
+        users = User.query.all()
+        return jsonify([user.username for user in users])
+    elif request.method == 'POST':
+        data = request.json
+        new_user = User(username=data['username'], email=data['email'], 
+                        active=data['active'], password=data['password'])
+        db.session.add(new_user)
+        db.session.commit()
+        return jsonify({'message': 'Usuario creado exitosamente'}), 201
+
+@api.route('/productos', methods=['GET'])
+def get_all_products():
+    productos = Producto.query.all()
+    return jsonify([producto.serialize() for producto in productos])
+
+>>>>>>> dffccd75b51971351598f2cab09836fcf7aae7c7

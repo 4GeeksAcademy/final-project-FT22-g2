@@ -1,15 +1,16 @@
 .container-registro {
-    width: 100%;
-    height: 100%;
-    padding: 60px 0px;
+    padding: 60px 0;
     display: flex;
     justify-content: center;
+    align-items: center;
     background: whitesmoke;
+    height: 70vh;
 }
 
 .card-registro {
-    width: 20%;
-    height: auto;
+    width: 80%;
+    max-width: 370px;
+    margin: auto;
     background: white;
     text-align: center;
     border-radius: 20px;
@@ -17,46 +18,36 @@
 
 .container-inputs-registro {
     margin: 10px auto;
-    width: 80%;
-    
 }
 
 .input-registro {
     width: 100%;
-    padding: auto;
-    margin: 20px 0px;
+    padding: 10px;
+    margin: 10px 0;
     background: whitesmoke;
-    border: rgb(177, 177, 177) 1px solid;
+    border: 1px solid rgb(177, 177, 177);
     border-radius: 10px;
-    
-   
+    box-sizing: border-box;
 }
 
 #terminosYcondiciones {
-    width: 26px;
-    height: 26px;
-    padding: 0;
-    margin: 0;
+    width: 18px;
+    height: 18px;
 }
 
 .container-terminos-y-condiciones {
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin-bottom: 20px;
+    width: 80%;
+    margin: 20px auto;
 }
 
 .terminosYcondicionesLabel {
-    margin-left: 2px;
+    margin-left: 8px;
 }
 
-.container-btn-registro {
-    margin-bottom: 10px;
-    
-}
-
+.container-btn-registro,
 .container-btn-registro-google {
-    margin-bottom: 40px;
-
+    width: 80%;
+    margin: 10px auto;
 }

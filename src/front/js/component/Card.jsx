@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 
 const Card = () => {
-
   return (
     <>
       <div className="col-12 col-md-6 col-lg-3">
