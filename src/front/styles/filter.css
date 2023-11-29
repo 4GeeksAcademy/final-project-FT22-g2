@@ -19,9 +19,11 @@
 .background-filteredproduct-color {
     background-color: whitesmoke;
 }
-.custom-text-filterproduct{
-    color:black
+
+.custom-text-filterproduct {
+    color: black
 }
+
 .filter-custom-height {
     height: 40px;
     font-size: 25px;
@@ -49,5 +51,9 @@
 .orderbar-color {
     background-color: rgb(46, 45, 45);
     color: white;
+}
 
+.orderbar-color:hover {
+    background-color: rgb(46, 45, 45);
+    color: white;
 }

@@ -14,6 +14,8 @@ const PerfilUsuario = () => {
   //const history = useHistory();
 
   const handleEliminarCuenta = () => {
+
+
     Swal.fire({
       title: '¿Estas seguro de que quieres eliminar tu cuenta?',
       text: "¡Te perderas de nuestras mejores oferta!",
@@ -33,7 +35,8 @@ const PerfilUsuario = () => {
           // history.push('/');
         });
       }
-    });
+    })
+
   };
 
   return (

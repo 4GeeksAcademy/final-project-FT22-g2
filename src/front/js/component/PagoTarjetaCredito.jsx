@@ -14,6 +14,16 @@ const TarjetaDeCredito = () => {
         focus: ""
     })
 
+    const handleOnClickDefault = (e) => {
+        e.preventDefault()
+
+        if (state.number == "" || state.name == "" || state.expiry == "" || state.cvc == "") {
+            alert("Todos los campos son obligatorios")
+        } else {
+            alert("Los campos se rellenaron correctamente")
+        }
+    }
+
     const handleInputChange = (e) => {
         setState({
             ...state,
@@ -44,7 +54,7 @@ const TarjetaDeCredito = () => {
                     <div className="form-group">
                         <label htmlFor="number">Número de la tarjeta</label>
                         <input
-                            type="number" 
+                            type="number"
                             name="number"
                             id="number-tarjeta"
                             maxLength="16"
@@ -98,10 +108,10 @@ const TarjetaDeCredito = () => {
                             />
                         </div>
                     </div>
-                     {/* BOTON PARA validar */}
-                     <div className="boton-actualizar-cambiarDireccion p-3">
-                            <button type="submit" class="btn btn-secondary btn-sm" >Validar tarjeta</button>
-                        </div>
+                    {/* BOTON PARA validar */}
+                    <div className="boton-actualizar-cambiarDireccion p-3">
+                        <button type="submit" class="btn btn-secondary btn-sm" onClick={handleOnClickDefault}>Validar tarjeta</button>
+                    </div>
 
                 </form>
 

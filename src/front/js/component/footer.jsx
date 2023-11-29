@@ -56,7 +56,7 @@ const Footer = () => (
 
 					<div className="mt-5 p-4">
 						<h6 >Contáctanos</h6>
-						<p><a href="mailto:elrincondelvino@gmail.com" style={{ textDecoration: "none" }} >elrincondelvino@gmail.com</a></p>
+						<p><a href="https://mail.google.com/" target="_blank" style={{ textDecoration: "none" }} >elrincondelvino@gmail.com</a></p>
 
 
 						{/* Íconos de redes sociales */}

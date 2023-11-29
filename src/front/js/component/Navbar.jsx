@@ -23,7 +23,7 @@ const Navbar = () => {
 
 	// Controlar el input de búsqueda por un onChange para capturar cada cambio al escribir
 	/*
-  		EJEMPLO PARA AÑADIR FILTRO + MAP (El filtro sería para buscar por la barra de búsqueda)
+			EJEMPLO PARA AÑADIR FILTRO + MAP (El filtro sería para buscar por la barra de búsqueda)
 
 		const [search, setSearch] = useState('')
 
@@ -49,7 +49,7 @@ const Navbar = () => {
 				<RestaurarContraseña />
 			</div>
 
-			<nav className="navbar navbar-expand-lg" style={navStyle}>
+			<nav className="container-navbar navbar navbar-expand-lg" style={navStyle}>
 				<div className="container-fluid">
 
 					{/* ---- / LOGO / ---- */}
@@ -60,16 +60,16 @@ const Navbar = () => {
 
 					{/* REDES SOCIALES */}
 					<div className="nav-item categories-navbar-items nav-link active text-white h4 flex-end" aria-current="page">
-							<a href="http://instagram.com" target="_blank" className="text-white">
-								<i className="fa-brands fa-instagram"></i>
+						<a href="http://instagram.com" target="_blank" className="text-white">
+							<i className="fa-brands fa-instagram"></i>
 							<a href="http://facebook.com" target="_blank" className="text-white">
 								<i className="fa-brands fa-square-facebook px-3"></i>
 							</a>
 						</a>
 					</div>
 
-					<button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-						aria-expanded="false" aria-label="Toggle navigation" style={{ color: "black", backgroundColor: "#7B2121" }}>
+					<button className="navbar-toggler navbar-toggler-button" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+						aria-expanded="false" aria-label="Toggle navigation" style={{ color: "white", backgroundColor: "#7B2121" }}>
 						<span className="navbar-toggler-icon"><FontAwesomeIcon icon={faCaretDown} size="2x" /></span>
 					</button>
 
@@ -80,9 +80,6 @@ const Navbar = () => {
 
 						<div className="nav-item dropdown categories-navbar-items">
 							{/* ----- / BARRA DE CATEGORÍAS / ----- */}
-
-
-
 
 							{/* PRIMERA CATEGORÍA */}
 							<a className="nav-link dropdown-toggle text-white h4" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -109,7 +106,7 @@ const Navbar = () => {
 							<a className="nav-link dropdown-toggle text-white h4" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								Categorías
 							</a>
-							<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+							<ul className="dropdown-menu " aria-labelledby="navbarDropdown">
 								<Link to="busqueda" className="text-decoration-none">
 									<li><a className="dropdown-item" href="#">Reserva</a></li>
 								</Link>
@@ -126,12 +123,7 @@ const Navbar = () => {
 							</button>
 						</div>
 
-
-
 					</div> {/* termina el collapse */}
-
-
-
 
 					{/* ---- / BARRA Y BOTÓN DE BÚSQUEDA / ---- */}
 
@@ -140,18 +132,16 @@ const Navbar = () => {
 						<button className="btn btn-outline-light" type="submit">Buscar</button>
 					</form>
 
-
-
 					{/* empiezan los logos del carrito y loggin */}
-					<div className="icons-navbar h2 px-2 m-auto d-flex ms-auto flex-end">
+					<div className="icons-navbar h2 px-1 m-auto d-flex ms-auto flex-start">
 						<ul className="navbar-nav">
 							{/* ---- / DROPDOWN CARRITO / ---- */}
-							<li className="nav-item dropdown">
+							<li className="nav-item dropstart">
 								<a className="nav-link dropdown text-white" id="navbarDropdown" type="button" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false">
 									<i class="fa-solid fa-cart-shopping px-3"></i>
 								</a>
 
-								<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+								<ul className="dropdown-menu dropdown-menu-start contenedor-dropdown-menu-carrito-collapse" aria-labelledby="navbarDropdown">
 									<form action="">
 
 										<div className="p-3">
@@ -168,9 +158,9 @@ const Navbar = () => {
 														<p>1 unidad</p>
 														{/* BOTON AÑADIR Y QUITAR + PRECIO */}
 														<div className="product-price-carrito-hover d-inline-flex align-items-center justify-content-between">
-															<button type="button" className="button-add-remove-carrito-hover remove-carrito-hover">-</button>
+															{/* <button type="button" className="button-add-remove-carrito-hover remove-carrito-hover">-</button>
 															<label className="label-cantidad-carrito-hover px-2">1</label>
-															<button type="button" className="button-add-remove-carrito-hover add-carrito-hover">+</button>
+															<button type="button" className="button-add-remove-carrito-hover add-carrito-hover">+</button> */}
 															<p className=" px-2 price-carrito-hover" >40.000</p>
 														</div>
 													</div>
@@ -195,13 +185,13 @@ const Navbar = () => {
 
 						{/* ---- / DROPDOWN LOG-IN - REGISTER / ---- */}
 						<ul className="navbar-nav">
-							<li className="nav-item dropdown">
+							<li className="nav-item dropstart">
 								<a className="nav-link dropdown text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 									<i class="fa-solid fa-right-to-bracket px-3"></i>
 								</a>
-								<ul className="dropdown-menu" aria-labelledby="navbarDropdown2">
+								<ul className="dropdown-menu p-2" aria-labelledby="navbarDropdown2">
 									<li>
-										<button className="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalLogin" type="button">Acceder</button></li>
+										<button className="dropdown-item border-bottom" data-bs-toggle="modal" data-bs-target="#modalLogin" type="button">Acceder</button></li>
 									<li>
 
 										<Link to="/registro" className="text-decoration-none">
@@ -214,15 +204,7 @@ const Navbar = () => {
 					</div>
 					{/* terminan los logos del carrito y loggin */}
 
-
-
-
-
-
 				</div>
-
-
-
 			</nav>
 		</>
 

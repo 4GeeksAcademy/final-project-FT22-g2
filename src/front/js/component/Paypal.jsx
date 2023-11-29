@@ -1,6 +1,7 @@
 
- import React, { useState } from "react";
+import React, { useState } from "react";
 import bigPaypal from "../../img/bigPaypal.png";
+import Direccion from "./Direccion.jsx";
 
 const Paypal = () => {
     const [isValid, setIsValid] = useState(true);
@@ -19,12 +20,14 @@ const Paypal = () => {
 
     return (
         <>
+
             <div className="card card-tarjeta-de-credito ms-auto">
                 <div className="card-body card-body-tarjeta-de-credito" style={{ width: '500px' }}>
                     <img src={bigPaypal} alt="Tarjeta de crédito" className="paypalLogo ms-auto"
                         style={{ maxWidth: '100px', height: 'auto', marginRight: 'auto' }} />
                 </div>
                 <div className="form-group">
+                    {/* ---- // CORREO ELECTRÓNICO PAYPAL // ---- */}
                     <label for="input-email" className="form-label">Correo electrónico</label>
                     <input
                         type="email"
@@ -36,9 +39,11 @@ const Paypal = () => {
                         onChange={(e) => setEmail(e.target.value)}
                         required
                     />
+                    {/* ---- // VALIDACIÓN CORREO ELECTRÓNICO PAYPAL // ---- */}
                     {!isValid && <div className="invalid-feedback">Ingrese un correo electrónico válido</div>}
                 </div>
                 <div className="form-group">
+                    {/* ---- // CONTRASEÑA PAYPAL // ---- */}
                     <label for="input-contraseña1" className="form-label">Contraseña</label>
                     <input
                         type="password"
@@ -50,9 +55,11 @@ const Paypal = () => {
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     />
+                    {/* ---- // VALIDACIÓN CONTRASEÑA PAYPAL // ---- */}
                     {!isValid && <div className="invalid-feedback">Ingrese una contraseña válida</div>}
                 </div>
                 <div className="d-grid gap-2 col-6 mx-auto p-3">
+                    {/* ---- // BOTÓN INICIAR SESIÓN // ---- */}
                     <button className="btn btn-primary" type="button" onClick={handleButtonClick}>Iniciar sesión</button>
                 </div>
 
@@ -77,6 +84,15 @@ const Paypal = () => {
                     </div>
                 </div>
             </div>
+
+            {/* DIRECCION DE ENVIO */}
+            <div>
+                <h4 className="direccion-de-envio pt-4">Dirección de envío:</h4>
+                {/*  COMPONENTE DIRECCION */}
+                <Direccion />
+            </div>
+
+
         </>
     );
 };

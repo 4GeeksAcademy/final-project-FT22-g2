@@ -1,11 +1,41 @@
 import React from "react";
 import pagoTarjetaDeCredito from "../../styles/pagoTarjetaDeCredito.css";
 import webpayLogo from "../../img/webpayLogo.png"
+import Direccion from "./Direccion.jsx";
 
 
 const Webpay = () => {
-    
-    
+
+    const pagar = () => {
+        let timerInterval;
+        Swal.fire({
+            icon: "success",
+            title: "¡Gracias por su compra!",
+            imageUrl: logoElRinconDelVino,
+            imageWidth: 250,
+            imageHeight: 180,
+            imageAlt: "Custom image",
+            html: "Será redirigido a la página principal en <b></b> milisegundos.",
+            timer: 7000,
+            timerProgressBar: true,
+            didOpen: () => {
+                Swal.showLoading();
+                const timer = Swal.getPopup().querySelector("b");
+                timerInterval = setInterval(() => {
+                    timer.textContent = `${Swal.getTimerLeft()}`;
+                }, 100);
+            },
+            willClose: () => {
+                clearInterval(timerInterval);
+            }
+        }).then((result) => {
+            if (result.dismiss === Swal.DismissReason.timer) {
+                console.log("I was closed by the timer");
+                window.location.href = "/";
+            }
+        });
+    }
+
     return (
         <>
 
@@ -38,8 +68,8 @@ const Webpay = () => {
                                 id="number-tarjeta"
                                 maxLength="16"
                                 className="form-control"
-                                required 
-                                />
+                                required
+                            />
                         </div>
                         {/*  nombre tarjeta */}
                         <div className="form-group p-3">
@@ -51,7 +81,7 @@ const Webpay = () => {
                                 maxLength="40"
                                 className="form-control"
                                 required
-                                 />
+                            />
                         </div>
                         {/* fecha de expiracion tarjeta */}
                         <div className="form row">
@@ -64,7 +94,7 @@ const Webpay = () => {
                                     maxLength="4"
                                     className="form-control"
                                     required
-                                 />
+                                />
 
                             </div>
                             {/* CVC tarjeta */}
@@ -81,14 +111,14 @@ const Webpay = () => {
                             </div>
                         </div>
 
-                      {/* BOTON PARA validar */}
-                      <div className="boton-para-cambiarDireccion p-3">
-                            <button type="submit" class="btn btn-secondary btn-sm" >Validar tarjeta</button>
-
+                        {/* BOTON PARA validar */}
+                        <div className="boton-para-cambiarDireccion p-3">
+                            <button onClick={pagar} type="submit" class="btn btn-secondary btn-sm" >Validar tarjeta</button>
                         </div>
 
                     </form>
-                   
+
+
                 </div>
 
             </div>

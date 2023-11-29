@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import "../../styles/registro.css";
+import { createUser } from '../services/api';
 
 const Registro = () => {
-
-    const createUserUrlAPI = "https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/";
 
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
@@ -14,41 +13,25 @@ const Registro = () => {
 
         try {
             await createUser(username, email, password);
-            console.log('Usuario creado!');
+            alert('Usuario creado!');
 
+            setTimeout(() => {
+                window.location.href = "/";
+            }, 1000);
+
+            setTimeout(() => {
+                // Intentar crear función para abrir modal de login al crear usuario y redirigirse a home
+
+            }, 1000);
         } catch (error) {
-            console.log("error handleSubmit", error);
-        }
-    }
-
-    const createUser = async (username, email, password) => {
-        const user = {
-            username,
-            email,
-            password
-        };
-
-        try {
-            const response = await fetch(createUserUrlAPI + "users", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(user)
-            });
-
-            if (!response.ok) {
-                // Throw an error if the response status is not OK
-                throw new Error(`HTTP error! Status: ${response.status}`);
+            if (error.status === 409) {
+                alert('El usuario ya existe');
+            } else {
+                alert('Error creando usuario');
             }
-
-            // If the response is OK, return the response JSON
-            return response.json();
-        } catch (error) {
-            // Handle any errors that occurred during the fetch
-            console.error("Error during fetch:", error);
-            throw error;
         }
+
+
     }
 
     return (

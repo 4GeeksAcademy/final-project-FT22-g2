@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import vinoFavoritos from "../../img/vino-add-favorites.png"
 import vinoQuitarFavoritos from "../../img/vino-modified 1.png"
 import { Link } from "react-router-dom";
+import wineMissing620 from "../../img/wine-620x620.png"
 
 const ModalImages = () => {
 
@@ -22,7 +23,7 @@ const ModalImages = () => {
                                 <div className="col-md-5">
                                     <img
                                         className="card-img-top img-fuild my-2"
-                                        src="https://dummyimage.com/300x300/000/fff"
+                                        src={wineMissing620}
                                         alt="Card image cap"
                                     />
                                 </div>
@@ -40,21 +41,19 @@ const ModalImages = () => {
                                     <div className="my-3 row d-flex align-items-center">
                                         <div className="container-stars-modal-img">
                                             <i className="fa-solid fa-star stars"></i>
-                                            <i className="fa-regular fa-star"></i>
-                                            <i className="fa-regular fa-star"></i>
-                                            <i className="fa-regular fa-star"></i>
-                                            <i className="fa-regular fa-star"></i>
+                                            <i className="fa-solid fa-star stars"></i>
+                                            <i className="fa-solid fa-star stars"></i>
+                                            <i className="fa-solid fa-star stars"></i>
+                                            <i className="fa-regular fa-star stars"></i>
                                         </div>
-
-
                                     </div>
-                                    <h4>Precio: $10.000</h4>
+                                    <h4>Precio: $$$</h4>
                                     <div>
                                     </div>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi voluptates maxime aut, rem incidunt assumenda. Impedit error maxime assumenda, consequatur ea necessitatibus illo aspernatur laudantium, similique qui praesentium! Aut, odio.
+                                    En un futuro es nuestro plan deslumbrarlos con maravillosos artículos destacados!
                                     <div className="d-flex justify-content-center" data-bs-dismiss="modal">
-                                        <Link to="/carrito" type="button" className="btn btn-modal btn-secondary mt-2 w-75 d-block data-bs-dismiss">
-                                            Agregar al carrito
+                                        <Link to="/" type="button" className="btn btn-modal btn-secondary mt-2 w-75 d-block data-bs-dismiss disabled">
+                                            Próximamente!
                                         </Link>
                                     </div>
                                 </div>

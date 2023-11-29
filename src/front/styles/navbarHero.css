@@ -3,6 +3,7 @@
 
 /* ---- // CARRITO HOVER // ---- */
 
+
 .contenedor-carrito-hover {
     min-width: 250px;
     min-height: 400px;
@@ -11,10 +12,22 @@
     background: whitesmoke;
 }
 
+
+
 .product-example-carrito-hover {
     background: #D9D9D9;
     display: flex;
     align-items: center;
+}
+
+@media (max-width: 375.98px) {
+    .dropdown-menu contenedor-carrito-hover {
+        max-width: 300px;
+        max-height: 300px;
+        /* Ajusta la altura según tus necesidades */
+        padding: 10px;
+        /* Añade relleno adicional si es necesario */
+    }
 }
 
 .button-add-remove-carrito-hover {
@@ -48,9 +61,7 @@
 
 .price-carrito-hover {
     margin: 0;
-    margin-left: 20px;
-    margin-right: 0;
-    padding-right: 0;
+    margin-left: -5px;
 }
 
 .product-info-carrito-hover p {
@@ -84,6 +95,12 @@
     justify-content: center;
 }
 
+.contenedor-dropdown-menu-carrito-collapse {
+    position: relative;
+    left: 0;
+    top: 0;
+}
+
 /* ---- // CATEGORIAS // ---- */
 
 .categories {
@@ -115,8 +132,7 @@
 /* ---- / ESTILOS HERO / ----- */
 
 .container-hero {
-    width: 100vw;
-    height: 60vh;
+    height: 70vh;
     margin: 0;
     padding: 0;
     text-align: left;
@@ -145,11 +161,24 @@
 }
 
 /* Media query para dispositivos móviles */
-@media (max-width: 767px) {
+@media (max-width: 900px) {
     .container-hero-texts {
-      padding-left: 0; /* Quita el padding izquierdo en dispositivos con ancho máximo de 767px */
+        padding-left: 0;
+        /* Quita el padding izquierdo en dispositivos con ancho máximo de 767px */
     }
-  }
+}
+
+@media (max-width: 686px) {
+    .container-hero-texts {
+        padding-top: 50px;
+    }
+}
+
+@media (max-width: 400px) {
+    .hero--title {
+        font-size: 60px;
+    }
+}
 
 /* ----- // CONTACTANOS // ----- */
 
@@ -210,5 +239,4 @@
     font-size: 35px;
     padding-top: 40px;
     text-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-
 }
