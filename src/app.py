@@ -22,6 +22,9 @@ ENV = "development" if os.getenv("FLASK_DEBUG") == "1" else "production"
 static_file_dir = os.path.join(os.path.dirname(
     os.path.realpath(__file__)), '../public/')
 app = Flask(__name__)
+app.config['JWT_SECRET_KEY'] = os.getenv('SECRET_KEY')
+jwt = JWTManager(app)
+
 CORS(app, resources={r"/api/": {"origins": "https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/", "methods": ["GET", "POST", "PUT", "DELETE"]}})
 app.url_map.strict_slashes = False
 

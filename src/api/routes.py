@@ -31,8 +31,9 @@ def manage_users():
         return jsonify([user.username for user in users])
     elif request.method == 'POST':
         data = request.json
+        hashed_password = generate_password_hash(data['password'])
         new_user = User(username=data['username'], email=data['email'], 
-                        active=data['active'], password=data['password'])
+                        active=data['active'], password=hashed_password)
         db.session.add(new_user)
         db.session.commit()
         return jsonify({'message': 'Usuario creado exitosamente'}), 201
@@ -79,25 +80,23 @@ def producto_detail(producto_id):
 
 @api.route("/login", methods=["POST", "GET"])
 def login():
-    email = request.json.get("email", None)
-    password = request.json.get("password", None)
+    try:
+        data = request.get_json()
+        email = data.get("email", None)
+        password = data.get("password", None)
+    except Exception as e:
+        return jsonify({"msg": "Invalid JSON format"}), 400
 
     if not email or not password:
-        return jsonify({"msg": "Email y contraseña son necesarios"}), 400
+        return jsonify({"msg": "Email and password are required"}), 400
 
     user = User.query.filter_by(email=email).first()
     if not user:
-        return jsonify({"msg": "Usuario no encontrado"}), 401
+        return jsonify({"msg": "User not found"}), 401
 
     if check_password_hash(user.password, password):
         access_token = create_access_token(identity={"email": user.email})
         return jsonify(access_token=access_token), 200
     else:
-        return jsonify({"msg": "Email o contraseña inválidos"}), 401
-
-    data = {
-        "access_token": access_token,
-        "user": user.serialize()
-    }
-    
+        return jsonify({"msg": "Invalid email or password"}), 401
     return  jsonify(data), 200
