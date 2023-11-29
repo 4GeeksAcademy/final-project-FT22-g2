@@ -44,6 +44,13 @@ const ModalContact = () => {
             <div className="modal fade" id="ModalContact" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog odal-dialog-centered modal-xl">
                     <div className="modal-content">
+                        {/* Botón "X" para cerrar el modal en pantallas pequeñas */}
+                        <button
+                            type="button"
+                            className="btn-close d-lg-none" // Oculta el botón en pantallas grandes y lo muestra en pantallas pequeñas
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        ></button>
                         <div className="modal-body text-dark">
                             <div className="row p-3">
                                 <div className="col-lg-4 col-md-6">
