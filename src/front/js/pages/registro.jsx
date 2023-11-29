@@ -14,6 +14,15 @@ const Registro = () => {
         try {
             await createUser(username, email, password);
             alert('Usuario creado!');
+
+            setTimeout(() => {
+                window.location.href = "/";
+            }, 1000);
+
+            setTimeout(() => {
+                // Intentar crear función para abrir modal de login al crear usuario y redirigirse a home
+
+            }, 1000);
         } catch (error) {
             if (error.status === 409) {
                 alert('El usuario ya existe');
@@ -21,6 +30,8 @@ const Registro = () => {
                 alert('Error creando usuario');
             }
         }
+
+
     }
 
     return (

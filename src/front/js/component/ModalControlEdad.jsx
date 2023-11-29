@@ -14,10 +14,10 @@ const ModalControlEdad = () => {
             myModal.show();
         }
 
-        // Activar la función después de 2 segundos
+        // Activar la función después de 1 segundos
         const timer = setTimeout(() => {
             activateModal();
-        }, 2000);
+        }, 1000);
 
         return () => clearTimeout(timer); // Limpiar el temporizador si el componente se desmonta
 

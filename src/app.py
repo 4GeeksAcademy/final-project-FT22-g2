@@ -73,25 +73,6 @@ def serve_any_other_file(path):
     response.cache_control.max_age = 0  # avoid cache memory
     return response
 
-# 
-@app.route('/users/<int:user_id>', methods=['GET', 'PUT', 'DELETE'])
-def user_detail(user_id):
-    user = User.query.get_or_404(user_id)
-    if request.method == 'GET':
-        return jsonify({'username': user.username, 'email': user.email, 'active': user.active})
-    elif request.method == 'PUT':
-        data = request.json
-        user.username = data.get('username', user.username)
-        user.email = data.get('email', user.email)
-        user.active = data.get('active', user.active)
-        user.password = data.get('password', user.password)
-        db.session.commit()
-        return jsonify({'message': 'Usuario actualizado exitosamente'})
-    elif request.method == 'DELETE':
-        db.session.delete(user)
-        db.session.commit()
-        return jsonify({'message': 'Usuario eliminado exitosamente'})
-
 
 # this only runs if `$ python src/main.py` is executed
 if __name__ == '__main__':
