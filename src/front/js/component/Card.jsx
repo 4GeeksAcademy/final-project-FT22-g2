@@ -11,7 +11,7 @@ const Card = () => {
 
   /*
   EJEMPLO PARA AÑADIR FILTRO + MAP (El filtro sería para buscar por la barra de búsqueda, ver si añadirlo en el navbar)
-
+ 
   const [search, setSearch] = useState('')
 
   {data.filter((item) => {
