@@ -49,7 +49,7 @@ const Navbar = () => {
 				<RestaurarContraseña />
 			</div>
 
-			<nav className="navbar navbar-expand-lg" style={navStyle}>
+			<nav className="container-navbar navbar navbar-expand-lg" style={navStyle}>
 				<div className="container-fluid">
 
 					{/* ---- / LOGO / ---- */}
@@ -80,9 +80,6 @@ const Navbar = () => {
 
 						<div className="nav-item dropdown categories-navbar-items">
 							{/* ----- / BARRA DE CATEGORÍAS / ----- */}
-
-
-
 
 							{/* PRIMERA CATEGORÍA */}
 							<a className="nav-link dropdown-toggle text-white h4" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -126,8 +123,6 @@ const Navbar = () => {
 							</button>
 						</div>
 
-
-
 					</div> {/* termina el collapse */}
 
 
@@ -143,15 +138,15 @@ const Navbar = () => {
 
 
 					{/* empiezan los logos del carrito y loggin */}
-					<div className="icons-navbar h2 px-2 m-auto d-flex ms-auto flex-end">
+					<div className="icons-navbar h2 px-1 m-auto d-flex ms-auto flex-start">
 						<ul className="navbar-nav">
 							{/* ---- / DROPDOWN CARRITO / ---- */}
-							<li className="nav-item dropdown">
+							<li className="nav-item dropstart">
 								<a className="nav-link dropdown text-white" id="navbarDropdown" type="button" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false">
 									<i class="fa-solid fa-cart-shopping px-3"></i>
 								</a>
 
-								<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+								<ul className="dropdown-menu dropdown-menu-start contenedor-dropdown-menu-carrito-collapse" aria-labelledby="navbarDropdown">
 									<form action="">
 
 										<div className="p-3">
@@ -195,13 +190,13 @@ const Navbar = () => {
 
 						{/* ---- / DROPDOWN LOG-IN - REGISTER / ---- */}
 						<ul className="navbar-nav">
-							<li className="nav-item dropdown">
+							<li className="nav-item dropstart">
 								<a className="nav-link dropdown text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 									<i class="fa-solid fa-right-to-bracket px-3"></i>
 								</a>
-								<ul className="dropdown-menu" aria-labelledby="navbarDropdown2">
+								<ul className="dropdown-menu p-2" aria-labelledby="navbarDropdown2">
 									<li>
-										<button className="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalLogin" type="button">Acceder</button></li>
+										<button className="dropdown-item border-bottom" data-bs-toggle="modal" data-bs-target="#modalLogin" type="button">Acceder</button></li>
 									<li>
 
 										<Link to="/registro" className="text-decoration-none">
