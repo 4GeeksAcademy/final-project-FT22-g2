@@ -19,6 +19,26 @@ const Navbar = () => {
 		backgroundColor: "#671C1C"
 	}
 
+	// Controlar el input de búsqueda por un onChange para capturar cada cambio al escribir
+	/*
+  		EJEMPLO PARA AÑADIR FILTRO + MAP (El filtro sería para buscar por la barra de búsqueda)
+
+		const [search, setSearch] = useState('')
+
+		{data.filter((item) => {
+		  return search.toLowerCase() === '' 
+		  ? item 
+		  : item.first_name.toLoweCase().includes(search) 
+		})
+		.map((item) => {
+		  <card con sus valores asignados>
+		  src={item.image}
+		  {item.name}
+		  {item.price}
+		})}
+
+	*/
+
 	return (
 		<>
 			<div className="text-center">
