@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "./Card.jsx";
+import { CardContainer4, CardContainer16 } from "./Card.jsx";
 
 const Containercardshome = () => {
   return (
@@ -10,15 +10,11 @@ const Containercardshome = () => {
       <div className="container w-100">
         <div>
           <div className="row">
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+            <CardContainer4/>
           </div>
         </div>
       </div>
     </div>
-
   );
 };
 
