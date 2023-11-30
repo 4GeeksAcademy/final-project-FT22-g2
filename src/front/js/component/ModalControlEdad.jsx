@@ -1,11 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import "../../styles/modalControlEdad.css"
 import logoElRinconDelVino from "../../img/logoElRinconDelVino.png";
+import { Context } from "../store/appContext";
 
 const ModalControlEdad = () => {
 
+    const { store, actions } = useContext(Context);
+
+    const token = localStorage.getItem("token");
+    console.log(token)
 
     useEffect(() => {
+
+
         // Función para activar el modal después de un cierto tiempo
         function activateModal() {
             var myModal = new bootstrap.Modal(document.getElementById('staticBackdrop'), {
@@ -46,10 +53,6 @@ const ModalControlEdad = () => {
                     </div>
                 </div>
             </div>
-
-
-
-
 
         </>
     )
