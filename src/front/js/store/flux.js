@@ -13,7 +13,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+			token: sessionStorage.getItem("token")
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -22,18 +23,46 @@ const getState = ({ getStore, getActions, setStore }) => {
 					method: "POST",
 					headers: { "Content-Type": "application/json" },
 					body: JSON.stringify({
-						username: username,
-						email: email,
-						password: password,
-
+						"username": username,
+						"email": email,
+						"password": password,
+						"active": true
 					})
 				};
 				try {
-					const result = await fetch(process.env.BACKEND_URL + "/api/users", opts)
+					const result = await fetch("https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/users", opts)
 					console.log(result)
 				} catch {
 					console.log("Error de registro [flux]", error)
 				}
+			},
+
+			login: async (email, password) => {
+				console.log(email, password);
+				const opts = {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify({
+						"email": email,
+						"password": password,
+					}),
+				};
+				const res = await fetch("https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/login", opts);
+				if (res.status < 200 || res.status >= 300) {
+					throw new Error("There was an error signing in");
+				}
+				const data = await res.json();
+
+				sessionStorage.setItem("token", data.token);
+				console.log(data.token)
+
+				console.log("USER INFO HERE", data)
+				setStore({
+					token: data.token
+				});
+				return true;
 			},
 			// Función no utilizada pero me da miedo borrarla, así que se queda
 			getMessage: async () => {

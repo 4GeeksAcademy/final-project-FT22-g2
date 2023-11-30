@@ -1,23 +1,25 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import "../../styles/registro.css";
-import { createUser } from '../services/api';
+import { Context } from '../store/appContext.js';
 
 const Registro = () => {
 
+    const { store, actions } = useContext(Context);
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const token = sessionStorage.getItem("token");
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
-            await createUser(username, email, password);
+            await actions.createUser(username, email, password)
             alert('Usuario creado!');
 
-            setTimeout(() => {
-                window.location.href = "/";
-            }, 1000);
+            // setTimeout(() => {
+            //     window.location.href = "/";
+            // }, 1000);
 
             setTimeout(() => {
                 // Intentar crear función para abrir modal de login al crear usuario y redirigirse a home
@@ -30,8 +32,6 @@ const Registro = () => {
                 alert('Error creando usuario');
             }
         }
-
-
     }
 
     return (
@@ -61,7 +61,7 @@ const Registro = () => {
                                     onChange={(e) => setEmail(e.target.value)} />
                                 <input
                                     value={password}
-                                    type="text"
+                                    type="password"
                                     id='password'
                                     placeholder='Contraseña'
                                     className="form-control input-registro"
