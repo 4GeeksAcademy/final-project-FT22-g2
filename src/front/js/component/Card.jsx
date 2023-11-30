@@ -34,7 +34,7 @@ const Card = ({ productos }) => (
     {productos.map((producto) => (
       <div key={producto.id} className="col-12 col-md-6 col-lg-3">
         <div className="my-5 d-flex justify-content-center " >
-          <div className="card-product bg-light text-center" style={{ width: "100%", maxWidth: "300px" }} >
+          <div className="card-product bg-light text-center" style={{ width: "100%", maxWidth: "300px", minHeight: "610px"}} >
             <div className="m-5">
               <img
                 className="card-img-top img-fluid"
