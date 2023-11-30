@@ -99,7 +99,7 @@ const CardContainer16 = () => {
           >
             Cargar más
           </button>
-        </div>git add
+        </div>
       )}
     </div>
   );
