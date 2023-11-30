@@ -17,6 +17,7 @@ const LogIn = () => {
         e.preventDefault()
 
         actions.login(email, password)
+            .then((res) => { navigate("/") })
         setTimeout(() => {
             alert("Has accedido correctamente!")
             window.location.reload(false)

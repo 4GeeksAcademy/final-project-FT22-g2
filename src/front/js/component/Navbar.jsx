@@ -28,11 +28,7 @@ const Navbar = () => {
 
 	const handleLogout = () => {
 		localStorage.removeItem("token");
-
-		setTimeout(() => {
-			window.locate.href("/registro")
-			window.location.reload(false)
-		}, 2000);
+		window.location.href = "https://didactic-happiness-7qx694qjp792xjqj-3000.app.github.dev/registro"
 	};
 
 	// Controlar el input de búsqueda por un onChange para capturar cada cambio al escribir
