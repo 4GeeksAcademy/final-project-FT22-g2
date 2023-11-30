@@ -1,6 +1,7 @@
 import { auto } from "@cloudinary/url-gen/qualifiers/quality";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import "/src/front/styles/index.css";
 
 
 // Fetch a productos
@@ -32,23 +33,23 @@ const Card = ({ productos }) => (
   <>
     {productos.map((producto) => (
       <div key={producto.id} className="col-12 col-md-6 col-lg-3">
-        <div className="my-5 d-flex justify-content-center">
-          <div className="card-product bg-light text-center" style={{ minwidth: "22rem", maxHeight: "40rem", borderRadius: "15px" }}>
+        <div className="my-5 d-flex justify-content-center " >
+          <div className="card-product bg-light text-center" style={{ width: "100%", maxWidth: "300px" }} >
             <div className="m-5">
               <img
-                className="card-img-top img-fluid"
+                className="card-img-top img-fluid" 
                 src={`${producto.image}`}
                 alt={`${producto.nombre}`}
               />
             </div>
             <div className="card-body text-align-center">
-              <h4 className="card-title">{`${producto.nombre}`}</h4>
+              <h4 className="card-title custom-text-card">{`${producto.nombre}`}</h4>
               <h5>{`$${producto.precio}`}</h5>
               <p className="card-text text-align-center">
                 <i className="fa-solid fa-star stars"></i>
-                <i className="fa-regular fa-star stars"></i>
-                <i className="fa-regular fa-star stars"></i>
-                <i className="fa-regular fa-star stars"></i>
+                <i className="fa-solid fa-star stars"></i>
+                <i className="fa-solid fa-star stars"></i>
+                <i className="fa-solid fa-star stars"></i>
                 <i className="fa-regular fa-star stars"></i>
               </p>
               <Link to={`/producto/${producto.id}`}>
@@ -97,7 +98,7 @@ const CardContainer16 = () => {
             className="btn btn-secondary"
             onClick={() => setCantidadVisible(cantidadVisible + 16)}
           >
-            Cargar más
+            Ver más
           </button>
         </div>
       )}

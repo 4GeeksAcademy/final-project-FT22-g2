@@ -8,6 +8,7 @@
 
 .card-product {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border-radius: 30px;
 }
 
 .btn-modal {
@@ -41,5 +42,9 @@
 }
 
 .custom-btn-card {
-  background-color: #adb5bd
+  background-color: #adb5bd;
+  color: rgb(255, 255, 255);
+}
+.custom-text-card{
+  font-size: 20px;
 }
