@@ -1,4 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.ext.hybrid import hybrid_property # ver si incorporar
+from werkzeug.security import generate_password_hash, check_password_hash # probar a hashear password desde models
 from sqlalchemy import DateTime
 
 db = SQLAlchemy()
