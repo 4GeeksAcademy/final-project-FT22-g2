@@ -13,14 +13,16 @@ const LogIn = () => {
     const token = localStorage.getItem("token");
     console.log(token)
 
-    const handleLogin = (e) => {
+    const login = (e) => {
         e.preventDefault()
 
         actions.login(email, password)
         setTimeout(() => {
-            alert("Has accedido correctamente!")
+            window.locate.href("/")
+        }, 1500);
+        setTimeout(() => {
             window.location.reload(false)
-        }, 3000);
+        }, 4000);
     };
 
     return (
@@ -34,7 +36,7 @@ const LogIn = () => {
                         </div>
                         <div className="modal-login-body mb-3"></div>
 
-                        <form onSubmit={handleLogin}>
+                        <form onSubmit={login}>
                             {/*  input email */}
                             <div className="input-group-login">
                                 <div className="input-field pt-4">

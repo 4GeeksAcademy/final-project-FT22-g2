@@ -6,6 +6,15 @@
     font-size: 18px;
 }
 
+.button-perfil-dropdown {
+    color: black;
+    text-decoration: none;
+}
+
+.button-perfil-dropdown:hover {
+    color: black;
+}
+
 /* ---- // CARRITO HOVER // ---- */
 
 
