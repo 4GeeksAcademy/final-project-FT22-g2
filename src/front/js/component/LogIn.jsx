@@ -18,9 +18,7 @@ const LogIn = () => {
 
         actions.login(email, password)
         setTimeout(() => {
-            window.locate.href("/")
-        }, 1500);
-        setTimeout(() => {
+            alert("Has accedido correctamente!")
             window.location.reload(false)
         }, 4000);
     };
