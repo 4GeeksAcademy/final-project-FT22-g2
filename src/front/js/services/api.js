@@ -57,54 +57,6 @@ export const deleteUser = async () => {
     }
 }
 
-<<<<<<< HEAD
-
-
-//*********************** 
-//API DE PRODUCTOS
-
- const filtrar = () => {
-
-    const [tipo, setTipo] = useState([])
-    const [search, setSearch] = useState("")
-}
-
-//funcion para traer los datos desde la api
-
-const URLapi = "https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/productos";
-
-const filtrarData = async ({productos}) =>{
-    const response = await fetch(URLapi)
-    const data = await response.json()
-    console.log(data)
-    setTipo(data)
-}
-
-//funcion de busqueda
-
-const buscar = (e) => {
-    setSearch(e.target.value)   
-}
-
-//metodo de filtrado
-
-/* let result = []
-if (!search){
-    result = tipo //que me muestre todo
-}
-else{
-    result = tipo.filter((vino) =>
-    vino.tipo.toLowerCase().includes(search.toLowerCase())
-    )
-
-    useEffect(() => {
-        filtrarData()
-    },
-        []) */
-    
-
-
-=======
 export const getCreatedUser = async () => {
     try {
         const response = await fetch(urlAPI + "login", {
@@ -126,4 +78,9 @@ export const getCreatedUser = async () => {
         throw error;
     }
 }
->>>>>>> 83f99a5aea2b75927aa39fe51a15a78c45e5ab5c
+
+
+
+//*********************** 
+//API DE PRODUCTOS
+

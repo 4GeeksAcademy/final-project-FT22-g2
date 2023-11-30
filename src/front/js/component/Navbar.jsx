@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import logoUrl from "../../img/logoElRinconDelVino.png";
 import LogIn from "./LogIn.jsx";
@@ -7,9 +7,20 @@ import RestaurarContraseña from "./ModalRestaurarContraseña.jsx";
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+
+import { Search } from "../pages/search.js";
+
 import "../../styles/navbarHero.css";
+import BarraDeBusqueda from "./BarraDeBusqueda.jsx";
 
 const Navbar = () => {
+
+		const [searchValue, setSearchValue] = useState("");
+	
+		const handleSearch = (e) => {
+			setSearchValue(e.target.value);
+		};
+	
 
 	const navStyle = {
 		color: "white",
@@ -21,25 +32,7 @@ const Navbar = () => {
 		backgroundColor: "#671C1C"
 	}
 
-	// Controlar el input de búsqueda por un onChange para capturar cada cambio al escribir
-	/*
-			EJEMPLO PARA AÑADIR FILTRO + MAP (El filtro sería para buscar por la barra de búsqueda)
-
-		const [search, setSearch] = useState('')
-
-		{data.filter((item) => {
-		  return search.toLowerCase() === '' 
-		  ? item 
-		  : item.first_name.toLoweCase().includes(search) 
-		})
-		.map((item) => {
-		  <card con sus valores asignados>
-		  src={item.image}
-		  {item.name}
-		  {item.price}
-		})}
-
-	*/
+	
 
 	return (
 		<>
@@ -128,9 +121,11 @@ const Navbar = () => {
 					{/* ---- / BARRA Y BOTÓN DE BÚSQUEDA / ---- */}
 
 					<form class="d-flex">
-						<input className="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search" />
+					<BarraDeBusqueda searchValue={searchValue} />
+						
 						<button className="btn btn-outline-light" type="submit">Buscar</button>
 					</form>
+					
 
 					{/* empiezan los logos del carrito y loggin */}
 					<div className="icons-navbar h2 px-1 m-auto d-flex ms-auto flex-start">
