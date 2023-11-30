@@ -31,6 +31,7 @@ const Navbar = () => {
 		localStorage.removeItem("token");
 
 		setTimeout(() => {
+			alert("Sesión cerrada")
 			window.locate.href("/registro")
 			window.location.reload(false)
 		}, 2000);
@@ -224,7 +225,7 @@ const Navbar = () => {
 								<ul className="navbar-nav">
 									<li className="nav-item dropstart">
 										<a className="nav-link dropdown text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-											<i class="fa-solid fa-right-to-bracket px-3"></i>
+											<i class="fa-solid fa-right-from-bracket px-3"></i>
 										</a>
 										<ul className="dropdown-menu p-2" aria-labelledby="navbarDropdown2">
 											<li className="dropdown-item d-flex justify-content-center container-button-perfil-dropdown w-100 border-bottom">
