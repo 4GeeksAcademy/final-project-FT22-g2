@@ -1,14 +1,14 @@
 import React, { useContext, useEffect } from "react";
 import "../../styles/modalControlEdad.css"
 import logoElRinconDelVino from "../../img/logoElRinconDelVino.png";
-import { Context } from "../store/appContext";
+// import { Context } from "../store/appContext";
 
 const ModalControlEdad = () => {
 
-    const { store, actions } = useContext(Context);
+    // const { store, actions } = useContext(Context);
 
-    const token = localStorage.getItem("token");
-    console.log(token)
+    // const token = localStorage.getItem("token");
+    // console.log(token)
 
     useEffect(() => {
 
