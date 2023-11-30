@@ -59,7 +59,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				localStorage.setItem("token", data.token);
 
 				console.log("USER INFO HERE", data)
-				
+
 				return true;
 			},
 			// Función no utilizada pero me da miedo borrarla, así que se queda
@@ -75,8 +75,39 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log("Error loading message from backend", error)
 				}
 			},
+
+
+			//fetch de productos para la busqueda
+			getProduct: async (productos) => {
+				try {
+					const resp = await fetch("https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/productos", {
+						method: "GET",
+						headers: {
+							"Content-Type": "application/json",
+						},
+						body: JSON.stringify({
+							"id": id,
+							"image": image,
+							"nombre": nombre,
+							"precio": precio,
+							"tipo": tipo,
+							"unitFormat": unitFormat
+						}),
+					})
+					console.log("respuesta de fetch productos", resp)
+					const data = await response.json()
+					console.log("informacion de productos", data)
+
+				} catch (error) {
+					console.log("error desde getProduct", error)
+				}
+			}
+
+
 		}
 	};
 };
+
+
 
 export default getState;
