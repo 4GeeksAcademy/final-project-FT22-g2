@@ -27,9 +27,59 @@ const [search, setSearch] = useState('')
   })}
 
   */
- const Card = () => {
 
+const Card = ({ productos }) => (
+  <>
+    {productos.map((producto) => (
+      <div key={producto.id} className="col-12 col-md-6 col-lg-3">
+        <div className="my-5 d-flex justify-content-center">
+          <div className="card-product bg-light text-center" style={{ minwidth: "22rem", maxHeight: "40rem", borderRadius: "15px" }}>
+            <div className="m-5">
+              <img
+                className="card-img-top img-fluid"
+                src={`${producto.image}`}
+                alt={`${producto.nombre}`}
+              />
+            </div>
+            <div className="card-body text-align-center">
+              <h4 className="card-title">{`${producto.nombre}`}</h4>
+              <h5>{`$${producto.precio}`}</h5>
+              <p className="card-text text-align-center">
+                <i className="fa-solid fa-star stars"></i>
+                <i className="fa-regular fa-star stars"></i>
+                <i className="fa-regular fa-star stars"></i>
+                <i className="fa-regular fa-star stars"></i>
+                <i className="fa-regular fa-star stars"></i>
+              </p>
+              <Link to={`/producto/${producto.id}`}>
+                <button className="btn custom-btn-card rounded-pill">
+                  Ver producto
+                </button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    ))}
+  </>
+);
+
+const CardContainer4 = () => {
   const [productos, setProductos] = useState([]);
+  const cantidadVisible = 4;
+
+  useEffect(() => {
+    fetch("https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/productos")
+      .then((response) => response.json())
+      .then((data) => setProductos(data))
+      .catch((error) => console.error("Error fetching data:", error));
+  }, []);
+
+  return <Card productos={productos.slice(0, cantidadVisible)} />;
+};
+const CardContainer16 = () => {
+  const [productos, setProductos] = useState([]);
+  const [cantidadVisible, setCantidadVisible] = useState(16);
 
   useEffect(() => {
     fetch("https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/productos")
@@ -39,41 +89,20 @@ const [search, setSearch] = useState('')
   }, []);
 
   return (
-    <>
-      {productos.map((producto) => (
-        <div key={producto.id} className="col-12 col-md-6 col-lg-3">
-          <div className="my-5 d-flex justify-content-center">
-            <div className="card-product bg-light text-center" style={{ minwidth: "22rem", maxHeight: "40rem", borderRadius: "15px" }}>
-              <div className="m-5">
-                <img
-                  className="card-img-top img-fluid"
-                  src={`${producto.image}`}
-                  alt={`${producto.nombre}`}
-                />
-              </div>
-              <div className="card-body text-align-center">
-                <h4 className="card-title">{`${producto.nombre}`}</h4>
-                <h5>{`$${producto.precio}`}</h5>
-                <p className="card-text text-align-center">
-                  <i className="fa-solid fa-star stars"></i>
-                  <i className="fa-regular fa-star stars"></i>
-                  <i className="fa-regular fa-star stars"></i>
-                  <i className="fa-regular fa-star stars"></i>
-                  <i className="fa-regular fa-star stars"></i>
-                </p>
-                <Link to={`/producto/${producto.id}`}>
-                  <button className="btn custom-btn-card rounded-pill">
-                    Ver producto
-                  </button>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      ))}
-    </>
+    <div className="row">
+      <Card productos={productos.slice(0, cantidadVisible)} />
+      {productos.length > cantidadVisible && (
+        <div className="col-12 d-flex justify-content-center mt-3">
+          <button
+            className="btn btn-secondary"
+            onClick={() => setCantidadVisible(cantidadVisible + 16)}
+          >
+            Cargar más
+          </button>
+        </div>git add
+      )}
+    </div>
   );
 };
 
-
-export default Card;
+export { CardContainer4, CardContainer16 };
