@@ -13,7 +13,7 @@ const LogIn = () => {
     const token = localStorage.getItem("token");
     console.log(token)
 
-    const login = (e) => {
+    const handleLogin = (e) => {
         e.preventDefault()
 
         actions.login(email, password)
@@ -34,7 +34,7 @@ const LogIn = () => {
                         </div>
                         <div className="modal-login-body mb-3"></div>
 
-                        <form onSubmit={login}>
+                        <form onSubmit={handleLogin}>
                             {/*  input email */}
                             <div className="input-group-login">
                                 <div className="input-field pt-4">

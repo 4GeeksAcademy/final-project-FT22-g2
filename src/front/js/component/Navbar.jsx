@@ -30,10 +30,6 @@ const Navbar = () => {
 		localStorage.removeItem("token");
 
 		setTimeout(() => {
-			window.locate.href("/registro")
-		}, 1000);
-
-		setTimeout(() => {
 			alert("Sesión cerrada")
 			window.location.reload(false)
 		}, 2000);

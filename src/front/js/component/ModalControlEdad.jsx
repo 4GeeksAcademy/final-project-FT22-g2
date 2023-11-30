@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import "../../styles/modalControlEdad.css"
 import logoElRinconDelVino from "../../img/logoElRinconDelVino.png";
-import { Context } from "../store/appContext";
+// import { Context } from "../store/appContext";
 
 const ModalControlEdad = () => {
 
