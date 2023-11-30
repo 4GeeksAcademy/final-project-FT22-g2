@@ -1,25 +1,24 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-
-import { getCreatedUser } from "../services/api.js";
+import React, { useState, useContext, useEffect } from "react";
+import { Context } from "../store/appContext";
+import { Link, useNavigate } from "react-router-dom";
 
 import "../../styles/logIn.css";
 
 const LogIn = () => {
+    const { store, actions } = useContext(Context);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
 
-    // Tomar el email y el password del usuario en la API
-    // Con método POST verificar si ya está creado
-    // Si los datos coinciden, permitir el log-in y generar un token en localStorage que permita validar que el usuario de dichos datos está en la página
-    // Al ser datos persistentes, el usuario debe mantenerse logeado aún si se recarga la página
-    // Al estar logeado, el botón de registro debe desaparecer y aparecer un botón para acceder al perfil
-    // (Para eliminar cuenta y cerrar sesión) Al apretar eliminar cuenta, debe haber un metodo DELETE que elimine al usuario por su identificador. Mientras que para cerrar sesión, debe añadirse a la blacklist de localStorage el token de la ruta privada del usuario, así sacandolo al inicio de la página y reapareciendo el botón de registro
+    const token = localStorage.getItem("token");
+    console.log(token)
 
-    const handleLogin = () => {
-        // Manejo de la lógica de inicio de sesión con email y contraseña
-
-
+    const handleLogin = (e) => {
+        actions.login(email, password)
+        setTimeout(() => {
+            alert("Has accedido correctamente!")
+            window.location.reload(false)
+        }, 2000);
     };
 
     return (
@@ -33,43 +32,47 @@ const LogIn = () => {
                         </div>
                         <div className="modal-login-body mb-3"></div>
 
-                        {/*  input email */}
-                        <div className="input-group-login">
-                            <div className="input-field pt-4">
-                                <span className="far fa-user p-2"></span>
-                                <input value={email}
-                                    id="email"
-                                    type="text"
-                                    placeholder="Correo usuario"
-                                    className="input-field-login"
-                                    required
-                                    onChange={(e) => setEmail(e.target.value)}
-                                />
-                            </div>
-
-                            {/* input contraseña */}
-                            <div className="form-group-login py-1 pb-2">
-                                <div className="input-field">
-                                    <span className="fas fa-lock p-2"></span>
-                                    <input value={password}
-                                        id="password"
+                        <form onSubmit={handleLogin}>
+                            {/*  input email */}
+                            <div className="input-group-login">
+                                <div className="input-field pt-4">
+                                    <span className="far fa-user p-2"></span>
+                                    <input value={email}
+                                        id="email"
                                         type="text"
-                                        placeholder="Contraseña"
+                                        placeholder="Correo usuario"
                                         className="input-field-login"
                                         required
-                                        onChange={(e) => setPassword(e.target.value)}
+                                        onChange={(e) => setEmail(e.target.value)}
                                     />
                                 </div>
+
+                                {/* input contraseña */}
+                                <div className="form-group-login py-1 pb-2">
+                                    <div className="input-field">
+                                        <span className="fas fa-lock p-2"></span>
+                                        <input value={password}
+                                            id="password"
+                                            type="text"
+                                            placeholder="Contraseña"
+                                            className="input-field-login"
+                                            required
+                                            onChange={(e) => setPassword(e.target.value)}
+                                        />
+                                    </div>
+                                </div>
+
+                                {/*  olvide mi contraseña */}
+                                <button className="olvide-mi-contraseña" data-bs-toggle="modal" data-bs-target="#modalRestaurarContraseña" data-bs-dismiss="modal" >¿Olvidaste tu contraseña?</button>
                             </div>
 
-                            {/*  olvide mi contraseña */}
-                            <button className="olvide-mi-contraseña" data-bs-toggle="modal" data-bs-target="#modalRestaurarContraseña" data-bs-dismiss="modal" >¿Olvidaste tu contraseña?</button>
-                        </div>
-                        <div>
                             {/*  boton ingresar */}
-                            <div className="boton-login col-12 mx-auto m-3 " data-bs-dismiss="modal">
-                                <Link to="/perfil" className="btn btn-dark data-bs-dismiss w-100 " >Ingresar</Link>
+                            <div className="boton-login col-12 mx-auto m-3" data-bs-dismiss="modal">
+                                <button type="submit" className="btn btn-dark data-bs-dismiss w-100">Ingresar</button>
                             </div>
+                        </form>
+
+                        <div>
                             {/*   boton google */}
                             <div className="boton-login col-12 mx-auto mb-3">
                                 <button className="btn btn-danger w-100" type="button" value="Login" disabled> (Próximamente) Continúa con <i className="fab fa-google me-2"></i></button>
