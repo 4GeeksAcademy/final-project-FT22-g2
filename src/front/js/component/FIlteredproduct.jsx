@@ -1,6 +1,6 @@
 import React from "react";
-import Card from "./Card.jsx";
 import "../../styles/filter.css";
+import { CardContainer4, CardContainer16 } from "./Card.jsx";
 
 const Filteredproduct = () => {
     return (
@@ -26,53 +26,13 @@ const Filteredproduct = () => {
                         </div>
                         <div className="container-fluid  background-filteredproduct-color custom-text-filterproduct ">
                             <div className="row justify-content-center align-self-center">
-                                <Card />
-                                <Card />
-                                <Card />
-                                <Card />
-                                <Card />
-                                <Card />
-                                <Card />
-                                <Card />
-                                <Card />
-                                <Card />
-                                <Card />
-                                <Card />
-                                <Card />
-                                <Card />
-                                <Card />
-                                <Card />
-                                <Card />
-                                <Card />
-                                <Card />
-                                <Card />
-                                <Card />
-                                <Card />
-                                <Card />
-                                <Card />
-                                <Card />
-                                <Card />
-                                <Card />
-                                <Card />
-                                <Card />
-                                <Card />
-                                <Card />
-                                <Card />
+                                <CardContainer16 />
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div className="row d-flex text-center justify-content-center mx-auto">
-                <div className="btn-toolbar mb-3 justify-content-center " role="toolbar" aria-label="Change page">
-                    <div className="btn-group me-2" role="group" aria-label="First group">
-                        <button type="button" className="btn btn-outline-secondary">&lt;</button>
-                        <button type="button" className="btn btn-outline-secondary">1</button>
-                        <button type="button" className="btn btn-outline-secondary">2</button>
-                        <button type="button" className="btn btn-outline-secondary">&gt;</button>
-                    </div>
-                </div>
-            </div>
+
         </>
     );
 };
