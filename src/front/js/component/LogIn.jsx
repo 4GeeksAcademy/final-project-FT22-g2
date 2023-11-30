@@ -10,13 +10,15 @@ const LogIn = () => {
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
-    const token = sessionStorage.getItem("token");
+    const token = localStorage.getItem("token");
     console.log(token)
 
-    const login = (e) => {
-        e.preventDefault();
+    const handleLogin = (e) => {
         actions.login(email, password)
-            .then((res) => { navigate("/") })
+        setTimeout(() => {
+            alert("Has accedido correctamente!")
+            window.location.reload(false)
+        }, 2000);
     };
 
     return (
@@ -30,7 +32,7 @@ const LogIn = () => {
                         </div>
                         <div className="modal-login-body mb-3"></div>
 
-                        <form onSubmit={login}>
+                        <form onSubmit={handleLogin}>
                             {/*  input email */}
                             <div className="input-group-login">
                                 <div className="input-field pt-4">
@@ -65,13 +67,12 @@ const LogIn = () => {
                             </div>
 
                             {/*  boton ingresar */}
-                            <div className="boton-login col-12 mx-auto m-3 ">
-                                <button type="submit" className="btn btn-dark data-bs-dismiss w-100 " >Ingresar</button>
+                            <div className="boton-login col-12 mx-auto m-3" data-bs-dismiss="modal">
+                                <button type="submit" className="btn btn-dark data-bs-dismiss w-100">Ingresar</button>
                             </div>
                         </form>
 
                         <div>
-
                             {/*   boton google */}
                             <div className="boton-login col-12 mx-auto mb-3">
                                 <button className="btn btn-danger w-100" type="button" value="Login" disabled> (Próximamente) Continúa con <i className="fab fa-google me-2"></i></button>

@@ -35,6 +35,7 @@ def login():
         return jsonify([user.username for user in users])
     elif request.method == 'POST':
         data = request.json
+        print(data)
         email = data.get('email')
         password = data.get('password')
 
@@ -45,8 +46,8 @@ def login():
     if not user or not check_password_hash(user.password, password):
         return jsonify({'message': 'Invalid email or password'}), 401
     
-    access_token = create_access_token(identity={'email': user.email})
-    return jsonify({'access_token': access_token, 'message': 'Login successful'}), 200
+    token = create_access_token(identity={'email': user.email})
+    return jsonify({'token': token, 'message': 'Login successful'}), 200
 
 # RUTA LISTA
 @api.route('/productos/<int:producto_id>', methods=['GET', 'PUT', 'DELETE'])

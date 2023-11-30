@@ -14,7 +14,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					initial: "white"
 				}
 			],
-			token: sessionStorage.getItem("token")
+			user: null,
+			token: localStorage.getItem("token")
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -55,13 +56,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 				const data = await res.json();
 
-				sessionStorage.setItem("token", data.token);
-				console.log(data.token)
+				localStorage.setItem("token", data.token);
 
 				console.log("USER INFO HERE", data)
-				setStore({
-					token: data.token
-				});
+				
 				return true;
 			},
 			// Función no utilizada pero me da miedo borrarla, así que se queda
