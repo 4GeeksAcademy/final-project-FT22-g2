@@ -6,6 +6,7 @@ import wineMissing300 from "../../img/wine-620x300.png"
 const Gallery = () => {
   return (
     <>
+    
       <div className="container-fluid text-center image-container">
         <div className="lightbox overflow-x-scroll overflow-x-hidden">
           <div className="row justify-content-center">

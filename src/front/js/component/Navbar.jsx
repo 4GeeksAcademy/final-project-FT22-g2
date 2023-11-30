@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import logoUrl from "../../img/logoElRinconDelVino.png";
 import LogIn from "./LogIn.jsx";
@@ -6,21 +6,14 @@ import ModalContact from "./ModalContact.jsx";
 import RestaurarContraseña from "./ModalRestaurarContraseña.jsx";
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Context } from "../store/appContext";
 
-
-import { Search } from "../pages/search.js";
 
 import "../../styles/navbarHero.css";
 import BarraDeBusqueda from "./BarraDeBusqueda.jsx";
 
 const Navbar = () => {
 
-		const [searchValue, setSearchValue] = useState("");
-	
-		const handleSearch = (e) => {
-			setSearchValue(e.target.value);
-		};
-	
 
 	const navStyle = {
 		color: "white",
@@ -31,6 +24,27 @@ const Navbar = () => {
 	const categoryStyle = {
 		backgroundColor: "#671C1C"
 	}
+
+	const { store, actions } = useContext(Context);
+
+
+	const token = localStorage.getItem("token");
+	console.log("Esto es un console log del navbar", token)
+
+	const handleLogout = () => {
+		localStorage.removeItem("token");
+
+		setTimeout(() => {
+			window.locate.href("/registro")
+			window.location.reload(false)
+		}, 2000);
+	};
+
+	const [searchValue, setSearchValue] = useState("");
+	
+		const handleSearch = (e) => {
+			setSearchValue(e.target.value);
+		};
 
 	
 
@@ -179,23 +193,51 @@ const Navbar = () => {
 						</ul>
 
 						{/* ---- / DROPDOWN LOG-IN - REGISTER / ---- */}
-						<ul className="navbar-nav">
-							<li className="nav-item dropstart">
-								<a className="nav-link dropdown text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-									<i class="fa-solid fa-right-to-bracket px-3"></i>
-								</a>
-								<ul className="dropdown-menu p-2" aria-labelledby="navbarDropdown2">
-									<li>
-										<button className="dropdown-item border-bottom" data-bs-toggle="modal" data-bs-target="#modalLogin" type="button">Acceder</button></li>
-									<li>
+						{token == null ? (
+							<>
+								<ul className="navbar-nav">
+									<li className="nav-item dropstart">
+										<a className="nav-link dropdown text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+											<i class="fa-solid fa-right-to-bracket px-3"></i>
+										</a>
+										<ul className="dropdown-menu p-2" aria-labelledby="navbarDropdown2">
+											<li>
+												<button className="dropdown-item border-bottom" data-bs-toggle="modal" data-bs-target="#modalLogin" type="button">Acceder</button></li>
+											<li>
 
-										<Link to="/registro" className="text-decoration-none">
-											<a className="dropdown-item" href="#">Registrarse</a>
-										</Link>
+												<Link to="/registro" className="text-decoration-none">
+													<a className="dropdown-item" href="#">Registrarse</a>
+												</Link>
+											</li>
+										</ul>
 									</li>
 								</ul>
-							</li>
-						</ul>
+							</>
+						) : (
+							<>
+								<ul className="navbar-nav">
+									<li className="nav-item dropstart">
+										<a className="nav-link dropdown text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+											<i class="fa-solid fa-right-to-bracket px-3"></i>
+										</a>
+										<ul className="dropdown-menu p-2" aria-labelledby="navbarDropdown2">
+											<li className="dropdown-item d-flex justify-content-center container-button-perfil-dropdown w-100 border-bottom">
+												<button className="button-perfil-dropdown">
+													Perfil
+												</button>
+											</li>
+											<li className="dropdown-item">
+												<button className="button-cerrar-sesion-dropdown" onClick={handleLogout}>
+													Cerrar sesión
+												</button>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</>
+						)}
+
+
 					</div>
 					{/* terminan los logos del carrito y loggin */}
 

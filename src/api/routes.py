@@ -14,15 +14,6 @@ CORS(api, resources={r"/api/": {"origins": "https://didactic-happiness-7qx694qjp
 # Allow CORS requests to this API
 CORS(api)
 
-@api.route('/hello', methods=['POST', 'GET'])
-def handle_hello():
-
-    response_body = {
-        "message": "Hello! I'm a message that came from the backend, check the network tab on the google inspector and you will see the GET request"
-    }
-
-    return jsonify(response_body), 200
-
 # Rutas para la tabla User
 @api.route('/users', methods=['GET', 'POST'])
 def manage_users():
@@ -31,27 +22,34 @@ def manage_users():
         return jsonify([user.username for user in users])
     elif request.method == 'POST':
         data = request.json
-        new_user = User(username=data['username'], email=data['email'], 
+        user = User(username=data['username'], email=data['email'], 
                         active=data['active'], password=generate_password_hash(data['password']))
-        db.session.add(new_user)
+        db.session.add(user)
         db.session.commit()
         return jsonify({'message': 'Usuario creado exitosamente'}), 201
 
-@api.route('/users/<int:user_id>', methods=['GET', 'DELETE'])
-def user_detail(user_id):
-    user = User.query.get_or_404(user_id)
+@api.route('/login', methods=['POST', 'GET'])
+def login():
     if request.method == 'GET':
-        return jsonify({'username': user.username, 'email': user.email, 'active': user.active})
-    elif request.method == 'DELETE':
-        db.session.delete(user)
-        db.session.commit()
-        return jsonify({'message': 'Usuario eliminado exitosamente'})
+        users = User.query.all()
+        return jsonify([user.username for user in users])
+    elif request.method == 'POST':
+        data = request.json
+        print(data)
+        email = data.get('email')
+        password = data.get('password')
 
-@api.route('/productos', methods=['GET'])
-def get_all_products():
-    productos = Producto.query.all()
-    return jsonify([producto.serialize() for producto in productos])
+    if not email or not password:
+        return jsonify({'message': 'Email and password are required'}), 400
+    user = User.query.filter_by(email=email).first()
 
+    if not user or not check_password_hash(user.password, password):
+        return jsonify({'message': 'Invalid email or password'}), 401
+    
+    token = create_access_token(identity={'email': user.email})
+    return jsonify({'token': token, 'message': 'Login successful'}), 200
+
+# RUTA LISTA
 @api.route('/productos/<int:producto_id>', methods=['GET', 'PUT', 'DELETE'])
 def producto_detail(producto_id):
     producto = Producto.query.get_or_404(producto_id)
@@ -67,20 +65,21 @@ def producto_detail(producto_id):
             "active": producto.active,
             "image": producto.image,
              }
-             )
+            )
 
-@api.route('/login', methods=['POST', 'GET'])
-def login():
-    data = request.json
-    email = data.get('email')
-    password = data.get('password')
+# RUTA LISTA
+@api.route('/productos', methods=['GET'])
+def get_all_products():
+    productos = Producto.query.all()
+    return jsonify([producto.serialize() for producto in productos])
 
-    if not email or not password:
-        return jsonify({'message': 'Email and password are required'}), 400
-    user = User.query.filter_by(email=email).first()
-
-    if not user or not check_password_hash(user.password, password):
-        return jsonify({'message': 'Invalid email or password'}), 401
-    
-    access_token = create_access_token(identity={'email': user.email})
-    return jsonify({'access_token': access_token, 'message': 'Login successful'}), 200
+# RUTA LISTA
+@api.route('/users/<int:user_id>', methods=['GET', 'DELETE'])
+def user_detail(user_id):
+    user = User.query.get_or_404(user_id)
+    if request.method == 'GET':
+        return jsonify({'username': user.username, 'email': user.email, 'active': user.active})
+    elif request.method == 'DELETE':
+        db.session.delete(user)
+        db.session.commit()
+        return jsonify({'message': 'Usuario eliminado exitosamente'})

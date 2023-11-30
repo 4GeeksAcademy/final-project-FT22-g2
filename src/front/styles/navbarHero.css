@@ -1,5 +1,10 @@
 /* ---- / ESTILOS NAVBAR / ----- */
-
+.button-perfil-dropdown,
+.button-cerrar-sesion-dropdown {
+    border: none;
+    background: none;
+    font-size: 18px;
+}
 
 /* ---- // CARRITO HOVER // ---- */
 

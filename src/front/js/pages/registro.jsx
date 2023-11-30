@@ -1,28 +1,31 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import "../../styles/registro.css";
-import { createUser } from '../services/api';
+import { Context } from '../store/appContext.js';
+import { useNavigate } from "react-router-dom";
 
 const Registro = () => {
 
+    const { store, actions } = useContext(Context);
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const token = localStorage.getItem("token");
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        if (store.user != null) {
+            navigate("/")
+        }
+    })
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
-            await createUser(username, email, password);
-            alert('Usuario creado!');
+            await actions.createUser(username, email, password)
+                .then(resp => navigate("/"))
+            alert('Usuario creado!')
 
-            setTimeout(() => {
-                window.location.href = "/";
-            }, 1000);
-
-            setTimeout(() => {
-                // Intentar crear función para abrir modal de login al crear usuario y redirigirse a home
-
-            }, 1000);
         } catch (error) {
             if (error.status === 409) {
                 alert('El usuario ya existe');
@@ -30,8 +33,6 @@ const Registro = () => {
                 alert('Error creando usuario');
             }
         }
-
-
     }
 
     return (
@@ -61,7 +62,7 @@ const Registro = () => {
                                     onChange={(e) => setEmail(e.target.value)} />
                                 <input
                                     value={password}
-                                    type="text"
+                                    type="password"
                                     id='password'
                                     placeholder='Contraseña'
                                     className="form-control input-registro"
