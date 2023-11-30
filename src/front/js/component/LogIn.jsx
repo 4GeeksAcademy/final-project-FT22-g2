@@ -14,11 +14,13 @@ const LogIn = () => {
     console.log(token)
 
     const handleLogin = (e) => {
+        e.preventDefault()
+
         actions.login(email, password)
         setTimeout(() => {
             alert("Has accedido correctamente!")
             window.location.reload(false)
-        }, 2000);
+        }, 3000);
     };
 
     return (
