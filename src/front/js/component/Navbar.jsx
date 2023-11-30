@@ -25,14 +25,12 @@ const Navbar = () => {
 	}
 
 	const token = localStorage.getItem("token");
-	console.log("Esto es un console log del navbar", token)
 
 	const handleLogout = () => {
 		localStorage.removeItem("token");
 
 		setTimeout(() => {
 			alert("Sesión cerrada")
-			window.locate.href("/registro")
 			window.location.reload(false)
 		}, 2000);
 	};
@@ -229,9 +227,9 @@ const Navbar = () => {
 										</a>
 										<ul className="dropdown-menu p-2" aria-labelledby="navbarDropdown2">
 											<li className="dropdown-item d-flex justify-content-center container-button-perfil-dropdown w-100 border-bottom">
-												<button className="button-perfil-dropdown">
+												<Link to="/perfil" className="button-perfil-dropdown">
 													Perfil
-												</button>
+												</Link>
 											</li>
 											<li className="dropdown-item">
 												<button className="button-cerrar-sesion-dropdown" onClick={handleLogout}>

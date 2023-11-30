@@ -20,7 +20,7 @@ const LogIn = () => {
         setTimeout(() => {
             alert("Has accedido correctamente!")
             window.location.reload(false)
-        }, 3000);
+        }, 4000);
     };
 
     return (
