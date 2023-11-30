@@ -11,14 +11,10 @@ const Containercardshome = () => {
         <div>
           <div className="row">
             <Card />
-            <Card />
-            <Card />
-            <Card />
           </div>
         </div>
       </div>
     </div>
-
   );
 };
 
