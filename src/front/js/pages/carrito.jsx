@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import LocalStorageCarrito from '../component/localStorageCarrito';
 import rigoBaby from '../../img/rigo-baby.jpg'
 import "../../styles/carrito.css";
 import { Link } from 'react-router-dom';
@@ -33,6 +34,7 @@ const Carrito = () => {
     return (
         <div className="container-card-vista-carrito">
             <div className='container contenedor-vista-carrito my-4'>
+                <LocalStorageCarrito />
                 <div className="row">
                     <h2 className='col-lg-3 col-md-4 col-sm-6 vista-carrito-categories'>Item</h2>
                     <h2 className='col-lg-6 col-md-4 col-sm-6 vista-carrito-categories'>Cantidad</h2>
