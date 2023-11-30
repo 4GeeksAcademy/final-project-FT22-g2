@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Context } from "../store/appContext";
 
 import "../../styles/navbarHero.css";
+import ModalCerrarSesion from "./ModalCerrarSesion.jsx";
 
 const Navbar = () => {
 
@@ -28,7 +29,10 @@ const Navbar = () => {
 
 	const handleLogout = () => {
 		localStorage.removeItem("token");
-		window.location.href = "https://didactic-happiness-7qx694qjp792xjqj-3000.app.github.dev/registro"
+		localStorage.removeItem("user_id");
+		setTimeout(() => {
+			window.location.href = "https://didactic-happiness-7qx694qjp792xjqj-3000.app.github.dev/registro"
+		}, 2000);
 	};
 
 	// Controlar el input de búsqueda por un onChange para capturar cada cambio al escribir
@@ -57,6 +61,7 @@ const Navbar = () => {
 				<LogIn />
 				<ModalContact />
 				<RestaurarContraseña />
+				<ModalCerrarSesion />
 			</div>
 
 			<nav className="container-navbar navbar navbar-expand-lg" style={navStyle}>
@@ -178,11 +183,24 @@ const Navbar = () => {
 												{/* SUBTOTAL Y BTN IR AL CARRITO */}
 												<div className="container-price-button-cart">
 													<h4 className="subtotal-carrito-price">Subtotal: $$$</h4>
-													<Link to="/carrito" className="d-flex justify-content-center text-decoration-none">
-														<button type="button" href="#" className="btn-ir-al-carrito">
-															Ir al carrito
-														</button>
-													</Link>
+													{token == null ? (
+														<>
+															<Link to="/registro" className="d-flex justify-content-center text-decoration-none">
+																<button type="button" href="#" className="btn-ir-al-carrito">
+																	Ir al carrito
+																</button>
+															</Link>
+														</>
+													) : (
+														<>
+															<Link to="/carrito" className="d-flex justify-content-center text-decoration-none">
+																<button type="button" href="#" className="btn-ir-al-carrito">
+																	Ir al carrito
+																</button>
+															</Link>
+														</>
+													)}
+
 												</div>
 											</div>
 
@@ -228,7 +246,7 @@ const Navbar = () => {
 												</Link>
 											</li>
 											<li className="dropdown-item">
-												<button className="button-cerrar-sesion-dropdown" onClick={handleLogout}>
+												<button data-bs-toggle="modal" data-bs-target="#modalCerrarSesion" className="button-cerrar-sesion-dropdown" onClick={handleLogout}>
 													Cerrar sesión
 												</button>
 											</li>

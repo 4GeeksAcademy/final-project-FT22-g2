@@ -8,10 +8,14 @@ import vinoQuitarFavoritos from "../../img/vino-modified 1.png"
 
 import ProductCard from "../component/ProductCard.jsx";
 import "../../styles/ProductCard.css";
+import { Link } from "react-router-dom";
 
 const Single = () => {
   const { store } = useContext(Context);
   const { name, price, imageUrl, stars } = store.product || {};
+
+  const token = localStorage.getItem("token");
+  console.log(token)
 
   const [favorito, setFavorito] = useState(false);
 
@@ -64,9 +68,25 @@ const Single = () => {
                     <button className="button-add-remove-product add-product-button px-5"> + </button>
                   </div>
                   {/* BUTTON AGREGAR AL CARRITO */}
-                  <button className="btn btn-secondary rounded-pill my-2 col-12 w-75">
-                    Agregar al carrito
-                  </button>
+                  {token == null ? (
+                    <>
+                      {/* REDIRIGIR A REGISTER SI NO ESTA LOGEADO */}
+                      <Link to="/registro">
+                        <button className="btn btn-secondary rounded-pill my-2 col-12 w-75">
+                          Agregar al carrito
+                        </button>
+                      </Link>
+                    </>
+                  ) : (
+                    <>
+                      {/* AÑADIR PRODUCTO AL CARRITO SI ESTÁ LOGEADO */}
+                      <button className="btn btn-secondary rounded-pill my-2 col-12 w-75">
+                        Agregar al carrito
+                      </button>
+
+                    </>
+                  )}
+
                 </div>
               </div>
             </div>

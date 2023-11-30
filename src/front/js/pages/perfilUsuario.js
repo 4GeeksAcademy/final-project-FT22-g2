@@ -1,43 +1,66 @@
 import React from "react";
-
 import Swal from 'sweetalert2';
 import usuarioFoto from "../../img/usuarioFoto.png";
-
-import { Link } from "react-router-dom";
-
-import "../../styles/perfilUsuario.css";
 import ModalCerrarSesion from "../component/ModalCerrarSesion.jsx";
 import ModalEliminarCuenta from "../component/ModalEliminarCuenta.jsx";
+import { Link } from "react-router-dom";
+import "../../styles/perfilUsuario.css";
 
 const PerfilUsuario = () => {
 
-  //const history = useHistory();
-
-  const handleEliminarCuenta = () => {
-
+  const handleEliminarCuenta = async () => {
 
     Swal.fire({
-      title: '¿Estas seguro de que quieres eliminar tu cuenta?',
-      text: "¡Te perderas de nuestras mejores oferta!",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Si, estoy seguro'
-    }).then((result) => {
+      title: "¿Estas seguro?",
+      text: "¡Se eliminará tu cuenta!",
+      icon: "warning",
+      showCancelButton: true
+    }).then(async (result) => {
       if (result.isConfirmed) {
-        Swal.fire({
-          title: 'Eliminar',
-          text: 'Tu cuenta ha sido eliminada',
-          icon: 'success'
-          //}).then(() => {
-          // Redirige a la página de inicio después de confirmar la eliminación de la cuenta
-          // history.push('/');
-        });
-      }
-    })
 
-  };
+        try {
+          const userId = localStorage.getItem("user_id");
+          console.log(userId)
+
+          const response = await fetch(`https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/users/${userId}`, {
+            method: "DELETE"
+          });
+
+          if (!response.ok) {
+            throw new Error("No se pudo eliminar el usuario");
+          }
+
+          Swal.fire(
+            "Eliminado!",
+            "Tu cuenta ha sido eliminada.",
+            "success"
+          );
+
+          localStorage.removeItem("token");
+          localStorage.removeItem("user_id");
+
+          setTimeout(() => {
+            window.location.href = "https://didactic-happiness-7qx694qjp792xjqj-3000.app.github.dev/registro"
+          }, 2000);
+
+        } catch (error) {
+
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: error.message
+          });
+        }
+      }
+    });
+  }
+
+  const handleCerrarSesion = () => {
+    localStorage.removeItem("token");
+    setTimeout(() => {
+      window.location.href = "https://didactic-happiness-7qx694qjp792xjqj-3000.app.github.dev/registro"
+    }, 2000);
+  }
 
   return (
     <>
@@ -89,7 +112,7 @@ const PerfilUsuario = () => {
         </div>
         {/* boton cerrar sesion */}
         <div className="d-grid gap-2 col-6 mx-auto boton-cerrar-sesion">
-          <button type="button" className="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalCerrarSesion">Cerrar sesion</button>
+          <button type="button" className="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalCerrarSesion" onClick={handleCerrarSesion}>Cerrar sesion</button>
         </div>
         {/* boton eliminar cuenta */}
         <div className="d-grid gap-2 col-6 mx-auto boton-eliminar-cuenta">

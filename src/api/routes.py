@@ -47,7 +47,7 @@ def login():
         return jsonify({'message': 'Invalid email or password'}), 401
     
     token = create_access_token(identity={'email': user.email})
-    return jsonify({'token': token, 'message': 'Login successful'}), 200
+    return jsonify({'token': token,  'user_id': user.id,'message': 'Login successful'}), 200
 
 # RUTA LISTA
 @api.route('/productos/<int:producto_id>', methods=['GET', 'PUT', 'DELETE'])

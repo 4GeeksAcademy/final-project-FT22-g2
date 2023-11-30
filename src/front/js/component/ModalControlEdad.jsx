@@ -8,7 +8,6 @@ const ModalControlEdad = () => {
     const { store, actions } = useContext(Context);
 
     const token = localStorage.getItem("token");
-    console.log(token)
 
     useEffect(() => {
 
@@ -29,7 +28,7 @@ const ModalControlEdad = () => {
             return () => clearTimeout(timer); // Limpiar el temporizador si el componente se desmonta
 
         } else {
-            console.log("Hola")
+            console.log("")
         }
     }, []);
     // Función para redireccionar al hacer clic en "No"
