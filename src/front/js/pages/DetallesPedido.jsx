@@ -1,6 +1,8 @@
 import React from 'react';
 import OrderDetails from '../component/OrderDetails.jsx';
 
+
+
 const DetallesPedido = () => {
     return (
         <div>

@@ -1,5 +1,5 @@
-// src/front/js/component/localStorageCarrito.jsx
 import React, { useState, useEffect } from 'react';
+import rigoBaby from '../../img/rigo-baby.jpg';
 
 const LocalStorageCarrito = () => {
     const [productos, setProductos] = useState([]);
@@ -9,6 +9,11 @@ const LocalStorageCarrito = () => {
         const carritoGuardado = JSON.parse(localStorage.getItem('carrito')) || [];
         setProductos(carritoGuardado);
     }, []);
+
+    const actualizarLocalStorage = (nuevosProductos) => {
+        // Guardar el carrito actualizado en localStorage
+        localStorage.setItem('carrito', JSON.stringify(nuevosProductos));
+    };
 
     const deleteProduct = (index) => {
         const nuevosProductos = [...productos];
