@@ -62,6 +62,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const data = await res.json();
 
 				localStorage.setItem("token", data.token);
+				localStorage.setItem("user_id", data.user_id);
 
 				console.log("USER INFO HERE", data)
 

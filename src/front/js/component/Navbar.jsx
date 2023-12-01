@@ -10,6 +10,7 @@ import { Context } from "../store/appContext";
 
 
 import "../../styles/navbarHero.css";
+import ModalCerrarSesion from "./ModalCerrarSesion.jsx";
 
 import BarraDeBusqueda from "./BarraDeBusqueda.jsx";
 
@@ -30,15 +31,12 @@ const Navbar = () => {
 
 
 	const token = localStorage.getItem("token");
-	console.log("Esto es un console log del navbar", token)
 
 	const handleLogout = () => {
 		localStorage.removeItem("token");
-
+		localStorage.removeItem("user_id");
 		setTimeout(() => {
-			alert("Sesión cerrada")
-			window.locate.href("/registro")
-			window.location.reload(false)
+			window.location.href = "https://didactic-happiness-7qx694qjp792xjqj-3000.app.github.dev/registro"
 		}, 2000);
 	};
 
@@ -53,6 +51,7 @@ const Navbar = () => {
 				<LogIn />
 				<ModalContact />
 				<RestaurarContraseña />
+				<ModalCerrarSesion />
 			</div>
 
 			<nav className="container-navbar navbar navbar-expand-lg" style={navStyle}>
@@ -181,11 +180,24 @@ const Navbar = () => {
 												{/* SUBTOTAL Y BTN IR AL CARRITO */}
 												<div className="container-price-button-cart">
 													<h4 className="subtotal-carrito-price">Subtotal: $$$</h4>
-													<Link to="/carrito" className="d-flex justify-content-center text-decoration-none">
-														<button type="button" href="#" className="btn-ir-al-carrito">
-															Ir al carrito
-														</button>
-													</Link>
+													{token == null ? (
+														<>
+															<Link to="/registro" className="d-flex justify-content-center text-decoration-none">
+																<button type="button" href="#" className="btn-ir-al-carrito">
+																	Ir al carrito
+																</button>
+															</Link>
+														</>
+													) : (
+														<>
+															<Link to="/carrito" className="d-flex justify-content-center text-decoration-none">
+																<button type="button" href="#" className="btn-ir-al-carrito">
+																	Ir al carrito
+																</button>
+															</Link>
+														</>
+													)}
+
 												</div>
 											</div>
 
@@ -226,12 +238,12 @@ const Navbar = () => {
 										</a>
 										<ul className="dropdown-menu p-2" aria-labelledby="navbarDropdown2">
 											<li className="dropdown-item d-flex justify-content-center container-button-perfil-dropdown w-100 border-bottom">
-												<button className="button-perfil-dropdown">
+												<Link to="/perfil" className="button-perfil-dropdown">
 													Perfil
-												</button>
+												</Link>
 											</li>
 											<li className="dropdown-item">
-												<button className="button-cerrar-sesion-dropdown" onClick={handleLogout}>
+												<button data-bs-toggle="modal" data-bs-target="#modalCerrarSesion" className="button-cerrar-sesion-dropdown" onClick={handleLogout}>
 													Cerrar sesión
 												</button>
 											</li>

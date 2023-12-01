@@ -11,16 +11,16 @@ const LogIn = () => {
     const navigate = useNavigate();
 
     const token = localStorage.getItem("token");
-    console.log(token)
 
     const handleLogin = (e) => {
         e.preventDefault()
 
         actions.login(email, password)
+            .then((res) => { navigate("/") })
         setTimeout(() => {
             alert("Has accedido correctamente!")
             window.location.reload(false)
-        }, 3000);
+        }, 2000);
     };
 
     return (
@@ -55,7 +55,7 @@ const LogIn = () => {
                                         <span className="fas fa-lock p-2"></span>
                                         <input value={password}
                                             id="password"
-                                            type="text"
+                                            type="password"
                                             placeholder="Contraseña"
                                             className="input-field-login"
                                             required
