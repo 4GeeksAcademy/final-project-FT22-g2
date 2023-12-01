@@ -12,7 +12,7 @@ import "../../styles/ProductCard.css";
 
 const Single = () => {
   const { store, actions } = useContext(Context);
-  const { nombre = "", price = null, imageUrl, stars } = store.product || {};
+  const { nombre = "", precio = null, image, stars, unitFormat, tipo } = store.product || {};
 
   const [favorito, setFavorito] = useState(false);
 
@@ -21,7 +21,7 @@ const Single = () => {
   }
 
   const agregarAlCarrito = () => {
-    actions.setShoppingCart([...store.shoppingCart, { nombre, price, imageUrl, stars }])
+    actions.setShoppingCart([...store.shoppingCart, { nombre, precio, image, stars, unitFormat, tipo }])
   };
 
   const { id } = useParams();
@@ -37,7 +37,7 @@ const Single = () => {
       <div className="row container-productCard d-flex justify-content-center">
         {/* CARD IMG */}
         <div className="col-9 custom-center custom-center-productCard">
-          <ProductCard imageUrl={imageUrl} />
+          <ProductCard imageUrl={image} />
         </div>
 
         <div className="col-3">
@@ -55,7 +55,8 @@ const Single = () => {
                   <i className="fas fa-star stars"></i>
                   <i className="fas fa-star stars"></i>
                 </p>
-                <p className="text-secondary col-12 mb-5">750cc</p>
+                <p className="text-secondary col-12 mb-1">{unitFormat}</p>
+                <p className="text-secondary col-12 mb-5">Tipo: {tipo}</p>
               </div>
               <div className="favorito-producto-single col-7 d-flex justify-content-center">
                 <button type="button" className="btn-add-favorites-product" onClick={handleAddFavorites}>
@@ -67,7 +68,7 @@ const Single = () => {
 
             <div className="section-cantidad-precio-añadir-producto">
               <p className="price-carrito-hover text-black text-start col-12 mt-5 mx-0 h5 mb-1">
-                Precio: 40.000
+                Precio: ${precio}
               </p>
 
               <div className="container-buttons-producto col-12">
