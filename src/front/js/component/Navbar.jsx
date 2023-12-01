@@ -15,7 +15,7 @@ import ModalCerrarSesion from "./ModalCerrarSesion.jsx";
 const Navbar = () => {
 
 	const [tipo, setTipo] = useState(null);
-	const [categoria, setCategoria] = useState("");
+	const [categoria, setCategoria] = useState(null);
 
 	const navStyle = {
 		color: "white",
@@ -36,39 +36,47 @@ const Navbar = () => {
 			window.location.href = "https://didactic-happiness-7qx694qjp792xjqj-3000.app.github.dev/registro"
 		}, 2000);
 	};
-
+	
+	// Hagan como que esta sección no existe por favor, de que sirve, sirve XD
 	const handleTinto = () => {
 		setTipo(null)
+		setCategoria(null)
 		setTipo("tinto")
 	}
 
 	const handleBlanco = () => {
 		setTipo(null)
+		setCategoria(null)
 		setTipo("blanco")
 	}
 
 	const handleRose = () => {
 		setTipo(null)
+		setCategoria(null)
 		setTipo("rose")
 	}
 
 	const handleEspumante = () => {
 		setTipo(null)
+		setCategoria(null)
 		setTipo("espumante")
 	}
 
 	const handleReserva = () => {
+		setTipo(null)
 		setCategoria(null)
 		setCategoria("reserva")
 	}
 
 	const handleGranReserva = () => {
+		setTipo(null)
 		setCategoria(null)
 		setCategoria("gran reserva")
 	}
 
 	const handleResetCategories = () => {
 		setTipo(null)
+		setCategoria(null)
 	}
 
 	return (
@@ -314,6 +322,41 @@ const Navbar = () => {
 					</div>
 				</div>
 			)}
+			{categoria == null ? (
+				<>
+
+				</>
+			) : (
+				<div className="col-12 mx-auto mt-5">
+					<div className="row justify-content-center align-self-center">
+						<div className="col12 text-end  orderbar-color px-0">
+							<div className="btn-group">
+								<button
+									type="button"
+									className="btn text-end orderbar-color filter-custom-height custom-text-bar dropdown-toggle d-flex align-items-center me-3"
+									data-bs-toggle="dropdown"
+									aria-expanded="false"
+								>
+									Ordenar por
+								</button>
+								<ul className="dropdown-menu dropdown-menu-end">
+									<li><button className="dropdown-item" type="button">Próximamente</button></li>
+									{/* <li><button className="dropdown-item" type="button">Menor a mayor precio</button></li>
+                                <li><button className="dropdown-item" type="button">A - Z</button></li>
+                                <li><button className="dropdown-item" type="button">Z - A</button></li> */}
+								</ul>
+							</div>
+							<div className="container-fluid  background-filteredproduct-color custom-text-filterproduct ">
+								<div className="row justify-content-center align-self-center">
+									<CardFilterCategoria categoria={categoria} />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			)}
+
+
 
 		</>
 

@@ -65,10 +65,6 @@ const CardContainer16 = ({ tipo }) => {
   const [productos, setProductos] = useState([]);
   const [cantidadVisible, setCantidadVisible] = useState(16);
 
-
-
-  console.log("DEBERIA LLEGAR EL VALOR A FETCH", tipo)
-
   useEffect(() => {
     fetch(`https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/productos/tipo/${tipo}`)
       .then((response) => response.json())
