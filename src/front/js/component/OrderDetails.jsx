@@ -1,10 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes, faShieldHalved, faOtroIcono } from "@fortawesome/free-solid-svg-icons";
 import rigoBaby from "../../img/rigo-baby.jpg";
 import paymentMethods from "../../img/paymentMethods.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
-import { faShieldHalved } from "@fortawesome/free-solid-svg-icons";
 
 const OrderDetails = () => {
   const products = [

@@ -18,6 +18,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			categoria: "",
 			user: null,
 			token: localStorage.getItem("token"),
+			product: {},
+			shoppingCart: JSON.parse(window.localStorage.getItem("shoppingCart")) || [],
 
 			//productos
 			search: "",
@@ -73,29 +75,43 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			//fetch de productos para la busqueda
 			getProduct: () => {
-				
-					fetch("https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/productos"
-					).then(resp => resp.json())
+
+				fetch("https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/productos"
+				).then(resp => resp.json())
 					.then(data => {
-						setStore({productos:data});
-						
+						setStore({ productos: data });
+
 					})
 					.catch(error => console.log("error desde getProduct", error))
-				},
+			},
 
 			handleSearch: (e) => {
-				setStore({search: e.target.value})
-				
+				setStore({ search: e.target.value })
+
+			},
+			setShoppingCart: (shoppingCart) => {
+				window.localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart))
+				setStore({
+					...getStore(),
+					shoppingCart
+				})
+			},
+			fetchProduct: async (id) => {
+				const product = await fetch(`https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/productos/${id}`).then(res => res.json())
+				setStore({
+					...getStore(),
+					product
+				})
 			},
 
 			productosFiltrados: () => {
 				let store = getStore();
 				let productos = getStore()?.productos?.filter((producto) =>
-        		producto?.nombre?.toLowerCase().includes(store?.search?.toLocaleLowerCase()) ||
-       			producto?.tipo?.toLowerCase().includes(store?.search?.toLowerCase()) 
-    			)
-				setStore({productosFiltrados: productos})
-				console.log("estos son los productos filtrados",getStore().productosFiltrados)
+					producto?.nombre?.toLowerCase().includes(store?.search?.toLocaleLowerCase()) ||
+					producto?.tipo?.toLowerCase().includes(store?.search?.toLowerCase())
+				)
+				setStore({ productosFiltrados: productos })
+				console.log("estos son los productos filtrados", getStore().productosFiltrados)
 			},
 			setTipo: (tipo) => setStore({ tipo }),
 			setCategoria: (category) => setStore({ categoria: category })
