@@ -1,39 +1,14 @@
 import { auto } from "@cloudinary/url-gen/qualifiers/quality";
 import React, { useState, useEffect } from "react";
+
 import { Link } from "react-router-dom";
-import "/src/front/styles/index.css";
-
-
-// Fetch a productos
-// Hacer un console.log para ver si se trae el arreglo completo
-// Hacer un map para replicar el producto con el largo del arreglo (todos los productos)
-// Asignarles un key={product.id}
-// Acceder a image, nombre y precio -> cambiar los parámetros y hacerlos dinámicos
-
-/*
-EJEMPLO PARA AÑADIR FILTRO + MAP (El filtro sería para buscar por la barra de búsqueda, ver si añadirlo en el navbar)
-
-const [search, setSearch] = useState('')
-
-{data.filter((item) => {
-    return search.toLowerCase() === '' 
-    ? item 
-    : item.first_name.toLoweCase().includes(search) 
-  })
-  .map((item) => {
-    <card con sus valores asignados>
-    src={item.image}
-    {item.name}
-    {item.price}
-  })}
-
-  */
+import "../../styles/index.css"
 
 const Card = ({ productos }) => (
   <>
     {productos.map((producto) => (
       <div key={producto.id} className="col-12 col-md-6 col-lg-3">
-        <div className="my-5 d-flex justify-content-center " >
+        <div className="my-5 d-flex justify-content-center ">
           <div className="card-product bg-light text-center" style={{ width: "100%", maxWidth: "300px", minHeight: "625px"}} >
             <div className="m-5">
               <img
@@ -109,4 +84,4 @@ const CardContainer16 = () => {
   );
 };
 
-export { CardContainer4, CardContainer16 };
+export { Card, CardContainer4, CardContainer16 };

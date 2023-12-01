@@ -2,36 +2,35 @@ import React, { useContext, useState } from "react";
 import PropTypes from "prop-types";
 import { Context } from "../store/appContext.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import vinoFavoritos from "../../img/vino-add-favorites.png"
-import vinoQuitarFavoritos from "../../img/vino-modified 1.png"
-
-
-import ProductCard from "../component/ProductCard.jsx";
+import vinoFavoritos from "../../img/vino-add-favorites.png";
+import vinoQuitarFavoritos from "../../img/vino-modified 1.png";
 import "../../styles/ProductCard.css";
+import { Link } from "react-router-dom";
 
 const Single = () => {
   const { store } = useContext(Context);
-  const { name, price, imageUrl, stars } = store.product || {};
+  const { nombre, precio, imageUrl } = store.product || {};
+
+  const token = localStorage.getItem("token");
+  console.log(token);
 
   const [favorito, setFavorito] = useState(false);
 
   const handleAddFavorites = () => {
     setFavorito(!favorito);
-  }
+  };
 
   return (
     <div className="container-fluid my-5">
       <div className="row container-productCard d-flex justify-content-center">
-        {/* CARD IMG */}
         <div className="col-9 custom-center custom-center-productCard">
-          <ProductCard imageUrl={imageUrl} />
+          <img src={imageUrl} alt="Product Image" className="img-fluid" />
         </div>
 
         <div className="col-3">
           <div className="container-informacion-producto row">
-
             <div className="informacion-de-producto-single row">
-              <h2 className="col-12">Nombre de vino</h2>
+              <h2 className="col-12">{nombre}</h2>
               <div className="calificacion-especificacion col-5">
                 <p className="card-text text-start col-12 mb-0">
                   <i className="fas fa-star stars"></i>
@@ -44,15 +43,20 @@ const Single = () => {
               </div>
               <div className="favorito-producto-single col-7 d-flex justify-content-center">
                 <button type="button" className="btn-add-favorites-product" onClick={handleAddFavorites}>
-                  <img className="add-favorites-img p-0" src={favorito ? vinoQuitarFavoritos : vinoFavoritos} alt="add-favorites" width="60px" height="60px" />
+                  <img
+                    className="add-favorites-img p-0"
+                    src={favorito ? vinoQuitarFavoritos : vinoFavoritos}
+                    alt="add-favorites"
+                    width="60px"
+                    height="60px"
+                  />
                 </button>
               </div>
-
             </div>
 
             <div className="section-cantidad-precio-añadir-producto">
               <p className="price-carrito-hover text-black text-start col-12 mt-5 mx-0 h5 mb-1">
-                Precio: 40.000
+                {precio}
               </p>
 
               <div className="container-buttons-producto col-12">
@@ -64,31 +68,33 @@ const Single = () => {
                     <button className="button-add-remove-product add-product-button px-5"> + </button>
                   </div>
                   {/* BUTTON AGREGAR AL CARRITO */}
-                  <button className="btn btn-secondary rounded-pill my-2 col-12 w-75">
-                    Agregar al carrito
-                  </button>
+                  {token == null ? (
+                    <>
+                      {/* REDIRIGIR A REGISTER SI NO ESTA LOGEADO */}
+                      <Link to="/registro">
+                        <button className="btn btn-secondary rounded-pill my-2 col-12 w-75">
+                          Agregar al carrito
+                        </button>
+                      </Link>
+                    </>
+                  ) : (
+                    <>
+                      {/* AÑADIR PRODUCTO AL CARRITO SI ESTÁ LOGEADO */}
+                      <button className="btn btn-secondary rounded-pill my-2 col-12 w-75">
+                        Agregar al carrito
+                      </button>
+                    </>
+                  )}
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
 
-      {/* <div className="text-center">
-            <h4 className="card-title">{name}</h4>
-            <p className="card-text">
-              {Array.from({ length: stars || 0 }, (_, index) => (
-                <i key={index} className="fas fa-star"></i>
-              ))}
-            </p>
-          </div> */}
-
       {/* Sección de Descripción del producto */}
       <div className="text-center my-4">
-        <h4 className="bg-black text-white d-inline-block p-2 rounded rounded-lg">
-          Descripción del Producto
-        </h4>
+        <h4 className="bg-black text-white d-inline-block p-2 rounded rounded-lg">Descripción del Producto</h4>
         <div className="ps-relative">
           <textarea
             id="wmd-input"
@@ -110,9 +116,7 @@ const Single = () => {
 
       {/* Sección de Reseñas del producto */}
       <div className="text-center mt-3 mb-4">
-        <h4 className="bg-black text-white d-inline-block p-2 rounded rounded-lg">
-          Reseñas del Producto
-        </h4>
+        <h4 className="bg-black text-white d-inline-block p-2 rounded rounded-lg">Reseñas del Producto</h4>
         <div className="calificaciones-productCard d-flex align-items-center">
           <h2 className="text-left">5</h2>
 
@@ -129,9 +133,6 @@ const Single = () => {
         </div>
       </div>
 
-      {/** Condición para mostrar "sin calificaciones" */}
-      {/* {typeof stars === "number" && stars === 0 ? (
-            ) : null} */}
 
       <div className="comment-productCard">
         <div className="contenedor-stars-comment-product">
@@ -148,18 +149,22 @@ const Single = () => {
         </div>
 
         <div className="mt-2 mb-2">
-          <p className="text-secondary">
-            Estaba maravilloso exquisito arte, 5 estrellas.
-          </p>
-          <button className="button-calificacion-comment-positiva me-3 p-1" onClick={() => {
-            alert("Próximamente podrás hacerle saber tu humilde opinión a esta persona!")
-          }}>
-            Es útil <i class="fa-regular fa-thumbs-up"></i>
+          <p className="text-secondary">Estaba maravilloso exquisito arte, 5 estrellas.</p>
+          <button
+            className="button-calificacion-comment-positiva me-3 p-1"
+            onClick={() => {
+              alert("Próximamente podrás hacerle saber tu humilde opinión a esta persona!");
+            }}
+          >
+            Es útil <i className="fa-regular fa-thumbs-up"></i>
           </button>
-          <button className="button-calificacion-comment-negativa p-1" onClick={() => {
-            alert("Próximamente podrás hacerle saber tu humilde opinión a esta persona!")
-          }}>
-            <i class="fa-regular fa-thumbs-down" ></i>
+          <button
+            className="button-calificacion-comment-negativa p-1"
+            onClick={() => {
+              alert("Próximamente podrás hacerle saber tu humilde opinión a esta persona!");
+            }}
+          >
+            <i className="fa-regular fa-thumbs-down"></i>
           </button>
         </div>
       </div>
@@ -180,18 +185,22 @@ const Single = () => {
         </div>
 
         <div className="mt-2 mb-2">
-          <p className="text-secondary">
-            Espectacular, PERO.
-          </p>
-          <button className="button-calificacion-comment-positiva me-3 p-1" onClick={() => {
-            alert("Próximamente podrás hacerle saber tu humilde opinión a esta persona!")
-          }}>
-            Es útil <i class="fa-regular fa-thumbs-up"></i>
+          <p className="text-secondary">Espectacular, PERO.</p>
+          <button
+            className="button-calificacion-comment-positiva me-3 p-1"
+            onClick={() => {
+              alert("Próximamente podrás hacerle saber tu humilde opinión a esta persona!");
+            }}
+          >
+            Es útil <i className="fa-regular fa-thumbs-up"></i>
           </button>
-          <button className="button-calificacion-comment-negativa p-1" onClick={() => {
-            alert("Próximamente podrás hacerle saber tu humilde opinión a esta persona!")
-          }}>
-            <i class="fa-regular fa-thumbs-down"></i>
+          <button
+            className="button-calificacion-comment-negativa p-1"
+            onClick={() => {
+              alert("Próximamente podrás hacerle saber tu humilde opinión a esta persona!");
+            }}
+          >
+            <i className="fa-regular fa-thumbs-down"></i>
           </button>
         </div>
       </div>
