@@ -34,16 +34,18 @@ const Card = ({ productos }) => (
     {productos.map((producto) => (
       <div key={producto.id} className="col-12 col-md-6 col-lg-3">
         <div className="my-5 d-flex justify-content-center " >
-          <div className="card-product bg-light text-center" style={{ width: "100%", maxWidth: "300px" }} >
+          <div className="card-product bg-light text-center" style={{ width: "100%", maxWidth: "300px", minHeight: "625px"}} >
             <div className="m-5">
               <img
-                className="card-img-top img-fluid" 
+                className="card-img-top img-fluid"
                 src={`${producto.image}`}
                 alt={`${producto.nombre}`}
               />
             </div>
             <div className="card-body text-align-center">
-              <h4 className="card-title custom-text-card">{`${producto.nombre}`}</h4>
+              <h4 className="card-title custom-text-card" title={`${producto.nombre}`}>
+                {producto.nombre.length > 20 ? `${producto.nombre.substring(0, 20)}...` : producto.nombre}
+              </h4>
               <h5>{`$${producto.precio}`}</h5>
               <p className="card-text text-align-center">
                 <i className="fa-solid fa-star stars"></i>
@@ -95,14 +97,14 @@ const CardContainer16 = () => {
       {productos.length > cantidadVisible && (
         <div className="col-12 d-flex justify-content-center mt-3">
           <button
-            className="btn btn-secondary"
+            className="button-ver-mas-productos"
             onClick={() => setCantidadVisible(cantidadVisible + 16)}
           >
             Ver más
           </button>
         </div>
       )}
-      
+
     </div>
   );
 };
