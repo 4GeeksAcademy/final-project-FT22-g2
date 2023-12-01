@@ -10,14 +10,19 @@ import ProductCard from "../component/ProductCard.jsx";
 import "../../styles/ProductCard.css";
 
 const Single = () => {
-  const { store } = useContext(Context);
+  const { store, actions } = useContext(Context);
   const { name, price, imageUrl, stars } = store.product || {};
 
   const [favorito, setFavorito] = useState(false);
+  const [carrito, setCarrito] = useState([]);
 
   const handleAddFavorites = () => {
     setFavorito(!favorito);
   }
+
+  const agregarAlCarrito = () => {
+    actions.setShoppingCart([...store.shoppingCart, { name, price, imageUrl, stars }])
+  };
 
   return (
     <div className="container-fluid my-5">
@@ -64,7 +69,7 @@ const Single = () => {
                     <button className="button-add-remove-product add-product-button px-5"> + </button>
                   </div>
                   {/* BUTTON AGREGAR AL CARRITO */}
-                  <button className="btn btn-secondary rounded-pill my-2 col-12 w-75">
+                  <button onClick={() => agregarAlCarrito()} type="button" className="btn btn-secondary rounded-pill my-2 col-12 w-75">
                     Agregar al carrito
                   </button>
                 </div>

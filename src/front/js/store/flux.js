@@ -15,7 +15,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 			user: null,
-			token: localStorage.getItem("token")
+			token: localStorage.getItem("token"),
+			shoppingCart: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -59,7 +60,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				localStorage.setItem("token", data.token);
 
 				console.log("USER INFO HERE", data)
-				
+
 				return true;
 			},
 			// Función no utilizada pero me da miedo borrarla, así que se queda
@@ -75,6 +76,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log("Error loading message from backend", error)
 				}
 			},
+			setShoppingCart: (shoppingCart) => {
+				window.localStorage.setItem("carrito", JSON.stringify(shoppingCart))
+				setStore({
+					...getStore(),
+					shoppingCart
+				})
+			}
 		}
 	};
 };
