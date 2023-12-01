@@ -5,7 +5,7 @@ import "../../styles/home.css";
 import Filteredproduct from "../component/FIlteredproduct.jsx"
 
 
-export const Search = () => {
+export const Search = ({tipo, categoria}) => {
     const { store, actions } = useContext(Context);
 
     return (

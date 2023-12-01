@@ -14,6 +14,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					initial: "white"
 				}
 			],
+			tipo: "",
+			categoria: "",
 			user: null,
 			token: localStorage.getItem("token")
 		},
@@ -76,6 +78,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log("Error loading message from backend", error)
 				}
 			},
+			setTipo: (tipo) => setStore({ tipo }),
+			setCategoria: (category) => setStore({ categoria: category })
 		}
 	};
 };

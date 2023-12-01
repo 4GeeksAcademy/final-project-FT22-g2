@@ -7,7 +7,7 @@ const Filteredproduct = () => {
         <>
             <div className="col-12 mx-auto">
                 <div className="row justify-content-center align-self-center">
-                    <div className="col12 text-end  orderbar-color   px-0">
+                    <div className="col12 text-end  orderbar-color px-0">
                         <div className="btn-group">
                             <button
                                 type="button"

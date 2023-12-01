@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import logoUrl from "../../img/logoElRinconDelVino.png";
 import LogIn from "./LogIn.jsx";
@@ -6,14 +6,16 @@ import ModalContact from "./ModalContact.jsx";
 import RestaurarContraseña from "./ModalRestaurarContraseña.jsx";
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Context } from "../store/appContext";
+import { CardContainer16, CardFilterCategoria } from "./Card.jsx";
+import Filteredproduct from "./FIlteredproduct.jsx";
 
 import "../../styles/navbarHero.css";
 import ModalCerrarSesion from "./ModalCerrarSesion.jsx";
 
 const Navbar = () => {
 
-	const { store, actions } = useContext(Context);
+	const [tipo, setTipo] = useState("");
+	const [categoria, setCategoria] = useState("");
 
 	const navStyle = {
 		color: "white",
@@ -35,25 +37,29 @@ const Navbar = () => {
 		}, 2000);
 	};
 
-	// Controlar el input de búsqueda por un onChange para capturar cada cambio al escribir
-	/*
-			EJEMPLO PARA AÑADIR FILTRO + MAP (El filtro sería para buscar por la barra de búsqueda)
+	const handleTinto = () => {
+		setTipo("tinto")
+	}
 
-		const [search, setSearch] = useState('')
+	const handleBlanco = () => {
+		setTipo("blanco")
+	}
 
-		{data.filter((item) => {
-		  return search.toLowerCase() === '' 
-		  ? item 
-		  : item.first_name.toLoweCase().includes(search) 
-		})
-		.map((item) => {
-		  <card con sus valores asignados>
-		  src={item.image}
-		  {item.name}
-		  {item.price}
-		})}
+	const handleRose = () => {
+		setTipo("rose")
+	}
 
-	*/
+	const handleEspumante = () => {
+		setTipo("espumante")
+	}
+
+	const handleReserva = () => {
+		setCategoria("reserva")
+	}
+
+	const handleGranReserva = () => {
+		setCategoria("gran reserva")
+	}
 
 	return (
 		<>
@@ -62,6 +68,8 @@ const Navbar = () => {
 				<ModalContact />
 				<RestaurarContraseña />
 				<ModalCerrarSesion />
+				<CardContainer16 tipo={tipo} />
+				<CardFilterCategoria categoria={categoria} />
 			</div>
 
 			<nav className="container-navbar navbar navbar-expand-lg" style={navStyle}>
@@ -101,16 +109,16 @@ const Navbar = () => {
 								Tipos
 							</a>
 							<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-								<Link to="busqueda" className="text-decoration-none">
+								<Link to="busqueda/tinto" className="text-decoration-none" onClick={handleTinto}>
 									<li><a className="dropdown-item" href="#">Tinto</a></li>
 								</Link>
-								<Link to="busqueda" className="text-decoration-none">
+								<Link to="busqueda/blanco" className="text-decoration-none" onClick={handleBlanco}>
 									<li><a className="dropdown-item" href="#">Blanco</a></li>
 								</Link>
-								<Link to="busqueda" className="text-decoration-none">
+								<Link to="busqueda/rose" className="text-decoration-none" onClick={handleRose}>
 									<li><a className="dropdown-item" href="#">Rosé</a></li>
 								</Link>
-								<Link to="busqueda" className="text-decoration-none">
+								<Link to="busqueda/espumante" className="text-decoration-none" onClick={handleEspumante}>
 									<li><a className="dropdown-item" href="#">Espumante</a></li>
 								</Link>
 							</ul>
@@ -122,10 +130,10 @@ const Navbar = () => {
 								Categorías
 							</a>
 							<ul className="dropdown-menu " aria-labelledby="navbarDropdown">
-								<Link to="busqueda" className="text-decoration-none">
+								<Link to="busqueda/reserva" className="text-decoration-none" onClick={handleReserva}>
 									<li><a className="dropdown-item" href="#">Reserva</a></li>
 								</Link>
-								<Link to="busqueda" className="text-decoration-none">
+								<Link to="busqueda/gran-reserva" className="text-decoration-none" onClick={handleGranReserva}>
 									<li><a className="dropdown-item" href="#">Gran reserva</a></li>
 								</Link>
 							</ul>
@@ -262,6 +270,7 @@ const Navbar = () => {
 
 				</div>
 			</nav>
+
 		</>
 
 	);
