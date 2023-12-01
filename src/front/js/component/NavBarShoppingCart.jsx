@@ -6,6 +6,7 @@ export const NavBarShoppingCart = () => {
     const { store, actions } = useContext(Context);
     const shoppingCart = store.shoppingCart || [];
 
+    
 
     return <ul className="navbar-nav">
         {/* ---- / DROPDOWN CARRITO / ---- */}
@@ -35,7 +36,7 @@ export const NavBarShoppingCart = () => {
                                                 {/* <button type="button" className="button-add-remove-carrito-hover remove-carrito-hover">-</button>
                                     <label className="label-cantidad-carrito-hover px-2">1</label>
                                     <button type="button" className="button-add-remove-carrito-hover add-carrito-hover">+</button> */}
-                                                <p className=" px-2 price-carrito-hover">{shoppingCartItem.precio}</p>
+                                                <p className=" px-2 price-carrito-hover">${shoppingCartItem.precio}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -45,7 +46,7 @@ export const NavBarShoppingCart = () => {
                             {/* SUBTOTAL Y BTN IR AL CARRITO */}
                             <div className="container-price-button-cart">
                                 <h4 className="subtotal-carrito-price">Subtotal: $$$</h4>
-                                <Link to="/carrito" className="d-flex justify-content-center text-decoration-none">
+                                <Link to="/carrito" className="d-flex justify-content-center text-decoration-none mb-3">
                                     <button type="button" href="#" className="btn-ir-al-carrito">
                                         Ir al carrito
                                     </button>

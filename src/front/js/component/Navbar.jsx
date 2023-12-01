@@ -8,7 +8,7 @@ import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { CardContainer16, CardFilterCategoria } from "./Card.jsx";
 import { Context } from "../store/appContext";
-import {NavBarShoppingCart} from "./NavBarShoppingCart.jsx"
+import { NavBarShoppingCart } from "./NavBarShoppingCart.jsx"
 
 import "../../styles/navbarHero.css";
 import ModalCerrarSesion from "./ModalCerrarSesion.jsx";
@@ -188,7 +188,6 @@ const Navbar = () => {
 							}}>
 							<BarraDeBusqueda />
 							<button style={{ overflow: "auto" }} className="btn btn-outline-light w-50 button-enviar-barra-busqueda" type="submit" onClick={actions.productosFiltrados}>Buscar</button>
-							<SearchResults />
 						</form>
 					</div>
 

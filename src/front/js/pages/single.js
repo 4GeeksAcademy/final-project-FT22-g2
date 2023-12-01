@@ -16,7 +16,6 @@ const Single = () => {
   const { nombre = "", precio = null, image, stars, unitFormat, tipo } = store.product || {};
 
   const token = localStorage.getItem("token");
-  console.log(token)
 
   const [favorito, setFavorito] = useState(false);
 

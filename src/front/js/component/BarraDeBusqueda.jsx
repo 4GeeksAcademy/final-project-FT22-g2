@@ -51,16 +51,18 @@ const BarraDeBusqueda = () => {
 
 
     return (
-        <div className="container-fluid mt-3">
+        <div className="container-fluid mt-1">
             <div className="row">
                 <input
                     id="buscadorNavbar"
                     className="form-control me-2 input-search-navbar"
                     type="search"
-                    placeholder="Buscar..."
+                    placeholder="Buscar próximamente..."
                     aria-label="Search"
                     value={store.search}
-                    onChange={actions.handleSearch} />
+                    onChange={actions.handleSearch}
+                    disabled
+                />
             </div>
         </div>
     );
