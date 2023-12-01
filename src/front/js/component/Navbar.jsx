@@ -178,13 +178,13 @@ const Navbar = () => {
 
 					{/* ---- / BARRA Y BOTÓN DE BÚSQUEDA / ---- */}
 
-					<form class="d-flex scrollable-form nav-item formulario-barra-de-busqueda-navbar"onChange={handleResetCategories} style={{overflow:"auto"}} 
-					  onSubmit={(e) => {
-						e.preventDefault(); // Evitar la recarga de la página al enviar el formulario
-						handleSearch(); // Llama a la función de filtrado
-					}}>
-					<BarraDeBusqueda searchValue={searchValue} />					
-					<button style={{overflow:"auto"}} className="btn btn-outline-light" type="submit" onClick={actions.productosFiltrados}>Buscar</button> 
+					<form class="d-flex scrollable-form nav-item formulario-barra-de-busqueda-navbar" onChange={handleResetCategories} style={{ overflow: "auto" }}
+						onSubmit={(e) => {
+							e.preventDefault(); // Evitar la recarga de la página al enviar el formulario
+							handleSearch(); // Llama a la función de filtrado
+						}}>
+						<BarraDeBusqueda searchValue={searchValue} />
+						<button style={{ overflow: "auto" }} className="btn btn-outline-light w-50" type="submit" onClick={actions.productosFiltrados}>Buscar</button>
 					</form>
 
 
