@@ -7,15 +7,20 @@ import RestaurarContraseña from "./ModalRestaurarContraseña.jsx";
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { CardContainer16, CardFilterCategoria } from "./Card.jsx";
-import Filteredproduct from "./FIlteredproduct.jsx";
+import { Context } from "../store/appContext";
 
 import "../../styles/navbarHero.css";
 import ModalCerrarSesion from "./ModalCerrarSesion.jsx";
+import BarraDeBusqueda from "./BarraDeBusqueda.jsx";
 
 const Navbar = () => {
 
+	const { store, actions } = useContext(Context);
+
 	const [tipo, setTipo] = useState(null);
 	const [categoria, setCategoria] = useState(null);
+
+	const [searchValue, setSearchValue] = useState("");
 
 	const navStyle = {
 		color: "white",
@@ -36,7 +41,7 @@ const Navbar = () => {
 			window.location.href = "https://didactic-happiness-7qx694qjp792xjqj-3000.app.github.dev/registro"
 		}, 2000);
 	};
-	
+
 	// Hagan como que esta sección no existe por favor, de que sirve, sirve XD
 	const handleTinto = () => {
 		setTipo(null)
@@ -164,12 +169,19 @@ const Navbar = () => {
 
 					</div> {/* termina el collapse */}
 
+
+
+
 					{/* ---- / BARRA Y BOTÓN DE BÚSQUEDA / ---- */}
 
-					<form class="d-flex" onChange={handleResetCategories}>
-						<input className="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search" />
-						<button className="btn btn-outline-light" type="submit">Buscar</button>
+					<form class="nav-item d-flex formulario-barra-de-busqueda-navbar" onChange={handleResetCategories}>
+						<BarraDeBusqueda searchValue={searchValue} />
+						<button className="btn btn-outline-light" type="button" onClick={actions.productosFiltrados}>Buscar</button>
 					</form>
+
+
+
+
 
 					{/* empiezan los logos del carrito y loggin */}
 					<div className="icons-navbar h2 px-1 m-auto d-flex ms-auto flex-start">
