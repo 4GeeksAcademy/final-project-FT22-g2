@@ -20,13 +20,14 @@ const Navbar = () => {
 	const navStyle = {
 		color: "white",
 		backgroundColor: "#7B2121",
-		fontFamily: "Arial"
+		fontFamily: "Arial",
+		overflowY: ""
 	};
 
-	const categoryStyle = {
+	/* const categoryStyle = {
 		backgroundColor: "#671C1C"
 	}
-
+ */
 	const { store, actions } = useContext(Context);
 
 
@@ -135,9 +136,13 @@ const Navbar = () => {
 
 					{/* ---- / BARRA Y BOTÓN DE BÚSQUEDA / ---- */}
 
-					<form class="d-flex">
+					<form class="d-flex scrollable-form " style={{overflow:"auto"}} 
+					  onSubmit={(e) => {
+						e.preventDefault(); // Evitar la recarga de la página al enviar el formulario
+						handleSearch(); // Llama a la función de filtrado
+					}}>
 					<BarraDeBusqueda searchValue={searchValue} />					
-					<button className="btn btn-outline-light" type="button" onClick={actions.productosFiltrados}>Buscar</button> 
+					<button style={{overflow:"auto"}} className="btn btn-outline-light" type="submit" onClick={actions.productosFiltrados}>Buscar</button> 
 					</form>
 					
 

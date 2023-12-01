@@ -19,6 +19,8 @@ const BarraDeBusqueda = ({ searchValue }) => {
         //filtrarData(producto);
     }, []);
 
+    
+
     //funcion para traer los datos desde la api
 
     const URLapi = "https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/productos";
@@ -42,15 +44,13 @@ const BarraDeBusqueda = ({ searchValue }) => {
             console.log(error);
         }
     }
-    //funcion de busqueda
-
     
-
+    //funcion de busqueda
     
     return (
-        <div className="container-fluid mt-5">
-            <div className="row">
-                <input
+        <div className="container-fluid ">
+            <div className="col">
+                <input style={{overflowY:"auto"}}
                     id="buscadorNavbar"
                     className="form-control me-2"
                     type="search"
@@ -58,7 +58,7 @@ const BarraDeBusqueda = ({ searchValue }) => {
                     aria-label="Search"
                     value={store.search}
                     onChange={actions.handleSearch} />
-                <ul>
+                <ul style={{overflow: "auto"}}>  
                     {store.productosFiltrados.map((producto, index )=> (
                         <li key={index}>{producto.nombre}</li>
                     ))}
