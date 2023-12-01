@@ -6,16 +6,21 @@ import ModalContact from "./ModalContact.jsx";
 import RestaurarContraseña from "./ModalRestaurarContraseña.jsx";
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { CardContainer16, CardFilterCategoria } from "./Card.jsx";
 import { Context } from "../store/appContext";
-
 
 import "../../styles/navbarHero.css";
 import ModalCerrarSesion from "./ModalCerrarSesion.jsx";
-
 import BarraDeBusqueda from "./BarraDeBusqueda.jsx";
 
 const Navbar = () => {
 
+	const { store, actions } = useContext(Context);
+
+	const [tipo, setTipo] = useState(null);
+	const [categoria, setCategoria] = useState(null);
+
+	const [searchValue, setSearchValue] = useState("");
 
 	const navStyle = {
 		color: "white",
@@ -27,9 +32,6 @@ const Navbar = () => {
 		backgroundColor: "#671C1C"
 	}
 
-	const { store, actions } = useContext(Context);
-
-
 	const token = localStorage.getItem("token");
 
 	const handleLogout = () => {
@@ -40,10 +42,47 @@ const Navbar = () => {
 		}, 2000);
 	};
 
-	const [searchValue, setSearchValue] = useState("");
-	
+	// Hagan como que esta sección no existe por favor, de que sirve, sirve XD
+	const handleTinto = () => {
+		setTipo(null)
+		setCategoria(null)
+		setTipo("tinto")
+	}
 
-	
+	const handleBlanco = () => {
+		setTipo(null)
+		setCategoria(null)
+		setTipo("blanco")
+	}
+
+	const handleRose = () => {
+		setTipo(null)
+		setCategoria(null)
+		setTipo("rose")
+	}
+
+	const handleEspumante = () => {
+		setTipo(null)
+		setCategoria(null)
+		setTipo("espumante")
+	}
+
+	const handleReserva = () => {
+		setTipo(null)
+		setCategoria(null)
+		setCategoria("reserva")
+	}
+
+	const handleGranReserva = () => {
+		setTipo(null)
+		setCategoria(null)
+		setCategoria("gran reserva")
+	}
+
+	const handleResetCategories = () => {
+		setTipo(null)
+		setCategoria(null)
+	}
 
 	return (
 		<>
@@ -59,7 +98,7 @@ const Navbar = () => {
 
 					{/* ---- / LOGO / ---- */}
 					<Link to="/">
-						<img className="mx-5" src={logoUrl} width="130px" height="100px" />
+						<img className="mx-5" src={logoUrl} width="130px" height="100px" onClick={handleResetCategories} />
 					</Link>
 
 
@@ -91,16 +130,16 @@ const Navbar = () => {
 								Tipos
 							</a>
 							<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-								<Link to="busqueda" className="text-decoration-none">
+								<Link to="busqueda/tinto" className="text-decoration-none" onClick={handleTinto}>
 									<li><a className="dropdown-item" href="#">Tinto</a></li>
 								</Link>
-								<Link to="busqueda" className="text-decoration-none">
+								<Link to="busqueda/blanco" className="text-decoration-none" onClick={handleBlanco}>
 									<li><a className="dropdown-item" href="#">Blanco</a></li>
 								</Link>
-								<Link to="busqueda" className="text-decoration-none">
+								<Link to="busqueda/rose" className="text-decoration-none" onClick={handleRose}>
 									<li><a className="dropdown-item" href="#">Rosé</a></li>
 								</Link>
-								<Link to="busqueda" className="text-decoration-none">
+								<Link to="busqueda/espumante" className="text-decoration-none" onClick={handleEspumante}>
 									<li><a className="dropdown-item" href="#">Espumante</a></li>
 								</Link>
 							</ul>
@@ -112,10 +151,10 @@ const Navbar = () => {
 								Categorías
 							</a>
 							<ul className="dropdown-menu " aria-labelledby="navbarDropdown">
-								<Link to="busqueda" className="text-decoration-none">
+								<Link to="busqueda/reserva" className="text-decoration-none" onClick={handleReserva}>
 									<li><a className="dropdown-item" href="#">Reserva</a></li>
 								</Link>
-								<Link to="busqueda" className="text-decoration-none">
+								<Link to="busqueda/gran-reserva" className="text-decoration-none" onClick={handleGranReserva}>
 									<li><a className="dropdown-item" href="#">Gran reserva</a></li>
 								</Link>
 							</ul>
@@ -135,11 +174,11 @@ const Navbar = () => {
 
 					{/* ---- / BARRA Y BOTÓN DE BÚSQUEDA / ---- */}
 
-					<form class="d-flex">
-					<BarraDeBusqueda searchValue={searchValue} />					
-					<button className="btn btn-outline-light" type="button" onClick={actions.productosFiltrados}>Buscar</button> 
+					<form class="nav-item d-flex formulario-barra-de-busqueda-navbar" onChange={handleResetCategories}>
+						<BarraDeBusqueda searchValue={searchValue} />
+						<button className="btn btn-outline-light" type="button" onClick={actions.productosFiltrados}>Buscar</button>
 					</form>
-					
+
 
 
 
@@ -183,7 +222,7 @@ const Navbar = () => {
 													{token == null ? (
 														<>
 															<Link to="/registro" className="d-flex justify-content-center text-decoration-none">
-																<button type="button" href="#" className="btn-ir-al-carrito">
+																<button type="button" href="#" className="btn-ir-al-carrito" onClick={handleResetCategories}>
 																	Ir al carrito
 																</button>
 															</Link>
@@ -191,7 +230,7 @@ const Navbar = () => {
 													) : (
 														<>
 															<Link to="/carrito" className="d-flex justify-content-center text-decoration-none">
-																<button type="button" href="#" className="btn-ir-al-carrito">
+																<button type="button" href="#" className="btn-ir-al-carrito" onClick={handleResetCategories}>
 																	Ir al carrito
 																</button>
 															</Link>
@@ -217,9 +256,10 @@ const Navbar = () => {
 											<i class="fa-solid fa-right-to-bracket px-3"></i>
 										</a>
 										<ul className="dropdown-menu p-2" aria-labelledby="navbarDropdown2">
-											<li>
-												<button className="dropdown-item border-bottom" data-bs-toggle="modal" data-bs-target="#modalLogin" type="button">Acceder</button></li>
-											<li>
+											<li onClick={handleResetCategories}>
+												<button className="dropdown-item border-bottom" data-bs-toggle="modal" data-bs-target="#modalLogin" type="button">Acceder</button>
+											</li>
+											<li onClick={handleResetCategories}>
 
 												<Link to="/registro" className="text-decoration-none">
 													<a className="dropdown-item" href="#">Registrarse</a>
@@ -238,11 +278,11 @@ const Navbar = () => {
 										</a>
 										<ul className="dropdown-menu p-2" aria-labelledby="navbarDropdown2">
 											<li className="dropdown-item d-flex justify-content-center container-button-perfil-dropdown w-100 border-bottom">
-												<Link to="/perfil" className="button-perfil-dropdown">
+												<Link to="/perfil" className="button-perfil-dropdown" onClick={handleResetCategories}>
 													Perfil
 												</Link>
 											</li>
-											<li className="dropdown-item">
+											<li className="dropdown-item" onClick={handleResetCategories}>
 												<button data-bs-toggle="modal" data-bs-target="#modalCerrarSesion" className="button-cerrar-sesion-dropdown" onClick={handleLogout}>
 													Cerrar sesión
 												</button>
@@ -259,6 +299,77 @@ const Navbar = () => {
 
 				</div>
 			</nav>
+
+			{/* FILTRADO DE PRODUCTOS INTEGRADO */}
+			{tipo == null ? (
+				<>
+
+				</>
+			) : (
+				<div className="col-12 mx-auto mt-5">
+					<div className="row justify-content-center align-self-center">
+						<div className="col12 text-end  orderbar-color px-0">
+							<div className="btn-group">
+								<button
+									type="button"
+									className="btn text-end orderbar-color filter-custom-height custom-text-bar dropdown-toggle d-flex align-items-center me-3"
+									data-bs-toggle="dropdown"
+									aria-expanded="false"
+								>
+									Ordenar por
+								</button>
+								<ul className="dropdown-menu dropdown-menu-end">
+									<li><button className="dropdown-item" type="button">Próximamente</button></li>
+									{/* <li><button className="dropdown-item" type="button">Menor a mayor precio</button></li>
+                                <li><button className="dropdown-item" type="button">A - Z</button></li>
+                                <li><button className="dropdown-item" type="button">Z - A</button></li> */}
+								</ul>
+							</div>
+							<div className="container-fluid  background-filteredproduct-color custom-text-filterproduct ">
+								<div className="row justify-content-center align-self-center">
+									<CardContainer16 tipo={tipo} />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			)}
+			{categoria == null ? (
+				<>
+
+				</>
+			) : (
+				<div className="col-12 mx-auto mt-5">
+					<div className="row justify-content-center align-self-center">
+						<div className="col12 text-end  orderbar-color px-0">
+							<div className="btn-group">
+								<button
+									type="button"
+									className="btn text-end orderbar-color filter-custom-height custom-text-bar dropdown-toggle d-flex align-items-center me-3"
+									data-bs-toggle="dropdown"
+									aria-expanded="false"
+								>
+									Ordenar por
+								</button>
+								<ul className="dropdown-menu dropdown-menu-end">
+									<li><button className="dropdown-item" type="button">Próximamente</button></li>
+									{/* <li><button className="dropdown-item" type="button">Menor a mayor precio</button></li>
+                                <li><button className="dropdown-item" type="button">A - Z</button></li>
+                                <li><button className="dropdown-item" type="button">Z - A</button></li> */}
+								</ul>
+							</div>
+							<div className="container-fluid  background-filteredproduct-color custom-text-filterproduct ">
+								<div className="row justify-content-center align-self-center">
+									<CardFilterCategoria categoria={categoria} />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			)}
+
+
+
 		</>
 
 	);
