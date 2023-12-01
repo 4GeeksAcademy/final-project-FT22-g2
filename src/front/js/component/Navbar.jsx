@@ -14,7 +14,7 @@ import ModalCerrarSesion from "./ModalCerrarSesion.jsx";
 
 const Navbar = () => {
 
-	const [tipo, setTipo] = useState("");
+	const [tipo, setTipo] = useState(null);
 	const [categoria, setCategoria] = useState("");
 
 	const navStyle = {
@@ -38,27 +38,37 @@ const Navbar = () => {
 	};
 
 	const handleTinto = () => {
+		setTipo(null)
 		setTipo("tinto")
 	}
 
 	const handleBlanco = () => {
+		setTipo(null)
 		setTipo("blanco")
 	}
 
 	const handleRose = () => {
+		setTipo(null)
 		setTipo("rose")
 	}
 
 	const handleEspumante = () => {
+		setTipo(null)
 		setTipo("espumante")
 	}
 
 	const handleReserva = () => {
+		setCategoria(null)
 		setCategoria("reserva")
 	}
 
 	const handleGranReserva = () => {
+		setCategoria(null)
 		setCategoria("gran reserva")
+	}
+
+	const handleResetCategories = () => {
+		setTipo(null)
 	}
 
 	return (
@@ -68,8 +78,6 @@ const Navbar = () => {
 				<ModalContact />
 				<RestaurarContraseña />
 				<ModalCerrarSesion />
-				<CardContainer16 tipo={tipo} />
-				<CardFilterCategoria categoria={categoria} />
 			</div>
 
 			<nav className="container-navbar navbar navbar-expand-lg" style={navStyle}>
@@ -77,7 +85,7 @@ const Navbar = () => {
 
 					{/* ---- / LOGO / ---- */}
 					<Link to="/">
-						<img className="mx-5" src={logoUrl} width="130px" height="100px" />
+						<img className="mx-5" src={logoUrl} width="130px" height="100px" onClick={handleResetCategories} />
 					</Link>
 
 
@@ -150,7 +158,7 @@ const Navbar = () => {
 
 					{/* ---- / BARRA Y BOTÓN DE BÚSQUEDA / ---- */}
 
-					<form class="d-flex">
+					<form class="d-flex" onChange={handleResetCategories}>
 						<input className="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search" />
 						<button className="btn btn-outline-light" type="submit">Buscar</button>
 					</form>
@@ -194,7 +202,7 @@ const Navbar = () => {
 													{token == null ? (
 														<>
 															<Link to="/registro" className="d-flex justify-content-center text-decoration-none">
-																<button type="button" href="#" className="btn-ir-al-carrito">
+																<button type="button" href="#" className="btn-ir-al-carrito" onClick={handleResetCategories}>
 																	Ir al carrito
 																</button>
 															</Link>
@@ -202,7 +210,7 @@ const Navbar = () => {
 													) : (
 														<>
 															<Link to="/carrito" className="d-flex justify-content-center text-decoration-none">
-																<button type="button" href="#" className="btn-ir-al-carrito">
+																<button type="button" href="#" className="btn-ir-al-carrito" onClick={handleResetCategories}>
 																	Ir al carrito
 																</button>
 															</Link>
@@ -228,9 +236,10 @@ const Navbar = () => {
 											<i class="fa-solid fa-right-to-bracket px-3"></i>
 										</a>
 										<ul className="dropdown-menu p-2" aria-labelledby="navbarDropdown2">
-											<li>
-												<button className="dropdown-item border-bottom" data-bs-toggle="modal" data-bs-target="#modalLogin" type="button">Acceder</button></li>
-											<li>
+											<li onClick={handleResetCategories}>
+												<button className="dropdown-item border-bottom" data-bs-toggle="modal" data-bs-target="#modalLogin" type="button">Acceder</button>
+											</li>
+											<li onClick={handleResetCategories}>
 
 												<Link to="/registro" className="text-decoration-none">
 													<a className="dropdown-item" href="#">Registrarse</a>
@@ -249,11 +258,11 @@ const Navbar = () => {
 										</a>
 										<ul className="dropdown-menu p-2" aria-labelledby="navbarDropdown2">
 											<li className="dropdown-item d-flex justify-content-center container-button-perfil-dropdown w-100 border-bottom">
-												<Link to="/perfil" className="button-perfil-dropdown">
+												<Link to="/perfil" className="button-perfil-dropdown" onClick={handleResetCategories}>
 													Perfil
 												</Link>
 											</li>
-											<li className="dropdown-item">
+											<li className="dropdown-item" onClick={handleResetCategories}>
 												<button data-bs-toggle="modal" data-bs-target="#modalCerrarSesion" className="button-cerrar-sesion-dropdown" onClick={handleLogout}>
 													Cerrar sesión
 												</button>
@@ -270,6 +279,41 @@ const Navbar = () => {
 
 				</div>
 			</nav>
+
+			{/* FILTRADO DE PRODUCTOS INTEGRADO */}
+			{tipo == null ? (
+				<>
+
+				</>
+			) : (
+				<div className="col-12 mx-auto mt-5">
+					<div className="row justify-content-center align-self-center">
+						<div className="col12 text-end  orderbar-color px-0">
+							<div className="btn-group">
+								<button
+									type="button"
+									className="btn text-end orderbar-color filter-custom-height custom-text-bar dropdown-toggle d-flex align-items-center me-3"
+									data-bs-toggle="dropdown"
+									aria-expanded="false"
+								>
+									Ordenar por
+								</button>
+								<ul className="dropdown-menu dropdown-menu-end">
+									<li><button className="dropdown-item" type="button">Próximamente</button></li>
+									{/* <li><button className="dropdown-item" type="button">Menor a mayor precio</button></li>
+                                <li><button className="dropdown-item" type="button">A - Z</button></li>
+                                <li><button className="dropdown-item" type="button">Z - A</button></li> */}
+								</ul>
+							</div>
+							<div className="container-fluid  background-filteredproduct-color custom-text-filterproduct ">
+								<div className="row justify-content-center align-self-center">
+									<CardContainer16 tipo={tipo} />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			)}
 
 		</>
 

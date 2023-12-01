@@ -3,6 +3,12 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "/src/front/styles/index.css";
 
+function handleResetCategories() {
+  setTimeout(() => {
+    window.location.reload(false)
+  }, 50);
+}
+
 const Card = ({ productos }) => (
   <>
     {productos.map((producto) => (
@@ -29,7 +35,7 @@ const Card = ({ productos }) => (
                 <i className="fa-regular fa-star stars"></i>
               </p>
               <Link to={`/producto/${producto.id}`}>
-                <button className="btn custom-btn-card rounded-pill">
+                <button className="btn custom-btn-card rounded-pill" onClick={handleResetCategories}>
                   Ver producto
                 </button>
               </Link>
@@ -58,6 +64,10 @@ const CardContainer4 = () => {
 const CardContainer16 = ({ tipo }) => {
   const [productos, setProductos] = useState([]);
   const [cantidadVisible, setCantidadVisible] = useState(16);
+
+
+
+  console.log("DEBERIA LLEGAR EL VALOR A FETCH", tipo)
 
   useEffect(() => {
     fetch(`https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/productos/tipo/${tipo}`)
