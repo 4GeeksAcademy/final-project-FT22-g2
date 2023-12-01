@@ -4,7 +4,7 @@ import "../../styles/modalRestaurarContraseña.css"
 const RestaurarContraseña = () => {
     return (
         <>
-            <div className="modal fade modal-restaurar-contraseña" tabindex="-1" id="modalRestaurarContraseña" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal fade modal-restaurar-contraseña" tabIndex="-1" id="modalRestaurarContraseña" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content modal-content-restaurar-contraseña">
                         <div className="modal-header">

@@ -11,11 +11,18 @@ import { Link } from "react-router-dom";
 const Single = () => {
   const { store } = useContext(Context);
   const { nombre, precio, imageUrl } = store.product || {};
+  const [producto_id] = useParams()
 
   const token = localStorage.getItem("token");
   console.log(token);
 
   const [favorito, setFavorito] = useState(false);
+  useEffect(() => {
+    fetch(`https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/productos/${producto_id}`)
+      .then((response) => response.json())
+      .then((data) => setProducto(data))
+      .catch((error) => console.error("Error fetching data:", error));
+  }, [producto_id]);
 
   const handleAddFavorites = () => {
     setFavorito(!favorito);

@@ -9,7 +9,7 @@ const ModalEliminarCuenta = () => {
   return ( 
     <>
 
-      <div className="modal fade" id="modalEliminarCuenta" tabindex="-1" aria-labelledby="modalEliminarCuenta" aria-hidden="true">
+      <div className="modal fade" id="modalEliminarCuenta" tabIndex="-1" aria-labelledby="modalEliminarCuenta" aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
