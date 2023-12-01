@@ -2,13 +2,19 @@ import { auto } from "@cloudinary/url-gen/qualifiers/quality";
 import React, { useState, useEffect } from "react";
 
 import { Link } from "react-router-dom";
-import "../../styles/index.css"
+import "/src/front/styles/index.css";
+
+function handleResetCategories() {
+  setTimeout(() => {
+    window.location.reload(false)
+  }, 50);
+}
 
 const Card = ({ productos }) => (
   <>
     {productos.map((producto) => (
       <div key={producto.id} className="col-12 col-md-6 col-lg-3">
-        <div className="my-5 d-flex justify-content-center ">
+        <div className="my-5 d-flex justify-content-center " >
           <div className="card-product bg-light text-center" style={{ width: "100%", maxWidth: "300px", minHeight: "625px"}} >
             <div className="m-5">
               <img
@@ -30,7 +36,7 @@ const Card = ({ productos }) => (
                 <i className="fa-regular fa-star stars"></i>
               </p>
               <Link to={`/producto/${producto.id}`}>
-                <button className="btn custom-btn-card rounded-pill">
+                <button className="btn custom-btn-card rounded-pill" onClick={handleResetCategories}>
                   Ver producto
                 </button>
               </Link>
@@ -55,16 +61,18 @@ const CardContainer4 = () => {
 
   return <Card productos={productos.slice(0, cantidadVisible)} />;
 };
-const CardContainer16 = () => {
+
+const CardContainer16 = ({ tipo }) => {
   const [productos, setProductos] = useState([]);
   const [cantidadVisible, setCantidadVisible] = useState(16);
 
   useEffect(() => {
-    fetch("https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/productos")
+    fetch(`https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/productos/tipo/${tipo}`)
       .then((response) => response.json())
       .then((data) => setProductos(data))
       .catch((error) => console.error("Error fetching data:", error));
-  }, []);
+    console.log("Error en el card16, tipo de vino", tipo)
+  }, [tipo]);
 
   return (
     <div className="row">
@@ -84,4 +92,34 @@ const CardContainer16 = () => {
   );
 };
 
-export { Card, CardContainer4, CardContainer16 };
+const CardFilterCategoria = ({ categoria }) => {
+  const [productos, setProductos] = useState([]);
+  const [cantidadVisible, setCantidadVisible] = useState(16);
+
+  useEffect(() => {
+    fetch(`https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/productos/categoria/${categoria}`)
+      .then((response) => response.json())
+      .then((data) => setProductos(data))
+      .catch((error) => console.error("Error fetching data:", error));
+    console.log("Error en el card16, productos", categoria)
+  }, [categoria]);
+
+  return (
+    <div className="row">
+      <Card productos={productos.slice(0, cantidadVisible)} />
+      {productos.length > cantidadVisible && (
+        <div className="col-12 d-flex justify-content-center mt-3">
+          <button
+            className="button-ver-mas-productos"
+            onClick={() => setCantidadVisible(cantidadVisible + 16)}
+          >
+            Ver más
+          </button>
+        </div>
+      )}
+
+    </div>
+  );
+};
+
+export { CardContainer4, CardContainer16, CardFilterCategoria };
