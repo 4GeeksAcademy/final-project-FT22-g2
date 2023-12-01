@@ -72,7 +72,7 @@ const CardContainer16 = () => {
       {productos.length > cantidadVisible && (
         <div className="col-12 d-flex justify-content-center mt-3">
           <button
-            className="btn btn-secondary"
+            className="button-ver-mas-productos"
             onClick={() => setCantidadVisible(cantidadVisible + 16)}
           >
             Ver más

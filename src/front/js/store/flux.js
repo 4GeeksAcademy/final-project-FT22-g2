@@ -15,7 +15,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 			user: null,
-			token: localStorage.getItem("token")
+			token: localStorage.getItem("token"),
+
+			//productos
+			search: "",
+			productos: [],
+			productosFiltrados: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -57,13 +62,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const data = await res.json();
 
 				localStorage.setItem("token", data.token);
+				localStorage.setItem("user_id", data.user_id);
 
 				console.log("USER INFO HERE", data)
-				
+
 				return true;
 			},
 			// Función no utilizada pero me da miedo borrarla, así que se queda
-			getMessage: async () => {
+			/* getMessage: async () => {
 				try {
 					// fetching data from the backend
 					const resp = await fetch(process.env.BACKEND_URL + "/api/hello")
@@ -74,9 +80,46 @@ const getState = ({ getStore, getActions, setStore }) => {
 				} catch (error) {
 					console.log("Error loading message from backend", error)
 				}
+			}, */
+
+
+			//fetch de productos para la busqueda
+
+		
+
+			getProduct: () => {
+				
+					fetch("https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/productos"
+					).then(resp => resp.json())
+					.then(data => {
+						setStore({productos:data});
+						
+					})
+					.catch(error => console.log("error desde getProduct", error))
+				
+					
+				},
+
+			handleSearch: (e) => {
+				setStore({search: e.target.value})
+				
 			},
+
+			productosFiltrados: () => {
+				let store = getStore();
+				let productos = getStore()?.productos?.filter((producto) =>
+        		producto?.nombre?.toLowerCase().includes(store?.search?.toLocaleLowerCase()) ||
+       			producto?.tipo?.toLowerCase().includes(store?.search?.toLowerCase()) 
+    			)
+				setStore({productosFiltrados: productos})
+				console.log("estos son los productos filtrados",getStore().productosFiltrados)
+			}
+
+
 		}
 	};
 };
+
+
 
 export default getState;

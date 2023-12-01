@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import logoUrl from "../../img/logoElRinconDelVino.png";
 import LogIn from "./LogIn.jsx";
@@ -8,11 +8,14 @@ import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Context } from "../store/appContext";
 
+
 import "../../styles/navbarHero.css";
+import ModalCerrarSesion from "./ModalCerrarSesion.jsx";
+
+import BarraDeBusqueda from "./BarraDeBusqueda.jsx";
 
 const Navbar = () => {
 
-	const { store, actions } = useContext(Context);
 
 	const navStyle = {
 		color: "white",
@@ -24,32 +27,23 @@ const Navbar = () => {
 		backgroundColor: "#671C1C"
 	}
 
+	const { store, actions } = useContext(Context);
+
+
 	const token = localStorage.getItem("token");
 
 	const handleLogout = () => {
 		localStorage.removeItem("token");
-		window.location.href = "https://didactic-happiness-7qx694qjp792xjqj-3000.app.github.dev/registro"
+		localStorage.removeItem("user_id");
+		setTimeout(() => {
+			window.location.href = "https://didactic-happiness-7qx694qjp792xjqj-3000.app.github.dev/registro"
+		}, 2000);
 	};
 
-	// Controlar el input de búsqueda por un onChange para capturar cada cambio al escribir
-	/*
-			EJEMPLO PARA AÑADIR FILTRO + MAP (El filtro sería para buscar por la barra de búsqueda)
+	const [searchValue, setSearchValue] = useState("");
+	
 
-		const [search, setSearch] = useState('')
-
-		{data.filter((item) => {
-		  return search.toLowerCase() === '' 
-		  ? item 
-		  : item.first_name.toLoweCase().includes(search) 
-		})
-		.map((item) => {
-		  <card con sus valores asignados>
-		  src={item.image}
-		  {item.name}
-		  {item.price}
-		})}
-
-	*/
+	
 
 	return (
 		<>
@@ -57,6 +51,7 @@ const Navbar = () => {
 				<LogIn />
 				<ModalContact />
 				<RestaurarContraseña />
+				<ModalCerrarSesion />
 			</div>
 
 			<nav className="container-navbar navbar navbar-expand-lg" style={navStyle}>
@@ -135,12 +130,19 @@ const Navbar = () => {
 
 					</div> {/* termina el collapse */}
 
+
+
+
 					{/* ---- / BARRA Y BOTÓN DE BÚSQUEDA / ---- */}
 
 					<form class="d-flex">
-						<input className="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search" />
-						<button className="btn btn-outline-light" type="submit">Buscar</button>
+					<BarraDeBusqueda searchValue={searchValue} />					
+					<button className="btn btn-outline-light" type="button" onClick={actions.productosFiltrados}>Buscar</button> 
 					</form>
+					
+
+
+
 
 					{/* empiezan los logos del carrito y loggin */}
 					<div className="icons-navbar h2 px-1 m-auto d-flex ms-auto flex-start">
@@ -178,11 +180,24 @@ const Navbar = () => {
 												{/* SUBTOTAL Y BTN IR AL CARRITO */}
 												<div className="container-price-button-cart">
 													<h4 className="subtotal-carrito-price">Subtotal: $$$</h4>
-													<Link to="/carrito" className="d-flex justify-content-center text-decoration-none">
-														<button type="button" href="#" className="btn-ir-al-carrito">
-															Ir al carrito
-														</button>
-													</Link>
+													{token == null ? (
+														<>
+															<Link to="/registro" className="d-flex justify-content-center text-decoration-none">
+																<button type="button" href="#" className="btn-ir-al-carrito">
+																	Ir al carrito
+																</button>
+															</Link>
+														</>
+													) : (
+														<>
+															<Link to="/carrito" className="d-flex justify-content-center text-decoration-none">
+																<button type="button" href="#" className="btn-ir-al-carrito">
+																	Ir al carrito
+																</button>
+															</Link>
+														</>
+													)}
+
 												</div>
 											</div>
 
@@ -228,7 +243,7 @@ const Navbar = () => {
 												</Link>
 											</li>
 											<li className="dropdown-item">
-												<button className="button-cerrar-sesion-dropdown" onClick={handleLogout}>
+												<button data-bs-toggle="modal" data-bs-target="#modalCerrarSesion" className="button-cerrar-sesion-dropdown" onClick={handleLogout}>
 													Cerrar sesión
 												</button>
 											</li>

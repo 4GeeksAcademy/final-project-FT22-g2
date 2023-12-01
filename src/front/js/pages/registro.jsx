@@ -31,36 +31,6 @@ const Registro = () => {
         }
     }
 
-    const createUser = async (username, email, password) => {
-        const user = {
-            username,
-            email,
-            password
-        };
-
-        try {
-            const response = await fetch(createUserUrlAPI + "users", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(user)
-            });
-
-            if (!response.ok) {
-                // Throw an error if the response status is not OK
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-
-            // If the response is OK, return the response JSON
-            return response.json();
-        } catch (error) {
-            // Handle any errors that occurred during the fetch
-            console.error("Error during fetch:", error);
-            throw error;
-        }
-    }
-
     return (
         <div className="container-registro">
             <div class="card card-registro">

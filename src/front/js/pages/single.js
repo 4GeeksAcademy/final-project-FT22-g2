@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import vinoFavoritos from "../../img/vino-add-favorites.png";
 import vinoQuitarFavoritos from "../../img/vino-modified 1.png";
 import "../../styles/ProductCard.css";
+
 import { Link } from "react-router-dom";
 
 const Single = () => {
