@@ -50,9 +50,7 @@
     .dropdown-menu contenedor-carrito-hover {
         max-width: 300px;
         max-height: 300px;
-        /* Ajusta la altura según tus necesidades */
-        padding: 10px;
-        /* Añade relleno adicional si es necesario */
+        padding: 10px;     
     }
 }
 
@@ -140,6 +138,8 @@
     padding: 10px;
     font-size: 22px;
 }
+
+
 
 .categories-navbar-items {
     padding: 0px;
