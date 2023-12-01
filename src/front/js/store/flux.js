@@ -14,6 +14,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					initial: "white"
 				}
 			],
+			tipo: "",
+			categoria: "",
 			user: null,
 			token: localStorage.getItem("token"),
 
@@ -68,25 +70,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				return true;
 			},
-			// Función no utilizada pero me da miedo borrarla, así que se queda
-			/* getMessage: async () => {
-				try {
-					// fetching data from the backend
-					const resp = await fetch(process.env.BACKEND_URL + "/api/hello")
-					const data = await resp.json()
-					setStore({ message: data.message })
-					// don't forget to return something, that is how the async resolves
-					return data;
-				} catch (error) {
-					console.log("Error loading message from backend", error)
-				}
-			}, */
-
 
 			//fetch de productos para la busqueda
-
-		
-
 			getProduct: () => {
 				
 					fetch("https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/productos"
@@ -96,8 +81,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 						
 					})
 					.catch(error => console.log("error desde getProduct", error))
-				
-					
 				},
 
 			handleSearch: (e) => {
@@ -113,7 +96,9 @@ const getState = ({ getStore, getActions, setStore }) => {
     			)
 				setStore({productosFiltrados: productos})
 				console.log("estos son los productos filtrados",getStore().productosFiltrados)
-			}
+			},
+			setTipo: (tipo) => setStore({ tipo }),
+			setCategoria: (category) => setStore({ categoria: category })
 
 
 		}
