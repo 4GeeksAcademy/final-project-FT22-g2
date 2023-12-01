@@ -13,57 +13,61 @@ const BarraDeBusqueda = ({ searchValue }) => {
     const [tipo, setTipo] = useState([]);
     const [search, setSearch] = useState("");
 
-useEffect(() => {
-    filtrarData();
-}, []);
+    useEffect(() => {
+        //actions.getProduct(producto, tipo)
+        //console.log(producto)
+        //filtrarData(producto);
+    }, []);
 
-//funcion para traer los datos desde la api
+    //funcion para traer los datos desde la api
 
-const URLapi = "https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/productos";
+    const URLapi = "https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/productos";
 
-const filtrarData = async (id, image, nombre, precio, tipo, unitFormat) => {
-    const producto = {
-        "id": id,
-        "image": image,
-        "nombre": nombre,
-        "precio": precio,
-        "tipo": tipo,
-        "unitFormat": unitFormat
-    };
-    try {
-        const response = await fetch(URLapi)
-        const data = await response.json()
-        setProductos(data.result);
-        setTipo(data.result);
-    } catch (error) {
-        console.log(error);
+    const filtrarData = async (nombre, tipo) => {
+         const producto = {
+            "id": id,
+            "image": image,
+            "nombre": nombre,
+            "precio": precio,
+            "tipo": tipo,
+            "unitFormat": unitFormat
+        }; 
+        try {
+            const response = await fetch(URLapi)
+            const data = await response.json()
+            setProductos(data.result);
+            setTipo(data.result);
+            
+        } catch (error) {
+            console.log(error);
+        }
     }
-}
-//funcion de busqueda
+    //funcion de busqueda
 
-const handleSearch = (e) => {
-    setSearch(e.target.value)
-}
+    
 
-const productosFiltrados = tipo ? tipo.filter((producto) =>
-    producto.nombre.toLowerCase().includes(search.toLocaleLowerCase())
-) : [];
-
-return (
-    <div className="container-fluid mt-5">
-        <div className="row">
-            <input
-                id="buscadorNavbar"
-                className="form-control me-2"
-                type="search"
-                placeholder="Buscar..."
-                aria-label="Search"
-                value={search}
-                onChange={handleSearch}
-            />
+    
+    return (
+        <div className="container-fluid mt-5">
+            <div className="row">
+                <input
+                    id="buscadorNavbar"
+                    className="form-control me-2"
+                    type="search"
+                    placeholder="Buscar..."
+                    aria-label="Search"
+                    value={store.search}
+                    onChange={actions.handleSearch} />
+                <ul>
+                    {store.productosFiltrados.map((producto, index )=> (
+                        <li key={index}>{producto.nombre}</li>
+                    ))}
+                </ul>
+            </div>
         </div>
-    </div>
-);
+    );
 };
+
+
 
 export default BarraDeBusqueda;

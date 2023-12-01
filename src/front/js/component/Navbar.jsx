@@ -10,6 +10,7 @@ import { Context } from "../store/appContext";
 
 
 import "../../styles/navbarHero.css";
+
 import BarraDeBusqueda from "./BarraDeBusqueda.jsx";
 
 const Navbar = () => {
@@ -43,9 +44,6 @@ const Navbar = () => {
 
 	const [searchValue, setSearchValue] = useState("");
 	
-		const handleSearch = (e) => {
-			setSearchValue(e.target.value);
-		};
 
 	
 
@@ -133,14 +131,19 @@ const Navbar = () => {
 
 					</div> {/* termina el collapse */}
 
+
+
+
 					{/* ---- / BARRA Y BOTÓN DE BÚSQUEDA / ---- */}
 
 					<form class="d-flex">
-					<BarraDeBusqueda searchValue={searchValue} />
-						
-						<button className="btn btn-outline-light" type="submit">Buscar</button>
+					<BarraDeBusqueda searchValue={searchValue} />					
+					<button className="btn btn-outline-light" type="button" onClick={actions.productosFiltrados}>Buscar</button> 
 					</form>
 					
+
+
+
 
 					{/* empiezan los logos del carrito y loggin */}
 					<div className="icons-navbar h2 px-1 m-auto d-flex ms-auto flex-start">
