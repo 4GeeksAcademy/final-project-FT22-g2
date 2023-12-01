@@ -1,9 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { Context } from "../store/appContext.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import vinoFavoritos from "../../img/vino-add-favorites.png"
 import vinoQuitarFavoritos from "../../img/vino-modified 1.png"
+import { useParams } from "react-router-dom";
 
 
 import ProductCard from "../component/ProductCard.jsx";
@@ -11,18 +12,25 @@ import "../../styles/ProductCard.css";
 
 const Single = () => {
   const { store, actions } = useContext(Context);
-  const { name, price, imageUrl, stars } = store.product || {};
+  const { nombre = "", price = null, imageUrl, stars } = store.product || {};
 
   const [favorito, setFavorito] = useState(false);
-  const [carrito, setCarrito] = useState([]);
 
   const handleAddFavorites = () => {
     setFavorito(!favorito);
   }
 
   const agregarAlCarrito = () => {
-    actions.setShoppingCart([...store.shoppingCart, { name, price, imageUrl, stars }])
+    actions.setShoppingCart([...store.shoppingCart, { nombre, price, imageUrl, stars }])
   };
+
+  const { id } = useParams();
+
+  useEffect(() => {
+    actions.fetchProduct(id);
+  }, [id])
+
+  const enCarrito = store.shoppingCart?.some(shoppingCartItem => nombre === shoppingCartItem.nombre)
 
   return (
     <div className="container-fluid my-5">
@@ -36,7 +44,9 @@ const Single = () => {
           <div className="container-informacion-producto row">
 
             <div className="informacion-de-producto-single row">
-              <h2 className="col-12">Nombre de vino</h2>
+              <h2 className="col-12">
+                {nombre}
+              </h2>
               <div className="calificacion-especificacion col-5">
                 <p className="card-text text-start col-12 mb-0">
                   <i className="fas fa-star stars"></i>
@@ -69,9 +79,11 @@ const Single = () => {
                     <button className="button-add-remove-product add-product-button px-5"> + </button>
                   </div>
                   {/* BUTTON AGREGAR AL CARRITO */}
-                  <button onClick={() => agregarAlCarrito()} type="button" className="btn btn-secondary rounded-pill my-2 col-12 w-75">
-                    Agregar al carrito
-                  </button>
+                  {
+                    <button disabled={enCarrito} onClick={() => agregarAlCarrito()} type="button" className="btn btn-secondary rounded-pill my-2 col-12 w-75">
+                      Agregar al carrito
+                    </button>
+                  }
                 </div>
               </div>
             </div>

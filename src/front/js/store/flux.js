@@ -16,7 +16,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			],
 			user: null,
 			token: localStorage.getItem("token"),
-			shoppingCart: []
+			product: {},
+			shoppingCart: JSON.parse(window.localStorage.getItem("shoppingCart")) || []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -77,12 +78,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			},
 			setShoppingCart: (shoppingCart) => {
-				window.localStorage.setItem("carrito", JSON.stringify(shoppingCart))
+				window.localStorage.setItem("shoppingCart", JSON.stringify(shoppingCart))
 				setStore({
 					...getStore(),
 					shoppingCart
 				})
-			}
+			},
+			fetchProduct: async (id) => {
+				const product = await fetch(`https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/productos/${id}`).then(res => res.json())
+				setStore({
+					...getStore(),
+					product
+				})
+			},
+
 		}
 	};
 };

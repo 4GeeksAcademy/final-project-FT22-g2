@@ -44,7 +44,7 @@ const Layout = () => {
                         <Routes>
                             <Route element={<Home />} path="/" />
                             <Route element={<Carrito />} path="/carrito" />
-                            <Route element={<Single />} path="/producto" />
+                            <Route element={<Single />} path="/producto/:id" />
                             <Route element={<PerfilUsuario />} path="/perfil" />
                             <Route element={<Registro />} path="/registro" />
                             <Route element={<Search />} path="/busqueda" />

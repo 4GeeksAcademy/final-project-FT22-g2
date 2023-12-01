@@ -35,6 +35,7 @@ const Carrito = () => {
     <div className="container-card-vista-carrito">
       <div className='container contenedor-vista-carrito my-4'>
         <div className="row">
+          <h2>${parseFloat(productos.price * productos.cantidad).toFixed(2)}</h2>
           <h2 className='col-lg-3 col-md-4 col-sm-6 vista-carrito-categories'>Item</h2>
           <h2 className='col-lg-6 col-md-4 col-sm-6 vista-carrito-categories'>Cantidad</h2>
           <h2 className='col-lg-3 col-md-4 col-sm-12 vista-carrito-categories-valor'>Valor</h2>
