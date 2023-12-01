@@ -24,8 +24,6 @@ import { MetodoPagoProvider } from "./component/ContextPago.jsx";
 import { Cloudinary } from "@cloudinary/url-gen";
 import Filteredproduct from "./component/FIlteredproduct.jsx";
 
-
-
 //create your first component
 const Layout = () => {
     const cld = new Cloudinary({ cloud: { cloudName: 'dipd6csl7' } });
@@ -45,7 +43,7 @@ const Layout = () => {
                         <Routes>
                             <Route element={<Home />} path="/" />
                             <Route element={<Carrito />} path="/carrito" />
-                            <Route element={<Single />} path="/producto/:producto" />
+                            <Route element={<Single />} path="/producto/:id" />
                             <Route element={<PerfilUsuario />} path="/perfil" />
                             <Route element={<Registro />} path="/registro" />
                             <Route element={<Search />} path="/busqueda" />
