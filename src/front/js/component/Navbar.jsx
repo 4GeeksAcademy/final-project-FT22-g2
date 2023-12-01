@@ -178,7 +178,7 @@ const Navbar = () => {
 
 					{/* ---- / BARRA Y BOTÓN DE BÚSQUEDA / ---- */}
 
-					<form class="d-flex scrollable-form nav-item formulario-barra-de-busqueda-navbar" onChange={handleResetCategories} style={{ overflow: "auto" }}
+					<form className="d-flex scrollable-form nav-item formulario-barra-de-busqueda-navbar" onChange={handleResetCategories} style={{ overflow: "auto" }}
 						onSubmit={(e) => {
 							e.preventDefault(); // Evitar la recarga de la página al enviar el formulario
 							handleSearch(); // Llama a la función de filtrado
@@ -197,7 +197,7 @@ const Navbar = () => {
 							{/* ---- / DROPDOWN CARRITO / ---- */}
 							<li className="nav-item dropstart">
 								<a className="nav-link dropdown text-white" id="navbarDropdown" type="button" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false">
-									<i class="fa-solid fa-cart-shopping px-3"></i>
+									<i className="fa-solid fa-cart-shopping px-3"></i>
 								</a>
 
 								<ul className="dropdown-menu dropdown-menu-start contenedor-dropdown-menu-carrito-collapse" aria-labelledby="navbarDropdown">

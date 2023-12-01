@@ -52,7 +52,7 @@ const BarraDeBusqueda = ({ searchValue }) => {
     
     return (
         <div className="container-fluid mt-3">
-            <div className="row">
+            <div className="row ">
                 <input
                     id="buscadorNavbar"
                     className="form-control me-2 input-search-navbar"
@@ -61,7 +61,7 @@ const BarraDeBusqueda = ({ searchValue }) => {
                     aria-label="Search"
                     value={store.search}
                     onChange={actions.handleSearch} />
-                <ul>
+                 <ul>
                     {store.productosFiltrados.map((producto, index )=> (
                         <li key={index}>{producto.nombre}</li>
                     ))}
