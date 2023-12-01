@@ -1,26 +1,35 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import "../../styles/modalControlEdad.css"
 import logoElRinconDelVino from "../../img/logoElRinconDelVino.png";
+import { Context } from "../store/appContext";
 
 const ModalControlEdad = () => {
 
+    const { store, actions } = useContext(Context);
+
+    const token = localStorage.getItem("token");
 
     useEffect(() => {
-        // Función para activar el modal después de un cierto tiempo
-        function activateModal() {
-            var myModal = new bootstrap.Modal(document.getElementById('staticBackdrop'), {
-                keyboard: false
-            });
-            myModal.show();
+
+        if (token == null) {
+            // Función para activar el modal después de un cierto tiempo
+            function activateModal() {
+                var myModal = new bootstrap.Modal(document.getElementById('staticBackdrop'), {
+                    keyboard: false
+                });
+                myModal.show();
+            }
+
+            // Activar la función después de 1 segundos
+            const timer = setTimeout(() => {
+                activateModal();
+            }, 1000);
+
+            return () => clearTimeout(timer); // Limpiar el temporizador si el componente se desmonta
+
+        } else {
+            console.log("")
         }
-
-        // Activar la función después de 1 segundos
-        const timer = setTimeout(() => {
-            activateModal();
-        }, 1000);
-
-        return () => clearTimeout(timer); // Limpiar el temporizador si el componente se desmonta
-
     }, []);
     // Función para redireccionar al hacer clic en "No"
     const redirectToSenda = () => {
@@ -46,10 +55,6 @@ const ModalControlEdad = () => {
                     </div>
                 </div>
             </div>
-
-
-
-
 
         </>
     )

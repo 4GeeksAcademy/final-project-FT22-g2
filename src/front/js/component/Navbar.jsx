@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import logoUrl from "../../img/logoElRinconDelVino.png";
 import LogIn from "./LogIn.jsx";
@@ -6,56 +6,88 @@ import ModalContact from "./ModalContact.jsx";
 import RestaurarContraseña from "./ModalRestaurarContraseña.jsx";
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { CardContainer16, CardFilterCategoria } from "./Card.jsx";
 import { Context } from "../store/appContext";
 import {NavBarShoppingCart} from "./NavBarShoppingCart.jsx"
 
 import "../../styles/navbarHero.css";
+import ModalCerrarSesion from "./ModalCerrarSesion.jsx";
+import BarraDeBusqueda from "./BarraDeBusqueda.jsx";
 
 const Navbar = () => {
 
 	const { store, actions } = useContext(Context);
 
+	const [tipo, setTipo] = useState(null);
+	const [categoria, setCategoria] = useState(null);
+
+	const [searchValue, setSearchValue] = useState("");
+
 	const navStyle = {
 		color: "white",
 		backgroundColor: "#7B2121",
-		fontFamily: "Arial"
+		fontFamily: "Arial",
+		overflowY: ""
 	};
 
 	const categoryStyle = {
 		backgroundColor: "#671C1C"
 	}
 
+
+
+
 	const token = localStorage.getItem("token");
-	console.log("Esto es un console log del navbar", token)
 
 	const handleLogout = () => {
 		localStorage.removeItem("token");
-
+		localStorage.removeItem("user_id");
 		setTimeout(() => {
-			window.locate.href("/registro")
-			window.location.reload(false)
+			window.location.href = "https://didactic-happiness-7qx694qjp792xjqj-3000.app.github.dev/registro"
 		}, 2000);
 	};
 
-	// Controlar el input de búsqueda por un onChange para capturar cada cambio al escribir
-	/*
-			EJEMPLO PARA AÑADIR FILTRO + MAP (El filtro sería para buscar por la barra de búsqueda)
+	// Hagan como que esta sección no existe por favor, de que sirve, sirve XD
+	const handleTinto = () => {
+		setTipo(null)
+		setCategoria(null)
+		setTipo("tinto")
+	}
 
-		const [search, setSearch] = useState('')
+	const handleBlanco = () => {
+		setTipo(null)
+		setCategoria(null)
+		setTipo("blanco")
+	}
 
-		{data.filter((item) => {
-		  return search.toLowerCase() === '' 
-		  ? item 
-		  : item.first_name.toLoweCase().includes(search) 
-		})
-		.map((item) => {
-		  <card con sus valores asignados>
-		  src={item.image}
-		  {item.name}
-		  {item.price}
-		})}
+	const handleRose = () => {
+		setTipo(null)
+		setCategoria(null)
+		setTipo("rose")
+	}
 
-	*/
+	const handleEspumante = () => {
+		setTipo(null)
+		setCategoria(null)
+		setTipo("espumante")
+	}
+
+	const handleReserva = () => {
+		setTipo(null)
+		setCategoria(null)
+		setCategoria("reserva")
+	}
+
+	const handleGranReserva = () => {
+		setTipo(null)
+		setCategoria(null)
+		setCategoria("gran reserva")
+	}
+
+	const handleResetCategories = () => {
+		setTipo(null)
+		setCategoria(null)
+	}
 
 	return (
 		<>
@@ -63,6 +95,7 @@ const Navbar = () => {
 				<LogIn />
 				<ModalContact />
 				<RestaurarContraseña />
+				<ModalCerrarSesion />
 			</div>
 
 			<nav className="container-navbar navbar navbar-expand-lg" style={navStyle}>
@@ -70,7 +103,7 @@ const Navbar = () => {
 
 					{/* ---- / LOGO / ---- */}
 					<Link to="/">
-						<img className="mx-5" src={logoUrl} width="130px" height="100px" />
+						<img className="mx-5" src={logoUrl} width="130px" height="100px" onClick={handleResetCategories} />
 					</Link>
 
 
@@ -102,16 +135,16 @@ const Navbar = () => {
 								Tipos
 							</a>
 							<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-								<Link to="busqueda" className="text-decoration-none">
+								<Link to="busqueda/tinto" className="text-decoration-none" onClick={handleTinto}>
 									<li><a className="dropdown-item" href="#">Tinto</a></li>
 								</Link>
-								<Link to="busqueda" className="text-decoration-none">
+								<Link to="busqueda/blanco" className="text-decoration-none" onClick={handleBlanco}>
 									<li><a className="dropdown-item" href="#">Blanco</a></li>
 								</Link>
-								<Link to="busqueda" className="text-decoration-none">
+								<Link to="busqueda/rose" className="text-decoration-none" onClick={handleRose}>
 									<li><a className="dropdown-item" href="#">Rosé</a></li>
 								</Link>
-								<Link to="busqueda" className="text-decoration-none">
+								<Link to="busqueda/espumante" className="text-decoration-none" onClick={handleEspumante}>
 									<li><a className="dropdown-item" href="#">Espumante</a></li>
 								</Link>
 							</ul>
@@ -123,10 +156,10 @@ const Navbar = () => {
 								Categorías
 							</a>
 							<ul className="dropdown-menu " aria-labelledby="navbarDropdown">
-								<Link to="busqueda" className="text-decoration-none">
+								<Link to="busqueda/reserva" className="text-decoration-none" onClick={handleReserva}>
 									<li><a className="dropdown-item" href="#">Reserva</a></li>
 								</Link>
-								<Link to="busqueda" className="text-decoration-none">
+								<Link to="busqueda/gran-reserva" className="text-decoration-none" onClick={handleGranReserva}>
 									<li><a className="dropdown-item" href="#">Gran reserva</a></li>
 								</Link>
 							</ul>
@@ -141,12 +174,23 @@ const Navbar = () => {
 
 					</div> {/* termina el collapse */}
 
+
+
+
 					{/* ---- / BARRA Y BOTÓN DE BÚSQUEDA / ---- */}
 
-					<form class="d-flex">
-						<input className="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search" />
-						<button className="btn btn-outline-light" type="submit">Buscar</button>
+					<form class="d-flex scrollable-form nav-item formulario-barra-de-busqueda-navbar" onChange={handleResetCategories} style={{ overflow: "auto" }}
+						onSubmit={(e) => {
+							e.preventDefault(); // Evitar la recarga de la página al enviar el formulario
+							handleSearch(); // Llama a la función de filtrado
+						}}>
+						<BarraDeBusqueda searchValue={searchValue} />
+						<button style={{ overflow: "auto" }} className="btn btn-outline-light w-50" type="submit" onClick={actions.productosFiltrados}>Buscar</button>
 					</form>
+
+
+
+
 
 					{/* empiezan los logos del carrito y loggin */}
 					<div className="icons-navbar h2 px-1 m-auto d-flex ms-auto flex-start">
@@ -160,9 +204,10 @@ const Navbar = () => {
 											<i class="fa-solid fa-right-to-bracket px-3"></i>
 										</a>
 										<ul className="dropdown-menu p-2" aria-labelledby="navbarDropdown2">
-											<li>
-												<button className="dropdown-item border-bottom" data-bs-toggle="modal" data-bs-target="#modalLogin" type="button">Acceder</button></li>
-											<li>
+											<li onClick={handleResetCategories}>
+												<button className="dropdown-item border-bottom" data-bs-toggle="modal" data-bs-target="#modalLogin" type="button">Acceder</button>
+											</li>
+											<li onClick={handleResetCategories}>
 
 												<Link to="/registro" className="text-decoration-none">
 													<a className="dropdown-item" href="#">Registrarse</a>
@@ -177,16 +222,16 @@ const Navbar = () => {
 								<ul className="navbar-nav">
 									<li className="nav-item dropstart">
 										<a className="nav-link dropdown text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-											<i class="fa-solid fa-right-to-bracket px-3"></i>
+											<i class="fa-solid fa-right-from-bracket px-3"></i>
 										</a>
 										<ul className="dropdown-menu p-2" aria-labelledby="navbarDropdown2">
 											<li className="dropdown-item d-flex justify-content-center container-button-perfil-dropdown w-100 border-bottom">
-												<button className="button-perfil-dropdown">
+												<Link to="/perfil" className="button-perfil-dropdown" onClick={handleResetCategories}>
 													Perfil
-												</button>
+												</Link>
 											</li>
-											<li className="dropdown-item">
-												<button className="button-cerrar-sesion-dropdown" onClick={handleLogout}>
+											<li className="dropdown-item" onClick={handleResetCategories}>
+												<button data-bs-toggle="modal" data-bs-target="#modalCerrarSesion" className="button-cerrar-sesion-dropdown" onClick={handleLogout}>
 													Cerrar sesión
 												</button>
 											</li>
@@ -202,6 +247,77 @@ const Navbar = () => {
 
 				</div>
 			</nav>
+
+			{/* FILTRADO DE PRODUCTOS INTEGRADO */}
+			{tipo == null ? (
+				<>
+
+				</>
+			) : (
+				<div className="col-12 mx-auto mt-5">
+					<div className="row justify-content-center align-self-center">
+						<div className="col12 text-end  orderbar-color px-0">
+							<div className="btn-group">
+								<button
+									type="button"
+									className="btn text-end orderbar-color filter-custom-height custom-text-bar dropdown-toggle d-flex align-items-center me-3"
+									data-bs-toggle="dropdown"
+									aria-expanded="false"
+								>
+									Ordenar por
+								</button>
+								<ul className="dropdown-menu dropdown-menu-end">
+									<li><button className="dropdown-item" type="button">Próximamente</button></li>
+									{/* <li><button className="dropdown-item" type="button">Menor a mayor precio</button></li>
+                                <li><button className="dropdown-item" type="button">A - Z</button></li>
+                                <li><button className="dropdown-item" type="button">Z - A</button></li> */}
+								</ul>
+							</div>
+							<div className="container-fluid  background-filteredproduct-color custom-text-filterproduct ">
+								<div className="row justify-content-center align-self-center">
+									<CardContainer16 tipo={tipo} />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			)}
+			{categoria == null ? (
+				<>
+
+				</>
+			) : (
+				<div className="col-12 mx-auto mt-5">
+					<div className="row justify-content-center align-self-center">
+						<div className="col12 text-end  orderbar-color px-0">
+							<div className="btn-group">
+								<button
+									type="button"
+									className="btn text-end orderbar-color filter-custom-height custom-text-bar dropdown-toggle d-flex align-items-center me-3"
+									data-bs-toggle="dropdown"
+									aria-expanded="false"
+								>
+									Ordenar por
+								</button>
+								<ul className="dropdown-menu dropdown-menu-end">
+									<li><button className="dropdown-item" type="button">Próximamente</button></li>
+									{/* <li><button className="dropdown-item" type="button">Menor a mayor precio</button></li>
+                                <li><button className="dropdown-item" type="button">A - Z</button></li>
+                                <li><button className="dropdown-item" type="button">Z - A</button></li> */}
+								</ul>
+							</div>
+							<div className="container-fluid  background-filteredproduct-color custom-text-filterproduct ">
+								<div className="row justify-content-center align-self-center">
+									<CardFilterCategoria categoria={categoria} />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			)}
+
+
+
 		</>
 
 	);

@@ -47,7 +47,7 @@ def login():
         return jsonify({'message': 'Invalid email or password'}), 401
     
     token = create_access_token(identity={'email': user.email})
-    return jsonify({'token': token, 'message': 'Login successful'}), 200
+    return jsonify({'token': token,  'user_id': user.id,'message': 'Login successful'}), 200
 
 # RUTA LISTA
 @api.route('/productos/<int:producto_id>', methods=['GET', 'PUT', 'DELETE'])
@@ -72,6 +72,18 @@ def producto_detail(producto_id):
 def get_all_products():
     productos = Producto.query.all()
     return jsonify([producto.serialize() for producto in productos])
+
+@api.route('/productos/tipo/<string:tipo>', methods=['GET'])
+def get_products_by_type(tipo):
+
+    productos = Producto.query.filter_by(tipo=tipo)
+    return jsonify([producto.serialize() for producto in productos])
+
+@api.route('/productos/categoria/<string:categoria>', methods=['GET'])
+def get_all_products_by_category(categoria):
+
+    productos = Producto.query.filter_by(categoria=categoria)
+    return jsonify([category.serialize() for category in productos])
 
 # RUTA LISTA
 @api.route('/users/<int:user_id>', methods=['GET', 'DELETE'])

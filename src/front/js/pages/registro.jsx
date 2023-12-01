@@ -27,11 +27,7 @@ const Registro = () => {
             alert('Usuario creado!')
 
         } catch (error) {
-            if (error.status === 409) {
-                alert('El usuario ya existe');
-            } else {
-                alert('Error creando usuario');
-            }
+            console.log("error handleSubmit", error);
         }
     }
 
