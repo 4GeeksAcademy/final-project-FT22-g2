@@ -46,7 +46,7 @@ const Navbar = () => {
 		}, 2000);
 	};
 
-	// Hagan como que esta sección no existe por favor, de que sirve, sirve XD
+	{/* Hagan como que esta sección no existe por favor, de que sirve, sirve XD */ }
 	const handleTinto = () => {
 		setTipo(null)
 		setCategoria(null)
@@ -124,7 +124,7 @@ const Navbar = () => {
 
 					{/* Contenido colapsable */}
 
-					<div className="collapse navbar-collapse" id="navbarSupportedContent">
+					<div className="collapse justify-content-end navbar-collapse" id="navbarSupportedContent">
 
 						<div className="nav-item dropdown categories-navbar-items">
 							{/* ----- / BARRA DE CATEGORÍAS / ----- */}
@@ -171,21 +171,26 @@ const Navbar = () => {
 							</button>
 						</div>
 
+						{/* ---- / BARRA Y BOTÓN DE BÚSQUEDA / ---- */}
+
+						<form className="d-flex mx-2 scrollable-form nav-item justify-content-end nav-item formulario-barra-de-busqueda-navbar" onChange={handleResetCategories} style={{ overflow: "auto" }}
+							onSubmit={(e) => {
+								e.preventDefault(); {/* Evitar la recarga de la página al enviar el formulario */ }
+								handleSearch(); {/* Llama a la función de filtrado */ }
+							}}>
+							<BarraDeBusqueda
+								searchValue={searchValue}
+								onChange={(e) => setSearchValue(e.target.value)}
+							/>
+							<button className="btn btn-outline-light mx-2" type="submit" onClick={actions.productosFiltrados}>
+								Buscar
+							</button>
+						</form>
 					</div> {/* termina el collapse */}
 
 
 
 
-					{/* ---- / BARRA Y BOTÓN DE BÚSQUEDA / ---- */}
-
-					<form class="d-flex scrollable-form nav-item formulario-barra-de-busqueda-navbar" onChange={handleResetCategories} style={{ overflow: "auto" }}
-						onSubmit={(e) => {
-							e.preventDefault(); // Evitar la recarga de la página al enviar el formulario
-							handleSearch(); // Llama a la función de filtrado
-						}}>
-						<BarraDeBusqueda searchValue={searchValue} />
-						<button style={{ overflow: "auto" }} className="btn btn-outline-light w-50" type="submit" onClick={actions.productosFiltrados}>Buscar</button>
-					</form>
 
 
 
@@ -197,7 +202,7 @@ const Navbar = () => {
 							{/* ---- / DROPDOWN CARRITO / ---- */}
 							<li className="nav-item dropstart">
 								<a className="nav-link dropdown text-white" id="navbarDropdown" type="button" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false">
-									<i class="fa-solid fa-cart-shopping px-3"></i>
+									<i className="fa-solid fa-cart-shopping px-3"></i>
 								</a>
 
 								<ul className="dropdown-menu dropdown-menu-start contenedor-dropdown-menu-carrito-collapse" aria-labelledby="navbarDropdown">
@@ -217,9 +222,9 @@ const Navbar = () => {
 														<p>1 unidad</p>
 														{/* BOTON AÑADIR Y QUITAR + PRECIO */}
 														<div className="product-price-carrito-hover d-inline-flex align-items-center justify-content-between">
-															{/* <button type="button" className="button-add-remove-carrito-hover remove-carrito-hover">-</button>
+															<button type="button" className="button-add-remove-carrito-hover remove-carrito-hover">-</button>
 															<label className="label-cantidad-carrito-hover px-2">1</label>
-															<button type="button" className="button-add-remove-carrito-hover add-carrito-hover">+</button> */}
+															<button type="button" className="button-add-remove-carrito-hover add-carrito-hover">+</button>
 															<p className=" px-2 price-carrito-hover" >40.000</p>
 														</div>
 													</div>
@@ -261,7 +266,7 @@ const Navbar = () => {
 								<ul className="navbar-nav">
 									<li className="nav-item dropstart">
 										<a className="nav-link dropdown text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-											<i class="fa-solid fa-right-to-bracket px-3"></i>
+											<i className="fa-solid fa-right-to-bracket px-3"></i>
 										</a>
 										<ul className="dropdown-menu p-2" aria-labelledby="navbarDropdown2">
 											<li onClick={handleResetCategories}>
@@ -282,7 +287,7 @@ const Navbar = () => {
 								<ul className="navbar-nav">
 									<li className="nav-item dropstart">
 										<a className="nav-link dropdown text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-											<i class="fa-solid fa-right-from-bracket px-3"></i>
+											<i className="fa-solid fa-right-from-bracket px-3"></i>
 										</a>
 										<ul className="dropdown-menu p-2" aria-labelledby="navbarDropdown2">
 											<li className="dropdown-item d-flex justify-content-center container-button-perfil-dropdown w-100 border-bottom">
@@ -353,7 +358,7 @@ const Navbar = () => {
 							<div className="btn-group">
 								<button
 									type="button"
-									className="btn text-end orderbar-color filter-custom-height custom-text-bar dropdown-toggle d-flex align-items-center me-3"
+									className="btn text-end  filter-custom-height custom-text-bar dropdown-toggle d-flex align-items-center me-3"
 									data-bs-toggle="dropdown"
 									aria-expanded="false"
 								>
