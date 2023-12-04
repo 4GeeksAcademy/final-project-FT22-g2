@@ -1,26 +1,46 @@
 import React from "react"
 import "../../styles/cambiarDireccion.css";
-
+import Swal from 'sweetalert2';
 
 const Direccion = () => {
 
-    const handleOnClickDefault = (e) => {
-        e.preventDefault()
-
-        if (state.number == "" || state.name == "" || state.expiry == "" || state.cvc == "") {
-            alert("Todos los campos son obligatorios")
-        } else {
-            alert("Los campos se rellenaron correctamente")
-        }
+    const pagar = () => {
+        let timerInterval;
+        Swal.fire({
+            icon: "success",
+            title: "¡Gracias por su compra!",
+            imageUrl: logoElRinconDelVino,
+            imageWidth: 250,
+            imageHeight: 180,
+            imageAlt: "Custom image",
+            html: "Será redirigido a la página principal en <b></b> milisegundos.",
+            timer: 7000,
+            timerProgressBar: true,
+            didOpen: () => {
+                Swal.showLoading();
+                const timer = Swal.getPopup().querySelector("b");
+                timerInterval = setInterval(() => {
+                    timer.textContent = `${Swal.getTimerLeft()}`;
+                }, 100);
+            },
+            willClose: () => {
+                clearInterval(timerInterval);
+            }
+        }).then((result) => {
+            if (result.dismiss === Swal.DismissReason.timer) {
+                console.log("I was closed by the timer");
+                window.location.href = "/";
+            }
+        });
     }
 
     return (
-        <>
+        <div className="container mb-5">
 
             {/* formulario */}
-
+            <h4 className="direccion-de-envio pt-4 text-center">Dirección de envío:</h4>
             <div className="card d-flex">
-                <div className="card-body" style={{ borderRadius: '10px', boxShadow: '0 0 10px #dadada' }}>
+                <div className="card-body container" style={{ borderRadius: '10px', boxShadow: '0 0 10px #dadada' }}>
 
                     <form className="needs-validation" novalidate>
                         <div className="row mb-4">
@@ -80,39 +100,43 @@ const Direccion = () => {
                                 <input type="number" className="form-control" placeholder="N°de contacto" aria-label="Número de contacto" required />
                             </div>
                         </div>
-                        {/* seleccion casa */}
-                        <div class="form-check-inline">
-                            <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
-                            <label className="form-check-label" for="flexRadioDefault1">
-                                <i className="fa-solid fa-house icono-casa-cambiarDireccion"></i> Casa
 
-                            </label>
-                        </div>
-                        {/* seleccion trabajo */}
-                        <div className="form-check-inline">
-                            <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked />
-                            <label className="form-check-label" for="flexRadioDefault2">
-                                <i className="fa-solid fa-briefcase icono-trabajo-cambiarDireccion" ></i> Trabajo
-                            </label>
+                        <div className="container-checkbox-direccion d-flex justify-content-center">
+
+                            {/* seleccion casa */}
+                            <div class="form-check-inline">
+                                <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                                <label className="form-check-label" for="flexRadioDefault1">
+                                    <i className="fa-solid fa-house icono-casa-cambiarDireccion"></i> Casa
+
+                                </label>
+                            </div>
+                            {/* seleccion trabajo */}
+                            <div className="form-check-inline">
+                                <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked />
+                                <label className="form-check-label" for="flexRadioDefault2">
+                                    <i className="fa-solid fa-briefcase icono-trabajo-cambiarDireccion" ></i> Trabajo
+                                </label>
+                            </div>
                         </div>
                         {/*  guardar como predeterminada */}
-                        <div className="form-check p-4">
+                        <div className="form-check p-4 d-flex justify-content-center">
                             <input className="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate" />
                             <label className="form-check-label" for="flexCheckIndeterminate">
                                 Guardar esta dirección como predeterminada
                             </label>
                         </div>
-                        {/* BOTON PARA validar */}
-                        <div className="boton-actualizar-cambiarDireccion p-3">
-                            <button type="submit" class="btn btn-secondary btn-sm boton-actualizar-cambiarDireccion" onClick={handleOnClickDefault} >Validar dirección</button>
+                        {/* BOTON PARA PAGAR */}
+                        <div className="container-boton-para-pagar d-flex justify-content-center">
+                            <button type="button" className="btn btn-dark btn-lg boton-para-pagar" onClick={pagar}>
+                                Pagar
+                            </button>
                         </div>
-
                     </form>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
-
 
 export default Direccion;

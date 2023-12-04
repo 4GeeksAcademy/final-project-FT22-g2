@@ -3,6 +3,7 @@ import Cards from 'react-credit-cards'
 import 'react-credit-cards/es/styles-compiled.css'
 
 import pagoTarjetaDeCredito from "../../styles/pagoTarjetaDeCredito.css";
+import { Link } from "react-router-dom";
 
 const TarjetaDeCredito = () => {
 
@@ -15,12 +16,40 @@ const TarjetaDeCredito = () => {
     })
 
     const handleOnClickDefault = (e) => {
-        e.preventDefault()
+        e.preventDefault();
 
-        if (state.number == "" || state.name == "" || state.expiry == "" || state.cvc == "") {
-            alert("Todos los campos son obligatorios")
+        let isValid = true;
+
+        if (state.number === '' || state.name === '' || state.expiry === '' || state.cvc === '') {
+          alert("Todos los campos son obligatorios");
         } else {
-            alert("Los campos se rellenaron correctamente")
+      
+          if (state.number.length < 16 || state.number.length > 16) {
+            alert('Número de tarjeta debe tener 16 dígitos');
+            isValid = false;
+          }
+      
+          if (state.name.length < 1 || state.name.length > 40) {
+            alert('El nombre no puede ir vacío');
+            isValid = false;
+          }
+      
+          if (state.expiry.length < 4 || state.expiry.length > 4) {
+            alert('Fecha de expiración debe tener 4 dígitos');
+            isValid = false; 
+          }
+      
+          if (state.cvc.length < 3 || state.cvc.length > 3) {
+            alert('CVC debe tener 3 dígitos');
+            isValid = false;
+          }
+
+          if (isValid) {
+            alert("Los campos se rellenaron correctamente");
+            setTimeout(() => {
+                window.location.href = "https://didactic-happiness-7qx694qjp792xjqj-3000.app.github.dev/metodo-de-pago/direccion"
+            }, 2000);
+          }
         }
     }
 
@@ -30,6 +59,13 @@ const TarjetaDeCredito = () => {
             [e.target.name]: e.target.value
         })
     }
+
+    // const handleInputChangeNumbers = (e) => {
+    //     setState({
+    //         ...state,
+    //         [e.target.name]: e.target.value
+    //     })
+    // }
 
     const handleFocusChange = (e) => {
         setState({
@@ -54,10 +90,11 @@ const TarjetaDeCredito = () => {
                     <div className="form-group">
                         <label htmlFor="number">Número de la tarjeta</label>
                         <input
-                            type="number"
+                            type="text"
                             name="number"
                             id="number-tarjeta"
-                            maxLength="16"
+                            maxLength={16}
+                            minLength={16}
                             className="form-control"
                             required
                             onChange={handleInputChange}
@@ -71,7 +108,7 @@ const TarjetaDeCredito = () => {
                             type="text"
                             name="name"
                             id="name-tarjeta"
-                            maxLength="40"
+                            maxLength={40}
                             className="form-control"
                             required
                             onChange={handleInputChange}
@@ -83,10 +120,11 @@ const TarjetaDeCredito = () => {
                         <div className="form-group col-md-6">
                             <label htmlFor="expiry">Fecha de expiración</label>
                             <input
-                                type="number"
+                                type="text"
                                 name="expiry"
                                 id="expiryTarjeta"
-                                maxLength="4"
+                                maxLength={4}
+                                minLength={4}
                                 className="form-control"
                                 required
                                 onChange={handleInputChange}
@@ -97,10 +135,11 @@ const TarjetaDeCredito = () => {
                         <div className="form-group col-md-6">
                             <label htmlFor="cvc">CVC</label>
                             <input
-                                type="number"
+                                type="text"
                                 name="cvc"
                                 id="cvcTarjeta"
-                                maxLength="4"
+                                maxLength={3}
+                                minLength={3}
                                 className="form-control"
                                 required
                                 onChange={handleInputChange}
@@ -110,7 +149,9 @@ const TarjetaDeCredito = () => {
                     </div>
                     {/* BOTON PARA validar */}
                     <div className="boton-actualizar-cambiarDireccion p-3">
-                        <button type="submit" class="btn btn-secondary btn-sm" onClick={handleOnClickDefault}>Validar tarjeta</button>
+                        <Link to="metodo-de-pago/direccion">
+                            <button type="submit" class="btn btn-secondary btn-sm" onClick={handleOnClickDefault}>Continuar</button>
+                        </Link>
                     </div>
 
                 </form>

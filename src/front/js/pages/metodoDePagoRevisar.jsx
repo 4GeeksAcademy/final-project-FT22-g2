@@ -1,9 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-
 import logoElRinconDelVino from "../../img/logoElRinconDelVino.png";
-import Swal from 'sweetalert2';
-
 import { MetodoPagoContext } from "../component/ContextPago.jsx";
 
 import PagoTarjetaDeCredito from "../component/PagoTarjetaCredito.jsx"
@@ -15,36 +12,6 @@ import "../../styles/metodoDePagoRevisar.css";
 
 const MetodoDePagoRevisar = () => {
     const { seleccionarMetodo, metodoSeleccionado } = useContext(MetodoPagoContext);
-
-    const pagar = () => {
-        let timerInterval;
-        Swal.fire({
-            icon: "success",
-            title: "¡Gracias por su compra!",
-            imageUrl: logoElRinconDelVino,
-            imageWidth: 250,
-            imageHeight: 180,
-            imageAlt: "Custom image",
-            html: "Será redirigido a la página principal en <b></b> milisegundos.",
-            timer: 7000,
-            timerProgressBar: true,
-            didOpen: () => {
-                Swal.showLoading();
-                const timer = Swal.getPopup().querySelector("b");
-                timerInterval = setInterval(() => {
-                    timer.textContent = `${Swal.getTimerLeft()}`;
-                }, 100);
-            },
-            willClose: () => {
-                clearInterval(timerInterval);
-            }
-        }).then((result) => {
-            if (result.dismiss === Swal.DismissReason.timer) {
-                console.log("I was closed by the timer");
-                window.location.href = "/";
-            }
-        });
-    }
 
     return (
 
@@ -71,19 +38,6 @@ const MetodoDePagoRevisar = () => {
                     {metodoSeleccionado === "debito" && <Webpay />}
                     {/* {metodoSeleccionado === "payPal" && <Paypal />} */}
 
-                </div>
-
-                {/* DIRECCION DE ENVIO */}
-                <div>
-                    <h4 className="direccion-de-envio pt-4">Dirección de envío:</h4>
-                    {/*  COMPONENTE DIRECCION */}
-                    <Direccion />
-                </div>
-
-                {/* BOTON PARA PAGAR */}
-                <div className="container-boton-para-pagar">
-                    <button type="submit" className="btn btn-dark btn-lg boton-para-pagar" onClick={pagar}
-                    >Pagar</button>
                 </div>
             </div>
 

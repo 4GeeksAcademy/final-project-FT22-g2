@@ -23,6 +23,7 @@ import MetodoDePagoRevisar from "./pages/metodoDePagoRevisar.jsx";
 import { MetodoPagoProvider } from "./component/ContextPago.jsx";
 import { Cloudinary } from "@cloudinary/url-gen";
 import Filteredproduct from "./component/FIlteredproduct.jsx";
+import Direccion from "./component/Direccion.jsx";
 
 //create your first component
 const Layout = () => {
@@ -51,6 +52,7 @@ const Layout = () => {
                             <Route element={<HistorialCompra />} path="/historial-compra" />
                             <Route element={<MetodoDePago />} path="/metodo-de-pago" />
                             <Route element={<MetodoDePagoRevisar />} path="/metodo-de-pago/:payment" />
+                            <Route element={<Direccion />} path="/metodo-de-pago/direccion" />
                             <Route element={<Favoritos />} path="/favoritos" />
                             <Route element={<DetallesPedido />} path="/detalles-pedido" />
                             <Route element={<h1>Not found!</h1>} />
