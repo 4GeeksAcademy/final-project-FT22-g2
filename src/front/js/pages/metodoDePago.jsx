@@ -39,7 +39,7 @@ const MetodoDePago = () => {
 
             {/* TITULO Y BOTÓN PARA REGRESAR A VISTA ANTERIOR */}
             <div className="title-regresar-anterior-vista row">
-                <Link to="/detalles-pedido" className="text-decoration-none col-1">
+                <Link to="/carrito" className="text-decoration-none col-1">
                     <button type="button" className="button-regresar-anterior-vista"><i class="fa-solid fa-arrow-left"></i></button>
                 </Link>
                 <h3 className="col-10">Método de pago</h3>
