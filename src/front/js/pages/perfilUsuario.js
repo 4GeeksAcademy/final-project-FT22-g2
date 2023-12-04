@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import Swal from 'sweetalert2';
 import usuarioFoto from "../../img/usuarioFoto.png";
 import ModalCerrarSesion from "../component/ModalCerrarSesion.jsx";
 import ModalEliminarCuenta from "../component/ModalEliminarCuenta.jsx";
 import { Link } from "react-router-dom";
 import "../../styles/perfilUsuario.css";
+import { Context } from "../store/appContext";
+
 
 const PerfilUsuario = () => {
+
+  const { store, actions } = useContext(Context)
 
   const handleEliminarCuenta = async () => {
 
@@ -38,6 +42,7 @@ const PerfilUsuario = () => {
 
           localStorage.removeItem("token");
           localStorage.removeItem("user_id");
+          localStorage.removeItem("shoppingCart");
 
           setTimeout(() => {
             window.location.href = "https://didactic-happiness-7qx694qjp792xjqj-3000.app.github.dev/registro"
@@ -57,6 +62,7 @@ const PerfilUsuario = () => {
 
   const handleCerrarSesion = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("shoppingCart");
     setTimeout(() => {
       window.location.href = "https://didactic-happiness-7qx694qjp792xjqj-3000.app.github.dev/registro"
     }, 2000);

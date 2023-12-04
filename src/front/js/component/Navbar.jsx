@@ -8,10 +8,12 @@ import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { CardContainer16, CardFilterCategoria } from "./Card.jsx";
 import { Context } from "../store/appContext";
+import { NavBarShoppingCart } from "./NavBarShoppingCart.jsx"
 
 import "../../styles/navbarHero.css";
 import ModalCerrarSesion from "./ModalCerrarSesion.jsx";
 import BarraDeBusqueda from "./BarraDeBusqueda.jsx";
+import SearchResults from "./SearchResults.jsx";
 
 const Navbar = () => {
 
@@ -41,6 +43,7 @@ const Navbar = () => {
 	const handleLogout = () => {
 		localStorage.removeItem("token");
 		localStorage.removeItem("user_id");
+		localStorage.removeItem("shoppingCart");
 		setTimeout(() => {
 			window.location.href = "https://didactic-happiness-7qx694qjp792xjqj-3000.app.github.dev/registro"
 		}, 2000);
@@ -191,6 +194,18 @@ const Navbar = () => {
 
 
 
+					{/* ---- / BARRA Y BOTÓN DE BÚSQUEDA / ---- */}
+					<div className="container-busqueda-formulario-navbar">
+
+						<form class="d-flex scrollable-form nav-item formulario-barra-de-busqueda-navbar" onChange={handleResetCategories} style={{ overflow: "auto" }}
+							onSubmit={(e) => {
+								e.preventDefault(); // Evitar la recarga de la página al enviar el formulario
+								handleSearch(); // Llama a la función de filtrado
+							}}>
+							<BarraDeBusqueda />
+							<button style={{ overflow: "auto" }} className="btn btn-outline-light w-50 button-enviar-barra-busqueda" type="submit" onClick={actions.productosFiltrados}>Buscar</button>
+						</form>
+					</div>
 
 
 
@@ -202,7 +217,7 @@ const Navbar = () => {
 							{/* ---- / DROPDOWN CARRITO / ---- */}
 							<li className="nav-item dropstart">
 								<a className="nav-link dropdown text-white" id="navbarDropdown" type="button" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false">
-									<i className="fa-solid fa-cart-shopping px-3"></i>
+									<i class="fa-solid fa-cart-shopping px-3"></i>
 								</a>
 
 								<ul className="dropdown-menu dropdown-menu-start contenedor-dropdown-menu-carrito-collapse" aria-labelledby="navbarDropdown">
@@ -222,9 +237,9 @@ const Navbar = () => {
 														<p>1 unidad</p>
 														{/* BOTON AÑADIR Y QUITAR + PRECIO */}
 														<div className="product-price-carrito-hover d-inline-flex align-items-center justify-content-between">
-															<button type="button" className="button-add-remove-carrito-hover remove-carrito-hover">-</button>
+															{/* <button type="button" className="button-add-remove-carrito-hover remove-carrito-hover">-</button>
 															<label className="label-cantidad-carrito-hover px-2">1</label>
-															<button type="button" className="button-add-remove-carrito-hover add-carrito-hover">+</button>
+															<button type="button" className="button-add-remove-carrito-hover add-carrito-hover">+</button> */}
 															<p className=" px-2 price-carrito-hover" >40.000</p>
 														</div>
 													</div>

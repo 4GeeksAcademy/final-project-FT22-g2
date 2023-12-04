@@ -6,7 +6,7 @@ import "/src/front/styles/index.css";
 function handleResetCategories() {
   setTimeout(() => {
     window.location.reload(false)
-  }, 50);
+  }, 1);
 }
 
 const Card = ({ productos }) => (
@@ -20,13 +20,14 @@ const Card = ({ productos }) => (
                 className="card-img-top img-fluid"
                 src={`${producto.image}`}
                 alt={`${producto.nombre}`}
+                style={{ maxHeight: "280px" }}
               />
             </div>
-            <div className="card-body text-align-center">
+            <div className="card-body text-align-center" style={{ overflow: "hidden" }}>
               <h4 className="card-title custom-text-card" title={`${producto.nombre}`}>
-                {producto.nombre.length > 20 ? `${producto.nombre.substring(0, 20)}...` : producto.nombre}
+                {producto.nombre.length > 19 ? `${producto.nombre.substring(0, 19)}...` : producto.nombre}
               </h4>
-              <h5>{`$${producto.precio}`}</h5>
+              <h5>${`$${producto.precio}`}</h5>
               <p className="card-text text-align-center">
                 <i className="fa-solid fa-star stars"></i>
                 <i className="fa-solid fa-star stars"></i>
