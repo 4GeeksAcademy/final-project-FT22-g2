@@ -7,7 +7,7 @@ import Card from "../component/Card.jsx"
 
 
 
-const BarraDeBusqueda = ({ searchValue }) => {
+const BarraDeBusqueda = () => {
     const { store, actions } = useContext(Context);
     const [producto, setProductos] = useState([]);
     const [tipo, setTipo] = useState([]);
@@ -18,6 +18,8 @@ const BarraDeBusqueda = ({ searchValue }) => {
         //console.log(producto)
         //filtrarData(producto);
     }, []);
+
+
 
     //funcion para traer los datos desde la api
 
@@ -42,27 +44,25 @@ const BarraDeBusqueda = ({ searchValue }) => {
             console.log(error);
         }
     }
+
     //funcion de busqueda
 
 
 
 
     return (
-        <div className="container-fluid mt-3">
+        <div className="container-fluid mt-1">
             <div className="row">
                 <input
                     id="buscadorNavbar"
                     className="form-control me-2 input-search-navbar"
                     type="search"
-                    placeholder="Buscar..."
+                    placeholder="Buscar próximamente..."
                     aria-label="Search"
                     value={store.search}
-                    onChange={actions.handleSearch} />
-                <ul>
-                    {store.productosFiltrados.map((producto, index) => (
-                        <li key={index}>{producto.nombre}</li>
-                    ))}
-                </ul>
+                    onChange={actions.handleSearch}
+                    disabled
+                />
             </div>
         </div>
     );
