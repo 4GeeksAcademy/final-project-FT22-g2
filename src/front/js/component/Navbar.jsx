@@ -194,21 +194,6 @@ const Navbar = () => {
 
 
 
-					{/* ---- / BARRA Y BOTÓN DE BÚSQUEDA / ---- */}
-					<div className="container-busqueda-formulario-navbar">
-
-						<form class="d-flex scrollable-form nav-item formulario-barra-de-busqueda-navbar" onChange={handleResetCategories} style={{ overflow: "auto" }}
-							onSubmit={(e) => {
-								e.preventDefault(); // Evitar la recarga de la página al enviar el formulario
-								handleSearch(); // Llama a la función de filtrado
-							}}>
-							<BarraDeBusqueda />
-							<button style={{ overflow: "auto" }} className="btn btn-outline-light w-50 button-enviar-barra-busqueda" type="submit" onClick={actions.productosFiltrados}>Buscar</button>
-						</form>
-					</div>
-
-
-
 
 
 					{/* empiezan los logos del carrito y loggin */}
