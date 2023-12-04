@@ -35,8 +35,7 @@ const ModalContact = () => {
             setShowClosingModal(true);
         }, 3000);
     }
-
-
+ 
 
     return (
         <>
