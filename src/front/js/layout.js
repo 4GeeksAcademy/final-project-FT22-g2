@@ -47,15 +47,12 @@ const Layout = () => {
                             <Route element={<PerfilUsuario />} path="/perfil" />
                             <Route element={<Registro />} path="/registro" />
                             <Route element={<Search />} path="/busqueda" />
-
                             <Route element={<Search />} path="/busqueda/:tipo" />
-
                             <Route element={<HistorialCompra />} path="/historial-compra" />
                             <Route element={<MetodoDePago />} path="/metodo-de-pago" />
                             <Route element={<MetodoDePagoRevisar />} path="/metodo-de-pago/:payment" />
                             <Route element={<Favoritos />} path="/favoritos" />
                             <Route element={<DetallesPedido />} path="/detalles-pedido" />
-
                             <Route element={<h1>Not found!</h1>} />
                         </Routes>
                         <Footer />
