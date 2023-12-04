@@ -43,6 +43,7 @@ const Navbar = () => {
 	const handleLogout = () => {
 		localStorage.removeItem("token");
 		localStorage.removeItem("user_id");
+		localStorage.removeItem("shoppingCart");
 		setTimeout(() => {
 			window.location.href = "https://didactic-happiness-7qx694qjp792xjqj-3000.app.github.dev/registro"
 		}, 2000);
