@@ -35,7 +35,7 @@ const Navbar = () => {
 		}, 2000);
 	};
 
-	// Hagan como que esta sección no existe por favor, de que sirve, sirve XD
+	{/* Hagan como que esta sección no existe por favor, de que sirve, sirve XD */ }
 	const handleTinto = () => {
 		setTipo(null)
 		setCategoria(null)
@@ -113,7 +113,7 @@ const Navbar = () => {
 
 					{/* Contenido colapsable */}
 
-					<div className="collapse navbar-collapse" id="navbarSupportedContent">
+					<div className="collapse justify-content-end navbar-collapse" id="navbarSupportedContent">
 
 						<div className="nav-item dropdown categories-navbar-items">
 							{/* ----- / BARRA DE CATEGORÍAS / ----- */}
@@ -160,23 +160,26 @@ const Navbar = () => {
 							</button>
 						</div>
 
-					</div> {/* termina el collapse */}
+						{/* ---- / BARRA Y BOTÓN DE BÚSQUEDA / ---- */}
 
-
-
-
-					{/* ---- / BARRA Y BOTÓN DE BÚSQUEDA / ---- */}
-					<div className="container-busqueda-formulario-navbar">
-
-						<form className="d-flex scrollable-form nav-item formulario-barra-de-busqueda-navbar" onChange={handleResetCategories} style={{ overflow: "auto" }}
+						<form classNameName="d-flex mx-2 scrollable-form nav-item justify-content-end nav-item formulario-barra-de-busqueda-navbar" onChange={handleResetCategories} style={{ overflow: "auto" }}
 							onSubmit={(e) => {
-								e.preventDefault(); // Evitar la recarga de la página al enviar el formulario
-								handleSearch(); // Llama a la función de filtrado
+								e.preventDefault(); {/* Evitar la recarga de la página al enviar el formulario */ }
+								handleSearch(); {/* Llama a la función de filtrado */ }
 							}}>
-							<BarraDeBusqueda />
-							<button style={{ overflow: "auto" }} className="btn btn-outline-light w-50 button-enviar-barra-busqueda" type="submit" onClick={actions.productosFiltrados}>Buscar</button>
+							<BarraDeBusqueda
+								searchValue={searchValue}
+								onChange={(e) => setSearchValue(e.target.value)}
+							/>
+							<button className="btn btn-outline-light mx-2" type="submit" onClick={actions.productosFiltrados}>
+								Buscar
+							</button>
 						</form>
 					</div>
+
+
+
+
 
 					{/* empiezan los logos del carrito y loggin */}
 					<div className="icons-navbar h2 px-1 m-auto d-flex ms-auto flex-start">
@@ -279,7 +282,7 @@ const Navbar = () => {
 							<div className="btn-group">
 								<button
 									type="button"
-									className="btn text-end orderbar-color filter-custom-height custom-text-bar dropdown-toggle d-flex align-items-center me-3"
+									className="btn text-end  filter-custom-height custom-text-bar dropdown-toggle d-flex align-items-center me-3"
 									data-bs-toggle="dropdown"
 									aria-expanded="false"
 								>
