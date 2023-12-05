@@ -113,7 +113,7 @@ const Navbar = () => {
 
 					{/* Contenido colapsable */}
 
-					<div className="collapse justify-content-end navbar-collapse" id="navbarSupportedContent">
+					<div className="collapse navbar-collapse" id="navbarSupportedContent">
 
 						<div className="nav-item dropdown categories-navbar-items">
 							{/* ----- / BARRA DE CATEGORÍAS / ----- */}
@@ -160,9 +160,12 @@ const Navbar = () => {
 							</button>
 						</div>
 
-						{/* ---- / BARRA Y BOTÓN DE BÚSQUEDA / ---- */}
+					</div> {/* termina el collapse */}
 
-						<form classNameName="d-flex mx-2 scrollable-form nav-item justify-content-end nav-item formulario-barra-de-busqueda-navbar" onChange={handleResetCategories} style={{ overflow: "auto" }}
+
+					{/* ---- / BARRA Y BOTÓN DE BÚSQUEDA / ---- */}
+					<div className="container-busqueda-formulario-navbar">
+						<form className="d-flex scrollable-form nav-item formulario-barra-de-busqueda-navbar" onChange={handleResetCategories} style={{ overflow: "auto" }}
 							onSubmit={(e) => {
 								e.preventDefault(); {/* Evitar la recarga de la página al enviar el formulario */ }
 								handleSearch(); {/* Llama a la función de filtrado */ }
@@ -171,7 +174,7 @@ const Navbar = () => {
 								searchValue={searchValue}
 								onChange={(e) => setSearchValue(e.target.value)}
 							/>
-							<button className="btn btn-outline-light mx-2" type="submit" onClick={actions.productosFiltrados}>
+							<button className="btn btn-outline-light w-50 button-enviar-barra-busqueda" type="submit" onClick={actions.productosFiltrados}>
 								Buscar
 							</button>
 						</form>
