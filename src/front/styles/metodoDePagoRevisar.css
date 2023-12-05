@@ -5,6 +5,11 @@
     text-align: center;
 }
 
+.container-formulario-direccion-pago {
+    width: 40%;
+    margin-top: 10px;
+}
+
 /* BARRA PARA MARCAR PROCESO DE PAGO [ Carro, Pago, Revisar ] */
 .proceso-de-pago-barra-pago-revisar {
     display: flex;

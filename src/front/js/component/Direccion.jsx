@@ -1,44 +1,158 @@
-import React from "react"
+import React, { useState } from "react"
 import "../../styles/cambiarDireccion.css";
 import Swal from 'sweetalert2';
+import logoElRinconDelVino from "../../img/logoElRinconDelVino.png";
+
 
 const Direccion = () => {
 
-    const pagar = () => {
-        let timerInterval;
-        Swal.fire({
-            icon: "success",
-            title: "¡Gracias por su compra!",
-            imageUrl: logoElRinconDelVino,
-            imageWidth: 250,
-            imageHeight: 180,
-            imageAlt: "Custom image",
-            html: "Será redirigido a la página principal en <b></b> milisegundos.",
-            timer: 7000,
-            timerProgressBar: true,
-            didOpen: () => {
-                Swal.showLoading();
-                const timer = Swal.getPopup().querySelector("b");
-                timerInterval = setInterval(() => {
-                    timer.textContent = `${Swal.getTimerLeft()}`;
-                }, 100);
-            },
-            willClose: () => {
-                clearInterval(timerInterval);
+    const [state, setState] = useState({
+        comuna: "",
+        calle: "",
+        numeroCasa: "",
+        codigoPostal: "",
+        numeroContacto: ""
+    })
+
+    const handleOnClickDefault = (e) => {
+        e.preventDefault();
+
+        const numberOnly = /^\d+$/;
+
+        let isValid = true;
+
+        if (state.comuna === '' || state.calle === '' || state.numeroCasa === '' || state.codigoPostal === '' || state.numeroContacto === '') {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Todos los campos son obligatorios!",
+            });
+        } else {
+
+            if (state.comuna.length < 1 || state.comuna.length > 30) {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "La comuna debe ser válida!",
+                });
+                isValid = false;
             }
-        }).then((result) => {
-            if (result.dismiss === Swal.DismissReason.timer) {
-                console.log("I was closed by the timer");
-                window.location.href = "/";
+
+            if (state.calle.length < 1 || state.calle.length > 30) {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "La calle debe ser válida!",
+                });
+                isValid = false;
             }
-        });
+
+            if (!numberOnly.test(state.numeroCasa)) {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Número de casa sólo puede contener dígitos!",
+                });
+                isValid = false;
+            }
+
+            if (state.numeroCasa.length < 0 || state.numeroCasa.length > 7) {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Su número de casa debe ser válido!",
+                });
+                isValid = false;
+            }
+
+            if (!numberOnly.test(state.codigoPostal)) {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "El código postal sólo puede contener dígitos!",
+                });
+                isValid = false;
+            }
+
+            if (state.codigoPostal.length == 6) {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Código postal debe tener 7 dígitos!",
+                });
+                isValid = false;
+            }
+
+            if (!numberOnly.test(state.numeroContacto)) {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Número de contacto sólo puede contener dígitos!",
+                });
+                isValid = false;
+            }
+
+            if (state.numeroContacto.length == 8) {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Número de contacto debe tener 9 dígitos!",
+                });
+                isValid = false;
+            }
+
+            if (isValid) {
+
+                let timerInterval;
+                Swal.fire({
+                    icon: "success",
+                    title: "¡Gracias por su compra!",
+                    imageUrl: logoElRinconDelVino,
+                    imageWidth: 250,
+                    imageHeight: 180,
+                    imageAlt: "Custom image",
+                    html: "Será redirigido a la página principal en <b></b> milisegundos.",
+                    timer: 7000,
+                    timerProgressBar: true,
+                    didOpen: () => {
+                        Swal.showLoading();
+                        const timer = Swal.getPopup().querySelector("b");
+                        timerInterval = setInterval(() => {
+                            timer.textContent = `${Swal.getTimerLeft()}`;
+                        }, 100);
+                    },
+                    willClose: () => {
+                        clearInterval(timerInterval);
+                    }
+                }).then((result) => {
+                    if (result.dismiss === Swal.DismissReason.timer) {
+                        console.log("I was closed by the timer");
+                        window.location.href = "/";
+                    }
+                });
+            }
+        }
+    }
+
+    const handleInputChange = (e) => {
+        setState({
+            ...state,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    const handleFocusChange = (e) => {
+        setState({
+            ...state,
+            focus: e.target.name
+        })
     }
 
     return (
-        <div className="container mb-5">
+        <div className="container mb-5 container-formulario-direccion-pago">
 
             {/* formulario */}
-            <h4 className="direccion-de-envio pt-4 text-center">Dirección de envío:</h4>
+            <h4 className="direccion-de-envio pt-4 pb-2 text-center">Dirección de envío:</h4>
             <div className="card d-flex">
                 <div className="card-body container" style={{ borderRadius: '10px', boxShadow: '0 0 10px #dadada' }}>
 
@@ -70,7 +184,19 @@ const Direccion = () => {
                             {/* comuna */}
                             <div className="col-6">
                                 <label for="inputComuna" className="form-label">Comuna</label>
-                                <input type="text" className="form-control" placeholder="Comuna" aria-label="Comuna" id="comuna" required />
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    name="comuna"
+                                    placeholder="Comuna"
+                                    aria-label="Comuna"
+                                    id="comuna"
+                                    maxLength={30}
+                                    required
+                                    onChange={handleInputChange}
+                                    onFocus={handleFocusChange}
+                                />
+
                             </div>
                             <div className="invalid-feedback" id="comuna"></div>
                         </div>
@@ -78,13 +204,35 @@ const Direccion = () => {
                             {/* calle */}
                             <div className="col-6">
                                 <label for="inputCalle" className="form-label">Calle</label>
-                                <input type="text" className="form-control" placeholder="Calle" aria-label="Calle" id="calle" required />
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    name="calle"
+                                    placeholder="Calle"
+                                    aria-label="Calle"
+                                    id="calle"
+                                    maxLength={30}
+                                    required
+                                    onChange={handleInputChange}
+                                    onFocus={handleFocusChange}
+                                />
                                 <div className="invalid-feedback" id="calle"></div>
                             </div>
                             {/* numero de casa */}
                             <div className="col-6">
                                 <label for="inputNumero" className="form-label">Número</label>
-                                <input type="number" className="form-control" placeholder="N° de casa / dpto" aria-label="Número de casa" min="1" id="numero" required />
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    name="numeroCasa"
+                                    placeholder="N° de casa / dpto"
+                                    aria-label="Número de casa"
+                                    maxLength={15}
+                                    id="numero"
+                                    required
+                                    onChange={handleInputChange}
+                                    onFocus={handleFocusChange}
+                                />
                             </div>
                             <div className="invalid-feedback" id="numero"></div>
                         </div>
@@ -92,12 +240,32 @@ const Direccion = () => {
                             {/* codigo postal */}
                             <div className="col-6">
                                 <label for="finputCodigoPostal" className="form-label">Código postal</label>
-                                <input type="number" className="form-control" placeholder="código postal" aria-label="Código postal" required />
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    name="codigoPostal"
+                                    placeholder="código postal"
+                                    aria-label="Código postal"
+                                    maxLength={7}
+                                    required
+                                    onChange={handleInputChange}
+                                    onFocus={handleFocusChange}
+                                />
                             </div>
                             {/* Número de contacto */}
                             <div className="col-6">
                                 <label for="finputTelefono" className="form-label">Número de contacto</label>
-                                <input type="number" className="form-control" placeholder="N°de contacto" aria-label="Número de contacto" required />
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    name="numeroContacto"
+                                    placeholder="N°de contacto"
+                                    aria-label="Número de contacto"
+                                    maxLength={9}
+                                    required
+                                    onChange={handleInputChange}
+                                    onFocus={handleFocusChange}
+                                />
                             </div>
                         </div>
 
@@ -105,7 +273,12 @@ const Direccion = () => {
 
                             {/* seleccion casa */}
                             <div className="form-check-inline">
-                                <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                                <input
+                                    className="form-check-input"
+                                    type="radio"
+                                    name="flexRadioDefault"
+                                    id="flexRadioDefault1"
+                                />
                                 <label className="form-check-label" for="flexRadioDefault1">
                                     <i className="fa-solid fa-house icono-casa-cambiarDireccion"></i> Casa
 
@@ -113,22 +286,33 @@ const Direccion = () => {
                             </div>
                             {/* seleccion trabajo */}
                             <div className="form-check-inline">
-                                <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked />
+                                <input
+                                    className="form-check-input"
+                                    type="radio"
+                                    name="flexRadioDefault"
+                                    id="flexRadioDefault2"
+                                />
                                 <label className="form-check-label" for="flexRadioDefault2">
                                     <i className="fa-solid fa-briefcase icono-trabajo-cambiarDireccion" ></i> Trabajo
                                 </label>
                             </div>
                         </div>
                         {/*  guardar como predeterminada */}
-                        <div className="form-check p-4 d-flex justify-content-center">
-                            <input className="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate" />
+                        {/* <div className="form-check p-4 d-flex justify-content-center">
+                            <input
+                                className="form-check-input"
+                                type="checkbox"
+                                value=""
+                                id="flexCheckIndeterminate"
+                            />
                             <label className="form-check-label" for="flexCheckIndeterminate">
                                 Guardar esta dirección como predeterminada
                             </label>
-                        </div>
+                        </div> */}
+
                         {/* BOTON PARA PAGAR */}
                         <div className="container-boton-para-pagar d-flex justify-content-center">
-                            <button type="button" className="btn btn-dark btn-lg boton-para-pagar" onClick={pagar}>
+                            <button type="submit" className="btn btn-dark btn-lg boton-para-pagar" onClick={handleOnClickDefault}>
                                 Pagar
                             </button>
                         </div>
