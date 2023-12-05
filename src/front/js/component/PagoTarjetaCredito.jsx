@@ -150,7 +150,7 @@ const TarjetaDeCredito = () => {
                     {/* BOTON PARA validar */}
                     <div className="boton-actualizar-cambiarDireccion p-3">
                         <Link to="metodo-de-pago/direccion">
-                            <button type="submit" class="btn btn-secondary btn-sm" onClick={handleOnClickDefault}>Continuar</button>
+                            <button type="submit" className="btn btn-secondary btn-sm" onClick={handleOnClickDefault}>Continuar</button>
                         </Link>
                     </div>
 

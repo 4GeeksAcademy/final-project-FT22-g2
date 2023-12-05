@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
@@ -6,13 +6,19 @@ export const NavBarShoppingCart = () => {
     const { store, actions } = useContext(Context);
     const shoppingCart = store.shoppingCart || [];
 
-    
+    const token = localStorage.getItem("token");
+
+    const handleResetCategories = () => {
+        setTimeout(() => {
+            window.location.reload();
+        }, 10);
+    }
 
     return <ul className="navbar-nav">
         {/* ---- / DROPDOWN CARRITO / ---- */}
         <li className="nav-item dropstart">
             <a className="nav-link dropdown text-white" id="navbarDropdown" type="button" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fa-solid fa-cart-shopping px-3"></i>
+                <i className="fa-solid fa-cart-shopping px-3"></i>
             </a>
 
             <ul className="dropdown-menu dropdown-menu-start contenedor-dropdown-menu-carrito-collapse" aria-labelledby="navbarDropdown">
@@ -46,11 +52,23 @@ export const NavBarShoppingCart = () => {
                             {/* SUBTOTAL Y BTN IR AL CARRITO */}
                             <div className="container-price-button-cart">
                                 <h4 className="subtotal-carrito-price">Subtotal: $$$</h4>
-                                <Link to="/carrito" className="d-flex justify-content-center text-decoration-none mb-3">
-                                    <button type="button" href="#" className="btn-ir-al-carrito">
-                                        Ir al carrito
-                                    </button>
-                                </Link>
+                                {token == null ? (
+                                    <>
+                                        <Link to="/registro" className="d-flex justify-content-center text-decoration-none">
+                                            <button type="button" href="#" className="btn-ir-al-carrito" onClick={handleResetCategories}>
+                                                Ir al carrito
+                                            </button>
+                                        </Link>
+                                    </>
+                                ) : (
+                                    <>
+                                        <Link to="/carrito" className="d-flex justify-content-center text-decoration-none">
+                                            <button type="button" href="#" className="btn-ir-al-carrito" onClick={handleResetCategories}>
+                                                Ir al carrito
+                                            </button>
+                                        </Link>
+                                    </>
+                                )}
                             </div>
                         </div>
                     </div>

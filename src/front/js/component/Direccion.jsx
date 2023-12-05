@@ -68,34 +68,34 @@ const Direccion = () => {
                                 </select>
                             </div>
                             {/* comuna */}
-                            <div class="col-6">
+                            <div className="col-6">
                                 <label for="inputComuna" className="form-label">Comuna</label>
                                 <input type="text" className="form-control" placeholder="Comuna" aria-label="Comuna" id="comuna" required />
                             </div>
                             <div className="invalid-feedback" id="comuna"></div>
                         </div>
-                        <div class="row mb-4">
+                        <div className="row mb-4">
                             {/* calle */}
-                            <div class="col-6">
+                            <div className="col-6">
                                 <label for="inputCalle" className="form-label">Calle</label>
                                 <input type="text" className="form-control" placeholder="Calle" aria-label="Calle" id="calle" required />
                                 <div className="invalid-feedback" id="calle"></div>
                             </div>
                             {/* numero de casa */}
-                            <div class="col-6">
+                            <div className="col-6">
                                 <label for="inputNumero" className="form-label">Número</label>
                                 <input type="number" className="form-control" placeholder="N° de casa / dpto" aria-label="Número de casa" min="1" id="numero" required />
                             </div>
                             <div className="invalid-feedback" id="numero"></div>
                         </div>
-                        <div class="row mb-4">
+                        <div className="row mb-4">
                             {/* codigo postal */}
-                            <div class="col-6">
+                            <div className="col-6">
                                 <label for="finputCodigoPostal" className="form-label">Código postal</label>
                                 <input type="number" className="form-control" placeholder="código postal" aria-label="Código postal" required />
                             </div>
                             {/* Número de contacto */}
-                            <div class="col-6">
+                            <div className="col-6">
                                 <label for="finputTelefono" className="form-label">Número de contacto</label>
                                 <input type="number" className="form-control" placeholder="N°de contacto" aria-label="Número de contacto" required />
                             </div>
@@ -104,7 +104,7 @@ const Direccion = () => {
                         <div className="container-checkbox-direccion d-flex justify-content-center">
 
                             {/* seleccion casa */}
-                            <div class="form-check-inline">
+                            <div className="form-check-inline">
                                 <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
                                 <label className="form-check-label" for="flexRadioDefault1">
                                     <i className="fa-solid fa-house icono-casa-cambiarDireccion"></i> Casa

@@ -40,7 +40,7 @@ const ModalContact = () => {
     return (
         <>
             {/* MODAL */}
-            <div className="modal fade" id="ModalContact" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal fade" id="ModalContact" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog odal-dialog-centered modal-xl">
                     <div className="modal-content">
                         {/* Botón "X" para cerrar el modal en pantallas pequeñas */}

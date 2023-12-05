@@ -61,7 +61,7 @@ const BarraDeBusqueda = () => {
                     aria-label="Search"
                     value={store.search}
                     onChange={actions.handleSearch}
-                    disabled
+                    
                 />
             </div>
         </div>

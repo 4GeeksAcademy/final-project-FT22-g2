@@ -6,7 +6,7 @@ import copasDeVino from "../../img/copasDeVino.png";
 const ModalCerrarSesion = () => {
     return (
         <>
-            <div className="modal fade" id="modalCerrarSesion" tabindex="-1" aria-labelledby="modalCerrarSesion" aria-hidden="true">
+            <div className="modal fade" id="modalCerrarSesion" tabIndex="-1" aria-labelledby="modalCerrarSesion" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">

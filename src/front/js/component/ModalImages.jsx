@@ -15,7 +15,7 @@ const ModalImages = () => {
     return (
         <>
             {/* <!-- Modal --> */}
-            <div className="modal fade" id="ModalImages" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal fade" id="ModalImages" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog modal-lg">
                     <div className="modal-content">
                         <div className="modal-body container">

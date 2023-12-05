@@ -29,7 +29,7 @@ const OrderDetails = () => {
         <div className="d-flex row align-items-center mt-3">
           {/* Botón a la izquierda */}
           <div className="title-regresar-anterior-vista row">
-            <Link to="/carrito" type="button" className="button-regresar-anterior-vista col-1"><i class="fa-solid fa-arrow-left"></i></Link>
+            <Link to="/carrito" type="button" className="button-regresar-anterior-vista col-1"><i className="fa-solid fa-arrow-left"></i></Link>
             <h3 className="col-10">Detalles del Pedido</h3>
           </div>
 

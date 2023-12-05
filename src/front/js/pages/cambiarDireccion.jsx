@@ -39,8 +39,8 @@
 //                     {/* COMPONENTE DIRECCION*/}
 //                     <Direccion />
 //                     {/* boton actualizar */}
-//                     <div class="d-grid gap-2 col-6 mx-auto mb-3 boton-actualizar-cambiarDireccion">
-//                         <button class="btn btn-dark w-100" type="submit">Actualizar</button>
+//                     <div className="d-grid gap-2 col-6 mx-auto mb-3 boton-actualizar-cambiarDireccion">
+//                         <button className="btn btn-dark w-100" type="submit">Actualizar</button>
 //                     </div>
 //                 </form>
 

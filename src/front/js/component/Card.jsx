@@ -122,4 +122,4 @@ const CardFilterCategoria = ({ categoria }) => {
   );
 };
 
-export { CardContainer4, CardContainer16, CardFilterCategoria };
+export { CardContainer4, CardContainer16, CardFilterCategoria, Card };

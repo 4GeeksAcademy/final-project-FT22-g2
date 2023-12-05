@@ -25,7 +25,7 @@ const LogIn = () => {
 
     return (
         <>
-            <div className="modal fade modal-log-in" tabindex="-1" id="modalLogin" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal fade modal-log-in" tabIndex="-1" id="modalLogin" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog modal-lg">
                     <div className="modal-content modal-content-log-in">
                         <div className="modal-header">

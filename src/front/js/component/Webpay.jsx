@@ -49,7 +49,7 @@ const Webpay = () => {
 
                         {/* Banco */}
                         <div className="form-group p-3">
-                            <select class="form-select" aria-label="Default select example">
+                            <select className="form-select" aria-label="Default select example">
                                 <option selected>Banco</option>
                                 <option value="1">Banco de Chile</option>
                                 <option value="2">Banco Falabella</option>
@@ -113,7 +113,7 @@ const Webpay = () => {
 
                         {/* BOTON PARA validar */}
                         <div className="boton-para-cambiarDireccion p-3">
-                            <button onClick={pagar} type="submit" class="btn btn-secondary btn-sm" >Validar tarjeta</button>
+                            <button onClick={pagar} type="submit" className="btn btn-secondary btn-sm" >Validar tarjeta</button>
                         </div>
 
                     </form>

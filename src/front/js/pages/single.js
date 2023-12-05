@@ -189,12 +189,12 @@ const Single = () => {
           <button className="button-calificacion-comment-positiva me-3 p-1" onClick={() => {
             alert("Próximamente podrás hacerle saber tu humilde opinión a esta persona!")
           }}>
-            Es útil <i class="fa-regular fa-thumbs-up"></i>
+            Es útil <i className="fa-regular fa-thumbs-up"></i>
           </button>
           <button className="button-calificacion-comment-negativa p-1" onClick={() => {
             alert("Próximamente podrás hacerle saber tu humilde opinión a esta persona!")
           }}>
-            <i class="fa-regular fa-thumbs-down" ></i>
+            <i className="fa-regular fa-thumbs-down" ></i>
           </button>
         </div>
       </div>
@@ -221,12 +221,12 @@ const Single = () => {
           <button className="button-calificacion-comment-positiva me-3 p-1" onClick={() => {
             alert("Próximamente podrás hacerle saber tu humilde opinión a esta persona!")
           }}>
-            Es útil <i class="fa-regular fa-thumbs-up"></i>
+            Es útil <i className="fa-regular fa-thumbs-up"></i>
           </button>
           <button className="button-calificacion-comment-negativa p-1" onClick={() => {
             alert("Próximamente podrás hacerle saber tu humilde opinión a esta persona!")
           }}>
-            <i class="fa-regular fa-thumbs-down"></i>
+            <i className="fa-regular fa-thumbs-down"></i>
           </button>
         </div>
       </div>

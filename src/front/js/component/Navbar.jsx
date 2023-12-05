@@ -24,20 +24,6 @@ const Navbar = () => {
 
 	const [searchValue, setSearchValue] = useState("");
 
-	const navStyle = {
-		color: "white",
-		backgroundColor: "#7B2121",
-		fontFamily: "Arial",
-		overflowY: ""
-	};
-
-	const categoryStyle = {
-		backgroundColor: "#671C1C"
-	}
-
-
-
-
 	const token = localStorage.getItem("token");
 
 	const handleLogout = () => {
@@ -100,7 +86,7 @@ const Navbar = () => {
 				<ModalCerrarSesion />
 			</div>
 
-			<nav className="container-navbar navbar navbar-expand-lg" style={navStyle}>
+			<nav className="container-navbar navbar navbar-expand-lg" style={{ color: "white", backgroundColor: "#7B2121", fontFamily: "Arial", overflowY: "" }}>
 				<div className="container-fluid">
 
 					{/* ---- / LOGO / ---- */}
@@ -182,7 +168,7 @@ const Navbar = () => {
 					{/* ---- / BARRA Y BOTÓN DE BÚSQUEDA / ---- */}
 					<div className="container-busqueda-formulario-navbar">
 
-						<form class="d-flex scrollable-form nav-item formulario-barra-de-busqueda-navbar" onChange={handleResetCategories} style={{ overflow: "auto" }}
+						<form className="d-flex scrollable-form nav-item formulario-barra-de-busqueda-navbar" onChange={handleResetCategories} style={{ overflow: "auto" }}
 							onSubmit={(e) => {
 								e.preventDefault(); // Evitar la recarga de la página al enviar el formulario
 								handleSearch(); // Llama a la función de filtrado
@@ -192,20 +178,16 @@ const Navbar = () => {
 						</form>
 					</div>
 
-
-
-
-
 					{/* empiezan los logos del carrito y loggin */}
 					<div className="icons-navbar h2 px-1 m-auto d-flex ms-auto flex-start">
-						<NavBarShoppingCart />
+						<NavBarShoppingCart tipo={tipo} categoria={categoria} />
 						{/* ---- / DROPDOWN LOG-IN - REGISTER / ---- */}
 						{token == null ? (
 							<>
 								<ul className="navbar-nav">
 									<li className="nav-item dropstart">
 										<a className="nav-link dropdown text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-											<i class="fa-solid fa-right-to-bracket px-3"></i>
+											<i className="fa-solid fa-right-to-bracket px-3"></i>
 										</a>
 										<ul className="dropdown-menu p-2" aria-labelledby="navbarDropdown2">
 											<li onClick={handleResetCategories}>
@@ -226,7 +208,7 @@ const Navbar = () => {
 								<ul className="navbar-nav">
 									<li className="nav-item dropstart">
 										<a className="nav-link dropdown text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-											<i class="fa-solid fa-right-from-bracket px-3"></i>
+											<i className="fa-solid fa-right-from-bracket px-3"></i>
 										</a>
 										<ul className="dropdown-menu p-2" aria-labelledby="navbarDropdown2">
 											<li className="dropdown-item d-flex justify-content-center container-button-perfil-dropdown w-100 border-bottom">

@@ -33,8 +33,8 @@ const Registro = () => {
 
     return (
         <div className="container-registro">
-            <div class="card card-registro">
-                <div class="card-body">
+            <div className="card card-registro">
+                <div className="card-body">
                     <div className="card-informacion-registro">
                         <h2>Crear cuenta</h2>
 
@@ -77,7 +77,7 @@ const Registro = () => {
                         </form>
 
                         <div className="container-btn-registro-google">
-                            <button className="btn btn-danger w-75" type="button" value="Login" disabled>Continúa con <i class="fab fa-google me-2"></i> (Próximamente)</button>
+                            <button className="btn btn-danger w-75" type="button" value="Login" disabled>Continúa con <i className="fab fa-google me-2"></i> (Próximamente)</button>
                         </div>
                     </div>
                 </div>
