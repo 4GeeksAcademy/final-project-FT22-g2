@@ -21,12 +21,27 @@ const Single = () => {
   const [favorito, setFavorito] = useState(false);
 
   const handleAddFavorites = () => {
-    setFavorito(!favorito);
-  }
+    setFavorito(prev => !prev);
+  };
 
   const agregarAlCarrito = () => {
     actions.setShoppingCart([...store.shoppingCart, { nombre, precio, image, stars, unitFormat, tipo }])
   };
+
+  const [cantidad, setCantidad] = useState(1);
+
+  const incrementarCantidad = () => {
+    setCantidad(cantidad + 1);
+  };
+
+  const decrementarCantidad = () => {
+    if (cantidad > 1) {
+      setCantidad(cantidad - 1);
+    }
+  };
+
+  const enCarrito = store.shoppingCart?.some(shoppingCartItem => nombre === shoppingCartItem.nombre);
+
 
   const { id } = useParams();
 
@@ -34,7 +49,6 @@ const Single = () => {
     actions.fetchProduct(id);
   }, [id])
 
-  const enCarrito = store.shoppingCart?.some(shoppingCartItem => nombre === shoppingCartItem.nombre)
 
   return (
     <div className="container-fluid my-5">
@@ -78,10 +92,12 @@ const Single = () => {
               <div className="container-buttons-producto col-12">
                 <div className="row">
                   {/* BUTTON CANTIDAD DE PRODUCTO */}
-                  <div className="productCard-add-remove-btn d-inline-flex align-items-center justify-content-between col-12 w-75">
-                    <button className="button-add-remove-product remove-product-button px-5"> - </button>
-                    <label className="label-cantidad-carrito-hover px-5"> 1 </label>
-                    <button className="button-add-remove-product add-product-button px-5"> + </button>
+                  <div className="productCard-add-remove-btn d-inline-flex align-items-center justify-content-center col-12 w-75">
+                    <div className="product-price-carrito-hover d-inline-flex align-items-center justify-content-between">
+                      <button onClick={decrementarCantidad} type='button' className="button-add-remove-carrito-hover remove-carrito-hover justify-content-center">-</button>
+                      <label className="label-cantidad-carrito-hover px-2">{cantidad}</label>
+                      <button onClick={incrementarCantidad} type='button' className="button-add-remove-carrito-hover add-carrito-hover">+</button>
+                    </div>
                   </div>
                   {/* BUTTON AGREGAR AL CARRITO */}
                   {token == null ? (

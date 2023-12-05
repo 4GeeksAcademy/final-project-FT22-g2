@@ -10,6 +10,7 @@ const Carrito = () => {
     { price: 5990, cantidad: 1 }, { price: 36790, cantidad: 1 }, { price: 14870, cantidad: 1 }, { price: 16980, cantidad: 1 } //ejemplos provisorios
   ]);
 
+  
   const deleteProduct = (index) => {
     // Copia el array de productos y elimina el producto en el índice especificado
     const nuevosProductos = [...productos];
