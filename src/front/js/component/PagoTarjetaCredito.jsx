@@ -18,11 +18,18 @@ const TarjetaDeCredito = () => {
     const handleOnClickDefault = (e) => {
         e.preventDefault();
 
+        const numberOnly = /^\d+$/;
+
         let isValid = true;
 
         if (state.number === '' || state.name === '' || state.expiry === '' || state.cvc === '') {
             alert("Todos los campos son obligatorios");
         } else {
+
+            if (!numberOnly.test(state.number)) {
+                alert('El número de tarjeta sólo puede contener dígitos');
+                isValid = false;
+            }
 
             if (state.number.length < 16 || state.number.length > 16) {
                 alert('Número de tarjeta debe tener 16 dígitos');
@@ -34,8 +41,18 @@ const TarjetaDeCredito = () => {
                 isValid = false;
             }
 
+            if (!numberOnly.test(state.expiry)) {
+                alert('La fecha de expiración sólo puede contener dígitos');
+                isValid = false;
+            }
+
             if (state.expiry.length < 4 || state.expiry.length > 4) {
                 alert('Fecha de expiración debe tener 4 dígitos');
+                isValid = false;
+            }
+
+            if (!numberOnly.test(state.cvc)) {
+                alert('El CVC sólo puede contener dígitos');
                 isValid = false;
             }
 
@@ -93,6 +110,7 @@ const TarjetaDeCredito = () => {
                             type="text"
                             name="number"
                             id="number-tarjeta"
+                            inputMode="numeric"
                             maxLength={16}
                             minLength={16}
                             className="form-control"
@@ -123,6 +141,7 @@ const TarjetaDeCredito = () => {
                                 type="text"
                                 name="expiry"
                                 id="expiryTarjeta"
+                                inputMode="numeric"
                                 maxLength={4}
                                 minLength={4}
                                 className="form-control"
@@ -138,6 +157,7 @@ const TarjetaDeCredito = () => {
                                 type="text"
                                 name="cvc"
                                 id="cvcTarjeta"
+                                inputMode="numeric"
                                 maxLength={3}
                                 minLength={3}
                                 className="form-control"
