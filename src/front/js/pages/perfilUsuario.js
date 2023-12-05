@@ -64,7 +64,7 @@ const PerfilUsuario = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("shoppingCart");
     setTimeout(() => {
-      window.location.href = "https://didactic-happiness-7qx694qjp792xjqj-3000.app.github.dev/registro"
+      window.location.href = "https://ominous-happiness-v7gq995qqprcx6pq-3000.app.github.dev"
     }, 2000);
   }
 

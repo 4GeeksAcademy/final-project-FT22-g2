@@ -1,16 +1,17 @@
 import React from 'react';
-import { Navigate, Route } from 'react-router-dom';
-import MetodoDePago from '../pages/metodoDePago.jsx';
+import { Navigate } from 'react-router-dom';
 
 
-const PrivateRoute = ({ element: Element, ...rest }) => {
-  const isAuthenticated = !!localStorage.getItem('token');
+const PrivateRoute = ({ redirectPath = '/', children }) => {
+    const token = localStorage.getItem('token');
 
-  return isAuthenticated ? (
-    <Route {...rest} element={<Element />} />
-  ) : (
-    <Navigate to="/" />
-  );
-};
+    if (!token) {
+        return <Navigate to={redirectPath} replace />
+    }
+
+    return children
+}
 
 export default PrivateRoute;
+
+
