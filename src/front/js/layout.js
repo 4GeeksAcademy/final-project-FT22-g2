@@ -23,7 +23,7 @@ import MetodoDePagoRevisar from "./pages/metodoDePagoRevisar.jsx";
 import { MetodoPagoProvider } from "./component/ContextPago.jsx";
 import { Cloudinary } from "@cloudinary/url-gen";
 import Filteredproduct from "./component/FIlteredproduct.jsx";
-
+import PrivateRoute from "./component/PrivateRoute.jsx";
 //create your first component
 const Layout = () => {
     const cld = new Cloudinary({ cloud: { cloudName: 'dipd6csl7' } });
@@ -44,12 +44,20 @@ const Layout = () => {
                             <Route element={<Home />} path="/" />
                             <Route element={<Carrito />} path="/carrito" />
                             <Route element={<Single />} path="/producto/:id" />
-                            <Route element={<PerfilUsuario />} path="/perfil" />
+                            <Route element={
+                                <PrivateRoute>
+                                    <PerfilUsuario />
+                                </PrivateRoute>
+                            } path="/perfil" />
                             <Route element={<Registro />} path="/registro" />
                             <Route element={<Search />} path="/busqueda" />
                             <Route element={<Search />} path="/busqueda/:tipo" />
                             <Route element={<HistorialCompra />} path="/historial-compra" />
-                            <Route element={<MetodoDePago />} path="/metodo-de-pago" />
+                            <Route element={
+                                <PrivateRoute>
+                                    <MetodoDePago />
+                                </PrivateRoute>
+                            } path="/metodo-de-pago" />
                             <Route element={<MetodoDePagoRevisar />} path="/metodo-de-pago/:payment" />
                             <Route element={<Favoritos />} path="/favoritos" />
                             <Route element={<DetallesPedido />} path="/detalles-pedido" />
