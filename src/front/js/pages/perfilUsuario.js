@@ -45,7 +45,7 @@ const PerfilUsuario = () => {
           localStorage.removeItem("shoppingCart");
 
           setTimeout(() => {
-            window.location.href = "https://didactic-happiness-7qx694qjp792xjqj-3000.app.github.dev/registro"
+            window.location.href = process.env.BASENAME + "registro";
           }, 2000);
 
         } catch (error) {
@@ -64,7 +64,7 @@ const PerfilUsuario = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("shoppingCart");
     setTimeout(() => {
-      window.location.href = "https://didactic-happiness-7qx694qjp792xjqj-3000.app.github.dev/registro"
+      window.location.href = process.env.BASENAME + "registro";
     }, 2000);
   }
 

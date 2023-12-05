@@ -23,8 +23,9 @@ import MetodoDePagoRevisar from "./pages/metodoDePagoRevisar.jsx";
 import { MetodoPagoProvider } from "./component/ContextPago.jsx";
 import { Cloudinary } from "@cloudinary/url-gen";
 import Filteredproduct from "./component/FIlteredproduct.jsx";
-import Direccion from "./component/Direccion.jsx";
 
+import PrivateRoute from "./component/PrivateRoute.jsx";
+import Direccion from "./component/Direccion.jsx";
 //create your first component
 const Layout = () => {
     const cld = new Cloudinary({ cloud: { cloudName: 'dipd6csl7' } });
@@ -41,20 +42,52 @@ const Layout = () => {
                 <BrowserRouter basename={basename}>
                     <ScrollToTop>
                         <Navbar />
-                        <Routes>
+                        <Routes>a
                             <Route element={<Home />} path="/" />
-                            <Route element={<Carrito />} path="/carrito" />
+                            <Route element={
+                                <PrivateRoute>
+                                    <Carrito />
+                                </PrivateRoute>
+                            } path="/carrito" />
                             <Route element={<Single />} path="/producto/:id" />
-                            <Route element={<PerfilUsuario />} path="/perfil" />
+                            <Route element={
+                                <PrivateRoute>
+                                    <PerfilUsuario />
+                                </PrivateRoute>
+                            } path="/perfil" />
                             <Route element={<Registro />} path="/registro" />
                             <Route element={<Search />} path="/busqueda" />
                             <Route element={<Search />} path="/busqueda/:tipo" />
-                            <Route element={<HistorialCompra />} path="/historial-compra" />
-                            <Route element={<MetodoDePago />} path="/metodo-de-pago" />
-                            <Route element={<MetodoDePagoRevisar />} path="/metodo-de-pago/:payment" />
-                            <Route element={<Direccion />} path="/metodo-de-pago/direccion" />
-                            <Route element={<Favoritos />} path="/favoritos" />
-                            <Route element={<DetallesPedido />} path="/detalles-pedido" />
+                            <Route element={
+                                <PrivateRoute>
+                                    <HistorialCompra />
+                                </PrivateRoute>
+                            } path="/historial-compra" />
+                            <Route element={
+                                <PrivateRoute>
+                                    <MetodoDePago />
+                                </PrivateRoute>
+                            } path="/metodo-de-pago" />
+                            <Route element={
+                                <PrivateRoute>
+                                    <MetodoDePagoRevisar />
+                                </PrivateRoute>
+                            } path="/metodo-de-pago/:payment" />
+                            <Route element={
+                                <PrivateRoute>
+                                    <Favoritos />
+                                </PrivateRoute>
+                            } path="/favoritos" />
+                            <Route element={
+                                <PrivateRoute>
+                                    <DetallesPedido />
+                                </PrivateRoute>
+                            } path="/detalles-pedido" />
+                            <Route element={
+                                <PrivateRoute>
+                                    <Direccion />
+                                </PrivateRoute>
+                            } path="/metodo-de-pago/direccion" />
                             <Route element={<h1>Not found!</h1>} />
                         </Routes>
                         <Footer />

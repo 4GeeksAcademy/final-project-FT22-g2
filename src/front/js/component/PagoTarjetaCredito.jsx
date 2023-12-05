@@ -21,35 +21,35 @@ const TarjetaDeCredito = () => {
         let isValid = true;
 
         if (state.number === '' || state.name === '' || state.expiry === '' || state.cvc === '') {
-          alert("Todos los campos son obligatorios");
+            alert("Todos los campos son obligatorios");
         } else {
-      
-          if (state.number.length < 16 || state.number.length > 16) {
-            alert('Número de tarjeta debe tener 16 dígitos');
-            isValid = false;
-          }
-      
-          if (state.name.length < 1 || state.name.length > 40) {
-            alert('El nombre no puede ir vacío');
-            isValid = false;
-          }
-      
-          if (state.expiry.length < 4 || state.expiry.length > 4) {
-            alert('Fecha de expiración debe tener 4 dígitos');
-            isValid = false; 
-          }
-      
-          if (state.cvc.length < 3 || state.cvc.length > 3) {
-            alert('CVC debe tener 3 dígitos');
-            isValid = false;
-          }
 
-          if (isValid) {
-            alert("Los campos se rellenaron correctamente");
-            setTimeout(() => {
-                window.location.href = "https://didactic-happiness-7qx694qjp792xjqj-3000.app.github.dev/metodo-de-pago/direccion"
-            }, 2000);
-          }
+            if (state.number.length < 16 || state.number.length > 16) {
+                alert('Número de tarjeta debe tener 16 dígitos');
+                isValid = false;
+            }
+
+            if (state.name.length < 1 || state.name.length > 40) {
+                alert('El nombre no puede ir vacío');
+                isValid = false;
+            }
+
+            if (state.expiry.length < 4 || state.expiry.length > 4) {
+                alert('Fecha de expiración debe tener 4 dígitos');
+                isValid = false;
+            }
+
+            if (state.cvc.length < 3 || state.cvc.length > 3) {
+                alert('CVC debe tener 3 dígitos');
+                isValid = false;
+            }
+
+            if (isValid) {
+                alert("Los campos se rellenaron correctamente");
+                setTimeout(() => {
+                    window.location.href = process.env.BASENAME + "metodo-de-pago/direccion";
+                }, 2000);
+            }
         }
     }
 
