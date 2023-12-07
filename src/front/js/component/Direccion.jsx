@@ -74,7 +74,8 @@ const Direccion = () => {
                 isValid = false;
             }
 
-            if (state.codigoPostal.length == 6) {
+            // PENDIENTE
+            if (state.codigoPostal.length < 7 || state.codigoPostal.length > 7) {
                 Swal.fire({
                     icon: "error",
                     title: "Oops...",
@@ -92,7 +93,8 @@ const Direccion = () => {
                 isValid = false;
             }
 
-            if (state.numeroContacto.length == 8) {
+            // PENDIENTE
+            if (state.numeroContacto.length < 9 || state.numeroContacto.length > 9) {
                 Swal.fire({
                     icon: "error",
                     title: "Oops...",
@@ -112,7 +114,7 @@ const Direccion = () => {
                     imageHeight: 180,
                     imageAlt: "Custom image",
                     html: "Será redirigido a la página principal en <b></b> milisegundos.",
-                    timer: 7000,
+                    timer: 4000,
                     timerProgressBar: true,
                     didOpen: () => {
                         Swal.showLoading();
