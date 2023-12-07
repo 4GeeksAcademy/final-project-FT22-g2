@@ -1,5 +1,6 @@
 import React from 'react';
 import ModalRestaurarContraseña from '../front/js/component/ModalRestaurarContraseña.jsx'
+import emailjs from '@emailjs/browser'
 
 
 function sendMail(){
