@@ -89,6 +89,13 @@ const Layout = () => {
                                 </PrivateRoute>
                             } path="/metodo-de-pago/direccion" />
                             <Route element={<h1>Not found!</h1>} />
+                           
+                           
+                            <Route element={
+                                <PrivateRoute>
+                                    <reset_password/>
+                                </PrivateRoute>
+                            } path="/reset_password" />
                         </Routes>
                         <Footer />
                     </ScrollToTop>
