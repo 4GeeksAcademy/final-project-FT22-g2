@@ -52,7 +52,7 @@ const Carrito = () => {
 
             <div className="row fila-vista-carrito">
               <div className="col-lg-3 col-md-4 col-sm-6 d-flex justify-content-center">
-                <img src={shoppingCartItem.image} width="70px" height="auto" alt="rigo" className='img-producto-vista-carrito' />
+                <img src={shoppingCartItem.image} width="auto" height="auto" alt="rigo" className='img-producto-vista-carrito' />
               </div>
               <div className="col-lg-6 col-md-4 col-sm-6 d-flex justify-content-center">
                 {/* BOTON AÑADIR Y QUITAR + PRECIO REUTILIZADO */}

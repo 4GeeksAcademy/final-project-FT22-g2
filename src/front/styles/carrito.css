@@ -31,7 +31,7 @@
 .fila-vista-carrito {
     background: rgba(217, 217, 217, 0.3);
     border-top: 1px #acacac solid;
-    height: 100px;
+    height: 130px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -58,7 +58,7 @@
 
 .img-producto-vista-carrito {
     width: 80px;
-    height: 80px;
+    height: auto;
     overflow: hidden;
 }
 
