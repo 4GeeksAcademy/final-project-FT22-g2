@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import { Link, useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2';
 
 import "../../styles/logIn.css";
 
@@ -17,9 +18,26 @@ const LogIn = () => {
 
         actions.login(email, password)
             .then((res) => { navigate("/") })
+
         setTimeout(() => {
-            alert("Has accedido correctamente!")
-            window.location.reload(false)
+            const token = localStorage.getItem("token");
+            if (!token) {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Datos erróneos o usuario inexiste!",
+                });
+                setEmail("")
+                setPassword("")
+            } else {
+                Swal.fire({
+                    icon: "success",
+                    title: "Has accedido correctamente!"
+                });
+                setTimeout(() => {
+                    window.location.reload(false)
+                }, 1500);
+            }
         }, 2000);
     };
 

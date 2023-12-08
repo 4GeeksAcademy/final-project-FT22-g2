@@ -87,7 +87,7 @@ const Single = () => {
                     <>
                       {/* REDIRIGIR A REGISTER SI NO ESTA LOGEADO */}
                       <Link to="/registro">
-                        <button disabled={enCarrito} onClick={() => agregarAlCarrito()} type="button" className="btn btn-secondary rounded-pill my-2 col-12 w-75">
+                        <button disabled={enCarrito} type="button" className="btn btn-secondary rounded-pill my-2 col-12 w-75">
                           Agregar al carrito
                         </button>
                       </Link>
