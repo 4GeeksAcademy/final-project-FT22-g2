@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import bgHero from "../../img/background-hero.jpeg"
-//import emailjs from '@emailjs/browser'
+import emailjs from '@emailjs/browser'
 
 
 const ModalContact = () => {
@@ -22,6 +22,8 @@ const ModalContact = () => {
             [e.target.name]: e.target.value
         });
     }
+    const refForm = useRef();
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -29,15 +31,20 @@ const ModalContact = () => {
         if (!formData.name || !formData.lastName || !formData.email || !formData.phone || !formData.message) {
             alert('Todos los campos son obligatorios');
             return;
+            
+        }else{
 
         const serviceID = 'service_n8cz62t';
         const templateID = 'template_i86ecfx';
-        const apikey = 'n_ZJ_pdN6W9mTe5k3';
+        const api_public_key = 'cRqwKwjjvhCImx3XZ';
 
-        emailjs.sendForm(serviceID, templateID, apikey, refForm.current)
+
+        emailjs.sendForm(serviceID, templateID, refForm.current, api_public_key)
         .then(result => console.log(result.text))
         .catch(error => console.error(error))
         }
+    
+       
 
         setFormSubmitted(true);
 
@@ -46,7 +53,6 @@ const ModalContact = () => {
         }, 3000);
     }
 
-    const refForm = useRef();
     
  
 
