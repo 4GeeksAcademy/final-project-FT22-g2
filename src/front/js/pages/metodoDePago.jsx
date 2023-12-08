@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Swal from "sweetalert2";
 
 import { MetodoPagoContext } from "../component/ContextPago.jsx";
@@ -10,8 +10,14 @@ import paypalLogo from "../../img/paypalLogo.png";
 
 import "../../styles/metodoDePago.css";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext.js";
 
 const MetodoDePago = () => {
+
+    const { store, actions } = useContext(Context);
+    const shoppingCart = store.shoppingCart || [];
+
+    const [productos, setProductos] = useState([...shoppingCart]);
 
     const { seleccionarMetodo, metodoSeleccionado } = useContext(MetodoPagoContext);
 
@@ -93,15 +99,15 @@ const MetodoDePago = () => {
                     </div>
 
                     <div className="lado-derecho-precio-metodo-de-pago col-6 text-end">
-                        <h5>CLP 80.000</h5>
+                        <h5>$ {productos.reduce((total, prod) => total + prod.precio * prod.cantidad, 0)}</h5>
                         <h5>Gratis</h5>
                     </div>
                 </div>
 
                 {/* ---- // PRECIO TOTAL // ---- */}
                 <div className="total-precio-metodo-de-pago row">
-                    <h5 className="col-6 text-start h4">Total (2 items)</h5>
-                    <h5 className="col-6 text-end h4">$ 80.000</h5>
+                    <h5 className="col-6 text-start h4">Total ({shoppingCart.reduce((total, prod) => total + prod.cantidad, 0)})</h5>
+                    <h5 className="col-6 text-end h4">${productos.reduce((total, prod) => total + prod.precio * prod.cantidad, 0)}</h5>
                 </div>
 
                 {/* ---- // BOTÓN CONTINUAR SIGUIENTE VISTA // ---- */}
