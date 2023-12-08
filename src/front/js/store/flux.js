@@ -96,6 +96,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 					shoppingCart
 				})
 			},
+			updateShoppingCart: (nombre, newCantidad) => {
+				const updatedShoppingCart = store.shoppingCart.map(item =>
+					item.nombre === nombre ? { ...item, cantidad: newCantidad } : item
+				);
+
+				actions.setShoppingCart(updatedShoppingCart);
+			},
 			fetchProduct: async (id) => {
 				const product = await fetch(`https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/productos/${id}`).then(res => res.json())
 				setStore({

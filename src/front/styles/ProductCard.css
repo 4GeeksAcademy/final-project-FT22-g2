@@ -40,7 +40,6 @@
 }
 
 .productCard-add-remove-btn {
-    border: 1px solid #ccc;
     border-radius: 8px;
     padding: 0px;
 }
@@ -52,17 +51,29 @@
 }
 
 .add-product-button {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
 }
 
 .remove-product-button {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    border-left: 1px solid #ccc;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
 }
 
 .button-add-remove-product:active {
     background: rgb(240, 240, 240);
+}
+
+.label-cantidad-carrito-hover {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+
 }
 
 .textarea-productCard {
@@ -119,4 +130,8 @@
 
 .button-calificacion-comment-positiva:active {
     background: rgb(231, 231, 231);
+}
+
+.button-añadir-al-carrito-single {
+    width: 100%;
 }

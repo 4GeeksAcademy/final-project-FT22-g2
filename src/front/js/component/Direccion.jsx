@@ -56,7 +56,7 @@ const Direccion = () => {
                 isValid = false;
             }
 
-            if (state.numeroCasa.length < 0 || state.numeroCasa.length > 7) {
+            if (state.numeroCasa.length < 2 || state.numeroCasa.length > 7) {
                 Swal.fire({
                     icon: "error",
                     title: "Oops...",
@@ -227,7 +227,7 @@ const Direccion = () => {
                                     type="text"
                                     className="form-control"
                                     name="numeroCasa"
-                                    placeholder="N° de casa / dpto"
+                                    placeholder="N° de domicilio"
                                     aria-label="Número de casa"
                                     maxLength={15}
                                     id="numero"

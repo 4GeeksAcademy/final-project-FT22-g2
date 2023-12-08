@@ -27,7 +27,7 @@ const Card = ({ productos }) => (
               <h4 className="card-title custom-text-card" title={`${producto.nombre}`}>
                 {producto.nombre.length > 19 ? `${producto.nombre.substring(0, 19)}...` : producto.nombre}
               </h4>
-              <h5>${`$${producto.precio}`}</h5>
+              <h5>${`${producto.precio}`}</h5>
               <p className="card-text text-align-center">
                 <i className="fa-solid fa-star stars"></i>
                 <i className="fa-solid fa-star stars"></i>

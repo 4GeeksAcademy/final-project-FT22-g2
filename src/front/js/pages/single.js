@@ -13,25 +13,65 @@ import { Link } from "react-router-dom";
 
 const Single = () => {
   const { store, actions } = useContext(Context);
-  const { nombre = "", precio = null, image, stars, unitFormat, tipo } = store.product || {};
+  const { nombre = "", precio, image, stars, unitFormat, tipo } = store.product || {};
 
   const token = localStorage.getItem("token");
 
   const [favorito, setFavorito] = useState(false);
+  const [cantidad, setCantidad] = useState(1)
+  const [precioTotal, setPrecioTotal] = useState(precio || 0)
 
   const handleAddFavorites = () => {
     setFavorito(!favorito);
   }
 
   const agregarAlCarrito = () => {
-    actions.setShoppingCart([...store.shoppingCart, { nombre, precio, image, stars, unitFormat, tipo }])
+    const existingItem = store.shoppingCart.find(item => item.nombre === nombre);
+
+    if (existingItem) {
+      // Sumar la cantidad al item existente
+      existingItem.cantidad += cantidad;
+    } else {
+      // Agregar nuevo item con cantidad seteada
+      actions.setShoppingCart([...store.shoppingCart, {
+        nombre,
+        precio,
+        image,
+        stars,
+        unitFormat,
+        tipo,
+        cantidad
+      }]);
+    }
   };
+
+  const handleSumar = () => {
+    setCantidad(cantidad + 1);
+    setPrecioTotal(precio * (cantidad + 1))
+
+    actions.updateShoppingCart(nombre, cantidad + 1);
+  }
+
+  const handleRestar = () => {
+    if (cantidad > 1) {
+      setCantidad(cantidad - 1);
+      setPrecioTotal(precio * (cantidad - 1))
+
+      actions.updateShoppingCart(nombre, cantidad - 1);
+    }
+  }
 
   const { id } = useParams();
 
   useEffect(() => {
     actions.fetchProduct(id);
   }, [id])
+
+  useEffect(() => {
+    if (precio !== undefined) {
+      setPrecioTotal(precio * cantidad);
+    }
+  }, [cantidad, precio]);
 
   const enCarrito = store.shoppingCart?.some(shoppingCartItem => nombre === shoppingCartItem.nombre)
 
@@ -71,36 +111,45 @@ const Single = () => {
 
             <div className="section-cantidad-precio-añadir-producto">
               <p className="price-carrito-hover text-black text-start col-12 mt-5 mx-0 h5 mb-1">
-                Precio: ${precio}
+                Precio: ${precioTotal}
               </p>
 
               <div className="container-buttons-producto col-12">
                 <div className="row">
                   {/* BUTTON CANTIDAD DE PRODUCTO */}
-                  <div className="productCard-add-remove-btn d-inline-flex align-items-center justify-content-between col-12 w-75">
-                    <button className="button-add-remove-product remove-product-button px-5"> - </button>
-                    <label className="label-cantidad-carrito-hover px-5"> 1 </label>
-                    <button className="button-add-remove-product add-product-button px-5"> + </button>
-                  </div>
-                  {/* BUTTON AGREGAR AL CARRITO */}
-                  {token == null ? (
-                    <>
-                      {/* REDIRIGIR A REGISTER SI NO ESTA LOGEADO */}
-                      <Link to="/registro">
-                        <button disabled={enCarrito} type="button" className="btn btn-secondary rounded-pill my-2 col-12 w-75">
-                          Agregar al carrito
-                        </button>
-                      </Link>
-                    </>
-                  ) : (
-                    <>
-                      {/* AÑADIR PRODUCTO AL CARRITO SI ESTÁ LOGEADO */}
-                      <button disabled={enCarrito} onClick={() => agregarAlCarrito()} type="button" className="btn btn-secondary rounded-pill my-2 col-12 w-75">
-                        Agregar al carrito
-                      </button>
+                  <div className="productCard-add-remove-btn align-items-center justify-content-between col-9">
+                    <div className="row">
+                      <button className="button-add-remove-product remove-product-button px-5 col-4" onClick={handleRestar}> - </button>
+                      <label className="label-cantidad-carrito-hover px-5 col-4 text-center"> {cantidad} </label>
+                      <button className="button-add-remove-product add-product-button px-5 col-4" onClick={handleSumar}> + </button>
+                    </div>
+                    {/* BUTTON AGREGAR AL CARRITO */}
+                    {token == null ? (
+                      <>
+                        {/* REDIRIGIR A REGISTER SI NO ESTA LOGEADO */}
+                        <div className="row">
+                          <Link to="/registro">
+                            <button disabled={enCarrito} type="button" className="btn btn-secondary rounded-pill my-2 col-12">
+                              Agregar al carrito
+                            </button>
+                          </Link>
+                        </div>
 
-                    </>
-                  )}
+                      </>
+                    ) : (
+                      <>
+                        {/* AÑADIR PRODUCTO AL CARRITO SI ESTÁ LOGEADO */}
+                        <div className="row">
+                          <button disabled={enCarrito} onClick={() => agregarAlCarrito()} type="button" className="btn btn-secondary rounded-pill my-2 col-12">
+                            Agregar al carrito
+                          </button>
+                        </div>
+
+
+                      </>
+                    )}
+                  </div>
+
 
                 </div >
               </div >
