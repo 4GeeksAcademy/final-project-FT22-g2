@@ -11,7 +11,7 @@ export const NavBarShoppingCart = () => {
     const handleResetCategories = () => {
         setTimeout(() => {
             window.location.reload();
-        }, 10);
+        }, 1);
     }
 
     return <ul className="navbar-nav">

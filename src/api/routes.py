@@ -95,25 +95,38 @@ def user_detail(user_id):
         db.session.delete(user)
         db.session.commit()
         return jsonify({'message': 'Usuario eliminado exitosamente'})
-    
 
-    
-# Ruta para manejar la solicitud de restablecimiento de contraseña
-@api.route('/reset_password', methods=['POST'])
-def reset_password():
-    token = request.json.get('token')  # Obtener el token del cuerpo de la solicitud
-    new_password = request.json.get('new_password')  # Obtener la nueva contraseña del cuerpo de la solicitud
+@api.route('/productos/<string:busqueda>', methods=['GET'])
+def get_products_by_search(busqueda):
+    # Buscar productos por nombre, tipo o categoría
+    productos = Producto.query.filter(
+        (Producto.nombre.ilike(f"%{busqueda}%")) |
+        (Producto.tipo.ilike(f"%{busqueda}%")) |
+        (Producto.categoria.ilike(f"%{busqueda}%"))
+    ).all()
 
-    if not token or not new_password:
-        return jsonify({'message': 'Token o nueva contraseña faltante'}), 400
-
-    email = verify_reset_token(token)  # Verificar el token
-
-    if email:
-        # Aquí iría la lógica para cambiar la contraseña del usuario en tu base de datos
-        # Usando el correo electrónico obtenido y la nueva contraseña
-        # Esto dependerá de cómo esté estructurada tu base de datos y tu lógica de usuario
-
-        return jsonify({'message': 'Contraseña restablecida exitosamente'})
+    if productos:
+        return jsonify([producto.serialize() for producto in productos])
     else:
-        return jsonify({'message': 'Token inválido o expirado'}), 400
+        return jsonify({"message": "No se encontraron productos con ese nombre, tipo o categoría"}), 404
+    
+# # Ruta para manejar la solicitud de restablecimiento de contraseña
+# @api.route('/reset_password', methods=['POST'])
+# def reset_password():
+#     token = request.json.get('token')  # Obtener el token del cuerpo de la solicitud
+#     new_password = request.json.get('new_password')  # Obtener la nueva contraseña del cuerpo de la solicitud
+
+#     if not token or not new_password:
+#         return jsonify({'message': 'Token o nueva contraseña faltante'}), 400
+
+#     email = verify_reset_token(token)  # Verificar el token
+
+#     if email:
+#         # Aquí iría la lógica para cambiar la contraseña del usuario en tu base de datos
+#         # Usando el correo electrónico obtenido y la nueva contraseña
+#         # Esto dependerá de cómo esté estructurada tu base de datos y tu lógica de usuario
+
+#         return jsonify({'message': 'Contraseña restablecida exitosamente'})
+#     else:
+#         return jsonify({'message': 'Token inválido o expirado'}), 400
+

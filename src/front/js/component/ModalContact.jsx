@@ -29,14 +29,15 @@ const ModalContact = () => {
         if (!formData.name || !formData.lastName || !formData.email || !formData.phone || !formData.message) {
             alert('Todos los campos son obligatorios');
             return;
+        } else {
 
-        const serviceID = 'service_n8cz62t';
-        const templateID = 'template_i86ecfx';
-        const apikey = 'n_ZJ_pdN6W9mTe5k3';
+            const serviceID = 'service_n8cz62t';
+            const templateID = 'template_i86ecfx';
+            const apikey = 'n_ZJ_pdN6W9mTe5k3';
 
-        emailjs.sendForm(serviceID, templateID, apikey, refForm.current)
-        .then(result => console.log(result.text))
-        .catch(error => console.error(error))
+            emailjs.sendForm(serviceID, templateID, apikey, refForm.current)
+                .then(result => console.log(result.text))
+                .catch(error => console.error(error))
         }
 
         setFormSubmitted(true);
@@ -47,8 +48,8 @@ const ModalContact = () => {
     }
 
     const refForm = useRef();
-    
- 
+
+
 
     return (
         <>
