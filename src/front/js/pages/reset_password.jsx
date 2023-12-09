@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import layout from "../layout";
 
 const Reset_password = () => {
     const [password, setPassword] = useState('');
@@ -48,5 +49,12 @@ const Reset_password = () => {
 
     )
 }
+
+
+
+/* 
+esta es la vista https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/reset_password para que el usuario ingrese su nueva contraseña y esta se cambie en la api,
+ no la pude probar xq el back estaba cerrado, falta generar bien la url con el token.
+Los cambios estan es ModalRestaurarContraseña.jsx, rotes.py, flux.js, Reset_password.jsx y en el layout.js que esta la ruta  */
 
 export default Reset_password;
