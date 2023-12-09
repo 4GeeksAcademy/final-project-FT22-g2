@@ -3,6 +3,8 @@ import { Context } from "../store/appContext.js";
 import "../../styles/home.css";
 // import Filter from "../component/Filter.jsx";
 import Filteredproduct from "../component/FIlteredproduct.jsx"
+import { Card, CardContainer16 } from "../component/Card.jsx";
+
 
 
 export const Search = () => {

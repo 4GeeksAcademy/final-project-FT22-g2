@@ -95,3 +95,10 @@ def user_detail(user_id):
         db.session.delete(user)
         db.session.commit()
         return jsonify({'message': 'Usuario eliminado exitosamente'})
+    
+@api.route('/productos/<string:nombre>', methods=['GET'])
+def get_products_by_search(nombre):
+
+    productos = Producto.query.filter_by(nombre=nombre)
+    return jsonify([producto.serialize() for producto in productos])
+    

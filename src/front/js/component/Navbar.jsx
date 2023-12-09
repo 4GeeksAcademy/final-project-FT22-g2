@@ -6,10 +6,10 @@ import ModalContact from "./ModalContact.jsx";
 import RestaurarContraseña from "./ModalRestaurarContraseña.jsx";
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { CardContainer16, CardFilterCategoria } from "./Card.jsx";
+import { CardFilterCategoria } from "./Card.jsx";
 import { Context } from "../store/appContext";
 import { NavBarShoppingCart } from "./NavBarShoppingCart.jsx"
-
+import { CardContainer16 } from "./Card.jsx";
 import "../../styles/navbarHero.css";
 import ModalCerrarSesion from "./ModalCerrarSesion.jsx";
 import BarraDeBusqueda from "./BarraDeBusqueda.jsx";
@@ -97,12 +97,12 @@ const Navbar = () => {
 
 					{/* REDES SOCIALES */}
 					<div className="nav-item categories-navbar-items nav-link active text-white h4 flex-end" aria-current="page">
-						<a href="http://instagram.com" target="_blank" className="text-white">
+						<Link href="http://instagram.com" target="_blank" className="text-white">
 							<i className="fa-brands fa-instagram"></i>
-							<a href="http://facebook.com" target="_blank" className="text-white">
-								<i className="fa-brands fa-square-facebook px-3"></i>
-							</a>
-						</a>
+						</Link>
+						<Link href="http://facebook.com" target="_blank" className="text-white">
+							<i className="fa-brands fa-square-facebook px-3"></i>
+						</Link>
 					</div>
 
 					<button className="navbar-toggler navbar-toggler-button" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -119,36 +119,36 @@ const Navbar = () => {
 							{/* ----- / BARRA DE CATEGORÍAS / ----- */}
 
 							{/* PRIMERA CATEGORÍA */}
-							<a className="nav-link dropdown-toggle text-white h4" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							<Link className="nav-link dropdown-toggle text-white h4" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								Tipos
-							</a>
+							</Link>
 							<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
 								<Link to="busqueda/tinto" className="text-decoration-none" onClick={handleTinto}>
-									<li><a className="dropdown-item" href="#">Tinto</a></li>
+									<li><Link className="dropdown-item" href="#">Tinto</Link></li>
 								</Link>
 								<Link to="busqueda/blanco" className="text-decoration-none" onClick={handleBlanco}>
-									<li><a className="dropdown-item" href="#">Blanco</a></li>
+									<li><Link className="dropdown-item" href="#">Blanco</Link></li>
 								</Link>
 								<Link to="busqueda/rose" className="text-decoration-none" onClick={handleRose}>
-									<li><a className="dropdown-item" href="#">Rosé</a></li>
+									<li><Link className="dropdown-item" href="#">Rosé</Link></li>
 								</Link>
 								<Link to="busqueda/espumante" className="text-decoration-none" onClick={handleEspumante}>
-									<li><a className="dropdown-item" href="#">Espumante</a></li>
+									<li><Link className="dropdown-item" href="#">Espumante</Link></li>
 								</Link>
 							</ul>
 						</div>
 
 						{/* SEGUNDA CATEGORÍA */}
 						<div className="navbar-expand-lg nav-item dropdown categories-navbar-items">
-							<a className="nav-link dropdown-toggle text-white h4" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							<Link className="nav-link dropdown-toggle text-white h4" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								Categorías
-							</a>
+							</Link>
 							<ul className="dropdown-menu " aria-labelledby="navbarDropdown">
 								<Link to="busqueda/reserva" className="text-decoration-none" onClick={handleReserva}>
-									<li><a className="dropdown-item" href="#">Reserva</a></li>
+									<li><Link className="dropdown-item" href="#">Reserva</Link></li>
 								</Link>
 								<Link to="busqueda/gran-reserva" className="text-decoration-none" onClick={handleGranReserva}>
-									<li><a className="dropdown-item" href="#">Gran reserva</a></li>
+									<li><Link className="dropdown-item" href="#">Gran reserva</Link></li>
 								</Link>
 							</ul>
 						</div>
@@ -192,9 +192,9 @@ const Navbar = () => {
 							<>
 								<ul className="navbar-nav">
 									<li className="nav-item dropstart">
-										<a className="nav-link dropdown text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+										<Link className="nav-link dropdown text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 											<i className="fa-solid fa-right-to-bracket px-3"></i>
-										</a>
+										</Link>
 										<ul className="dropdown-menu p-2" aria-labelledby="navbarDropdown2">
 											<li onClick={handleResetCategories}>
 												<button className="dropdown-item border-bottom" data-bs-toggle="modal" data-bs-target="#modalLogin" type="button">Acceder</button>
@@ -202,7 +202,7 @@ const Navbar = () => {
 											<li onClick={handleResetCategories}>
 
 												<Link to="/registro" className="text-decoration-none">
-													<a className="dropdown-item" href="#">Registrarse</a>
+													<Link className="dropdown-item" href="#">Registrarse</Link>
 												</Link>
 											</li>
 										</ul>
@@ -213,9 +213,9 @@ const Navbar = () => {
 							<>
 								<ul className="navbar-nav">
 									<li className="nav-item dropstart">
-										<a className="nav-link dropdown text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+										<Link className="nav-link dropdown text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 											<i className="fa-solid fa-right-from-bracket px-3"></i>
-										</a>
+										</Link>
 										<ul className="dropdown-menu p-2" aria-labelledby="navbarDropdown2">
 											<li className="dropdown-item d-flex justify-content-center container-button-perfil-dropdown w-100 border-bottom">
 												<Link to="/perfil" className="button-perfil-dropdown" onClick={handleResetCategories}>
