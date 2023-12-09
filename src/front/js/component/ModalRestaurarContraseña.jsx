@@ -11,19 +11,34 @@ const RestaurarContraseña = () => {
     const template_ID = "contact_form";
     const api_public_key = "kdu6P43r16fPHQoUu";
 
-    const sendMail = () => {
-        
-        emailjs
-            .send(service_ID, template_ID, { email: email, name: "nata", access_token: "" }, api_public_key)
-            .then((res) => {
-                setEmail(''); // Limpia el campo de correo electrónico después del envío
-                console.log(res);
-                alert("Tu email fue enviado exitosamente");
+    const sendMail = async() => {
+        try{
+            const response = await fetch('https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/reset_password',{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email: email }),
             })
-            .catch((err) => {
+            if (!response.ok) {
+                throw new Error('Error al obtener el token');          
+        }
+
+        const data = await response.json();
+        const token = data.token;
+        const resetUrl = `https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/reset_password/${token}`;
+
+
+        
+        await emailjs
+            .send(service_ID, template_ID, { email: email, name: "", access_token: "",resetUrl: resetUrl  }, api_public_key)
+                setEmail(''); // Limpia el campo de correo electrónico después del envío
+                alert("Tu email fue enviado exitosamente");
+            
+        }catch(error) {
                 console.error(err);
                 alert('hubo un error al enviar el correo. Por favor, intenta más tarde');
-    })
+    }
 };
     const handleEmailChange = (e) => {
         setEmail(e.target.value); // Actualiza el estado con el valor del correo electrónico

@@ -103,18 +103,21 @@ def user_detail(user_id):
 def reset_password():
     if request.method == 'POST':
         email = request.json.get('email')  # Obtener el correo electrónico del cuerpo de la solicitud
-        users = User.username.query.all()
-        email= User.email.query.all()
-        return jsonify([user.email for user in users] )
-    if not email in users:
-        return jsonify({'message': "El usuario no existe.Por favor revisa que sea el email correcto, sino crea una cuenta."},400)
+        user= User.query.filter_by(email=email).first()
+        if user is not None: 
+            token = create_access_token(identity={'email': user.email})
+            return jsonify({'token': token,  'user_id': user.id,'message': 'url con el token'}), 200
 
-    if user_exists(email):
+        else: 
+            return("el usuario no fue encontrado")
 
-        token = create_access_token(identity={'email': user.email})
-        return jsonify({'token': token,  'user_id': user.id,'message': 'token creado'}), 200
+
+
 
     
+
+
+		
 
    
 
