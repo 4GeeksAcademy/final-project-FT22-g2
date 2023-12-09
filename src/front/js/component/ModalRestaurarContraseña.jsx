@@ -9,12 +9,12 @@ const RestaurarContraseña = () => {
 
     const service_ID = "service_n8cz62t";
     const template_ID = "contact_form";
-    const api_public_key = 'cRqwKwjjvhCImx3XZ';
+    const api_public_key = "kdu6P43r16fPHQoUu";
 
     const sendMail = () => {
         
         emailjs
-            .send(service_ID, template_ID, api_public_key, { mail: email })
+            .send(service_ID, template_ID, { email: email, name: "nata", access_token: "" }, api_public_key)
             .then((res) => {
                 setEmail(''); // Limpia el campo de correo electrónico después del envío
                 console.log(res);

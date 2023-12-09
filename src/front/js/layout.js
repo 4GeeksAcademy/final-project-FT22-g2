@@ -94,9 +94,9 @@ const Layout = () => {
                            
                            
                             <Route element={
-                                <PrivateRoute>
+                                
                                     <Reset_password/>
-                                </PrivateRoute>
+                                
                             } path="/reset_password" />
                         </Routes>
                         <Footer />

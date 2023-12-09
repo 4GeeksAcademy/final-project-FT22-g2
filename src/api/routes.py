@@ -101,19 +101,21 @@ def user_detail(user_id):
 # Ruta para manejar la solicitud de restablecimiento de contraseña
 @api.route('/reset_password', methods=['POST'])
 def reset_password():
-    token = request.json.get('token')  # Obtener el token del cuerpo de la solicitud
-    new_password = request.json.get('new_password')  # Obtener la nueva contraseña del cuerpo de la solicitud
+    if request.method == 'POST':
+        email = request.json.get('email')  # Obtener el correo electrónico del cuerpo de la solicitud
+        users = User.username.query.all()
+        email= User.email.query.all()
+        return jsonify([user.email for user in users] )
+    if not email in users:
+        return jsonify({'message': "El usuario no existe.Por favor revisa que sea el email correcto, sino crea una cuenta."},400)
 
-    if not token or not new_password:
-        return jsonify({'message': 'Token o nueva contraseña faltante'}), 400
+    if user_exists(email):
 
-    email = verify_reset_token(token)  # Verificar el token
+        token = create_access_token(identity={'email': user.email})
+        return jsonify({'token': token,  'user_id': user.id,'message': 'token creado'}), 200
 
-    if email:
-        # Aquí iría la lógica para cambiar la contraseña del usuario en tu base de datos
-        # Usando el correo electrónico obtenido y la nueva contraseña
-        # Esto dependerá de cómo esté estructurada tu base de datos y tu lógica de usuario
+    
 
-        return jsonify({'message': 'Contraseña restablecida exitosamente'})
-    else:
-        return jsonify({'message': 'Token inválido o expirado'}), 400
+   
+
+

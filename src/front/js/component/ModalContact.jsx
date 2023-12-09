@@ -36,7 +36,7 @@ const ModalContact = () => {
 
         const serviceID = 'service_n8cz62t';
         const templateID = 'template_i86ecfx';
-        const api_public_key = 'cRqwKwjjvhCImx3XZ';
+        const api_public_key = 'kdu6P43r16fPHQoUu';
 
 
         emailjs.sendForm(serviceID, templateID, refForm.current, api_public_key)

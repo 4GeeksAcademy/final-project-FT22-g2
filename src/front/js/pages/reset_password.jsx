@@ -5,7 +5,7 @@ const Reset_password = () => {
     return (
 
         <div classNameName="container">
-            <form>
+            <form className="form-restaurar-contraseña">
                 <div className="mb-3">
                     <label for="exampleInputEmail1" className="form-label">Email Usuario</label>
                     <input type="email" className="form-control" id="emailUsuario" aria-describedby="emailHelp"/>
