@@ -123,16 +123,16 @@ const Navbar = () => {
 								Tipos
 							</Link>
 							<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-								<Link to="busqueda/tinto" className="text-decoration-none" onClick={handleTinto}>
+								<Link to="/busqueda?q=tinto" className="text-decoration-none" onClick={handleTinto}>
 									<li><Link className="dropdown-item" href="#">Tinto</Link></li>
 								</Link>
-								<Link to="busqueda/blanco" className="text-decoration-none" onClick={handleBlanco}>
+								<Link to="/busqueda?q=blanco" className="text-decoration-none" onClick={handleBlanco}>
 									<li><Link className="dropdown-item" href="#">Blanco</Link></li>
 								</Link>
-								<Link to="busqueda/rose" className="text-decoration-none" onClick={handleRose}>
+								<Link to="/busqueda?q=rosé" className="text-decoration-none" onClick={handleRose}>
 									<li><Link className="dropdown-item" href="#">Rosé</Link></li>
 								</Link>
-								<Link to="busqueda/espumante" className="text-decoration-none" onClick={handleEspumante}>
+								<Link to="/busqueda?q=espumante" className="text-decoration-none" onClick={handleEspumante}>
 									<li><Link className="dropdown-item" href="#">Espumante</Link></li>
 								</Link>
 							</ul>
@@ -144,10 +144,10 @@ const Navbar = () => {
 								Categorías
 							</Link>
 							<ul className="dropdown-menu " aria-labelledby="navbarDropdown">
-								<Link to="busqueda/reserva" className="text-decoration-none" onClick={handleReserva}>
+								<Link to="/busqueda?q=reserva" className="text-decoration-none" onClick={handleReserva}>
 									<li><Link className="dropdown-item" href="#">Reserva</Link></li>
 								</Link>
-								<Link to="busqueda/gran-reserva" className="text-decoration-none" onClick={handleGranReserva}>
+								<Link to="/busqueda?q=gran-reserva" className="text-decoration-none" onClick={handleGranReserva}>
 									<li><Link className="dropdown-item" href="#">Gran reserva</Link></li>
 								</Link>
 							</ul>
