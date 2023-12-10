@@ -10,11 +10,12 @@ function sendMail(){
 
 const service_ID = "service_n8cz62t";
 const template_ID= "contact_form";
+const api_public_key = 'cRqwKwjjvhCImx3XZ';
 
 emailjs
-.send(service_ID, template_ID, params)
+.send(service_ID, template_ID, api_public_key, params)
 .then((res) => {
-        document.getElementById('mail').value = "";
+        document.getElementById('email').value = "";
         console.log(res);
         alert("Tu email fue enviado exitosamente");
     })

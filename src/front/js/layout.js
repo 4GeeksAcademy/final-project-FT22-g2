@@ -15,6 +15,8 @@ import PerfilUsuario from "./pages/perfilUsuario.js";
 import Single from "./pages/single.js";
 import Favoritos from "./pages/favoritos.jsx";
 import HistorialCompra from "./pages/historialCompra.jsx";
+import Reset_password from "./pages/reset_password.jsx";
+
 
 import DetallesPedido from "./pages/DetallesPedido.jsx";
 import MetodoDePago from "./pages/metodoDePago.jsx";
@@ -92,9 +94,9 @@ const Layout = () => {
                            
                            
                             <Route element={
-                                <PrivateRoute>
-                                    <reset_password/>
-                                </PrivateRoute>
+                                
+                                    <Reset_password/>
+                                
                             } path="/reset_password" />
                         </Routes>
                         <Footer />

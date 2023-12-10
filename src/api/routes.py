@@ -129,4 +129,17 @@ def get_products_by_search(busqueda):
 #         return jsonify({'message': 'Contraseña restablecida exitosamente'})
 #     else:
 #         return jsonify({'message': 'Token inválido o expirado'}), 400
+    
+# Ruta para manejar la solicitud de restablecimiento de contraseña
+@api.route('/reset_password', methods=['POST'])
+def reset_password():
+    if request.method == 'POST':
+        email = request.json.get('email')  # Obtener el correo electrónico del cuerpo de la solicitud
+        user= User.query.filter_by(email=email).first()
+        if user is not None: 
+            token = create_access_token(identity={'email': user.email})
+            return jsonify({'token': token,  'user_id': user.id,'message': 'url con el token'}), 200
+
+        else: 
+            return("el usuario no fue encontrado")
 
