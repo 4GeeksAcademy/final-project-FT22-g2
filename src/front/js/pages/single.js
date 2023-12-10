@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { Context } from "../store/appContext.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import vinoFavoritos from "../../img/vino-add-favorites.png"
+import vinoFavoritos from "../../img/vino-add-favorites.png";
 import vinoQuitarFavoritos from "../../img/vino-modified 1.png"
 import { useParams } from "react-router-dom";
 

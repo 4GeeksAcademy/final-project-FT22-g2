@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
-import bgHero from "../../img/background-hero.jpeg"
-import emailjs from '@emailjs/browser'
+import bgHero from "../../img/background-hero.jpeg";
+import emailjs from '@emailjs/browser';
 
 
 const ModalContact = () => {
