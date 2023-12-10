@@ -47,7 +47,7 @@ def login():
         return jsonify({'message': 'Invalid email or password'}), 401
     
     token = create_access_token(identity={'email': user.email})
-    return jsonify({'token': token,  'user_id': user.id,'message': 'Login successful'}), 200
+    return jsonify({'token': token, 'user_id': user.id, 'message': 'Login successful'}), 200
 
 # RUTA LISTA
 @api.route('/productos/<int:producto_id>', methods=['GET', 'PUT', 'DELETE'])
@@ -110,35 +110,16 @@ def get_products_by_search(busqueda):
     else:
         return jsonify({"message": "No se encontraron productos con ese nombre, tipo o categoría"}), 404
     
-# # Ruta para manejar la solicitud de restablecimiento de contraseña
-# @api.route('/reset_password', methods=['POST'])
-# def reset_password():
-#     token = request.json.get('token')  # Obtener el token del cuerpo de la solicitud
-#     new_password = request.json.get('new_password')  # Obtener la nueva contraseña del cuerpo de la solicitud
-
-#     if not token or not new_password:
-#         return jsonify({'message': 'Token o nueva contraseña faltante'}), 400
-
-#     email = verify_reset_token(token)  # Verificar el token
-
-#     if email:
-#         # Aquí iría la lógica para cambiar la contraseña del usuario en tu base de datos
-#         # Usando el correo electrónico obtenido y la nueva contraseña
-#         # Esto dependerá de cómo esté estructurada tu base de datos y tu lógica de usuario
-
-#         return jsonify({'message': 'Contraseña restablecida exitosamente'})
-#     else:
-#         return jsonify({'message': 'Token inválido o expirado'}), 400
-    
 # Ruta para manejar la solicitud de restablecimiento de contraseña
-@api.route('/reset_password', methods=['POST'])
+@api.route('/reset_password', methods=['POST', 'GET'])
 def reset_password():
     if request.method == 'POST':
         email = request.json.get('email')  # Obtener el correo electrónico del cuerpo de la solicitud
         user= User.query.filter_by(email=email).first()
         if user is not None: 
-            token = create_access_token(identity={'email': user.email})
-            return jsonify({'token': token,  'user_id': user.id,'message': 'url con el token'}), 200
+            # Se tiene que crear nueva contraseña y borrar la anterior
+
+            return jsonify({'user_id': user.id, 'message': 'url con el token'}), 200
 
         else: 
             return("el usuario no fue encontrado")

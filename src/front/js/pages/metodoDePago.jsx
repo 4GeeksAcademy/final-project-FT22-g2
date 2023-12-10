@@ -117,7 +117,6 @@ const MetodoDePago = () => {
                         Continuar
                     </Link>
                 </div>
-
             </form>
 
 

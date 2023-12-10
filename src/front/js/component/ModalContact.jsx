@@ -22,37 +22,24 @@ const ModalContact = () => {
             [e.target.name]: e.target.value
         });
     }
-    // const refForm = useRef();
+    const refForm = useRef();
 
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // if (!formData.name || !formData.lastName || !formData.email || !formData.phone || !formData.message) {
-        //     alert('Todos los campos son obligatorios');
-        //     return;
-        // } else if() {
+        if (!formData.name || !formData.lastName || !formData.email || !formData.phone || !formData.message) {
+            alert('Todos los campos son obligatorios');
+            return;
+        } else {
+            const serviceID = 'service_n8cz62t';
+            const templateID = 'template_i86ecfx';
+            const api_public_key = 'kdu6P43r16fPHQoUu';
 
-        //     const serviceID = 'service_n8cz62t';
-        //     const templateID = 'template_i86ecfx';
-        //     const apikey = 'n_ZJ_pdN6W9mTe5k3';
-
-        //     emailjs.sendForm(serviceID, templateID, apikey, refForm.current)
-        //         .then(result => console.log(result.text))
-        //         .catch(error => console.error(error))
-            
-        // } else {
-        // const serviceID = 'service_n8cz62t';
-        // const templateID = 'template_i86ecfx';
-        // const api_public_key = 'kdu6P43r16fPHQoUu';
-
-
-        // emailjs.sendForm(serviceID, templateID, refForm.current, api_public_key)
-        // .then(result => console.log(result.text))
-        // .catch(error => console.error(error))
-        // }
-    
-       
+            emailjs.sendForm(serviceID, templateID, refForm.current, api_public_key)
+                .then(result => console.log(result.text))
+                .catch(error => console.error(error))
+        }
 
         setFormSubmitted(true);
 
