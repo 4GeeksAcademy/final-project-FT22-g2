@@ -79,18 +79,18 @@ const Single = () => {
     <div className="container-fluid my-5">
       <div className="row container-productCard d-flex justify-content-center">
         {/* CARD IMG */}
-        <div className="col-9 custom-center custom-center-productCard">
+        <div className="col-lg-9 col-md-8 col-sm-12 custom-center custom-center-productCard">
           <ProductCard imageUrl={image} />
         </div>
 
-        <div className="col-3">
+        <div className="col-lg-3 col-md-4 col-sm-12">
           <div className="container-informacion-producto row">
 
             <div className="informacion-de-producto-single row">
               <h2 className="col-12">
                 {nombre}
               </h2>
-              <div className="calificacion-especificacion col-5">
+              <div className="calificacion-especificacion col-lg-6 col-md-12">
                 <p className="card-text text-start col-12 mb-0">
                   <i className="fas fa-star stars"></i>
                   <i className="fas fa-star stars"></i>
@@ -101,7 +101,7 @@ const Single = () => {
                 <p className="text-secondary col-12 mb-1">{unitFormat}</p>
                 <p className="text-secondary col-12 mb-5">Tipo: {tipo}</p>
               </div>
-              <div className="favorito-producto-single col-7 d-flex justify-content-center">
+              <div className="favorito-producto-single col-lg-7 col-md-12 d-flex justify-content-center">
                 <button type="button" className="btn-add-favorites-product" onClick={handleAddFavorites}>
                   <img className="add-favorites-img p-0" src={favorito ? vinoQuitarFavoritos : vinoFavoritos} alt="add-favorites" width="60px" height="60px" />
                 </button>
@@ -117,7 +117,7 @@ const Single = () => {
               <div className="container-buttons-producto col-12">
                 <div className="row">
                   {/* BUTTON CANTIDAD DE PRODUCTO */}
-                  <div className="productCard-add-remove-btn align-items-center justify-content-between col-9">
+                  <div className="productCard-add-remove-btn align-items-center justify-content-between col-12">
                     <div className="row">
                       <button className="button-add-remove-product remove-product-button px-5 col-4" onClick={handleRestar}> - </button>
                       <label className="label-cantidad-carrito-hover px-5 col-4 text-center"> {cantidad} </label>
@@ -279,6 +279,13 @@ const Single = () => {
           </button>
         </div>
       </div>
+
+      {/* Media Query para pantallas más pequeñas */}
+
+      <style jsx>{`
+             @media only screen and (min-width: 320px) and (min-height: 380px)
+    `}</style>
+
     </div >
   );
 };
