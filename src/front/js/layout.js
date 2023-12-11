@@ -25,7 +25,7 @@ import MetodoDePagoRevisar from "./pages/metodoDePagoRevisar.jsx";
 import { MetodoPagoProvider } from "./component/ContextPago.jsx";
 import { Cloudinary } from "@cloudinary/url-gen";
 import Filteredproduct from "./component/FIlteredproduct.jsx";
-
+import BarraDeBusqueda from "./component/BarraDeBusqueda.jsx";
 import PrivateRoute from "./component/PrivateRoute.jsx";
 import Direccion from "./component/Direccion.jsx";
 //create your first component
