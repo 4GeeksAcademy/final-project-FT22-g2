@@ -20,6 +20,7 @@ class User(db.Model):
     favoritos = db.relationship("Favorito", backref="user")
     facturas = db.relationship("Factura", backref="user")
     ordenes = db.relationship("Orden", backref="user")
+    historialCompra = db.relationship("HistorialCompra", backref="user")
 
     def __repr__(self):
         return f'<User {self.email}>'
@@ -224,6 +225,7 @@ class Producto(db.Model):
     favoritos = db.relationship("Favorito", backref="producto")
     ordenesProductos = db.relationship("OrdenProducto", backref="producto")
     facturasProductos = db.relationship("FacturaProducto", backref="producto")
+    historialCompra = db.relationship("HistorialCompra", backref="producto")
 
     def serialize(self):
         return {
@@ -274,6 +276,18 @@ class Producto(db.Model):
             "active": self.active,
             "image": self.image,
             "facturasProductos": self.facturasProductos.serialize()
+        }
+    def serialize_with_historialCompra(self):
+        return {
+            "id": self.id,
+            "nombre": self.nombre,
+            "categoria": self.categoria,
+            "tipo": self.tipo,
+            "unitFormat": self.unitFormat,
+            "precio": self.precio,
+            "active": self.active,
+            "image": self.image,
+            "historialCompra": self.historialCompra.serialize()
         }
 
     def save(self):
@@ -340,3 +354,11 @@ class FacturaProducto(db.Model):
     def delete(self):
         db.session.delete(self)
         db.session.commit()
+
+class HistorialCompra(db.Model):
+    __tablename__ = 'historial_compras'
+    id = db.Column(db.Integer, primary_key=True)
+    ##conexiones
+    producto_id = db.Column(db.Integer, db.ForeignKey("productos.id"), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+
