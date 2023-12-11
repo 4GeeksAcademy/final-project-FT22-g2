@@ -79,32 +79,35 @@ const Single = () => {
     <div className="container-fluid my-5">
       <div className="row container-productCard d-flex justify-content-center">
         {/* CARD IMG */}
-        <div className="col-lg-9 col-md-8 col-sm-12 custom-center custom-center-productCard">
+        <div className="col col-3 col-md-4 col-sm-12 custom-center custom-center-productCard">
           <ProductCard imageUrl={image} />
         </div>
 
-        <div className="col-lg-3 col-md-4 col-sm-12">
+        <div className="col col-4 col-md-6 col-sm-12">
           <div className="container-informacion-producto row">
 
             <div className="informacion-de-producto-single row">
-              <h2 className="col-12">
+              <h2 className="col-9">
                 {nombre}
               </h2>
-              <div className="calificacion-especificacion col-lg-6 col-md-12">
-                <p className="card-text text-start col-12 mb-0">
-                  <i className="fas fa-star stars"></i>
-                  <i className="fas fa-star stars"></i>
-                  <i className="fas fa-star stars"></i>
-                  <i className="fas fa-star stars"></i>
-                  <i className="fas fa-star stars"></i>
-                </p>
-                <p className="text-secondary col-12 mb-1">{unitFormat}</p>
+              <div className="calificacion-especificacion col-lg-6 col-md-12" style={{ width: "100%" }}>
+                <div style={{ display: "flex" }}>
+                  <div style={{ flex: 1 }}>
+                    <p className="card-text text-start col-12 mb-0">
+                      <i className="fas fa-star stars"></i>
+                      <i className="fas fa-star stars"></i>
+                      <i className="fas fa-star stars"></i>
+                      <i className="fas fa-star stars"></i>
+                      <i className="fas fa-star stars"></i>
+                    </p>
+                    <p className="text-secondary col-12 mb-1">{unitFormat}</p>
+                  </div>
+
+                  <button type="button" className="btn-add-favorites-product" onClick={handleAddFavorites}>
+                    <img className="add-favorites-img p-0" src={favorito ? vinoQuitarFavoritos : vinoFavoritos} alt="add-favorites" width="60px" height="60px" />
+                  </button>
+                </div>
                 <p className="text-secondary col-12 mb-5">Tipo: {tipo}</p>
-              </div>
-              <div className="favorito-producto-single col-lg-7 col-md-12 d-flex justify-content-center">
-                <button type="button" className="btn-add-favorites-product" onClick={handleAddFavorites}>
-                  <img className="add-favorites-img p-0" src={favorito ? vinoQuitarFavoritos : vinoFavoritos} alt="add-favorites" width="60px" height="60px" />
-                </button>
               </div>
 
             </div>
@@ -117,7 +120,7 @@ const Single = () => {
               <div className="container-buttons-producto col-12">
                 <div className="row">
                   {/* BUTTON CANTIDAD DE PRODUCTO */}
-                  <div className="productCard-add-remove-btn align-items-center justify-content-between col-12">
+                  <div className="align-items-center justify-content-between col-6">
                     <div className="row">
                       <button className="button-add-remove-product remove-product-button px-5 col-4" onClick={handleRestar}> - </button>
                       <label className="label-cantidad-carrito-hover px-5 col-4 text-center"> {cantidad} </label>
@@ -169,7 +172,7 @@ const Single = () => {
           </div> */}
 
       {/* Sección de Descripción del producto */}
-      <div className="text-center my-4">
+      <div className="text-center my-4 mx-5 px-5">
         <h4 className="bg-black text-white d-inline-block p-2 rounded rounded-lg">
           Descripción del Producto
         </h4>
@@ -177,7 +180,7 @@ const Single = () => {
           <textarea
             id="wmd-input"
             name="post-text"
-            className="wmd-input s-input bar0 js-post-body-field processed textarea-productCard p-3"
+            className="wmd-input s-input col-12 bar0 js-post-body-field processed textarea-productCard p-3"
             data-editor-type="wmd"
             data-post-type-id="2"
             cols="92"

@@ -143,10 +143,18 @@
 }
 
 
+/* Agrega estilos específicos para el rango de ancho de pantalla 992px - 1160px */
+@media only screen and (min-width: 320px) and (max-width: 1980px) {
+    .categories-navbar-items {
+        display: flex;
+        align-items: center;
+        /* Alinea los elementos verticalmente */
+    }
 
-.categories-navbar-items {
-    padding: 0px;
-    margin: 0px;
+    .categories-navbar-items a {
+        padding: 0px;
+        margin: 0px;
+    }
 }
 
 /* ---- / ESTILOS HERO / ----- */

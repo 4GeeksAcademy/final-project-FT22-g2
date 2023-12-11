@@ -15,7 +15,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: auto;
 }
 
 .container-productCard {
@@ -82,12 +81,10 @@
 }
 
 .section-cantidad-precio-añadir-producto {
-    margin-left: 40px;
     width: 90%;
 }
 
 .informacion-de-producto-single {
-    margin-left: 30px;
     width: 90%;
 }
 
