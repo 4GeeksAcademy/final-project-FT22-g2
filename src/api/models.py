@@ -8,7 +8,7 @@ db = SQLAlchemy()
 # TABLAS DE USUARIO
 class User(db.Model):
     __tablename__ = "users"
-    # Información de columnas
+    # Informaci贸n de columnas
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(120), unique=False, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
@@ -20,6 +20,7 @@ class User(db.Model):
     favoritos = db.relationship("Favorito", backref="user")
     facturas = db.relationship("Factura", backref="user")
     ordenes = db.relationship("Orden", backref="user")
+    historialCompra = db.relationship("HistorialCompra", backref="user")
 
     def __repr__(self):
         return f'<User {self.email}>'
@@ -72,6 +73,16 @@ class User(db.Model):
             "last_login": self.last_login,
             "ordenes": self.ordenes.serialize()
         }
+    
+    def serialize_with_historialCompra(self):
+        return {
+            "id": self.id,
+            "username": self.username,
+            "email": self.email,
+            "active": self.active,
+            "last_login": self.last_login,
+            "historialCompra": self.historialCompra.serialize()
+        }
 
     def save(self):
         db.session.add(self)
@@ -87,7 +98,7 @@ class User(db.Model):
 
 class Profile(db.Model):
     __tablename__ = "profiles"
-    # Información de columnas
+    # Informaci贸n de columnas
     id = db.Column(db.Integer, primary_key=True)
     avatar = db.Column(db.String(120), nullable=False)
     # Conexiones
@@ -112,7 +123,7 @@ class Profile(db.Model):
 
 class Favorito(db.Model):
     __tablename__ = "favoritos"
-    # Información de columnas
+    # Informaci贸n de columnas
     id = db.Column(db.Integer, primary_key=True)
     # Conexiones
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
@@ -136,7 +147,7 @@ class Favorito(db.Model):
 
 class Factura(db.Model):
     __tablename__ = "facturas"
-    # Información de columnas
+    # Informaci贸n de columnas
     id = db.Column(db.Integer, primary_key=True)
     numero_factura = db.Column(db.Integer, unique=True, nullable=False)
     date = db.Column(db.DateTime(), nullable=False)
@@ -224,6 +235,7 @@ class Producto(db.Model):
     favoritos = db.relationship("Favorito", backref="producto")
     ordenesProductos = db.relationship("OrdenProducto", backref="producto")
     facturasProductos = db.relationship("FacturaProducto", backref="producto")
+    historialCompra = db.relationship("HistorialCompra", backref="producto")
 
     def serialize(self):
         return {
@@ -274,6 +286,18 @@ class Producto(db.Model):
             "active": self.active,
             "image": self.image,
             "facturasProductos": self.facturasProductos.serialize()
+        }
+    def serialize_with_historialCompra(self):
+        return {
+            "id": self.id,
+            "nombre": self.nombre,
+            "categoria": self.categoria,
+            "tipo": self.tipo,
+            "unitFormat": self.unitFormat,
+            "precio": self.precio,
+            "active": self.active,
+            "image": self.image,
+            "historialCompra": self.historialCompra.serialize()
         }
 
     def save(self):
@@ -337,6 +361,29 @@ class FacturaProducto(db.Model):
     def update(self):
         db.session.commit()
     
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
+
+class HistorialCompra(db.Model):
+    __tablename__ = 'historial_compras'
+    id = db.Column(db.Integer, primary_key=True)
+    ##conexiones
+    producto_id = db.Column(db.Integer, db.ForeignKey("productos.id"), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+
+    def serialize(self):
+        return {
+            "id": self.id,
+        }
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
+    
+    def update(self):
+        db.session.commit()
+
     def delete(self):
         db.session.delete(self)
         db.session.commit()

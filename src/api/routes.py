@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, Producto
+from api.models import db, User, Producto, HistorialCompra
 from api.utils import generate_sitemap, APIException
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import JWTManager, create_access_token, get_jwt_identity, jwt_required
@@ -109,6 +109,29 @@ def get_products_by_search(busqueda):
         return jsonify([producto.serialize() for producto in productos])
     else:
         return jsonify({"message": "No se encontraron productos con ese nombre, tipo o categoría"}), 404
+
+# RUTA LISTA
+@api.route('/historial-compra', methods=['GET', 'POST'])
+def get_historial():
+    if request.method == 'POST':
+        data = request.json
+        producto_id = data.get('producto_id')
+        user_id = data.get('user_id')
+
+        if not producto_id or not user_id:
+            return jsonify({'message': 'Both producto_id and user_id are required'}), 400
+
+        historial_compra = HistorialCompra(producto_id=producto_id, user_id=user_id)
+        historial_compra.save()
+
+        return jsonify({'message': 'HistorialCompra created successfully'}), 201
+
+    elif request.method == 'GET':
+        historial_compras = HistorialCompra.query.all()
+        return jsonify([historial.serialize() for historial in historial_compras])
+    
+    historial_compras = HistorialCompra.query.all()
+    return jsonify([HistorialCompra.serialize() for HistorialCompra in historial_compras])
     
 # Ruta para manejar la solicitud de restablecimiento de contraseña
 @api.route('/reset_password', methods=['POST', 'GET'])
@@ -116,11 +139,11 @@ def reset_password():
     if request.method == 'POST':
         email = request.json.get('email')  # Obtener el correo electrónico del cuerpo de la solicitud
         user= User.query.filter_by(email=email).first()
-        if user is not None: 
+        if user is not None:
             # Se tiene que crear nueva contraseña y borrar la anterior
 
             return jsonify({'user_id': user.id, 'message': 'url con el token'}), 200
 
-        else: 
+        else:
             return("el usuario no fue encontrado")
 
