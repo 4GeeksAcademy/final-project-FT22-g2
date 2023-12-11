@@ -31,7 +31,7 @@
 .fila-vista-carrito {
     background: rgba(217, 217, 217, 0.3);
     border-top: 1px #acacac solid;
-    height: 90px;
+    height: 130px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -58,7 +58,7 @@
 
 .img-producto-vista-carrito {
     width: 80px;
-    height: 80px;
+    height: auto;
     overflow: hidden;
 }
 
@@ -94,4 +94,20 @@
 
 .icon-hover-eliminar-producto:hover {
     color: rgb(122, 4, 100);
+}
+
+.add-carrito-hover {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.remove-carrito-hover {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
 }

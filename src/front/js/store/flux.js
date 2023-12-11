@@ -96,6 +96,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 					shoppingCart
 				})
 			},
+			updateShoppingCart: (nombre, newCantidad) => {
+				const updatedShoppingCart = store.shoppingCart.map(item =>
+					item.nombre === nombre ? { ...item, cantidad: newCantidad } : item
+				);
+
+				actions.setShoppingCart(updatedShoppingCart);
+			},
 			fetchProduct: async (id) => {
 				const product = await fetch(`https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/productos/${id}`).then(res => res.json())
 				setStore({
@@ -114,13 +121,41 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.log("estos son los productos filtrados", getStore().productosFiltrados)
 			},
 			setTipo: (tipo) => setStore({ tipo }),
-			setCategoria: (category) => setStore({ categoria: category })
+			setCategoria: (category) => setStore({ categoria: category }),
+
+			//fetch para restaurar contraseña
+
+			restaurar_contraseña: async (email) => {
+				try {
+					const response = await fetch(`https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/reset_password`, {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json',
+						},
+						body: JSON.stringify({ email: email }),
+					});
+
+					if (response.ok) {
+						const data = await response.json();
+						const token = data.token;
+						const resetUrl = `https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/reset_password/${token}`; // URL con el token
+
+					}
+					else {
+						throw new Error('Error al obtener el token');
+					}
+				}catch(error) {
+						console.error(error);
+					}
+
+				}
+		
 
 
 		}
+		}
 	};
-};
 
 
 
-export default getState;
+	export default getState;

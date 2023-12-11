@@ -15,6 +15,8 @@ import PerfilUsuario from "./pages/perfilUsuario.js";
 import Single from "./pages/single.js";
 import Favoritos from "./pages/favoritos.jsx";
 import HistorialCompra from "./pages/historialCompra.jsx";
+import Reset_password from "./pages/reset_password.jsx";
+
 
 import DetallesPedido from "./pages/DetallesPedido.jsx";
 import MetodoDePago from "./pages/metodoDePago.jsx";
@@ -89,6 +91,13 @@ const Layout = () => {
                                 </PrivateRoute>
                             } path="/metodo-de-pago/direccion" />
                             <Route element={<h1>Not found!</h1>} />
+                           
+                           
+                            <Route element={
+                                
+                                    <Reset_password/>
+                                
+                            } path="/reset_password" />
                         </Routes>
                         <Footer />
                     </ScrollToTop>

@@ -9,7 +9,7 @@ const BarraDeBusqueda = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    navigate(`/busqueda?q=${busqueda}`);
+    window.location.href = process.env.BASENAME + `busqueda?q=${busqueda}`
   };
 
   const handleChange = (e) => {

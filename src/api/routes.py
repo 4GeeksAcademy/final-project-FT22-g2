@@ -47,7 +47,7 @@ def login():
         return jsonify({'message': 'Invalid email or password'}), 401
     
     token = create_access_token(identity={'email': user.email})
-    return jsonify({'token': token,  'user_id': user.id,'message': 'Login successful'}), 200
+    return jsonify({'token': token, 'user_id': user.id, 'message': 'Login successful'}), 200
 
 # RUTA LISTA
 @api.route('/productos/<int:producto_id>', methods=['GET', 'PUT', 'DELETE'])
@@ -95,10 +95,32 @@ def user_detail(user_id):
         db.session.delete(user)
         db.session.commit()
         return jsonify({'message': 'Usuario eliminado exitosamente'})
-    
-@api.route('/productos/<string:nombre>', methods=['GET'])
-def get_products_by_search(nombre):
 
-    productos = Producto.query.filter_by(nombre=nombre)
-    return jsonify([producto.serialize() for producto in productos])
+@api.route('/productos/<string:busqueda>', methods=['GET'])
+def get_products_by_search(busqueda):
+    # Buscar productos por nombre, tipo o categoría
+    productos = Producto.query.filter(
+        (Producto.nombre.ilike(f"%{busqueda}%")) |
+        (Producto.tipo.ilike(f"%{busqueda}%")) |
+        (Producto.categoria.ilike(f"%{busqueda}%"))
+    ).all()
+
+    if productos:
+        return jsonify([producto.serialize() for producto in productos])
+    else:
+        return jsonify({"message": "No se encontraron productos con ese nombre, tipo o categoría"}), 404
     
+# Ruta para manejar la solicitud de restablecimiento de contraseña
+@api.route('/reset_password', methods=['POST', 'GET'])
+def reset_password():
+    if request.method == 'POST':
+        email = request.json.get('email')  # Obtener el correo electrónico del cuerpo de la solicitud
+        user= User.query.filter_by(email=email).first()
+        if user is not None: 
+            # Se tiene que crear nueva contraseña y borrar la anterior
+
+            return jsonify({'user_id': user.id, 'message': 'url con el token'}), 200
+
+        else: 
+            return("el usuario no fue encontrado")
+

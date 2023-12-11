@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import bgHero from "../../img/background-hero.jpeg"
+import emailjs from '@emailjs/browser'
+
 
 const ModalContact = () => {
 
@@ -20,6 +22,8 @@ const ModalContact = () => {
             [e.target.name]: e.target.value
         });
     }
+    const refForm = useRef();
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -27,6 +31,14 @@ const ModalContact = () => {
         if (!formData.name || !formData.lastName || !formData.email || !formData.phone || !formData.message) {
             alert('Todos los campos son obligatorios');
             return;
+        } else {
+            const serviceID = 'service_n8cz62t';
+            const templateID = 'template_i86ecfx';
+            const api_public_key = 'kdu6P43r16fPHQoUu';
+
+            emailjs.sendForm(serviceID, templateID, refForm.current, api_public_key)
+                .then(result => console.log(result.text))
+                .catch(error => console.error(error))
         }
 
         setFormSubmitted(true);
@@ -35,7 +47,6 @@ const ModalContact = () => {
             setShowClosingModal(true);
         }, 3000);
     }
- 
 
     return (
         <>
@@ -56,7 +67,7 @@ const ModalContact = () => {
                                     <img src={bgHero} alt="example" width="100%" height="100%" className="rounded" />
                                 </div>
 
-                                <form onSubmit={handleSubmit} className='col-lg-8 col-md-6 container-inputs-contact'>
+                                <form ref={refForm} onSubmit={handleSubmit} className='col-lg-8 col-md-6 container-inputs-contact'>
                                     {!formSubmitted ? (
                                         <>
                                             <div className="row">

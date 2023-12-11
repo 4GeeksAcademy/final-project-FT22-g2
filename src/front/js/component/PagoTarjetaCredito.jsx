@@ -4,6 +4,7 @@ import 'react-credit-cards/es/styles-compiled.css'
 
 import pagoTarjetaDeCredito from "../../styles/pagoTarjetaDeCredito.css";
 import { Link } from "react-router-dom";
+import Swal from 'sweetalert2'
 
 const TarjetaDeCredito = () => {
 
@@ -18,34 +19,89 @@ const TarjetaDeCredito = () => {
     const handleOnClickDefault = (e) => {
         e.preventDefault();
 
+        const numberOnly = /^\d+$/;
+
         let isValid = true;
 
         if (state.number === '' || state.name === '' || state.expiry === '' || state.cvc === '') {
-            alert("Todos los campos son obligatorios");
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Todos los campos son obligatorios!",
+            });
         } else {
 
+            if (!numberOnly.test(state.number)) {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "El número de tarjeta sólo puede contener dígitos!",
+                });
+                isValid = false;
+            }
+
             if (state.number.length < 16 || state.number.length > 16) {
-                alert('Número de tarjeta debe tener 16 dígitos');
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Número de tarjeta debe tener 16 dígitos!",
+                });
                 isValid = false;
             }
 
             if (state.name.length < 1 || state.name.length > 40) {
-                alert('El nombre no puede ir vacío');
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "El nombre no puede ir vacío!",
+                });
+                isValid = false;
+            }
+
+            if (!numberOnly.test(state.expiry)) {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "La fecha de expiración sólo puede contener dígitos!",
+                });
                 isValid = false;
             }
 
             if (state.expiry.length < 4 || state.expiry.length > 4) {
-                alert('Fecha de expiración debe tener 4 dígitos');
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Fecha de expiración debe tener 4 dígitos!",
+                });
+                isValid = false;
+            }
+
+            if (!numberOnly.test(state.cvc)) {
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "El CVC sólo puede contener dígitos!",
+                });
                 isValid = false;
             }
 
             if (state.cvc.length < 3 || state.cvc.length > 3) {
-                alert('CVC debe tener 3 dígitos');
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "CVC debe tener 3 dígitos!",
+                });
                 isValid = false;
             }
 
             if (isValid) {
-                alert("Los campos se rellenaron correctamente");
+                Swal.fire({
+                    icon: "success",
+                    title: "Los campos se rellenaron correctamente!",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+
                 setTimeout(() => {
                     window.location.href = process.env.BASENAME + "metodo-de-pago/direccion";
                 }, 2000);
@@ -93,6 +149,7 @@ const TarjetaDeCredito = () => {
                             type="text"
                             name="number"
                             id="number-tarjeta"
+                            inputMode="numeric"
                             maxLength={16}
                             minLength={16}
                             className="form-control"
@@ -123,6 +180,7 @@ const TarjetaDeCredito = () => {
                                 type="text"
                                 name="expiry"
                                 id="expiryTarjeta"
+                                inputMode="numeric"
                                 maxLength={4}
                                 minLength={4}
                                 className="form-control"
@@ -138,6 +196,7 @@ const TarjetaDeCredito = () => {
                                 type="text"
                                 name="cvc"
                                 id="cvcTarjeta"
+                                inputMode="numeric"
                                 maxLength={3}
                                 minLength={3}
                                 className="form-control"

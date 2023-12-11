@@ -27,49 +27,11 @@ const Navbar = () => {
 		}, 2000);
 	};
 
-	const handleTinto = () => {
-		setTipo(null)
-		setCategoria(null)
-		setTipo("tinto")
-	}
-
-	const handleBlanco = () => {
-		setTipo(null)
-		setCategoria(null)
-		setTipo("blanco")
-	}
-
-	const handleRose = () => {
-		setTipo(null)
-		setCategoria(null)
-		setTipo("rose")
-	}
-
-	const handleEspumante = () => {
-		setTipo(null)
-		setCategoria(null)
-		setTipo("espumante")
-	}
-
-	const handleReserva = () => {
-		setTipo(null)
-		setCategoria(null)
-		setCategoria("reserva")
-	}
-
-	const handleGranReserva = () => {
-		setTipo(null)
-		setCategoria(null)
-		setCategoria("gran reserva")
-	}
-
-	const handleResetCategories = () => {
-		setTipo(null);
-		setCategoria(null);
-	};
-
 	const handleSearch = (busqueda) => {
-		navigate(`/busqueda?q=${busqueda}`);
+		setTimeout(() => {
+			window.location.href = process.env.BASENAME + `busqueda?q=${busqueda}`
+		}, 10);
+
 	};
 
 	return (
@@ -85,7 +47,7 @@ const Navbar = () => {
 
 					{/* ---- / LOGO / ---- */}
 					<Link to="/">
-						<img className="mx-5" src={logoUrl} width="130px" height="100px" onClick={handleResetCategories} />
+						<img className="mx-5" src={logoUrl} width="130px" height="100px" />
 					</Link>
 
 					{/* REDES SOCIALES */}
@@ -114,16 +76,16 @@ const Navbar = () => {
 								Tipos
 							</Link>
 							<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-								<Link to="/busqueda?q=tinto" className="text-decoration-none" onClick={() => { handleTinto(); handleSearch("tinto"); }}>
+								<Link to="/busqueda?q=tinto" className="text-decoration-none" onClick={() => { handleSearch("tinto"); }}>
 									<li><Link className="dropdown-item" href="#">Tinto</Link></li>
 								</Link>
-								<Link to="/busqueda?q=blanco" className="text-decoration-none" onClick={() => { handleBlanco(); handleSearch("blanco"); }}>
+								<Link to="/busqueda?q=blanco" className="text-decoration-none" onClick={() => { handleSearch("blanco"); }}>
 									<li><Link className="dropdown-item" href="#">Blanco</Link></li>
 								</Link>
-								<Link to="/busqueda?q=rosé" className="text-decoration-none" onClick={() => { handleRose(); handleSearch("rosé"); }}>
+								<Link to="/busqueda?q=rosé" className="text-decoration-none" onClick={() => { handleSearch("rosé"); }}>
 									<li><Link className="dropdown-item" href="#">Rosé</Link></li>
 								</Link>
-								<Link to="/busqueda?q=espumante" className="text-decoration-none" onClick={() => { handleEspumante(); handleSearch("espumante"); }}>
+								<Link to="/busqueda?q=espumante" className="text-decoration-none" onClick={() => { handleSearch("espumante"); }}>
 									<li><Link className="dropdown-item" href="#">Espumante</Link></li>
 								</Link>
 							</ul>
@@ -135,10 +97,10 @@ const Navbar = () => {
 								Categorías
 							</Link>
 							<ul className="dropdown-menu " aria-labelledby="navbarDropdown">
-								<Link to="/busqueda?q=reserva" className="text-decoration-none" onClick={() => { handleReserva(); handleSearch("reserva"); }}>
+								<Link to="/busqueda?q=reserva" className="text-decoration-none" onClick={() => { handleSearch("reserva"); }}>
 									<li><Link className="dropdown-item" href="#">Reserva</Link></li>
 								</Link>
-								<Link to="/busqueda?q=gran-reserva" className="text-decoration-none" onClick={() => { handleGranReserva(); handleSearch("gran reserva"); }}>
+								<Link to="/busqueda?q=gran-reserva" className="text-decoration-none" onClick={() => { handleSearch("gran reserva"); }}>
 									<li><Link className="dropdown-item" href="#">Gran reserva</Link></li>
 								</Link>
 							</ul>
@@ -170,10 +132,10 @@ const Navbar = () => {
 											<i className="fa-solid fa-right-to-bracket px-3"></i>
 										</Link>
 										<ul className="dropdown-menu p-2" aria-labelledby="navbarDropdown2">
-											<li onClick={handleResetCategories}>
+											<li>
 												<button className="dropdown-item border-bottom" data-bs-toggle="modal" data-bs-target="#modalLogin" type="button">Acceder</button>
 											</li>
-											<li onClick={handleResetCategories}>
+											<li>
 												<Link to="/registro" className="text-decoration-none">
 													<Link className="dropdown-item" href="#">Registrarse</Link>
 												</Link>
@@ -191,11 +153,11 @@ const Navbar = () => {
 										</Link>
 										<ul className="dropdown-menu p-2" aria-labelledby="navbarDropdown2">
 											<li className="dropdown-item d-flex justify-content-center container-button-perfil-dropdown w-100 border-bottom">
-												<Link to="/perfil" className="button-perfil-dropdown" onClick={handleResetCategories}>
+												<Link to="/perfil" className="button-perfil-dropdown">
 													Perfil
 												</Link>
 											</li>
-											<li className="dropdown-item" onClick={handleResetCategories}>
+											<li className="dropdown-item">
 												<button data-bs-toggle="modal" data-bs-target="#modalCerrarSesion" className="button-cerrar-sesion-dropdown" onClick={handleLogout}>
 													Cerrar sesión
 												</button>
