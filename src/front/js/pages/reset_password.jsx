@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import layout from "../layout";
+import React, { useState, useEffect } from "react";
+import "../../styles/reset_password.css";
 
 const Reset_password = () => {
     const [password, setPassword] = useState('');
@@ -10,7 +10,7 @@ const Reset_password = () => {
 
         try {
             const response = await fetch('https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/reset_password', {
-                method: 'POST',
+                method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ password: password })
             });
@@ -25,25 +25,47 @@ const Reset_password = () => {
         }
 
     }
+    const showAlerta = () =>{
+        Swal.fire({
+            title: "Custom animation with Animate.css",
+            showClass: {
+              popup: `
+                animate__animated
+                animate__fadeInUp
+                animate__faster
+              `
+            },
+            hideClass: {
+              popup: `
+                animate__animated
+                animate__fadeOutDown
+                animate__faster
+              `
+            }
+            
+          });
+    }
 
     return (
 
-        <div classNameName="container">
-            <form className="form-restaurar-contraseña" onSubmit={handleSubmitContraseña}>
+        <div classNameName="card reset-password p-5">
+            <div className="card-body restaurar-contraseña container-fluid">
+            <form className="form-restaurar-contraseña " onSubmit={handleSubmitContraseña}>
                 <div className="mb-3">
                     <label for="exampleInputEmail1" className="form-label">Email Usuario</label>
-                    <input type="email" className="form-control" id="emailUsuario" aria-describedby="emailHelp"
-                        value='email' />
+                    <input type="email" className="form-control input-rc" id="emailUsuario" aria-describedby="emailHelp"
+                         />
                 </div>
                 <div className="mb-3">
                     <label for="exampleInputPassword1" className="form-label">Nueva Contraseña</label>
-                    <input type="password" className="form-control" id="NuevaContraseña"
+                    <input type="password" className="form-control input-rc" id="NuevaContraseña"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)} />
                 </div>
                 <button type="submit"
-                    className="btn btn-primary">Submit</button>
+                    className="btn btn-dark">Guardar</button>
             </form>
+            </div>
         </div>
 
     )
@@ -51,9 +73,5 @@ const Reset_password = () => {
 
 
 
-/* 
-esta es la vista https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/reset_password para que el usuario ingrese su nueva contraseña y esta se cambie en la api,
- no la pude probar xq el back estaba cerrado, falta generar bien la url con el token.
-Los cambios estan es ModalRestaurarContraseña.jsx, rotes.py, flux.js, Reset_password.jsx y en el layout.js que esta la ruta  */
 
 export default Reset_password;

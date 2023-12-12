@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "../../styles/modalRestaurarContraseña.css"
-//import { sendMail } from "../../../services/mail"
 import emailjs from '@emailjs/browser'
 
 
@@ -13,7 +12,7 @@ const RestaurarContraseña = () => {
 
     const sendMail = async() => {
         try{
-            const response = await fetch('https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/reset_password',{
+            const response = await fetch('https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/',{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -26,7 +25,7 @@ const RestaurarContraseña = () => {
 
         const data = await response.json();
         const token = data.token;
-        const resetUrl = `https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/reset_password/${token}`;
+        const resetUrl = `https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/reset_password/${token}`;
 
 
         

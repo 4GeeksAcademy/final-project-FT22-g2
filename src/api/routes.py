@@ -132,11 +132,13 @@ def get_historial():
     
     historial_compras = HistorialCompra.query.all()
     return jsonify([HistorialCompra.serialize() for HistorialCompra in historial_compras])
+
+
     
 # Ruta para manejar la solicitud de restablecimiento de contraseña
-@api.route('/reset_password', methods=['POST', 'GET'])
+@api.route('/reset_password', methods=['POST', 'GET', 'PUT'])
 def reset_password():
-    if request.method == 'POST':
+    if request.method == 'PUT':
         email = request.json.get('email')  # Obtener el correo electrónico del cuerpo de la solicitud
         user= User.query.filter_by(email=email).first()
         if user is not None:
