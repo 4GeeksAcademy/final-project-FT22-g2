@@ -36,7 +36,7 @@ const Reset_password = () => {
 
     const showAlerta = () =>{
         Swal.fire({
-            title: "Lamentamos los inconvenientes. Ésta opción aún no está disponible.",
+            title: "Lamentamos los inconvenientes, pero esta opción aún no está disponible",
             showClass: {
               popup: `
                 animate__animated
