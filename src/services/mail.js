@@ -13,7 +13,7 @@ const template_ID= "contact_form";
 const api_public_key = 'cRqwKwjjvhCImx3XZ';
 
 emailjs
-.send(service_ID, template_ID, api_public_key, params)
+.send(service_ID, template_ID, api_public_key)
 .then((res) => {
         document.getElementById('email').value = "";
         console.log(res);

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
+import Swal from 'sweetalert2';
 import "../../styles/reset_password.css";
 
 const Reset_password = () => {
-    const [password, setPassword] = useState('');
+     const [password, setPassword] = useState('');
 
-    const handleSubmitContraseña = async (e) => {
+   const handleSubmitContraseña = async (e) => {
         e.preventDefault()
 
 
@@ -25,9 +26,17 @@ const Reset_password = () => {
         }
 
     }
+    useEffect(() => {
+        const alertTimeout = setTimeout(() => {
+            showAlerta();
+        }, 2000);
+
+        return () => clearTimeout(alertTimeout);
+    }, []);
+
     const showAlerta = () =>{
         Swal.fire({
-            title: "Custom animation with Animate.css",
+            title: "Lamentamos los inconvenientes. Ésta opción aún no está disponible.",
             showClass: {
               popup: `
                 animate__animated
@@ -41,10 +50,16 @@ const Reset_password = () => {
                 animate__fadeOutDown
                 animate__faster
               `
+            },
+            showConfirmButton: true,
+            confirmButtonText: 'Aceptar',
+            allowOutsideClick: false
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = '/'; // Redirige a la página principal
             }
-            
-          });
-    }
+        });
+    };
 
     return (
 
@@ -60,11 +75,12 @@ const Reset_password = () => {
                     <label for="exampleInputPassword1" className="form-label">Nueva Contraseña</label>
                     <input type="password" className="form-control input-rc" id="NuevaContraseña"
                         value={password}
-                        onChange={(e) => setPassword(e.target.value)} />
+                        o/* nChange={(e) => setPassword(e.target.value)} */ />
                 </div>
                 <button type="submit"
                     className="btn btn-dark">Guardar</button>
             </form>
+
             </div>
         </div>
 

@@ -136,7 +136,7 @@ def get_historial():
 
     
 # Ruta para manejar la solicitud de restablecimiento de contraseña
-@api.route('/reset_password', methods=['POST', 'GET', 'PUT'])
+""" @api.route('/reset_password', methods=['POST', 'GET', 'PUT'])
 def reset_password():
     if request.method == 'PUT':
         email = request.json.get('email')  # Obtener el correo electrónico del cuerpo de la solicitud
@@ -147,5 +147,5 @@ def reset_password():
             return jsonify({'user_id': user.id, 'message': 'url con el token'}), 200
 
         else:
-            return("el usuario no fue encontrado")
+            return("el usuario no fue encontrado") """
 
