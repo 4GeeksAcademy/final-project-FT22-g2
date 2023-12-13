@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import vinoFavoritos from "../../img/vino-add-favorites.png"
 import vinoQuitarFavoritos from "../../img/vino-modified 1.png"
 import { useParams } from "react-router-dom";
+import Swal from 'sweetalert2';
 
 
 import ProductCard from "../component/ProductCard.jsx";
@@ -59,6 +60,23 @@ const Single = () => {
 
       actions.updateShoppingCart(nombre, cantidad - 1);
     }
+  }
+
+  const handleAlertaProximamente = () => {
+    Swal.fire({
+      title: "¡Próximamente!",
+      icon: "info",
+      html: "En un futuro podrás hacerle saber tu humilde opinión a esta persona!",
+      showCancelButton: true,
+      confirmButtonText: `
+        <i class="fa fa-thumbs-up"></i> Bien!
+      `,
+      confirmButtonAriaLabel: "Thumbs up, great!",
+      cancelButtonText: `
+        <i class="fa fa-thumbs-down"></i>
+      `,
+      cancelButtonAriaLabel: "Thumbs down"
+    });
   }
 
   const { id } = useParams();
@@ -159,15 +177,6 @@ const Single = () => {
         </div >
       </div >
 
-      {/* <div className="text-center">
-            <h4 className="card-title">{name}</h4>
-            <p className="card-text">
-              {Array.from({ length: stars || 0 }, (_, index) => (
-                <i key={index} className="fas fa-star"></i>
-              ))}
-            </p>
-          </div> */}
-
       {/* Sección de Descripción del producto */}
       <div className="text-center my-4">
         <h4 className="bg-black text-white d-inline-block p-2 rounded rounded-lg">
@@ -235,14 +244,10 @@ const Single = () => {
           <p className="text-secondary">
             Estaba maravilloso exquisito arte, 5 estrellas.
           </p>
-          <button className="button-calificacion-comment-positiva me-3 p-1" onClick={() => {
-            alert("Próximamente podrás hacerle saber tu humilde opinión a esta persona!")
-          }}>
+          <button className="button-calificacion-comment-positiva me-3 p-1" onClick={handleAlertaProximamente}>
             Es útil <i className="fa-regular fa-thumbs-up"></i>
           </button>
-          <button className="button-calificacion-comment-negativa p-1" onClick={() => {
-            alert("Próximamente podrás hacerle saber tu humilde opinión a esta persona!")
-          }}>
+          <button className="button-calificacion-comment-negativa p-1" onClick={handleAlertaProximamente}>
             <i className="fa-regular fa-thumbs-down" ></i>
           </button>
         </div>
@@ -267,14 +272,10 @@ const Single = () => {
           <p className="text-secondary">
             Espectacular, PERO.
           </p>
-          <button className="button-calificacion-comment-positiva me-3 p-1" onClick={() => {
-            alert("Próximamente podrás hacerle saber tu humilde opinión a esta persona!")
-          }}>
+          <button className="button-calificacion-comment-positiva me-3 p-1" onClick={handleAlertaProximamente}>
             Es útil <i className="fa-regular fa-thumbs-up"></i>
           </button>
-          <button className="button-calificacion-comment-negativa p-1" onClick={() => {
-            alert("Próximamente podrás hacerle saber tu humilde opinión a esta persona!")
-          }}>
+          <button className="button-calificacion-comment-negativa p-1" onClick={handleAlertaProximamente}>
             <i className="fa-regular fa-thumbs-down"></i>
           </button>
         </div>
