@@ -1,15 +1,18 @@
-.input-field-restaurar-contraseña{
-    border-radius: 5px; 
+.input-field-restaurar-contraseña {
+    border-radius: 5px;
     border: gray 1px solid;
     align-items: center;
-    cursor: pointer; 
+    cursor: pointer;
     width: 80%;
     height: 50px;
     background-color: whitesmoke;
+    padding: 10px;
 }
-.input-field-restaurar-contraseña:focus{
+
+.input-field-restaurar-contraseña:focus {
     outline: #a04c5b 1px solid;
 }
-.fieldset-restaurarContraseña{
+
+.fieldset-restaurarContraseña {
     margin-bottom: 10px;
 }

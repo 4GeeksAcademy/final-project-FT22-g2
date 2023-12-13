@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import "../../styles/registro.css";
 import { Context } from '../store/appContext.js';
 import { useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2';
 
 const Registro = () => {
 
@@ -23,11 +24,25 @@ const Registro = () => {
 
         try {
             await actions.createUser(username, email, password)
-                .then(resp => navigate("/"))
-            alert('Usuario creado!')
+            Swal.fire({
+                icon: "success",
+                title: "Tu usuario se creó correctamente!"
+            });
+
+            setTimeout(() => {
+                navigate("/")
+            }, 2000);
+
+            setTimeout(() => {
+                window.location.reload(false)
+            }, 2001);
 
         } catch (error) {
             console.log("error handleSubmit", error);
+            Swal.fire({
+                icon: "error",
+                title: "No se ha podido crear el usuario"
+            });
         }
     }
 

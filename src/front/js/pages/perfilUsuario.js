@@ -62,6 +62,7 @@ const PerfilUsuario = () => {
 
   const handleCerrarSesion = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("user_id");
     localStorage.removeItem("shoppingCart");
     setTimeout(() => {
       window.location.href = process.env.BASENAME + "registro";

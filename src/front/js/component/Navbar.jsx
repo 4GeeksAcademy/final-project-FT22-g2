@@ -10,6 +10,7 @@ import { Context } from "../store/appContext";
 import { NavBarShoppingCart } from "./NavBarShoppingCart.jsx"
 import { CardContainer16 } from "./Card.jsx";
 import BarraDeBusqueda from "./BarraDeBusqueda.jsx";
+import ModalCerrarSesion from "./ModalCerrarSesion.jsx";
 
 const Navbar = () => {
 	const { store, actions } = useContext(Context);
@@ -23,8 +24,12 @@ const Navbar = () => {
 		localStorage.removeItem("user_id");
 		localStorage.removeItem("shoppingCart");
 		setTimeout(() => {
-			navigate(process.env.BASENAME + "registro");
+			navigate("registro");
 		}, 2000);
+
+		setTimeout(() => {
+			window.location.reload(false);
+		}, 2001);
 	};
 
 	const handleSearch = (busqueda) => {
@@ -40,6 +45,7 @@ const Navbar = () => {
 				<LogIn />
 				<ModalContact />
 				<RestaurarContraseña />
+				<ModalCerrarSesion />
 			</div>
 
 			<nav className="container-navbar navbar navbar-expand-lg" style={{ color: "white", backgroundColor: "#7B2121", fontFamily: "Arial", overflowY: "" }}>
@@ -77,16 +83,16 @@ const Navbar = () => {
 							</Link>
 							<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
 								<Link to="/busqueda?q=tinto" className="text-decoration-none" onClick={() => { handleSearch("tinto"); }}>
-									<li><Link className="dropdown-item" href="#">Tinto</Link></li>
+									<li><a className="dropdown-item" href="#">Tinto</a></li>
 								</Link>
 								<Link to="/busqueda?q=blanco" className="text-decoration-none" onClick={() => { handleSearch("blanco"); }}>
-									<li><Link className="dropdown-item" href="#">Blanco</Link></li>
+									<li><a className="dropdown-item" href="#">Blanco</a></li>
 								</Link>
 								<Link to="/busqueda?q=rosé" className="text-decoration-none" onClick={() => { handleSearch("rosé"); }}>
-									<li><Link className="dropdown-item" href="#">Rosé</Link></li>
+									<li><a className="dropdown-item" href="#">Rosé</a></li>
 								</Link>
 								<Link to="/busqueda?q=espumante" className="text-decoration-none" onClick={() => { handleSearch("espumante"); }}>
-									<li><Link className="dropdown-item" href="#">Espumante</Link></li>
+									<li><a className="dropdown-item" href="#">Espumante</a></li>
 								</Link>
 							</ul>
 						</div>
@@ -98,10 +104,10 @@ const Navbar = () => {
 							</Link>
 							<ul className="dropdown-menu " aria-labelledby="navbarDropdown">
 								<Link to="/busqueda?q=reserva" className="text-decoration-none" onClick={() => { handleSearch("reserva"); }}>
-									<li><Link className="dropdown-item" href="#">Reserva</Link></li>
+									<li><a className="dropdown-item" href="#">Reserva</a></li>
 								</Link>
 								<Link to="/busqueda?q=gran-reserva" className="text-decoration-none" onClick={() => { handleSearch("gran reserva"); }}>
-									<li><Link className="dropdown-item" href="#">Gran reserva</Link></li>
+									<li><a className="dropdown-item" href="#">Gran reserva</a></li>
 								</Link>
 							</ul>
 						</div>
@@ -137,7 +143,7 @@ const Navbar = () => {
 											</li>
 											<li>
 												<Link to="/registro" className="text-decoration-none">
-													<Link className="dropdown-item" href="#">Registrarse</Link>
+													<a className="dropdown-item" href="#">Registrarse</a>
 												</Link>
 											</li>
 										</ul>

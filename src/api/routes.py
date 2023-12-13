@@ -7,6 +7,7 @@ from api.utils import generate_sitemap, APIException
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_jwt_extended import JWTManager, create_access_token, get_jwt_identity, jwt_required
 from flask_cors import CORS
+# from email import sendMail
 
 api = Blueprint('api', __name__)
 CORS(api, resources={r"/api/": {"origins": "https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/", "methods": ["GET", "POST", "PUT", "DELETE"]}})
@@ -133,8 +134,7 @@ def get_historial():
     historial_compras = HistorialCompra.query.all()
     return jsonify([HistorialCompra.serialize() for HistorialCompra in historial_compras])
     
-# Ruta para manejar la solicitud de restablecimiento de contraseña
-@api.route('/reset_password', methods=['POST', 'GET'])
+@api.route('/reset_password', methods=['POST', 'GET', 'PUT'])
 def reset_password():
     if request.method == 'POST':
         email = request.json.get('email')  # Obtener el correo electrónico del cuerpo de la solicitud
@@ -147,3 +147,21 @@ def reset_password():
         else:
             return("el usuario no fue encontrado")
 
+
+# # Ruta para manejar la solicitud de restablecimiento de contraseña
+# @api.route('/reset_password', methods=['POST', 'GET'])
+# def reset_password():
+#     if request.method == 'POST':
+#         email = request.json.get('email')
+#         user = User.query.filter_by(email=email).first()
+
+#         if user:
+#             # Generar token y enviar al correo del usuario
+#             # Aquí deberías enviar un correo con un enlace que contenga el token
+#             # por ejemplo, usando una librería como Flask-Mail
+#             sendMail(email)
+
+#             # Devolver la respuesta al frontend
+#             return jsonify({'message': 'Email enviado con éxito'}), 200
+#         else:
+#             return jsonify({'message': 'Usuario no encontrado'}), 404

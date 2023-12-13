@@ -1,52 +1,63 @@
 import React, { useState } from "react";
 import layout from "../layout";
+import { sendMail } from "../../../services/mail";
 
 const Reset_password = () => {
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
 
     const handleSubmitContraseña = async (e) => {
         e.preventDefault()
-
 
         try {
             const response = await fetch('https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/reset_password', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ password: password })
+                body: JSON.stringify({ email: email })
             });
 
             if (!response.ok) {
-                throw new Error('Error al cambiar la contraseña');
+                throw new Error('Error al enviar el correo de restablecimiento');
             }
 
-            console.log('Contraseña cambiada con éxito');
+            // Lógica adicional si es necesario
+            console.log('Correo de restablecimiento enviado con éxito');
         } catch (error) {
-            console.error('Error al cambiar la contraseña:', error.message);
+            console.error('Error al enviar el correo de restablecimiento:', error.message);
         }
 
     }
 
     return (
-
-        <div classNameName="container">
+        <div className="container">
             <form className="form-restaurar-contraseña" onSubmit={handleSubmitContraseña}>
+                {/* Input para el correo electrónico */}
                 <div className="mb-3">
-                    <label for="exampleInputEmail1" className="form-label">Email Usuario</label>
-                    <input type="email" className="form-control" id="emailUsuario" aria-describedby="emailHelp"
-                        value='email' />
+                    <label htmlFor="emailUsuario" className="form-label">Email Usuario</label>
+                    <input
+                        type="email"
+                        className="form-control"
+                        id="emailUsuario"
+                        aria-describedby="emailHelp"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
                 </div>
+
+                {/* Input para la nueva contraseña (si es necesario) */}
                 <div className="mb-3">
-                    <label for="exampleInputPassword1" className="form-label">Nueva Contraseña</label>
-                    <input type="password" className="form-control" id="NuevaContraseña"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)} />
+                    <label htmlFor="NuevaContraseña" className="form-label">Nueva Contraseña</label>
+                    <input
+                        type="password"
+                        className="form-control"
+                        id="NuevaContraseña"
+                    />
                 </div>
-                <button type="submit"
-                    className="btn btn-primary">Submit</button>
+
+                {/* Botón de envío */}
+                <button type="submit" className="btn btn-primary">Submit</button>
             </form>
         </div>
-
-    )
+    );
 }
 
 
