@@ -48,16 +48,16 @@ const Navbar = () => {
 				<ModalCerrarSesion />
 			</div>
 
-			<nav className="container-navbar navbar navbar-expand-lg" style={{ color: "white", backgroundColor: "#7B2121", fontFamily: "Arial", overflowY: "" }}>
+			<nav className="container-navbar navbar navbar-expand-lg" style={{ color: "white", backgroundColor: "#7B2121", fontFamily: "Arial" }}>
 				<div className="container-fluid">
 
 					{/* ---- / LOGO / ---- */}
 					<Link to="/">
-						<img className="mx-5" src={logoUrl} width="130px" height="100px" />
+						<img className="mx-5 img-logo-navbar-custom" src={logoUrl} width="130px" height="100px" />
 					</Link>
 
 					{/* REDES SOCIALES */}
-					<div className="nav-item categories-navbar-items nav-link active text-white h4 flex-end" aria-current="page">
+					<div className="nav-item categories-navbar-items categories-navbar-items-social nav-link active text-white h4 flex-end" aria-current="page">
 						<a href="http://instagram.com" target="_blank" className="text-white">
 							<i className="fa-brands fa-instagram"></i>
 						</a>
@@ -66,19 +66,19 @@ const Navbar = () => {
 						</a>
 					</div>
 
-					<button className="navbar-toggler navbar-toggler-button" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+					<button className="navbar-toggler navbar-toggler-button navbar-toggler-button-custom" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
 						aria-expanded="false" aria-label="Toggle navigation" style={{ color: "white", backgroundColor: "#7B2121" }}>
-						<span className="navbar-toggler-icon"><FontAwesomeIcon icon={faCaretDown} size="2x" /></span>
+						<span className="navbar-toggler-icon navbar-toggler-icon-custom"><FontAwesomeIcon icon={faCaretDown} size="2x" /></span>
 					</button>
 
 					{/* Contenido colapsable */}
-					<div className="collapse navbar-collapse" id="navbarSupportedContent">
+					<div className="collapse navbar-collapse navbar-collapse-custom" id="navbarSupportedContent">
 
 						<div className="nav-item dropdown categories-navbar-items">
 							{/* ----- / BARRA DE CATEGORÍAS / ----- */}
 
 							{/* PRIMERA CATEGORÍA */}
-							<Link className="nav-link dropdown-toggle text-white h4" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							<Link className="nav-link dropdown-toggle text-white h4 navbar-categories-custom" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								Tipos
 							</Link>
 							<ul className="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -99,7 +99,7 @@ const Navbar = () => {
 
 						{/* SEGUNDA CATEGORÍA */}
 						<div className="navbar-expand-lg nav-item dropdown categories-navbar-items">
-							<Link className="nav-link dropdown-toggle text-white h4" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							<Link className="nav-link dropdown-toggle text-white h4 navbar-categories-custom" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								Categorías
 							</Link>
 							<ul className="dropdown-menu " aria-labelledby="navbarDropdown">
@@ -114,7 +114,7 @@ const Navbar = () => {
 
 						{/* CONTÁCTANOS */}
 						<div className="nav-item categories-navbar-items">
-							<button type="button" className="btn-contactanos-navbar h4" data-bs-toggle="modal" data-bs-target="#ModalContact">
+							<button type="button" className="btn-contactanos-navbar h4 navbar-categories-custom" data-bs-toggle="modal" data-bs-target="#ModalContact">
 								Contáctanos
 							</button>
 						</div>
@@ -133,7 +133,7 @@ const Navbar = () => {
 						{token == null ? (
 							<>
 								<ul className="navbar-nav">
-									<li className="nav-item dropstart">
+									<li className="nav-item dropstart button-register-login-navbar">
 										<Link className="nav-link dropdown text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 											<i className="fa-solid fa-right-to-bracket px-3"></i>
 										</Link>
@@ -153,7 +153,7 @@ const Navbar = () => {
 						) : (
 							<>
 								<ul className="navbar-nav">
-									<li className="nav-item dropstart">
+									<li className="nav-item dropstart button-register-login-navbar">
 										<Link className="nav-link dropdown text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 											<i className="fa-solid fa-right-from-bracket px-3"></i>
 										</Link>

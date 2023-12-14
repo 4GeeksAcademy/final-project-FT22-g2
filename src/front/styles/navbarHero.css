@@ -30,6 +30,55 @@
     width: auto;
 }
 
+@media (max-width: 1140px) {
+    .categories-navbar-items-social {
+        display: flex;
+    }
+
+    .container-busqueda-formulario-navbar {
+        width: 160px;
+    }
+
+    .search-bar {
+        width: 160px;
+    }
+
+    .button-register-login-navbar {
+        padding: 0;
+    }
+
+    .navbar-toggler-button-custom {
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        margin: 0;
+    }
+
+    .navbar-toggler-icon-custom {
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar-categories-custom {
+        font-size: 20px;
+    }
+
+}
+
+@media (max-width: 670px) {
+
+}
+
+.navbar-toggler-button-custom {}
+
+.img-logo-navbar-custom {}
+
+.categories-navbar-items-social {}
+
+.barra-de-busqueda-navbar-custom {}
+
+.button-register-login-navbar {}
+
 /* ---- // CARRITO HOVER // ---- */
 
 
