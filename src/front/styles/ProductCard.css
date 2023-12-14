@@ -15,7 +15,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: auto;
 }
 
 .container-productCard {
@@ -30,7 +29,7 @@
 }
 
 .comment-productCard {
-    width: 60%;
+    width: 70%;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -82,13 +81,11 @@
 }
 
 .section-cantidad-precio-añadir-producto {
-    margin-left: 40px;
-    width: 90%;
+    width: 100%;
 }
 
 .informacion-de-producto-single {
-    margin-left: 30px;
-    width: 90%;
+    width: 100%;
 }
 
 .btn-add-favorites-product {
@@ -134,4 +131,29 @@
 
 .button-añadir-al-carrito-single {
     width: 100%;
+}
+
+/* Media Query para pantallas más pequeñas */
+@media only screen and (max-width: 767px) {
+    .container-productCard {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .custom-center-productCard {
+        margin-bottom: 20px;
+        /* Ajusta según tus necesidades */
+    }
+
+    .container-informacion-producto {
+        text-align: center;
+    }
+
+    .section-cantidad-precio-añadir-producto {
+        text-align: center;
+    }
+
+    .comment-productCard {
+        text-align: center;
+    }
 }
