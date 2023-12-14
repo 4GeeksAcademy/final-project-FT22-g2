@@ -1,10 +1,14 @@
-import React, { useState } from "react"
+import React, { useContext, useState } from "react"
 import "../../styles/cambiarDireccion.css";
 import Swal from 'sweetalert2';
 import logoElRinconDelVino from "../../img/logoElRinconDelVino.png";
+import { Context } from "../store/appContext";
 
 
 const Direccion = () => {
+
+    const { store, actions } = useContext(Context);
+    const shoppingCart = store.shoppingCart || [];
 
     const [state, setState] = useState({
         comuna: "",
@@ -104,7 +108,7 @@ const Direccion = () => {
             }
 
             if (isValid) {
-
+                localStorage.removeItem("shoppingCart");
                 let timerInterval;
                 Swal.fire({
                     icon: "success",
@@ -299,18 +303,6 @@ const Direccion = () => {
                                 </label>
                             </div>
                         </div>
-                        {/*  guardar como predeterminada */}
-                        {/* <div className="form-check p-4 d-flex justify-content-center">
-                            <input
-                                className="form-check-input"
-                                type="checkbox"
-                                value=""
-                                id="flexCheckIndeterminate"
-                            />
-                            <label className="form-check-label" for="flexCheckIndeterminate">
-                                Guardar esta dirección como predeterminada
-                            </label>
-                        </div> */}
 
                         {/* BOTON PARA PAGAR */}
                         <div className="container-boton-para-pagar d-flex justify-content-center">
