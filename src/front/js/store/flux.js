@@ -18,7 +18,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 			categoria: "",
 			user: null,
 			token: localStorage.getItem("token"),
-			product: {},
+			product: {
+				nombre: "asas",
+				precio: 2000,
+				image: "",
+				stars: 5,
+				unitFormat: "",
+				tipo: ""
+			},
 			shoppingCart: JSON.parse(window.localStorage.getItem("shoppingCart")) || [],
 
 			//productos
@@ -144,18 +151,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 					else {
 						throw new Error('Error al obtener el token');
 					}
-				}catch(error) {
-						console.error(error);
-					}
-
+				} catch (error) {
+					console.error(error);
 				}
-		
+
+			}
+
 
 
 		}
-		}
-	};
+	}
+};
 
 
 
-	export default getState;
+export default getState;
