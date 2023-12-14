@@ -37,7 +37,7 @@ const Gallery = () => {
             </div>
 
             <div className="col-10 col-lg-5 p-2 mb-3 d-flex flex-column align-items-start">
-              <div className="mb-2 center-div">
+              <div className="mb-2 center-div-grande">
                 <button type="button" className="custom-btn" data-bs-toggle="modal" data-bs-target="#ModalImages">
                   <img
                     className="img-top img-fluid"
