@@ -1,23 +1,25 @@
 import React from 'react';
-import ModalRestaurarContraseña from '../front/js/component/ModalRestaurarContraseña.jsx'
+import RestaurarContraseña from '../front/js/component/RestaurarContraseña.jsx'
 import emailjs from '@emailjs/browser'
 
 
-const sendMail = async (email) => {
-    try {
-        const params = {
-            mail: email
-        };
+function sendMail(){
+    var params = {
+        mail: document.getElementById('restaurarContraseña').value
+    };
 
-        const service_ID = "service_n8cz62t";
-        const template_ID = "contact_form";
-        const api_public_key = 'cRqwKwjjvhCImx3XZ';
+const service_ID = "service_n8cz62t";
+const template_ID= "contact_form";
+const api_public_key = 'cRqwKwjjvhCImx3XZ';
 
-        await emailjs.send(service_ID, template_ID, api_public_key, params)
-        console.log('Correo enviado exitosamente');
-    } catch (error) {
-        console.log("mail.js - Error al enviar el correo:", error);
-    }
+emailjs
+.send(service_ID, template_ID, api_public_key)
+.then((res) => {
+        document.getElementById('email').value = "";
+        console.log(res);
+        alert("Tu email fue enviado exitosamente");
+    })
+.catch((err) => console.log(err));
 }
 
 
@@ -38,4 +40,4 @@ fetch('https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/users
 
 
 
-export { sendMail } 
+export {sendMail} 

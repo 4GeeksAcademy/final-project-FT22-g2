@@ -1,50 +1,50 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "../../styles/modalRestaurarContraseña.css"
-//import { sendMail } from "../../../services/mail"
 import emailjs from '@emailjs/browser'
-import { Link } from "react-router-dom";
 
 
-const RestaurarContraseña = () => {
-    const [email, setEmail] = useState(''); // Estado para almacenar el correo electrónico
+
+const RestaurarContraseña  = () => {
+
+    const [formData, setFormData] = useState({ email:''})
+    //const [formSubmitted, setFormSubmitted] = useState(false);
+    const refForm = useRef();
+
+
+    const handleEmailChange= (e) => {
+        setFormData({
+            ...formData,
+            email: e.target.value 
+
+        });
+    }; 
+
+    
+
+        const handleSubmit = (e) => {
+            e.preventDefault();
+    
 
     const service_ID = "service_n8cz62t";
     const template_ID = "contact_form";
     const api_public_key = "kdu6P43r16fPHQoUu";
+    var template_params = {email: formData.email }
 
-    const sendMail = async () => {
-        try {
-            const response = await fetch('https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/reset_password', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ email: email }),
-            })
-            if (!response.ok) {
-                throw new Error('Error al obtener el token');
-            }
+    emailjs.send
+    (service_ID, template_ID, template_params, api_public_key)
+    
+        .then(response => {
+            console.log(response.status, response.text)
+        //setFormSubmitted(true)
+        })
 
-            const data = await response.json();
-            const token = data.token;
-            const resetUrl = `https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/reset_password/${token}`;
+        .catch(error => {
+            console.error(error.text)
+        })
 
+    }
 
-
-            await emailjs
-                .send(service_ID, template_ID, { email: email, name: "", access_token: "", resetUrl: resetUrl }, api_public_key)
-            setEmail(''); // Limpia el campo de correo electrónico después del envío
-            alert("Tu email fue enviado exitosamente");
-
-        } catch (error) {
-            console.error(err);
-            alert('hubo un error al enviar el correo. Por favor, intenta más tarde');
-        }
-    };
-    const handleEmailChange = (e) => {
-        setEmail(e.target.value); // Actualiza el estado con el valor del correo electrónico
-    };
-
+   
 
 
     return (
@@ -58,18 +58,24 @@ const RestaurarContraseña = () => {
                         </div>
                         <div className="modal-restaurar-contraseña-body modal-body mb-3">
 
+                            <form ref={refForm} onSubmit={handleSubmit}>
+
                             <div className="input-group-restaurar-contraseña">
                                 <div className="input-field p-4"> <span className="far fa-user p-2"></span>
                                     <input id='restaurarContraseña'
-                                        type="text" placeholder="Email de registro"
+                                        type="email" placeholder="Email de registro"
                                         className="input-field-restaurar-contraseña"
-                                        value={email}
-                                        onChange={handleEmailChange} />
-                                </div>
+                                        value={formData.email}
+                                        onChange={handleEmailChange} 
+                                        />
+                                        </div>
                             </div>
-                            <button type="button" data-bs-dismiss="modal"
-                                className="btn btn-dark"
-                                onClick={sendMail}>Recuperar contraseña</button>
+                            <button type="submit" data-bs-dismiss="modal" 
+                            className="btn btn-dark" 
+                            /* onClick={sendMail} */
+                            >Recuperar contraseña</button>
+                    </form>
+
                         </div>
                         <fieldset className="fieldset-restaurarContraseña">Revisa tu email y sigue las instrucciones que te enviaremos.</fieldset>
                     </div>
@@ -80,7 +86,8 @@ const RestaurarContraseña = () => {
 
     );
 
-};
+    };
 
 
 export default RestaurarContraseña;
+
