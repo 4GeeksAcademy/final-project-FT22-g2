@@ -3,9 +3,9 @@ import Swal from 'sweetalert2';
 import "../../styles/reset_password.css";
 
 const Reset_password = () => {
-    const [password, setPassword] = useState('');
+     const [password, setPassword] = useState('');
 
-    const handleSubmitContraseña = async (e) => {
+   const handleSubmitContraseña = async (e) => {
         e.preventDefault()
 
         try {
@@ -33,18 +33,18 @@ const Reset_password = () => {
         return () => clearTimeout(alertTimeout);
     }, []);
 
-    const showAlerta = () => {
+    const showAlerta = () =>{
         Swal.fire({
             title: "Lamentamos los inconvenientes, pero esta opción aún no está disponible",
             showClass: {
-                popup: `
+              popup: `
                 animate__animated
                 animate__fadeInUp
                 animate__faster
               `
             },
             hideClass: {
-                popup: `
+              popup: `
                 animate__animated
                 animate__fadeOutDown
                 animate__faster
@@ -64,19 +64,18 @@ const Reset_password = () => {
 
         <div className="card reset-password p-5">
             <div className="card-body restaurar-contraseña container-fluid">
-                <form className="form-restaurar-contraseña" onSubmit={handleSubmitContraseña}>
-                    <div className="mb-3">
-                        <label for="exampleInputEmail1" className="form-label">Email Usuario</label>
-                        <input type="email" className="form-control input-rc" id="emailUsuario" aria-describedby="emailHelp" />
-                    </div>
-                    <div className="mb-3">
-                        <label for="exampleInputPassword1" className="form-label">Nueva Contraseña</label>
-                        <input type="password" className="form-control input-rc" id="NuevaContraseña" value={password} />
-                    </div>
-                    <button type="submit" className="btn btn-primary">
-                        Submit
-                    </button>
-                </form>
+            <form className="form-restaurar-contraseña" onSubmit={handleSubmitContraseña}>
+                <div className="mb-3">
+                    <label for="exampleInputEmail1" className="form-label">Email Usuario</label>
+                    <input type="email" className="form-control input-rc" id="emailUsuario" aria-describedby="emailHelp"/>
+                </div>
+                <div className="mb-3">
+                    <label for="exampleInputPassword1" className="form-label">Nueva Contraseña</label>
+                    <input type="password" className="form-control input-rc" id="NuevaContraseña"value={password} />
+                </div>
+                <button type="submit"
+                    className="btn btn-primary">Submit</button>
+            </form>
 
             </div>
         </div>

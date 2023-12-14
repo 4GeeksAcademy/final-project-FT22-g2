@@ -25,7 +25,7 @@ const Direccion = () => {
 
         let isValid = true;
 
-        if (state.comuna === '' || state.calle === '' || state.numeroCasa === '' || state.codigoPostal === '' || state.numeroContacto === '') {
+        if (state.comuna === '' || state.calle === '' || state.codigoPostal === '' || state.numeroContacto === '') {
             Swal.fire({
                 icon: "error",
                 title: "Oops...",
@@ -51,23 +51,23 @@ const Direccion = () => {
                 isValid = false;
             }
 
-            if (!numberOnly.test(state.numeroCasa)) {
-                Swal.fire({
-                    icon: "error",
-                    title: "Oops...",
-                    text: "Número de casa sólo puede contener dígitos!",
-                });
-                isValid = false;
-            }
+            // if (!numberOnly.test(state.numeroCasa)) {
+            //     Swal.fire({
+            //         icon: "error",
+            //         title: "Oops...",
+            //         text: "Número puede contener dígitos!",
+            //     });
+            //     isValid = false;
+            // }
 
-            if (state.numeroCasa.length < 2 || state.numeroCasa.length > 7) {
-                Swal.fire({
-                    icon: "error",
-                    title: "Oops...",
-                    text: "Su número de casa debe ser válido!",
-                });
-                isValid = false;
-            }
+            // if (state.numeroCasa.length < 0 || state.numeroCasa.length > 5) {
+            //     Swal.fire({
+            //         icon: "error",
+            //         title: "Oops...",
+            //         text: "Su número de casa debe ser válido!",
+            //     });
+            //     isValid = false;
+            // }
 
             if (!numberOnly.test(state.codigoPostal)) {
                 Swal.fire({
@@ -209,12 +209,12 @@ const Direccion = () => {
                         <div className="row mb-4">
                             {/* calle */}
                             <div className="col-6">
-                                <label for="inputCalle" className="form-label">Calle</label>
+                                <label for="inputCalle" className="form-label">Dirección</label>
                                 <input
                                     type="text"
                                     className="form-control"
                                     name="calle"
-                                    placeholder="Calle"
+                                    placeholder="Dirección"
                                     aria-label="Calle"
                                     id="calle"
                                     maxLength={30}
@@ -226,16 +226,15 @@ const Direccion = () => {
                             </div>
                             {/* numero de casa */}
                             <div className="col-6">
-                                <label for="inputNumero" className="form-label">Número</label>
+                                <label for="inputNumero" className="form-label">Piso/departamento</label>
                                 <input
                                     type="text"
                                     className="form-control"
                                     name="numeroCasa"
-                                    placeholder="N° de domicilio"
+                                    placeholder="(Opcional)"
                                     aria-label="Número de casa"
-                                    maxLength={15}
+                                    maxLength={20}
                                     id="numero"
-                                    required
                                     onChange={handleInputChange}
                                     onFocus={handleFocusChange}
                                 />
@@ -250,7 +249,7 @@ const Direccion = () => {
                                     type="text"
                                     className="form-control"
                                     name="codigoPostal"
-                                    placeholder="código postal"
+                                    placeholder="Código postal"
                                     aria-label="Código postal"
                                     maxLength={7}
                                     required
