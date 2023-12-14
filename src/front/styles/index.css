@@ -73,3 +73,21 @@
   outline-offset: 10px;
   text-shadow: 1px 1px 2px rgb(134, 35, 43);
 }
+
+
+@media (max-width: 1000px) {
+
+
+  .center-div {
+      display: block; 
+      justify-content: center;
+      margin: 50px auto; 
+      text-align: center;
+  }
+  .center-div-grande {
+    display: block; 
+    justify-content: center;
+    margin: -65px auto; 
+    text-align: center;
+}
+}

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 const BarraDeBusqueda = () => {
-  const [busqueda, setBusqueda] = useState("");
+  
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [busqueda, setBusqueda] = useState(searchParams.get("q") || "");
   const navigate = useNavigate();
 
   const handleSearch = (e) => {
@@ -19,7 +21,7 @@ const BarraDeBusqueda = () => {
       handleSearch(e);
     }
   };
-
+  
   return (
     <div className="search-bar">
       <form onSubmit={handleSearch}>

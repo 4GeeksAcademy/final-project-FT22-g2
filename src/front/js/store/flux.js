@@ -72,7 +72,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				return true;
 			},
-
+			processPayment: async (user_id, product_id) => {
+				try {
+				  const response = await fetch('https://didactic-happiness-7qx694qjp792xjqj-3001.app.github.dev/api/historial-compra', {
+					method: 'POST',
+					headers: {
+					  'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({ user_id, producto_id: product_id }),
+				  });
+		
+				  if (response.ok) {
+					console.log('Pago exitoso');
+				  } else {
+					console.error('Pago fallido');
+				  }
+				} catch (error) {
+				  console.error('Error procesando pago', error);
+				}
+			  },
 			//fetch de productos para la busqueda
 			getProduct: () => {
 
@@ -95,6 +113,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					...getStore(),
 					shoppingCart
 				})
+			},
+			clearShoppingCart: () => {
+				setStore(prevState => ({ ...prevState, shoppingCart: [] }));
 			},
 			updateShoppingCart: (nombre, newCantidad) => {
 				const updatedShoppingCart = store.shoppingCart.map(item =>
