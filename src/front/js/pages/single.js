@@ -76,7 +76,7 @@ const Single = () => {
   const enCarrito = store.shoppingCart?.some(shoppingCartItem => nombre === shoppingCartItem.nombre)
 
   return (
-    <div className="container-fluid my-5">
+    <div className="container my-5">
       <div className="row container-productCard d-flex justify-content-center flex-wrap">
         {/* CARD IMG */}
         <div className="col-12 col-md-4 col-lg-3 col-sm-12 custom-center custom-center-productCard">
@@ -118,10 +118,10 @@ const Single = () => {
               </p>
 
               <div className="container-buttons-producto col-12">
-                <div className="justify-content-center row">
+                <div className="row mx-1">
                   {/* BUTTON CANTIDAD DE PRODUCTO */}
-                  <div className="align-items-center justify-content-between col-6">
-                    <div className="row">
+                  <div style={{ maxWidth: "340px", width: "100%" }}>
+                    <div className="row" >
                       <button className="button-add-remove-product remove-product-button px-3 col-4" onClick={handleRestar}> - </button>
                       <label className="label-cantidad-carrito-hover px-3 col-4 text-center"> {cantidad} </label>
                       <button className="button-add-remove-product add-product-button px-3 col-4" onClick={handleSumar}> + </button>
