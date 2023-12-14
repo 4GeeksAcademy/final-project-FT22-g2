@@ -82,8 +82,6 @@ const LogIn = () => {
                                     </div>
                                 </div>
 
-                                {/*  olvide mi contraseña */}
-                                <button className="olvide-mi-contraseña" data-bs-toggle="modal" data-bs-target="#modalRestaurarContraseña" data-bs-dismiss="modal" >¿Olvidaste tu contraseña?</button>
                             </div>
 
                             {/*  boton ingresar */}
@@ -98,6 +96,8 @@ const LogIn = () => {
                                 <button className="btn btn-danger w-100" type="button" value="Login" disabled> (Próximamente) Continúa con <i className="fab fa-google me-2"></i></button>
                             </div>
                         </div>
+                        {/*  olvide mi contraseña */}
+                        <button className="olvide-mi-contraseña mb-2" data-bs-toggle="modal" data-bs-target="#modalRestaurarContraseña" data-bs-dismiss="modal" >¿Olvidaste tu contraseña?</button>
                         {/* link para registro */}
                         <div className="crear-cuenta-login" data-bs-dismiss="modal">
                             <span>

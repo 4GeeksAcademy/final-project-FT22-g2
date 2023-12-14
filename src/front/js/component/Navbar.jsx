@@ -52,12 +52,12 @@ const Navbar = () => {
 
 					{/* REDES SOCIALES */}
 					<div className="nav-item categories-navbar-items nav-link active text-white h4 flex-end" aria-current="page">
-						<Link href="http://instagram.com" target="_blank" className="text-white">
+						<a href="http://instagram.com" target="_blank" className="text-white">
 							<i className="fa-brands fa-instagram"></i>
-						</Link>
-						<Link href="http://facebook.com" target="_blank" className="text-white">
+						</a>
+						<a href="http://facebook.com" target="_blank" className="text-white">
 							<i className="fa-brands fa-square-facebook px-3"></i>
-						</Link>
+						</a>
 					</div>
 
 					<button className="navbar-toggler navbar-toggler-button" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -137,7 +137,7 @@ const Navbar = () => {
 											</li>
 											<li>
 												<Link to="/registro" className="text-decoration-none">
-													<Link className="dropdown-item" href="#">Registrarse</Link>
+													<a className="dropdown-item" href="#">Registrarse</a>
 												</Link>
 											</li>
 										</ul>

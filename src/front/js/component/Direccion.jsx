@@ -1,11 +1,12 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import "../../styles/cambiarDireccion.css";
 import Swal from 'sweetalert2';
 import logoElRinconDelVino from "../../img/logoElRinconDelVino.png";
+import { Context } from "../store/appContext";
 
 
 const Direccion = () => {
-
+    const { actions } = useContext(Context);
     const [state, setState] = useState({
         comuna: "",
         calle: "",
@@ -14,9 +15,8 @@ const Direccion = () => {
         numeroContacto: ""
     })
 
-    const handleOnClickDefault = (e) => {
+    const handleOnClickDefault = async (e) => {
         e.preventDefault();
-
         const numberOnly = /^\d+$/;
 
         let isValid = true;
@@ -132,6 +132,8 @@ const Direccion = () => {
                         window.location.href = "/";
                     }
                 });
+                actions.processPayment(user_id, shoppingCartItem.id);
+                actions.clearShoppingCart();
             }
         }
     }
